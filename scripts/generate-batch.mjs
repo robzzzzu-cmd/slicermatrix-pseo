@@ -12,6 +12,7 @@ const PAGES_DIR = path.join(ROOT_DIR, 'src', 'data', 'pages');
 
 const BATCH_SIZE = Number(process.env.BATCH_SIZE || 50);
 const SLEEP_MS = Number(process.env.SLEEP_MS || 4500);
+const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3.8-flash';
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -147,7 +148,7 @@ async function main() {
   }
 
   fs.mkdirSync(PAGES_DIR, { recursive: true });
-  console.log(`[generate-batch] Processing ${pendingItems.length} pending items with gemini-2.5-flash...`);
+  console.log(`[generate-batch] Processing ${pendingItems.length} pending items with ${GEMINI_MODEL}...`);
 
   let processedCount = 0;
 
@@ -157,7 +158,7 @@ async function main() {
 
     try {
       const response = await ai.models.generateContent({
-        model: 'gemini-2.5-flash',
+        model: GEMINI_MODEL,
         contents: buildPrompt(item),
         config: {
           responseMimeType: 'application/json',

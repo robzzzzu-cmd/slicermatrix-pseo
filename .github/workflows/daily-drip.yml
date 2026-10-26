@@ -24,9 +24,10 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: Generate Batch of 50 Slicer Profiles via Gemini 2.5 Flash
+      - name: Generate Batch of 50 Slicer Profiles via Gemini 3.8 Flash
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: gemini-3.8-flash
         run: node scripts/generate-batch.mjs
 
       - name: Verify Static Build Integrity
