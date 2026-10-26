@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-bambu-pla-cf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1",
+    "slug": "bambu-lab-a1",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Bambu PLA-CF",
+    "slug": "bambu-pla-cf",
+    "brand": "Bambu Lab",
+    "materialType": "PLA-CF",
+    "minNozzleTempC": 210,
+    "maxNozzleTempC": 240,
+    "minBedTempC": 45,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 16,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 225,
+    "recommendedBedTempC": 55,
+    "effectiveVolumetricFlowMm3s": 16,
+    "calculatedMaxPrintSpeedMmS": 190,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-26T06:00:00.000Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "Bambu Lab A1 prints Bambu PLA-CF with outstanding matte surface quality up to 190 mm/s (16 mm³/s volumetric limit), but you MUST swap the stock 0.4mm Stainless Steel quick-swap nozzle for a Hardened Steel hotend assembly to avoid rapid nozzle bore erosion and clogs.",
+  "retractionDistanceMm": 0.6,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 40,
+  "bedSurfaceRecommendation": "Textured PEI Plate (no glue required at 55°C)",
+  "slicerTweaks": [
+    "Install the Bambu Lab A1 0.4mm (or 0.6mm) Hardened Steel Hotend and select \"Hardened Steel\" in the A1 device screen settings before sending the OrcaSlicer job.",
+    "Cap Filament Max Volumetric Speed at 16 mm³/s so chopped carbon fibers align smoothly through the melt zone without tearing the outer wall finish.",
+    "Increase minimum layer time to 8 seconds and keep part cooling between 80%–100% for crisp overhangs on functional brackets.",
+    "Avoid 0.08mm ultra-fine layer heights; stick to 0.16mm–0.24mm layer heights to prevent carbon fiber particle bridging inside the nozzle orifice."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Sudden mid-print under-extrusion or partial nozzle clog",
+      "rootCause": "Chopped carbon fibers bunching up inside a 0.4mm nozzle at very low layer heights or excessive retraction distance.",
+      "exactFix": "Keep retraction distance at or below 0.6mm, maintain a minimum 0.16mm layer height, or step up to a 0.6mm Hardened Steel A1 hotend for heavy structural prints."
+    },
+    {
+      "issue": "Dimensional drift and rough top surfaces after a few spools",
+      "rootCause": "Running abrasive carbon fiber filament through the factory A1 Stainless Steel nozzle enlarges and ovalizes the orifice.",
+      "exactFix": "Replace the worn Stainless Steel nozzle with the official A1 Hardened Steel quick-swap hotend and re-run full flow dynamics calibration."
+    },
+    {
+      "issue": "Brittle filament snapping in the PTFE feed tube or AMS Lite",
+      "rootCause": "Moisture absorption increases stiffness and brittleness in carbon-fiber reinforced PLA.",
+      "exactFix": "Dry the Bambu PLA-CF spool at 55°C for 8 hours in an active filament dryer and use smooth, wide-radius PTFE routing into the A1 toolhead."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Bambu PLA-CF with the stock Bambu Lab A1 nozzle?",
+      "answer": "The stock A1 ships with a 0.4mm Stainless Steel nozzle, which will wear out prematurely when printing abrasive carbon-fiber filaments. Upgrade to the A1 0.4mm or 0.6mm Hardened Steel hotend first."
+    },
+    {
+      "question": "Is Bambu PLA-CF compatible with the AMS Lite on the A1?",
+      "answer": "It can feed through the AMS Lite if properly dried, but abrasive carbon-fiber strands will gradually wear the plastic AMS Lite funnel entry—using dry-box direct feed or TPU funnel savers is recommended."
+    },
+    {
+      "question": "What layer height works best for Bambu PLA-CF on the A1?",
+      "answer": "A 0.20mm layer height with a 0.42mm–0.45mm line width completely hides layer lines thanks to the matte carbon texture while preventing fiber jams."
+    },
+    {
+      "question": "Does Bambu PLA-CF require an enclosure on the Bambu Lab A1?",
+      "answer": "No enclosure is required. Carbon fiber reinforcement actually reduces thermal shrinkage compared to standard PLA, so it prints flat on the open-frame A1 bed at 55°C."
+    }
+  ]
+}

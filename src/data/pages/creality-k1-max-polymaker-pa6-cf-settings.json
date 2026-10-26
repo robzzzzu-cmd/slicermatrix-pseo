@@ -1,0 +1,88 @@
+{
+  "slug": "creality-k1-max-polymaker-pa6-cf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Creality K1 Max",
+    "slug": "creality-k1-max",
+    "vendor": "Creality",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 28
+  },
+  "filament": {
+    "name": "Polymaker PA6-CF",
+    "slug": "polymaker-pa6-cf",
+    "brand": "Polymaker",
+    "materialType": "PA6-CF",
+    "minNozzleTempC": 280,
+    "maxNozzleTempC": 300,
+    "minBedTempC": 40,
+    "maxBedTempC": 50,
+    "volumetricFlowLimitMm3s": 11,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 290,
+    "recommendedBedTempC": 45,
+    "effectiveVolumetricFlowMm3s": 11,
+    "calculatedMaxPrintSpeedMmS": 131,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-26T06:00:00.000Z",
+  "compatibilityVerdict": "Advanced Setup",
+  "heroSummary": "Equipped with a 300°C Unicorn/Hardened Steel nozzle and full enclosure, the Creality K1 Max is well-suited for structural Polymaker PA6-CF parts at up to 131 mm/s (11 mm³/s volumetric limit), provided the spool is actively printed from a 70°C filament dryer.",
+  "retractionDistanceMm": 0.5,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 15,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Smooth PEI / Engineering Plate at 45°C + Magigoo PA or PVP Glue",
+  "slicerTweaks": [
+    "Keep bed temperature strictly at 45°C–50°C per Polymaker Fiberon/Warp-Free™ technology; heating the bed above 65°C keeps the nylon above its glass transition and induces post-print creep warping.",
+    "Disable part cooling fan (0% constant, max 15% only on steep overhangs) in OrcaSlicer to maximize crystalline inter-layer weld strength.",
+    "Limit Max Volumetric Speed to 11 mm³/s and set outer wall speed to 60 mm/s for uniform matte carbon surface finish and maximum tensile strength.",
+    "Feed the filament directly from a heated dry box (70°C) via a continuous PTFE bowden tube into the K1 Max extruder—PA6 absorbs atmospheric moisture within 45 minutes."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Popping sounds at the nozzle and fuzzy, pitted outer walls",
+      "rootCause": "Nylon 6 (PA6) rapidly absorbs moisture from ambient air, turning water into steam inside the 290°C melt zone.",
+      "exactFix": "Dry the PA6-CF spool at 80°C–90°C for 12 hours prior to printing and feed continuously from an active filament dryer during the entire print."
+    },
+    {
+      "issue": "Part warping or lifting off the build plate mid-print",
+      "rootCause": "Bed temperature set too high (>70°C) or insufficient PA-specific liquid adhesive on the build plate.",
+      "exactFix": "Drop bed temperature to 45°C, apply a uniform layer of Magigoo PA or PVA glue stick, and add an 8mm outer brim with 0.05mm brim-object gap."
+    },
+    {
+      "issue": "Weak layer adhesion along the Z-axis on functional brackets",
+      "rootCause": "Nozzle temperature too low or part cooling fan kicking on during short layer times.",
+      "exactFix": "Print at 290°C nozzle temperature, set both main and side auxiliary cooling fans to 0%, and pre-heat the K1 Max enclosed chamber for 15 minutes."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Why does Polymaker PA6-CF recommend a 45°C bed temperature instead of 100°C?",
+      "answer": "Polymaker PA6-CF uses Warp-Free™ fiber distribution; keeping the bed at 45°C–50°C (below the glass transition point) locks the bottom layers rigid immediately and prevents crystallization warping."
+    },
+    {
+      "question": "Can the Creality K1 Max stock nozzle handle Polymaker PA6-CF?",
+      "answer": "Yes. The Creality K1 Max ships with a hardened steel nozzle rated to 300°C, which resists the heavy abrasion of 20% chopped carbon fiber reinforcement."
+    },
+    {
+      "question": "Do I need to anneal Polymaker PA6-CF parts after printing on the K1 Max?",
+      "answer": "For maximum heat deflection temperature (up to 215°C HDT) and stiffness, anneal finished prints in a convection oven at 90°C for 6 hours after printing."
+    },
+    {
+      "question": "What nozzle diameter is safest for continuous PA6-CF production?",
+      "answer": "While a 0.4mm hardened steel nozzle works well with a 0.20mm layer height, stepping up to a 0.6mm hardened nozzle eliminates any risk of carbon fiber cluster clogs on multi-day prints."
+    }
+  ]
+}

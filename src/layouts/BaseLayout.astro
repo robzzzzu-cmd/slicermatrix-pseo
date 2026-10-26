@@ -1,0 +1,139 @@
+---
+import { SITE_NAME, SITE_URL } from '../config';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath?: string;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const {
+  title,
+  description,
+  canonicalPath = Astro.url.pathname,
+  jsonLd,
+} = Astro.props;
+
+const canonicalUrl = new URL(canonicalPath, SITE_URL).toString();
+---
+
+<!doctype html>
+<html lang="en" class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content={SITE_NAME} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    {jsonLd && (
+      <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    )}
+  </head>
+  <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-orange-500 selection:text-white min-h-screen flex flex-col">
+    <!-- Subtle Technical Grid Backdrop -->
+    <div class="fixed inset-0 pointer-events-none bg-[linear-gradient(to_right,#1e293b18_1px,transparent_1px),linear-gradient(to_bottom,#1e293b18_1px,transparent_1px)] bg-[size:32px_32px] -z-10"></div>
+    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[900px] h-[350px] bg-orange-500/10 blur-[140px] pointer-events-none -z-10"></div>
+
+    <!-- Top Navigation Bar -->
+    <header class="sticky top-0 z-40 border-b border-slate-800/80 bg-slate-950/85 backdrop-blur-md">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-orange-500 to-amber-600 flex items-center justify-center shadow-lg shadow-orange-500/20 group-hover:scale-105 transition-transform">
+            <svg class="w-5 h-5 text-slate-950" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.3">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+            </svg>
+          </div>
+          <div>
+            <span class="font-extrabold tracking-tight text-lg text-white">Slicer<span class="text-orange-400">Matrix</span></span>
+            <span class="hidden sm:inline-block ml-2 text-[11px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-slate-900 text-slate-400 border border-slate-800">OrcaSlicer v2.2+ DB</span>
+          </div>
+        </a>
+
+        <nav class="flex items-center gap-2 sm:gap-5 text-sm font-medium text-slate-300">
+          <a href="/#verified-profiles" class="hover:text-orange-400 transition-colors px-2 py-1">Verified Profiles</a>
+          <a href="/#printers" class="hover:text-orange-400 transition-colors px-2 py-1">Printers (25)</a>
+          <a href="/#filaments" class="hover:text-orange-400 transition-colors px-2 py-1">Filaments (40)</a>
+          <a
+            href="/bambu-lab-p1s-polymaker-polylite-petg-settings/"
+            class="hidden md:inline-flex items-center gap-1.5 text-xs font-mono bg-orange-500/15 text-orange-300 border border-orange-500/30 hover:bg-orange-500/25 px-3 py-1.5 rounded-lg transition-colors"
+          >
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            Sample Preset
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800/80 bg-slate-950/90 mt-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          <div class="md:col-span-2">
+            <div class="flex items-center gap-2.5 mb-3">
+              <div class="w-7 h-7 rounded-md bg-gradient-to-br from-orange-500 to-amber-600 flex items-center justify-center">
+                <span class="font-mono font-bold text-xs text-slate-950">SM</span>
+              </div>
+              <span class="font-bold text-white tracking-tight">SlicerMatrix Engineering Database</span>
+            </div>
+            <p class="text-sm text-slate-400 max-w-md leading-relaxed">
+              Deterministic volumetric flow kinematics, nozzle abrasion diagnostics, and downloadable OrcaSlicer JSON presets across 1,000+ 3D Printer × Filament combinations.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-xs font-mono uppercase tracking-wider text-slate-400 mb-3">Popular Printer Hubs</h3>
+            <ul class="space-y-2 text-sm text-slate-300">
+              <li><a href="/printer/bambu-lab-p1s/" class="hover:text-orange-400 transition-colors">Bambu Lab P1S Profiles</a></li>
+              <li><a href="/printer/bambu-lab-a1/" class="hover:text-orange-400 transition-colors">Bambu Lab A1 Profiles</a></li>
+              <li><a href="/printer/bambu-lab-x1c/" class="hover:text-orange-400 transition-colors">Bambu Lab X1C Profiles</a></li>
+              <li><a href="/printer/creality-k1-max/" class="hover:text-orange-400 transition-colors">Creality K1 Max Profiles</a></li>
+              <li><a href="/printer/prusa-mk4s/" class="hover:text-orange-400 transition-colors">Prusa MK4S Profiles</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xs font-mono uppercase tracking-wider text-slate-400 mb-3">Popular Filament Hubs</h3>
+            <ul class="space-y-2 text-sm text-slate-300">
+              <li><a href="/filament/polymaker-polylite-petg/" class="hover:text-orange-400 transition-colors">Polymaker PolyLite PETG</a></li>
+              <li><a href="/filament/bambu-pla-cf/" class="hover:text-orange-400 transition-colors">Bambu PLA-CF Settings</a></li>
+              <li><a href="/filament/polymaker-pa6-cf/" class="hover:text-orange-400 transition-colors">Polymaker PA6-CF Settings</a></li>
+              <li><a href="/filament/esun-pla-plus/" class="hover:text-orange-400 transition-colors">eSUN PLA+ Settings</a></li>
+              <li><a href="/filament/overture-tpu-95a/" class="hover:text-orange-400 transition-colors">Overture TPU 95A Settings</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+          <p>© {new Date().getFullYear()} SlicerMatrix. Built with Astro 5 & Cloudflare Pages.</p>
+          <p>As an Amazon Associate, SlicerMatrix earns from qualifying purchases of 3D printing consumables and hardware upgrades.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

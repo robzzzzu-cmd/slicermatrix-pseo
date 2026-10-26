@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1s-polymaker-polylite-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1S",
+    "slug": "bambu-lab-p1s",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Polymaker PolyLite PETG",
+    "slug": "polymaker-polylite-petg",
+    "brand": "Polymaker",
+    "materialType": "PETG",
+    "minNozzleTempC": 230,
+    "maxNozzleTempC": 250,
+    "minBedTempC": 70,
+    "maxBedTempC": 80,
+    "volumetricFlowLimitMm3s": 14,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 240,
+    "recommendedBedTempC": 75,
+    "effectiveVolumetricFlowMm3s": 14,
+    "calculatedMaxPrintSpeedMmS": 167,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-26T06:00:00.000Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The enclosed Bambu Lab P1S pairs exceptionally well with Polymaker PolyLite PETG, sustaining a 14 mm³/s volumetric flow ceiling for reliable 167 mm/s outer wall and infill speeds without thermal drafts or layer delamination.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 30,
+  "coolingFanMaxPct": 60,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate + Liquid Glue / Glue Stick release agent",
+  "slicerTweaks": [
+    "Disable \"Reduce infill retraction\" in OrcaSlicer under Others → Special Mode to stop PETG blobs from accumulating on the nozzle tip during high-speed grid travel.",
+    "Switch infill pattern from Grid to Gyroid or 3D Honeycomb at 15% density so the nozzle never crosses existing extruded PETG lines on the same layer.",
+    "Set Max Volumetric Speed to 14 mm³/s in the Filament tab; stock Bambu Generic PETG profiles often push 18+ mm³/s which causes matte under-extrusion with PolyLite PETG.",
+    "Configure Auxiliary Part Cooling Fan to 0% for the entire print to eliminate asymmetric chamber drafts that cause corner lifting on large flat functional parts."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Wispy cobweb stringing on travel moves and Z-seams",
+      "rootCause": "Moisture absorption in hygroscopic PolyLite PETG combined with excessive nozzle dwell heat.",
+      "exactFix": "Dry the spool at 65°C for 6 hours before printing, set retraction length to 0.8mm at 35 mm/s, and enable Wipe while retracting (1.5mm wipe distance)."
+    },
+    {
+      "issue": "Infill crumbs and nozzle scraping mid-print",
+      "rootCause": "Crossing infill paths (Grid/Triangles) cause molten PETG buildup on the stainless steel nozzle cone.",
+      "exactFix": "Change Sparse Infill Pattern to Gyroid, lower infill flow ratio to 0.96, and increase Z-hop when retracting to 0.4mm Spiral."
+    },
+    {
+      "issue": "PETG fusing permanently to the build plate",
+      "rootCause": "Direct high-temperature PETG bond with bare PEI coating during cooling contraction.",
+      "exactFix": "Apply a thin barrier coat of liquid glue stick on the Textured PEI plate and let the bed cool below 40°C before flexing parts off."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Do I need to open the Bambu Lab P1S door when printing Polymaker PolyLite PETG?",
+      "answer": "No. Unlike low-temp PLA which can suffer heat creep in a closed chamber, PolyLite PETG has a ~80°C glass transition temperature and prints cleanly with both the front door and top glass closed."
+    },
+    {
+      "question": "Can I use Polymaker PolyLite PETG cardboard spools in the Bambu Lab AMS?",
+      "answer": "Modern PolyLite spools include factory sealed edge-glue that runs smoothly in the AMS, though printing snap-on plastic rim adapters prevents cardboard dust buildup on the AMS rollers."
+    },
+    {
+      "question": "What is the ideal nozzle temperature for PolyLite PETG on the P1S?",
+      "answer": "240°C is the sweet spot for balanced inter-layer adhesion and minimal stringing at 167 mm/s print speeds on the P1S all-metal hotend."
+    },
+    {
+      "question": "Should I upgrade the stock P1S nozzle for Polymaker PolyLite PETG?",
+      "answer": "The stock 0.4mm Stainless Steel nozzle handles standard non-filled PolyLite PETG without accelerated wear, though upgrading to a Hardened Steel nozzle is recommended if you also print CF or glow variants."
+    }
+  ]
+}

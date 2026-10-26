@@ -1,0 +1,22 @@
+{
+  "name": "slicermatrix-pseo",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Programmatic SEO 3D Printer × Filament & Nozzle Slicer Profile Matrix",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "seeds": "node scripts/build-seeds.mjs",
+    "generate-batch": "node scripts/generate-batch.mjs"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.2.1",
+    "@astrojs/tailwind": "^5.1.2",
+    "@google/genai": "^2.31.0",
+    "astro": "^5.1.1",
+    "tailwindcss": "^3.4.17"
+  }
+}

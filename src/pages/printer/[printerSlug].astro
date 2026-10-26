@@ -1,0 +1,307 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { PUBLIC_AMAZON_AFFILIATE_TAG } from '../../config';
+import {
+  loadAllSeeds,
+  loadGeneratedSlugsSet,
+  type SeedItem,
+  type PrinterSpec,
+} from '../../utils/data';
+
+export function getStaticPaths() {
+  const allSeeds = loadAllSeeds();
+  const generatedSet = loadGeneratedSlugsSet();
+
+  const byPrinter = new Map<string, { printer: PrinterSpec; items: Array<SeedItem & { isGenerated: boolean }> }>();
+
+  for (const seed of allSeeds) {
+    const pSlug = seed.printer.slug;
+    if (!byPrinter.has(pSlug)) {
+      byPrinter.set(pSlug, { printer: seed.printer, items: [] });
+    }
+    byPrinter.get(pSlug)!.items.push({
+      ...seed,
+      isGenerated: generatedSet.has(seed.slug),
+    });
+  }
+
+  return Array.from(byPrinter.entries()).map(([printerSlug, data]) => ({
+    params: { printerSlug },
+    props: {
+      printer: data.printer,
+      combinations: data.items,
+      allPrinters: Array.from(byPrinter.values()).map((v) => v.printer),
+    },
+  }));
+}
+
+interface Props {
+  printer: PrinterSpec;
+  combinations: Array<SeedItem & { isGenerated: boolean }>;
+  allPrinters: PrinterSpec[];
+}
+
+const { printer, combinations, allPrinters } = Astro.props;
+const AFFILIATE_TAG = PUBLIC_AMAZON_AFFILIATE_TAG;
+
+const nozzleUpgradeUrl = `https://www.amazon.com/s?k=${encodeURIComponent(
+  printer.name + ' hardened steel nozzle 0.4mm 0.6mm'
+)}&tag=${AFFILIATE_TAG}`;
+
+const peiPlateUrl = `https://www.amazon.com/s?k=${encodeURIComponent(
+  printer.name + ' textured PEI build plate'
+)}&tag=${AFFILIATE_TAG}`;
+
+const title = `${printer.name} Filament Settings & OrcaSlicer Profile Matrix (${combinations.length} Filaments)`;
+const description = `Complete engineering matrix of ${combinations.length} filament profiles for the ${printer.name} (${printer.extruderType}, ${printer.maxNozzleTempC}°C hotend, ${printer.maxVolumetricFlowBaseline} mm³/s baseline flow).`;
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+    <!-- Breadcrumbs -->
+    <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs font-mono text-slate-400 mb-6">
+      <a href="/" class="hover:text-orange-400 transition-colors">Home</a>
+      <span>/</span>
+      <a href="/#printers" class="hover:text-orange-400 transition-colors">Printers</a>
+      <span>/</span>
+      <span class="text-slate-200">{printer.name}</span>
+    </nav>
+
+    <!-- Printer Hub Hero -->
+    <section class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 sm:p-8 mb-8 shadow-xl">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+        <div>
+          <div class="flex flex-wrap items-center gap-2 mb-3">
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono font-semibold bg-orange-500/15 text-orange-400 border border-orange-500/30">
+              {printer.vendor} Hardware Hub
+            </span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300 border border-slate-700">
+              {printer.extruderType}
+            </span>
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300 border border-slate-700">
+              {printer.enclosed ? 'Enclosed Chamber' : 'Open Frame'}
+            </span>
+          </div>
+          <h1 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-2">
+            {printer.name} Filament & OrcaSlicer Profile Matrix
+          </h1>
+          <p class="text-slate-300 text-sm sm:text-base max-w-3xl">
+            Deterministic nozzle temperatures, bed temperatures, volumetric speed limits, and hardware upgrade diagnostics across {combinations.length} popular filaments on the {printer.name}.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-3 shrink-0">
+          <a
+            href={nozzleUpgradeUrl}
+            target="_blank"
+            rel="noopener noreferrer sponsored"
+            class="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-orange-500 hover:bg-orange-400 text-slate-950 font-bold text-xs sm:text-sm transition-all"
+          >
+            <span>{printer.name} Hardened Nozzle</span>
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.3">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+          <a
+            href={peiPlateUrl}
+            target="_blank"
+            rel="noopener noreferrer sponsored"
+            class="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-100 border border-slate-700 font-bold text-xs sm:text-sm transition-all"
+          >
+            <span>Textured PEI Plate</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Hardware Spec Bar -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6 pt-6 border-t border-slate-800/80">
+        <div class="bg-slate-950/80 rounded-xl p-3.5 border border-slate-800">
+          <span class="text-[11px] font-mono uppercase text-slate-400">Max Hotend Temp</span>
+          <div class="text-xl font-mono font-bold text-white mt-0.5">{printer.maxNozzleTempC}°C</div>
+        </div>
+        <div class="bg-slate-950/80 rounded-xl p-3.5 border border-slate-800">
+          <span class="text-[11px] font-mono uppercase text-slate-400">Max Heated Bed</span>
+          <div class="text-xl font-mono font-bold text-white mt-0.5">{printer.maxBedTempC}°C</div>
+        </div>
+        <div class="bg-slate-950/80 rounded-xl p-3.5 border border-slate-800">
+          <span class="text-[11px] font-mono uppercase text-slate-400">Stock Nozzle</span>
+          <div class="text-xl font-mono font-bold text-amber-400 mt-0.5">{printer.defaultNozzleMaterial}</div>
+        </div>
+        <div class="bg-slate-950/80 rounded-xl p-3.5 border border-slate-800">
+          <span class="text-[11px] font-mono uppercase text-slate-400">Hotend Flow Baseline</span>
+          <div class="text-xl font-mono font-bold text-emerald-400 mt-0.5">{printer.maxVolumetricFlowBaseline} mm³/s</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filterable Filament Compatibility Table -->
+    <section class="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 sm:p-8 mb-12">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <h2 class="text-xl font-bold text-white">
+            All {combinations.length} Calibrated Filament Profiles for {printer.name}
+          </h2>
+          <p class="text-xs text-slate-400 font-mono mt-0.5">
+            Sorted with verified deep-dive OrcaSlicer profiles first
+          </p>
+        </div>
+        <input
+          id="printer-filament-filter"
+          type="search"
+          placeholder={`Filter ${printer.name} filaments (e.g. PETG, CF, TPU)...`}
+          class="w-full sm:w-80 px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-orange-500"
+        />
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b border-slate-800 text-[11px] font-mono uppercase text-slate-400">
+              <th class="py-3 px-3">Filament</th>
+              <th class="py-3 px-3">Material</th>
+              <th class="py-3 px-3">Nozzle / Bed</th>
+              <th class="py-3 px-3">Volumetric Cap</th>
+              <th class="py-3 px-3">Safe Speed</th>
+              <th class="py-3 px-3">Hardware Flags</th>
+              <th class="py-3 px-3 text-right">Action</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800/70 text-sm" id="printer-matrix-tbody">
+            {combinations
+              .sort((a, b) => Number(b.isGenerated) - Number(a.isGenerated))
+              .map((item) => {
+                const amazonFilamentLink = `https://www.amazon.com/s?k=${encodeURIComponent(
+                  item.filament.name + ' 1.75mm 1kg'
+                )}&tag=${AFFILIATE_TAG}`;
+                return (
+                  <tr
+                    id={item.slug}
+                    data-search={`${item.filament.name} ${item.filament.brand} ${item.filament.materialType}`.toLowerCase()}
+                    class="hover:bg-slate-950/60 transition-colors"
+                  >
+                    <td class="py-3.5 px-3 font-medium text-white">
+                      <div class="flex items-center gap-2">
+                        {item.isGenerated && (
+                          <span class="w-2 h-2 rounded-full bg-emerald-400 shrink-0" title="Full Verified OrcaSlicer Profile"></span>
+                        )}
+                        <a
+                          href={item.isGenerated ? `/${item.slug}/` : `/filament/${item.filament.slug}/`}
+                          class="hover:text-orange-400 transition-colors font-semibold"
+                        >
+                          {item.filament.name}
+                        </a>
+                      </div>
+                    </td>
+                    <td class="py-3.5 px-3 font-mono text-xs text-slate-300">
+                      <span class="px-2 py-0.5 rounded bg-slate-800 border border-slate-700">
+                        {item.filament.materialType}
+                      </span>
+                    </td>
+                    <td class="py-3.5 px-3 font-mono text-xs text-slate-200">
+                      <span class="text-orange-400 font-bold">{item.deterministicMath.recommendedNozzleTempC}°C</span>
+                      <span class="text-slate-500"> / </span>
+                      <span class="text-amber-300">{item.deterministicMath.recommendedBedTempC}°C</span>
+                    </td>
+                    <td class="py-3.5 px-3 font-mono text-xs text-emerald-400 font-semibold">
+                      {item.deterministicMath.effectiveVolumetricFlowMm3s} mm³/s
+                    </td>
+                    <td class="py-3.5 px-3 font-mono text-xs text-white font-bold">
+                      {item.deterministicMath.calculatedMaxPrintSpeedMmS} mm/s
+                    </td>
+                    <td class="py-3.5 px-3">
+                      <div class="flex flex-wrap gap-1.5 text-[11px] font-mono">
+                        {item.deterministicMath.requiresHardenedNozzleUpgrade && (
+                          <span class="px-2 py-0.5 rounded bg-red-500/15 text-red-300 border border-red-500/30">
+                            ⚠️ Hardened Nozzle Req
+                          </span>
+                        )}
+                        {item.deterministicMath.requiresFilamentDryer && (
+                          <span class="px-2 py-0.5 rounded bg-amber-500/15 text-amber-300 border border-amber-500/30">
+                            Dry Spool
+                          </span>
+                        )}
+                        {item.deterministicMath.enclosureWarning && (
+                          <span class="px-2 py-0.5 rounded bg-rose-500/15 text-rose-300 border border-rose-500/30">
+                            Enclosure Req
+                          </span>
+                        )}
+                        {!item.deterministicMath.requiresHardenedNozzleUpgrade &&
+                          !item.deterministicMath.enclosureWarning && (
+                            <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                              Ready Stock
+                            </span>
+                          )}
+                      </div>
+                    </td>
+                    <td class="py-3.5 px-3 text-right">
+                      <div class="inline-flex items-center gap-2">
+                        {item.isGenerated ? (
+                          <a
+                            href={`/${item.slug}/`}
+                            class="px-3 py-1.5 rounded-lg bg-orange-500 hover:bg-orange-400 text-slate-950 font-bold text-xs transition-colors"
+                          >
+                            Full Profile →
+                          </a>
+                        ) : (
+                          <a
+                            href={`/filament/${item.filament.slug}/`}
+                            class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 font-mono text-xs border border-slate-700 transition-colors"
+                          >
+                            Filament Hub
+                          </a>
+                        )}
+                        <a
+                          href={amazonFilamentLink}
+                          target="_blank"
+                          rel="noopener noreferrer sponsored"
+                          class="px-2.5 py-1.5 rounded-lg bg-slate-950 hover:bg-slate-800 text-amber-400 border border-amber-500/30 font-mono text-xs transition-colors"
+                          title={`Buy ${item.filament.name} on Amazon`}
+                        >
+                          Buy Spool
+                        </a>
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Other Printer Hubs Mesh -->
+    <section class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+      <h2 class="text-sm font-mono uppercase tracking-wider text-slate-400 mb-4">
+        Compare Other 3D Printer Hubs
+      </h2>
+      <div class="flex flex-wrap gap-2">
+        {allPrinters.map((p) => (
+          <a
+            href={`/printer/${p.slug}/`}
+            class={`px-3 py-1.5 rounded-lg text-xs font-mono border transition-colors ${
+              p.slug === printer.slug
+                ? 'bg-orange-500 text-slate-950 border-orange-400 font-bold'
+                : 'bg-slate-950 text-slate-300 border-slate-800 hover:border-orange-500/40'
+            }`}
+          >
+            {p.name}
+          </a>
+        ))}
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const filterInput = document.getElementById('printer-filament-filter') as HTMLInputElement | null;
+    const rows = document.querySelectorAll('#printer-matrix-tbody tr');
+    if (filterInput) {
+      filterInput.addEventListener('input', () => {
+        const q = filterInput.value.trim().toLowerCase();
+        rows.forEach((row) => {
+          const hay = row.getAttribute('data-search') || '';
+          (row as HTMLElement).style.display = hay.includes(q) ? '' : 'none';
+        });
+      });
+    }
+  </script>
+</BaseLayout>
