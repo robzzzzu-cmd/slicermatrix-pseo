@@ -39,7 +39,7 @@
   },
   {
     "slug": "bambu-lab-p1s-polymaker-polyterra-pla-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1S",
       "slug": "bambu-lab-p1s",
@@ -77,7 +77,7 @@
   },
   {
     "slug": "bambu-lab-p1s-esun-pla-plus-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1S",
       "slug": "bambu-lab-p1s",

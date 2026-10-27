@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1s-esun-pla-plus-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1S",
+    "slug": "bambu-lab-p1s",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "eSUN PLA+",
+    "slug": "esun-pla-plus",
+    "brand": "eSUN",
+    "materialType": "PLA+",
+    "minNozzleTempC": 205,
+    "maxNozzleTempC": 225,
+    "minBedTempC": 55,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 22,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 215,
+    "recommendedBedTempC": 60,
+    "effectiveVolumetricFlowMm3s": 22,
+    "calculatedMaxPrintSpeedMmS": 262,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-26T23:54:25.042Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1S handles eSUN PLA+ effortlessly out of the box, reaching safe print speeds up to 262 mm/s sustained by an effective volumetric flow rate of 22 mm³/s. No nozzle upgrades are necessary, though cracking the top glass or door is recommended during prolonged printing to prevent chamber heat creep.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate (no adhesive required; ensure surface is degreased with dish soap and warm water)",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 22 mm³/s in the filament settings to maintain precise extrusion limits across high-speed toolpaths.",
+    "Configure Pressure Advance (PA) factor to 0.022 for the 0.4mm stainless steel nozzle to minimize corner swelling at high acceleration.",
+    "Keep Part Cooling Fan between 80% and 100%, and set Auxiliary Part Cooling Fan to 50% to prevent warping on large footprints while ensuring rapid overhang freezing.",
+    "Lower outer wall speed to 150 mm/s and set inner wall speed up to 260 mm/s to balance premium surface finish with maximum throughput."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Extruder clicking and under-extrusion mid-print (Heat Creep)",
+      "rootCause": "Enclosed chamber air temperature rising above 35°C, causing eSUN PLA+ to prematurely soften inside the extruder gears.",
+      "exactFix": "Vent the chamber by propping open the top glass lid or front door by at least 1-2 cm, and ensure the chamber exhaust fan runs at 50% or higher."
+    },
+    {
+      "issue": "First layer peeling or corner lifting",
+      "rootCause": "Build plate contaminated with skin oils or bed temperature set below the material's glass transition threshold.",
+      "exactFix": "Wash the Textured PEI plate with hot water and unscented dish soap, and verify the first layer bed temperature is set to a constant 60°C."
+    },
+    {
+      "issue": "Fine stringing across small gaps and retractions",
+      "rootCause": "Nozzle temperature slightly too high for detailed travel or moisture absorption in the filament.",
+      "exactFix": "Drop the print temperature from 220°C to 210°C-215°C and ensure OrcaSlicer wipe on retract is set to 1.0mm."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print eSUN PLA+ on the P1S with the door and top lid fully closed?",
+      "answer": "While short prints will succeed, long multi-hour prints risk chamber heat buildup that causes PLA+ to swell and clog the extruder; venting the lid or opening the door prevents this."
+    },
+    {
+      "question": "Does eSUN PLA+ require a hardened steel nozzle on the P1S?",
+      "answer": "No, eSUN PLA+ is non-abrasive and runs safely through the stock P1S stainless steel nozzle without causing premature wear."
+    },
+    {
+      "question": "What is the true maximum volumetric flow rate for eSUN PLA+ on the stock hotend?",
+      "answer": "The stock P1S ceramic hotend easily achieves 20 to 22 mm³/s with eSUN PLA+ at 215°C to 220°C before experiencing under-extrusion."
+    },
+    {
+      "question": "Do I need glue stick on the Bambu Textured PEI plate for eSUN PLA+?",
+      "answer": "No glue stick is necessary; eSUN PLA+ adheres strongly to clean Textured PEI at 60°C and pops off automatically once the plate cools to room temperature."
+    }
+  ]
+}

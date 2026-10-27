@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1s-polymaker-polyterra-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1S",
+    "slug": "bambu-lab-p1s",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Polymaker PolyTerra PLA",
+    "slug": "polymaker-polyterra-pla",
+    "brand": "Polymaker",
+    "materialType": "PLA",
+    "minNozzleTempC": 195,
+    "maxNozzleTempC": 225,
+    "minBedTempC": 50,
+    "maxBedTempC": 60,
+    "volumetricFlowLimitMm3s": 21,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 210,
+    "recommendedBedTempC": 55,
+    "effectiveVolumetricFlowMm3s": 21,
+    "calculatedMaxPrintSpeedMmS": 250,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-26T23:50:24.141Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1S natively processes Polymaker PolyTerra PLA with exceptional print quality right out of the box using stock hardware. Operating at a maximum volumetric flow rate of 21 mm³/s, the system achieves reliable print speeds up to 250 mm/s without requiring nozzle upgrades.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 40,
+  "bedSurfaceRecommendation": "Textured PEI Plate (clean with IPA or warm soapy water, no glue required)",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 21 mm³/s under Filament Settings > Basic Information to prevent underextrusion at high feedrates.",
+    "Adjust Pressure Advance / Flow Dynamics factor to 0.024 to minimize bulging on sharp outer corners.",
+    "Keep chamber door cracked open or top glass vented during extended prints to avoid heat creep inside the enclosed P1S.",
+    "Set outer wall speed to 120 mm/s while maintaining inner walls at 250 mm/s to achieve a uniform matte surface finish."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Extruder clicking and heat creep clog",
+      "rootCause": "Enclosed chamber air temperature exceeds PLA glass transition threshold (~55-60°C) during continuous printing.",
+      "exactFix": "Unseat the top glass lid or prop the front door open, and confirm chamber auxiliary fan is running."
+    },
+    {
+      "issue": "Weak layer adhesion and brittle prints",
+      "rootCause": "Extrusion temperature is too low for high-speed throughput (250 mm/s) on the stock stainless steel nozzle.",
+      "exactFix": "Increase nozzle temperature from 210°C to 220°C in OrcaSlicer filament settings to ensure complete polymer melt."
+    },
+    {
+      "issue": "Stringing and whisker formation across travel paths",
+      "rootCause": "Retraction distance too low or high residual nozzle pressure during high-speed travel moves.",
+      "exactFix": "Increase retraction distance to 0.8mm, set z-hop to 0.2mm (auto lift), and enable 'Wipe while retracting' (2mm)."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I use cardboard spools of PolyTerra PLA inside the Bambu AMS?",
+      "answer": "Yes, but it is highly recommended to snap on plastic spool rim adapters or wrap the cardboard edges with electrical tape to avoid paper dust accumulating in the AMS feeder gears."
+    },
+    {
+      "question": "Do I need a hardened steel nozzle to print PolyTerra PLA?",
+      "answer": "No, PolyTerra PLA is a standard matte PLA filled with organic minerals that are non-abrasive, making it completely safe for the stock stainless steel nozzle."
+    },
+    {
+      "question": "Why is the matte finish inconsistent between fast and slow sections?",
+      "answer": "Differences in melt temperature caused by speed variations affect surface gloss; cap outer wall speed consistently at 100-120 mm/s to maintain a uniform matte sheen."
+    },
+    {
+      "question": "Should the P1S enclosure door remain closed while printing PolyTerra PLA?",
+      "answer": "No, PLA prints best with ample ventilation; keep the front glass door slightly ajar or the top lid cracked to maintain internal chamber temperatures below 35°C."
+    }
+  ]
+}
