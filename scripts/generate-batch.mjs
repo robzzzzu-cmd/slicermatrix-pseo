@@ -13,8 +13,58 @@ const PAGES_DIR = path.join(ROOT_DIR, 'src', 'data', 'pages');
 const BATCH_SIZE = Number(process.env.BATCH_SIZE || 50);
 const SLEEP_MS = Number(process.env.SLEEP_MS || 4500);
 const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3.8-flash';
+const FALLBACK_MODELS = [GEMINI_MODEL, 'gemini-3.8-flash-lite', 'gemini-3.8-pro'];
+const MAX_RETRIES = 5;
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+async function generateWithRetry(ai, prompt) {
+  let lastError;
+  for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+    // Use primary model for attempts 1-3, then try fallback models if primary remains overloaded
+    const modelToUse =
+      attempt <= 3
+        ? GEMINI_MODEL
+        : FALLBACK_MODELS[(attempt - 3) % FALLBACK_MODELS.length] || GEMINI_MODEL;
+
+    try {
+      const response = await ai.models.generateContent({
+        model: modelToUse,
+        contents: prompt,
+        config: {
+          responseMimeType: 'application/json',
+          responseSchema,
+          temperature: 0.3,
+        },
+      });
+      if (!response.text) {
+        throw new Error('Empty response text from Gemini API');
+      }
+      return JSON.parse(response.text);
+    } catch (err) {
+      lastError = err;
+      const msg = String(err?.message || err);
+      const isTransient =
+        msg.includes('503') ||
+        msg.includes('429') ||
+        msg.includes('UNAVAILABLE') ||
+        msg.includes('RESOURCE_EXHAUSTED') ||
+        msg.includes('high demand') ||
+        msg.includes('fetch failed');
+
+      if (!isTransient || attempt === MAX_RETRIES) {
+        break;
+      }
+
+      const backoffMs = Math.min(45000, 5000 * Math.pow(1.8, attempt - 1)) + Math.floor(Math.random() * 2000);
+      console.warn(
+        `    ⟳ Attempt ${attempt}/${MAX_RETRIES} (${modelToUse}) hit temporary capacity spike. Retrying in ${(backoffMs / 1000).toFixed(1)}s...`
+      );
+      await sleep(backoffMs);
+    }
+  }
+  throw lastError;
+}
 
 const responseSchema = {
   type: Type.OBJECT,
@@ -157,22 +207,7 @@ async function main() {
     console.log(`[${i + 1}/${pendingItems.length}] Generating ${item.slug}...`);
 
     try {
-      const response = await ai.models.generateContent({
-        model: GEMINI_MODEL,
-        contents: buildPrompt(item),
-        config: {
-          responseMimeType: 'application/json',
-          responseSchema,
-          temperature: 0.3,
-        },
-      });
-
-      const rawText = response.text;
-      if (!rawText) {
-        throw new Error('Empty response text from Gemini API');
-      }
-
-      const aiData = JSON.parse(rawText);
+      const aiData = await generateWithRetry(ai, buildPrompt(item));
 
       // Ensure fixed lengths for arrays
       aiData.slicerTweaks = (aiData.slicerTweaks || []).slice(0, 4);
