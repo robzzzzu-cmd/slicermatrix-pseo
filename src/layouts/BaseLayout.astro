@@ -46,7 +46,7 @@ const canonicalUrl = new URL(canonicalPath, SITE_URL).toString();
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
 
@@ -57,7 +57,7 @@ const canonicalUrl = new URL(canonicalPath, SITE_URL).toString();
     )}
 
     <style is:global>
-      /* Swiss Industrial Range Input & Mechanical Detent Styling */
+      /* Clean Dieter Rams / Teenage Engineering Tactile Slider */
       input[type='range'].swiss-slider {
         -webkit-appearance: none;
         appearance: none;
@@ -65,128 +65,82 @@ const canonicalUrl = new URL(canonicalPath, SITE_URL).toString();
         cursor: pointer;
       }
       input[type='range'].swiss-slider::-webkit-slider-runnable-track {
-        height: 6px;
-        background: #d4d4d4;
-        border: 1px solid #171717;
+        height: 8px;
+        background: #e5e5e5;
+        border-radius: 999px;
       }
       input[type='range'].swiss-slider::-webkit-slider-thumb {
         -webkit-appearance: none;
         appearance: none;
-        width: 18px;
-        height: 24px;
-        background: #171717;
-        border: 2px solid #ea580c;
-        margin-top: -10px;
-        border-radius: 0;
+        width: 22px;
+        height: 22px;
+        background: #ea580c;
+        border: 3px solid #ffffff;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+        margin-top: -7px;
+        border-radius: 999px;
+        transition: transform 0.1s ease;
+      }
+      input[type='range'].swiss-slider::-webkit-slider-thumb:hover {
+        transform: scale(1.12);
       }
       input[type='range'].swiss-slider::-moz-range-track {
-        height: 6px;
-        background: #d4d4d4;
-        border: 1px solid #171717;
+        height: 8px;
+        background: #e5e5e5;
+        border-radius: 999px;
       }
       input[type='range'].swiss-slider::-moz-range-thumb {
-        width: 18px;
-        height: 24px;
-        background: #171717;
-        border: 2px solid #ea580c;
-        border-radius: 0;
+        width: 22px;
+        height: 22px;
+        background: #ea580c;
+        border: 3px solid #ffffff;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+        border-radius: 999px;
       }
     </style>
   </head>
-  <body class="bg-neutral-50 text-neutral-950 font-sans tracking-tight antialiased selection:bg-orange-600 selection:text-white min-h-screen flex flex-col">
-    <!-- Swiss Specification Header -->
-    <header class="sticky top-0 z-40 bg-neutral-50/95 backdrop-blur-none border-b border-neutral-300">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-12 items-center min-h-[3.75rem] divide-x divide-neutral-300 border-x border-neutral-300">
-          <!-- Brand Cell -->
-          <div class="col-span-6 sm:col-span-4 lg:col-span-3 px-4 py-3 flex items-center justify-between">
-            <a href={withBase('/')} class="flex items-center gap-2.5 group">
-              <span class="inline-block w-3.5 h-3.5 bg-orange-600 shrink-0"></span>
-              <span class="font-black tracking-tighter text-base sm:text-lg uppercase text-neutral-950">
-                SlicerMatrix
-              </span>
-            </a>
-            <span class="hidden xl:inline-block font-mono tabular-nums text-[10px] uppercase tracking-widest px-1.5 py-0.5 bg-neutral-950 text-white">
-              ISO-3DP
-            </span>
-          </div>
+  <body class="bg-neutral-50 text-neutral-950 font-sans tracking-tight antialiased selection:bg-orange-500 selection:text-white min-h-screen flex flex-col">
+    <!-- Minimalist Top Navigation -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-neutral-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+        <a href={withBase('/')} class="flex items-center gap-2.5">
+          <span class="w-4 h-4 rounded-sm bg-orange-600 inline-block"></span>
+          <span class="font-extrabold text-lg tracking-tight text-neutral-950">SlicerMatrix</span>
+        </a>
 
-          <!-- Telemetry / Document Classification Cell -->
-          <div class="hidden lg:flex lg:col-span-4 px-4 py-3 items-center justify-between text-[11px] font-mono tabular-nums text-neutral-600 uppercase">
-            <span>SYS: ORCASLICER V2.2+</span>
-            <span class="text-emerald-700 font-semibold">● CALIBRATED</span>
-          </div>
-
-          <!-- Navigation Cell -->
-          <nav class="col-span-6 sm:col-span-8 lg:col-span-5 px-4 py-3 flex items-center justify-end gap-4 sm:gap-6 text-xs font-mono uppercase tracking-wider text-neutral-800">
-            <a href={withBase('/#verified-profiles')} class="hover:text-orange-600 transition-none">01. Verified</a>
-            <a href={withBase('/#printers')} class="hover:text-orange-600 transition-none">02. Printers</a>
-            <a href={withBase('/#filaments')} class="hover:text-orange-600 transition-none">03. Filaments</a>
-            <a
-              href={withBase('/bambu-lab-p1s-polymaker-polylite-petg-settings/')}
-              class="hidden sm:inline-block bg-neutral-950 hover:bg-neutral-800 text-white font-mono uppercase text-[11px] px-2.5 py-1 tracking-wider transition-none"
-            >
-              Spec Sheet ↗
-            </a>
-          </nav>
-        </div>
+        <nav class="flex items-center gap-5 sm:gap-7 text-sm font-medium text-neutral-600">
+          <a href={withBase('/#verified-profiles')} class="hover:text-neutral-950 transition-colors">Profiles</a>
+          <a href={withBase('/#printers')} class="hover:text-neutral-950 transition-colors">Printers</a>
+          <a href={withBase('/#filaments')} class="hover:text-neutral-950 transition-colors">Filaments</a>
+          <a
+            href={withBase('/bambu-lab-p1s-polymaker-polylite-petg-settings/')}
+            class="hidden sm:inline-flex items-center gap-1.5 bg-neutral-950 hover:bg-neutral-800 text-white text-xs font-mono uppercase tracking-wider px-3.5 py-2 transition-colors"
+          >
+            Sample Profile
+          </a>
+        </nav>
       </div>
     </header>
 
-    <!-- Main Modular Canvas -->
+    <!-- Main Content -->
     <main class="flex-1">
       <slot />
     </main>
 
-    <!-- Swiss Technical Colophon / Footer -->
-    <footer class="border-t border-neutral-300 bg-neutral-100 mt-20">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-neutral-300 border-x border-neutral-300">
-          <div class="md:col-span-5 p-6 sm:p-8">
-            <div class="flex items-center gap-2 mb-3">
-              <span class="inline-block w-2.5 h-2.5 bg-neutral-950"></span>
-              <span class="font-mono text-xs uppercase tracking-widest font-bold text-neutral-950">
-                DOC.REF // SLICERMATRIX METROLOGY
-              </span>
-            </div>
-            <p class="text-sm text-neutral-700 leading-relaxed max-w-md">
-              High-precision kinematic volumetric flow matrices, thermal thresholds, and abrasive hardware diagnostics for FFF/FDM 3D printing systems.
-            </p>
-            <p class="font-mono tabular-nums text-[11px] text-neutral-500 mt-6 uppercase">
-              REV {new Date().getFullYear()}.10 // SWISS INTERNATIONAL STANDARD
-            </p>
-          </div>
-
-          <div class="md:col-span-3 p-6 sm:p-8">
-            <h3 class="text-[11px] font-mono uppercase tracking-widest text-neutral-500 mb-3">
-              01 // Printer Reference Hubs
-            </h3>
-            <ul class="space-y-1.5 text-xs font-mono text-neutral-900">
-              <li><a href={withBase('/printer/bambu-lab-p1s/')} class="hover:text-orange-600 hover:underline">Bambu Lab P1S</a></li>
-              <li><a href={withBase('/printer/bambu-lab-a1/')} class="hover:text-orange-600 hover:underline">Bambu Lab A1</a></li>
-              <li><a href={withBase('/printer/bambu-lab-x1c/')} class="hover:text-orange-600 hover:underline">Bambu Lab X1C</a></li>
-              <li><a href={withBase('/printer/creality-k1-max/')} class="hover:text-orange-600 hover:underline">Creality K1 Max</a></li>
-              <li><a href={withBase('/printer/prusa-mk4s/')} class="hover:text-orange-600 hover:underline">Prusa MK4S</a></li>
-            </ul>
-          </div>
-
-          <div class="md:col-span-4 p-6 sm:p-8">
-            <h3 class="text-[11px] font-mono uppercase tracking-widest text-neutral-500 mb-3">
-              02 // Polymer Specification Hubs
-            </h3>
-            <ul class="space-y-1.5 text-xs font-mono text-neutral-900">
-              <li><a href={withBase('/filament/polymaker-polylite-petg/')} class="hover:text-orange-600 hover:underline">Polymaker PolyLite PETG</a></li>
-              <li><a href={withBase('/filament/bambu-pla-cf/')} class="hover:text-orange-600 hover:underline">Bambu PLA-CF (Carbon)</a></li>
-              <li><a href={withBase('/filament/polymaker-pa6-cf/')} class="hover:text-orange-600 hover:underline">Polymaker PA6-CF</a></li>
-              <li><a href={withBase('/filament/esun-pla-plus/')} class="hover:text-orange-600 hover:underline">eSUN PLA+</a></li>
-              <li><a href={withBase('/filament/overture-tpu-95a/')} class="hover:text-orange-600 hover:underline">Overture TPU 95A</a></li>
-            </ul>
-          </div>
+    <!-- Clean Minimal Footer -->
+    <footer class="border-t border-neutral-200 bg-white mt-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-neutral-500">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 bg-neutral-950 inline-block"></span>
+          <span class="font-semibold text-neutral-900">SlicerMatrix</span>
+          <span>— 3D Printer × Filament OrcaSlicer Settings</span>
         </div>
-
-        <div class="border-x border-t border-neutral-300 px-6 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-[11px] font-mono text-neutral-500">
-          <span>© {new Date().getFullYear()} SLICERMATRIX. ALL METRICS DETERMINISTICALLY COMPUTED.</span>
-          <span>AMAZON ASSOCIATES DISCLOSURE: QUALIFYING CONSUMABLE & NOZZLE UPGRADE LINKS SUPPORT THIS UTILITY.</span>
+        <div class="flex flex-wrap gap-5 text-neutral-600 font-medium">
+          <a href={withBase('/printer/bambu-lab-p1s/')} class="hover:text-neutral-950">Bambu P1S</a>
+          <a href={withBase('/printer/bambu-lab-a1/')} class="hover:text-neutral-950">Bambu A1</a>
+          <a href={withBase('/printer/creality-k1-max/')} class="hover:text-neutral-950">Creality K1 Max</a>
+          <a href={withBase('/filament/polymaker-polylite-petg/')} class="hover:text-neutral-950">PolyLite PETG</a>
+          <a href={withBase('/filament/bambu-pla-cf/')} class="hover:text-neutral-950">Bambu PLA-CF</a>
         </div>
       </div>
     </footer>

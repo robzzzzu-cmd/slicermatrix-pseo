@@ -50,266 +50,160 @@ const buySpoolUrl = `https://www.amazon.com/s?k=${encodeURIComponent(
   filament.name + ' 1.75mm 1kg filament'
 )}&tag=${AFFILIATE_TAG}`;
 
-const dryerUrl = `https://www.amazon.com/s?k=${encodeURIComponent(
-  '3D filament dryer box 70C'
-)}&tag=${AFFILIATE_TAG}`;
-
-const title = `${filament.name} 3D Printer Settings & Speed Matrix (${combinations.length} Printers)`;
-const description = `Calibrated OrcaSlicer temperatures, volumetric flow ceilings (${filament.volumetricFlowLimitMm3s} mm³/s), and nozzle compatibility for ${filament.name} (${filament.materialType}) across ${combinations.length} 3D printers.`;
+const title = `${filament.name} Settings (${combinations.length} 3D Printers)`;
+const description = `Exact nozzle temperatures, bed temperatures, and safe print speeds for ${filament.name} across ${combinations.length} 3D printers.`;
 ---
 
 <BaseLayout title={title} description={description}>
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-    <!-- Breadcrumbs -->
-    <nav
-      aria-label="Breadcrumb"
-      class="border border-b-0 border-neutral-300 bg-neutral-100 px-4 py-2.5 flex items-center justify-between text-[11px] font-mono uppercase tracking-wider text-neutral-600"
-    >
-      <div class="flex items-center gap-2">
-        <a href={withBase('/')} class="hover:text-orange-600 font-bold text-neutral-950">INDEX</a>
-        <span>/</span>
-        <a href={withBase('/#filaments')} class="hover:text-orange-600">FILAMENTS</a>
-        <span>/</span>
-        <span class="text-neutral-950 font-semibold">{filament.name}</span>
-      </div>
-      <span class="font-mono tabular-nums">MAT // {filament.slug.toUpperCase()}</span>
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+    <!-- Minimal Breadcrumbs -->
+    <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs text-neutral-500 mb-6">
+      <a href={withBase('/')} class="hover:text-neutral-950">Home</a>
+      <span>/</span>
+      <a href={withBase('/#filaments')} class="hover:text-neutral-950">Filaments</a>
+      <span>/</span>
+      <span class="text-neutral-900 font-medium">{filament.name}</span>
     </nav>
 
-    <!-- Single Cohesive Swiss Grid -->
-    <div class="divide-y divide-neutral-200 border border-neutral-300 bg-white">
-      <!-- Filament Hub Hero -->
-      <section class="divide-y divide-neutral-200">
-        <div class="p-6 sm:p-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-          <div>
-            <div class="flex flex-wrap items-center gap-2 mb-3">
-              <span class="bg-neutral-950 text-white font-mono uppercase text-xs px-2.5 py-1">
-                {filament.brand} // {filament.materialType}
-              </span>
-              {filament.isAbrasive && (
-                <span class="border border-amber-600 bg-amber-50 text-amber-950 font-mono uppercase text-xs px-2.5 py-1 font-bold">
-                  ⚠️ ABRASIVE POLYMER (HARDENED NOZZLE REQ)
-                </span>
-              )}
-              {filament.isHygroscopic && (
-                <span class="border border-neutral-400 bg-neutral-100 text-neutral-900 font-mono uppercase text-xs px-2.5 py-1">
-                  HYGROSCOPIC (PRE-DRY SPOOL)
-                </span>
-              )}
-            </div>
-            <h1 class="text-3xl sm:text-5xl font-black text-neutral-950 uppercase tracking-tight mb-3">
-              {filament.name} Printer Compatibility & Slicer Settings
-            </h1>
-            <p class="text-neutral-700 text-sm sm:text-base max-w-3xl leading-relaxed">
-              Objective nozzle thermal windows ({filament.minNozzleTempC}–{filament.maxNozzleTempC}°C), heated bed parameters ({filament.minBedTempC}–{filament.maxBedTempC}°C), and max linear velocities across {combinations.length} 3D printers.
-            </p>
-          </div>
-
-          <div class="flex flex-col sm:flex-row gap-3 shrink-0">
-            <a
-              href={buySpoolUrl}
-              target="_blank"
-              rel="noopener noreferrer sponsored"
-              class="text-center bg-neutral-950 hover:bg-neutral-800 text-white font-medium px-4 py-2 text-sm uppercase tracking-wider font-mono transition-none"
-            >
-              Buy {filament.name} (1kg) on Amazon ↗
-            </a>
-            {filament.isHygroscopic && (
-              <a
-                href={dryerUrl}
-                target="_blank"
-                rel="noopener noreferrer sponsored"
-                class="text-center border border-neutral-950 bg-white hover:bg-neutral-100 text-neutral-950 font-medium px-4 py-2 text-sm uppercase tracking-wider font-mono transition-none"
-              >
-                70°C Filament Dryer Box ↗
-              </a>
-            )}
-          </div>
+    <!-- Clean Filament Summary Card -->
+    <div class="border border-neutral-300 bg-white divide-y divide-neutral-200 mb-8">
+      <div class="p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <span class="bg-neutral-950 text-white font-mono uppercase text-xs px-2.5 py-1 inline-block mb-3">
+            {filament.brand} • {filament.materialType}
+          </span>
+          <h1 class="text-2xl sm:text-4xl font-extrabold text-neutral-950 tracking-tight">
+            {filament.name} Printer Settings
+          </h1>
         </div>
+        <a
+          href={buySpoolUrl}
+          target="_blank"
+          rel="noopener noreferrer sponsored"
+          class="shrink-0 bg-neutral-950 hover:bg-neutral-800 text-white font-medium px-4 py-2.5 text-xs sm:text-sm uppercase tracking-wider"
+        >
+          Buy {filament.name} (1kg) on Amazon ↗
+        </a>
+      </div>
 
-        <!-- 4-Column Polymer Spec Bar -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 divide-y sm:divide-y-0 divide-x divide-neutral-200 bg-neutral-50 font-mono tabular-nums">
-          <div class="p-6">
-            <span class="block text-[11px] uppercase text-neutral-500 mb-1">NOZZLE TEMP WINDOW</span>
-            <div class="text-3xl font-bold text-neutral-950">
-              {filament.minNozzleTempC}–{filament.maxNozzleTempC}°C
-            </div>
-          </div>
-          <div class="p-6">
-            <span class="block text-[11px] uppercase text-neutral-500 mb-1">BED TEMP WINDOW</span>
-            <div class="text-3xl font-bold text-neutral-950">
-              {filament.minBedTempC}–{filament.maxBedTempC}°C
-            </div>
-          </div>
-          <div class="p-6">
-            <span class="block text-[11px] uppercase text-neutral-500 mb-1">VOLUMETRIC FLOW CEILING</span>
-            <div class="text-3xl font-bold text-emerald-700">
-              {filament.volumetricFlowLimitMm3s} mm³/s
-            </div>
-          </div>
-          <div class="p-6">
-            <span class="block text-[11px] uppercase text-neutral-500 mb-1">CHAMBER REQUIREMENT</span>
-            <div class="text-2xl font-bold text-neutral-950 uppercase">
-              {filament.requiresEnclosure ? 'ENCLOSED REQ' : 'OPEN FRAME OK'}
-            </div>
-          </div>
+      <div class="grid grid-cols-2 sm:grid-cols-4 divide-y sm:divide-y-0 divide-x divide-neutral-200 bg-neutral-50/60 font-mono tabular-nums">
+        <div class="p-4 sm:p-5">
+          <span class="block text-[11px] uppercase text-neutral-400">Nozzle Temp</span>
+          <span class="text-2xl font-bold text-neutral-950">{filament.minNozzleTempC}–{filament.maxNozzleTempC}°C</span>
         </div>
-      </section>
-
-      <!-- Typeable Filter & Printer Compatibility Matrix Table -->
-      <section class="divide-y divide-neutral-200">
-        <div class="p-6 bg-neutral-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div>
-            <span class="bg-neutral-950 text-white font-mono uppercase text-xs px-2.5 py-1">
-              HARDWARE COMPATIBILITY REGISTER
-            </span>
-            <h2 class="text-xl font-black text-neutral-950 uppercase tracking-tight mt-2">
-              {combinations.length} Calibrated 3D Printers for {filament.name}
-            </h2>
-          </div>
-
-          <div class="w-full sm:w-96">
-            <label for="filament-printer-filter" class="block text-[10px] font-mono uppercase text-neutral-600 mb-1">
-              TYPE TO FILTER PRINTERS (E.G. BAMBU, CREALITY, PRUSA, VORON)
-            </label>
-            <input
-              id="filament-printer-filter"
-              type="search"
-              placeholder="TYPE TO SEARCH 3D PRINTERS..."
-              class="w-full px-3.5 py-2.5 bg-white border-2 border-neutral-950 text-xs font-mono text-neutral-950 placeholder-neutral-400 focus:outline-none focus:border-orange-600"
-            />
-          </div>
+        <div class="p-4 sm:p-5">
+          <span class="block text-[11px] uppercase text-neutral-400">Bed Temp</span>
+          <span class="text-2xl font-bold text-neutral-950">{filament.minBedTempC}–{filament.maxBedTempC}°C</span>
         </div>
+        <div class="p-4 sm:p-5">
+          <span class="block text-[11px] uppercase text-neutral-400">Max Flow</span>
+          <span class="text-2xl font-bold text-emerald-600">{filament.volumetricFlowLimitMm3s} mm³/s</span>
+        </div>
+        <div class="p-4 sm:p-5">
+          <span class="block text-[11px] uppercase text-neutral-400">Nozzle Type</span>
+          <span class="text-lg font-bold text-neutral-950">{filament.isAbrasive ? 'Hardened Req' : 'Any Nozzle'}</span>
+        </div>
+      </div>
+    </div>
 
-        <div class="overflow-x-auto bg-white">
-          <table class="w-full text-left border-collapse divide-y divide-neutral-200">
-            <thead>
-              <tr class="bg-neutral-50 text-[11px] font-mono uppercase text-neutral-500 divide-x divide-neutral-200">
-                <th class="py-3.5 px-4">3D Printer System</th>
-                <th class="py-3.5 px-4">Stock Nozzle</th>
-                <th class="py-3.5 px-4">Target Temp</th>
-                <th class="py-3.5 px-4">Effective Flow</th>
-                <th class="py-3.5 px-4">Safe Speed</th>
-                <th class="py-3.5 px-4">Compatibility Status</th>
-                <th class="py-3.5 px-4 text-right">Spec / Tooling</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-neutral-200 text-sm font-mono tabular-nums" id="filament-matrix-tbody">
-              {combinations
-                .sort((a, b) => Number(b.isGenerated) - Number(a.isGenerated))
-                .map((item) => {
-                  const nozzleAmazonUrl = `https://www.amazon.com/s?k=${encodeURIComponent(
-                    item.printer.name + ' hardened steel nozzle 0.4mm'
-                  )}&tag=${AFFILIATE_TAG}`;
-                  return (
-                    <tr
-                      id={item.slug}
-                      data-search={`${item.printer.name} ${item.printer.vendor} ${item.printer.defaultNozzleMaterial}`.toLowerCase()}
-                      class="hover:bg-neutral-100 divide-x divide-neutral-200 transition-none"
+    <!-- Searchable Printer Table -->
+    <div class="border border-neutral-300 bg-white divide-y divide-neutral-200 mb-10">
+      <div class="p-4 sm:px-6 bg-neutral-50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <h2 class="font-bold text-base text-neutral-950">All {combinations.length} 3D Printers</h2>
+        <input
+          id="filament-printer-filter"
+          type="search"
+          placeholder="Type to filter printers (e.g. Bambu, Creality, Voron)..."
+          class="w-full sm:w-80 px-3.5 py-2 bg-white border border-neutral-300 focus:border-neutral-950 text-sm text-neutral-950 placeholder-neutral-400 focus:outline-none"
+        />
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse divide-y divide-neutral-200">
+          <thead>
+            <tr class="bg-neutral-50/50 text-[11px] font-semibold uppercase tracking-wider text-neutral-400">
+              <th class="py-3 px-4">3D Printer</th>
+              <th class="py-3 px-4">Nozzle</th>
+              <th class="py-3 px-4">Bed</th>
+              <th class="py-3 px-4">Max Speed</th>
+              <th class="py-3 px-4">Status</th>
+              <th class="py-3 px-4 text-right">Action</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-neutral-200 text-sm" id="filament-matrix-tbody">
+            {combinations
+              .sort((a, b) => Number(b.isGenerated) - Number(a.isGenerated))
+              .map((item) => (
+                <tr
+                  id={item.slug}
+                  data-search={`${item.printer.name} ${item.printer.vendor}`.toLowerCase()}
+                  class="hover:bg-neutral-50 transition-colors"
+                >
+                  <td class="py-3.5 px-4 font-bold text-neutral-950">
+                    <a
+                      href={item.isGenerated ? withBase(`/${item.slug}/`) : withBase(`/printer/${item.printer.slug}/`)}
+                      class="hover:text-orange-600"
                     >
-                      <td class="py-3.5 px-4 font-sans font-bold text-neutral-950">
-                        <div class="flex items-center gap-2">
-                          {item.isGenerated && (
-                            <span
-                              class="inline-block w-2 h-2 bg-emerald-600 shrink-0"
-                              title="Full Verified OrcaSlicer Spec Sheet"
-                            ></span>
-                          )}
-                          <a
-                            href={item.isGenerated ? withBase(`/${item.slug}/`) : withBase(`/printer/${item.printer.slug}/`)}
-                            class="hover:text-orange-600 uppercase tracking-tight"
-                          >
-                            {item.printer.name}
-                          </a>
-                        </div>
-                      </td>
-                      <td class="py-3.5 px-4 text-xs uppercase text-neutral-700">
-                        {item.printer.defaultNozzleMaterial}
-                      </td>
-                      <td class="py-3.5 px-4 text-xs">
-                        <span class="font-bold text-neutral-950">{item.deterministicMath.recommendedNozzleTempC}°C</span>
-                        <span class="text-neutral-400"> / </span>
-                        <span class="text-neutral-700">{item.deterministicMath.recommendedBedTempC}°C</span>
-                      </td>
-                      <td class="py-3.5 px-4 text-xs font-bold text-emerald-700">
-                        {item.deterministicMath.effectiveVolumetricFlowMm3s} mm³/s
-                      </td>
-                      <td class="py-3.5 px-4 text-xs font-bold text-neutral-950">
-                        {item.deterministicMath.calculatedMaxPrintSpeedMmS} mm/s
-                      </td>
-                      <td class="py-3.5 px-4">
-                        <div class="flex flex-wrap gap-1.5 text-[10px] uppercase">
-                          {item.deterministicMath.requiresHardenedNozzleUpgrade ? (
-                            <span class="border border-amber-600 bg-amber-50 text-amber-950 px-2 py-0.5 font-bold">
-                              ⚠️ UPGRADE NOZZLE
-                            </span>
-                          ) : item.deterministicMath.enclosureWarning ? (
-                            <span class="border border-red-600 bg-red-50 text-red-900 px-2 py-0.5 font-bold">
-                              ENCLOSURE REQ
-                            </span>
-                          ) : (
-                            <span class="bg-neutral-950 text-emerald-400 px-2 py-0.5">
-                              ● OPTIMAL MATCH
-                            </span>
-                          )}
-                        </div>
-                      </td>
-                      <td class="py-3.5 px-4 text-right">
-                        <div class="inline-flex items-center gap-2">
-                          {item.isGenerated ? (
-                            <a
-                              href={withBase(`/${item.slug}/`)}
-                              class="bg-neutral-950 hover:bg-neutral-800 text-white font-medium px-3 py-1.5 text-xs uppercase tracking-wider transition-none"
-                            >
-                              SPEC SHEET →
-                            </a>
-                          ) : (
-                            <a
-                              href={withBase(`/printer/${item.printer.slug}/`)}
-                              class="border border-neutral-400 bg-white hover:bg-neutral-200 text-neutral-900 px-3 py-1.5 text-xs uppercase tracking-wider transition-none"
-                            >
-                              PRINTER HUB
-                            </a>
-                          )}
-                          {item.deterministicMath.requiresHardenedNozzleUpgrade && (
-                            <a
-                              href={nozzleAmazonUrl}
-                              target="_blank"
-                              rel="noopener noreferrer sponsored"
-                              class="bg-neutral-950 hover:bg-neutral-800 text-white font-medium px-3 py-1.5 text-xs uppercase tracking-wider transition-none"
-                            >
-                              NOZZLE ↗
-                            </a>
-                          )}
-                        </div>
-                      </td>
-                    </tr>
-                  );
-                })}
-            </tbody>
-          </table>
-        </div>
-      </section>
+                      {item.printer.name}
+                    </a>
+                  </td>
+                  <td class="py-3.5 px-4 font-mono tabular-nums font-bold text-neutral-950">
+                    {item.deterministicMath.recommendedNozzleTempC}°C
+                  </td>
+                  <td class="py-3.5 px-4 font-mono tabular-nums text-neutral-600">
+                    {item.deterministicMath.recommendedBedTempC}°C
+                  </td>
+                  <td class="py-3.5 px-4 font-mono tabular-nums font-bold text-emerald-600">
+                    {item.deterministicMath.calculatedMaxPrintSpeedMmS} mm/s
+                  </td>
+                  <td class="py-3.5 px-4 text-xs">
+                    {item.deterministicMath.requiresHardenedNozzleUpgrade ? (
+                      <span class="text-amber-700 font-semibold">⚠️ Upgrade Nozzle</span>
+                    ) : (
+                      <span class="text-emerald-700 font-medium">Ready</span>
+                    )}
+                  </td>
+                  <td class="py-3.5 px-4 text-right">
+                    {item.isGenerated ? (
+                      <a
+                        href={withBase(`/${item.slug}/`)}
+                        class="bg-orange-600 hover:bg-orange-500 text-white font-medium px-3 py-1 text-xs uppercase tracking-wider"
+                      >
+                        Profile →
+                      </a>
+                    ) : (
+                      <a
+                        href={withBase(`/printer/${item.printer.slug}/`)}
+                        class="bg-neutral-950 hover:bg-neutral-800 text-white font-medium px-3 py-1 text-xs uppercase tracking-wider"
+                      >
+                        Printer →
+                      </a>
+                    )}
+                  </td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
 
-      <!-- All Filaments Index Mesh -->
-      <section class="p-6 sm:p-8 bg-neutral-50">
-        <h2 class="text-xs font-mono uppercase tracking-widest text-neutral-500 mb-4">
-          CROSS-REFERENCE // OTHER CALIBRATED POLYMER SPOOLS
-        </h2>
-        <div class="flex flex-wrap gap-2">
-          {allFilaments.map((f) => (
-            <a
-              href={withBase(`/filament/${f.slug}/`)}
-              class={`px-3 py-1.5 text-xs font-mono uppercase border transition-none ${
-                f.slug === filament.slug
-                  ? 'bg-neutral-950 text-white border-neutral-950 font-bold'
-                  : 'bg-white text-neutral-900 border-neutral-300 hover:border-neutral-950'
-              }`}
-            >
-              {f.name}
-            </a>
-          ))}
-        </div>
-      </section>
+    <!-- Other Filaments -->
+    <div class="border border-neutral-300 bg-white p-5">
+      <h3 class="text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-3">Other Filaments</h3>
+      <div class="flex flex-wrap gap-2">
+        {allFilaments.map((f) => (
+          <a
+            href={withBase(`/filament/${f.slug}/`)}
+            class={`px-3 py-1.5 text-xs font-medium border transition-colors ${
+              f.slug === filament.slug
+                ? 'bg-neutral-950 text-white border-neutral-950'
+                : 'bg-neutral-50 text-neutral-700 border-neutral-200 hover:border-neutral-950'
+            }`}
+          >
+            {f.name}
+          </a>
+        ))}
+      </div>
     </div>
   </div>
 

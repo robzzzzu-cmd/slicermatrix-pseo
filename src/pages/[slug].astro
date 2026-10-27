@@ -75,13 +75,6 @@ const isAbrasiveOrComposite =
   /cf|gf|glow|wood|carbon|glass/i.test(filament.name) ||
   /cf|gf|glow|wood/i.test(filament.materialType);
 
-const verdictSignalColor =
-  page.compatibilityVerdict === 'Optimal Match'
-    ? 'text-emerald-400'
-    : page.compatibilityVerdict === 'Requires Upgrade'
-    ? 'text-amber-400'
-    : 'text-red-400';
-
 const pageTitle = `Best ${printer.name} Settings for ${filament.name} (OrcaSlicer Profile)`;
 const pageDescription = page.heroSummary;
 
@@ -129,642 +122,357 @@ const orcaPresetPayload = {
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription} jsonLd={faqSchema}>
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-    <!-- Swiss Specification Breadcrumb Strip -->
-    <nav
-      aria-label="Breadcrumb"
-      class="border border-b-0 border-neutral-300 bg-neutral-100 px-4 py-2.5 flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono uppercase tracking-wider text-neutral-600"
-    >
-      <div class="flex flex-wrap items-center gap-2">
-        <a href={withBase('/')} class="hover:text-orange-600 font-bold text-neutral-950">INDEX</a>
-        <span>/</span>
-        <a href={withBase(`/printer/${printer.slug}/`)} class="hover:text-orange-600">{printer.name}</a>
-        <span>/</span>
-        <a href={withBase(`/filament/${filament.slug}/`)} class="hover:text-orange-600">{filament.name}</a>
-        <span>/</span>
-        <span class="text-neutral-950 font-semibold">CALIBRATION SHEET</span>
-      </div>
-      <div class="font-mono tabular-nums text-[11px] text-neutral-500">
-        REF // {page.slug.toUpperCase().slice(0, 32)}
-      </div>
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+    <!-- Minimal Breadcrumbs -->
+    <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs text-neutral-500 mb-6">
+      <a href={withBase('/')} class="hover:text-neutral-950">Home</a>
+      <span>/</span>
+      <a href={withBase(`/printer/${printer.slug}/`)} class="hover:text-neutral-950">{printer.name}</a>
+      <span>/</span>
+      <a href={withBase(`/filament/${filament.slug}/`)} class="hover:text-neutral-950">{filament.name}</a>
     </nav>
 
-    <!-- SINGLE COHESIVE SWISS SPECIFICATION CANVAS -->
-    <div class="divide-y divide-neutral-200 border border-neutral-300 bg-white">
-      <!-- 01. ABOVE-THE-FOLD VERDICT & PRIMARY METRICS MATRIX -->
-      <section class="divide-y divide-neutral-200">
-        <!-- Top Status & Action Bar -->
-        <div class="p-6 sm:p-8 flex flex-col lg:flex-row lg:items-center justify-between gap-4 bg-neutral-50">
-          <div class="flex flex-wrap items-center gap-2.5">
+    <!-- 1. ABOVE-THE-FOLD SWISS SUMMARY CARD (Instant 2-Second Read) -->
+    <div class="divide-y divide-neutral-200 border border-neutral-300 bg-white shadow-sm mb-8">
+      <!-- Header & Download Preset Bar -->
+      <div class="p-6 sm:p-8">
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+          <div class="flex items-center gap-2">
             <span class="bg-neutral-950 text-white font-mono uppercase text-xs px-2.5 py-1 inline-flex items-center gap-2">
-              <span class={`inline-block w-2 h-2 ${verdictSignalColor === 'text-emerald-400' ? 'bg-emerald-400' : verdictSignalColor === 'text-amber-400' ? 'bg-amber-400' : 'bg-red-500'}`}></span>
-              <span>VERDICT: <strong class={verdictSignalColor}>{page.compatibilityVerdict}</strong></span>
+              <span class={`w-2 h-2 rounded-full ${page.compatibilityVerdict === 'Optimal Match' ? 'bg-emerald-400' : 'bg-amber-400'}`}></span>
+              {page.compatibilityVerdict}
             </span>
-            <span class="border border-neutral-300 bg-white text-neutral-900 font-mono uppercase text-xs px-2.5 py-1">
-              {printer.extruderType}
-            </span>
-            <span class="border border-neutral-300 bg-white text-neutral-900 font-mono uppercase text-xs px-2.5 py-1">
-              {printer.enclosed ? 'ENCLOSED CHAMBER' : 'OPEN FRAME'}
-            </span>
-            <span class="border border-neutral-300 bg-white text-neutral-900 font-mono uppercase text-xs px-2.5 py-1">
-              POLYMER: {filament.materialType}
+            <span class="text-xs font-mono text-neutral-500 px-2 py-0.5 bg-neutral-100">
+              {filament.materialType} • {printer.extruderType}
             </span>
           </div>
 
-          <!-- One-Click Download .json OrcaSlicer Filament Preset -->
+          <!-- 1-Click Download Preset -->
           <button
             id="download-orca-preset-btn"
             type="button"
             data-slug={page.slug}
             data-preset={JSON.stringify(orcaPresetPayload)}
-            class="bg-neutral-950 hover:bg-neutral-800 text-white font-medium px-4 py-2 text-sm uppercase tracking-wider font-mono inline-flex items-center justify-center gap-2 cursor-pointer transition-none shrink-0"
+            class="bg-orange-600 hover:bg-orange-500 text-white font-medium px-4 py-2.5 text-xs sm:text-sm uppercase tracking-wider font-mono cursor-pointer transition-colors"
           >
-            <span>↓ DOWNLOAD .JSON ORCASLICER FILAMENT PRESET</span>
+            ↓ Download OrcaSlicer .JSON Preset
           </button>
         </div>
 
-        <!-- Asymmetric Title & Engineering Summary -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-neutral-200">
-          <div class="lg:col-span-8 p-6 sm:p-10">
-            <div class="text-xs font-mono uppercase tracking-widest text-neutral-500 mb-2">
-              01 // PRIMARY CALIBRATION SPECIFICATION
+        <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-neutral-950 mb-3">
+          {printer.name} + {filament.name} Settings
+        </h1>
+
+        <p class="text-base text-neutral-600 leading-relaxed max-w-3xl">
+          {page.heroSummary}
+        </p>
+      </div>
+
+      <!-- 4 Big Numbers (Zero Clutter) -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 divide-y sm:divide-y-0 divide-x divide-neutral-200 bg-neutral-50/60">
+        <div class="p-5 sm:p-6">
+          <span class="block text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-1">Nozzle Temp</span>
+          <div class="text-3xl sm:text-4xl font-mono tabular-nums font-bold text-neutral-950">
+            {deterministicMath.recommendedNozzleTempC}°C
+          </div>
+          <span class="text-xs font-mono tabular-nums text-neutral-500 mt-1 block">
+            {filament.minNozzleTempC}–{filament.maxNozzleTempC}°C range
+          </span>
+        </div>
+
+        <div class="p-5 sm:p-6">
+          <span class="block text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-1">Bed Temp</span>
+          <div class="text-3xl sm:text-4xl font-mono tabular-nums font-bold text-neutral-950">
+            {deterministicMath.recommendedBedTempC}°C
+          </div>
+          <span class="text-xs font-mono tabular-nums text-neutral-500 mt-1 block">
+            {filament.minBedTempC}–{filament.maxBedTempC}°C range
+          </span>
+        </div>
+
+        <div class="p-5 sm:p-6">
+          <span class="block text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-1">Max Speed</span>
+          <div class="text-3xl sm:text-4xl font-mono tabular-nums font-bold text-emerald-600">
+            {deterministicMath.calculatedMaxPrintSpeedMmS} <span class="text-base font-normal text-neutral-500">mm/s</span>
+          </div>
+          <span class="text-xs font-mono tabular-nums text-neutral-500 mt-1 block">
+            {deterministicMath.effectiveVolumetricFlowMm3s} mm³/s flow limit
+          </span>
+        </div>
+
+        <div class="p-5 sm:p-6">
+          <span class="block text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-1">Retraction</span>
+          <div class="text-3xl sm:text-4xl font-mono tabular-nums font-bold text-neutral-950">
+            {page.retractionDistanceMm} <span class="text-base font-normal text-neutral-500">mm</span>
+          </div>
+          <span class="text-xs font-mono tabular-nums text-neutral-500 mt-1 block">
+            @ {page.retractionSpeedMmS} mm/s • Fan {page.coolingFanMaxPct}%
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. URGENT HARDWARE & CONSUMABLE CALLOUTS -->
+    <div class="space-y-4 mb-8">
+      <!-- Abrasive Nozzle Blocker -->
+      {isAbrasiveOrComposite && (
+        <div class="border-2 border-amber-600 bg-amber-50/50 p-4 sm:p-5 text-amber-950 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div>
+            <div class="font-bold text-sm sm:text-base mb-1">
+              ⚠️ Brass Nozzle Wear Warning: {filament.name} is abrasive and will destroy the stock nozzle on your {printer.name}. Upgrade to a 0.4mm/0.6mm Hardened Steel Nozzle before printing.
             </div>
-            <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-neutral-950 leading-[1.03] uppercase mb-5">
-              Best {printer.name} Settings for {filament.name} (OrcaSlicer Profile)
-            </h1>
-            <p class="text-base sm:text-lg text-neutral-800 leading-relaxed max-w-3xl">
-              {page.heroSummary}
+            <p class="text-xs text-amber-800">
+              Stock nozzle on {printer.name}: <strong>{printer.defaultNozzleMaterial}</strong>.
+            </p>
+          </div>
+          <a
+            href={hardenedNozzleAmazonUrl}
+            target="_blank"
+            rel="noopener noreferrer sponsored"
+            class="shrink-0 bg-neutral-950 hover:bg-neutral-800 text-white font-medium px-4 py-2 text-sm uppercase tracking-wider"
+          >
+            Get Hardened Nozzle ↗
+          </a>
+        </div>
+      )}
+
+      <!-- Primary Spool + Optional Dryer Bar -->
+      <div class="border border-neutral-300 bg-white p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div>
+          <span class="text-xs font-mono uppercase text-neutral-400 block">Recommended Consumables</span>
+          <span class="font-bold text-neutral-950 text-base">{filament.name} (1.75mm, 1kg)</span>
+          <span class="text-xs text-neutral-500 block mt-0.5">Bed surface: {page.bedSurfaceRecommendation}</span>
+        </div>
+
+        <div class="flex flex-wrap gap-2.5 w-full sm:w-auto">
+          <a
+            href={primaryFilamentAmazonUrl}
+            target="_blank"
+            rel="noopener noreferrer sponsored"
+            class="bg-neutral-950 hover:bg-neutral-800 text-white font-medium px-4 py-2 text-sm uppercase tracking-wider"
+          >
+            Buy {filament.name} (1kg Spool) on Amazon ↗
+          </a>
+          {deterministicMath.requiresFilamentDryer && (
+            <a
+              href={filamentDryerAmazonUrl}
+              target="_blank"
+              rel="noopener noreferrer sponsored"
+              class="border border-neutral-300 hover:border-neutral-950 bg-neutral-50 text-neutral-900 font-medium px-3.5 py-2 text-xs uppercase tracking-wider"
+            >
+              Filament Dryer ($39) ↗
+            </a>
+          )}
+          {deterministicMath.requiresFilamentDryer && (
+            <a
+              href={buildPlateGlueAmazonUrl}
+              target="_blank"
+              rel="noopener noreferrer sponsored"
+              class="border border-neutral-300 hover:border-neutral-950 bg-neutral-50 text-neutral-900 font-medium px-3.5 py-2 text-xs uppercase tracking-wider"
+            >
+              PEI Plate / Glue ($16) ↗
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. INTERACTIVE NOZZLE & LAYER SPEED CALCULATOR -->
+    <section
+      id="speed-calculator"
+      data-flow={deterministicMath.effectiveVolumetricFlowMm3s}
+      data-abrasive={String(isAbrasiveOrComposite)}
+      data-filament-name={filament.name}
+      class="border border-neutral-300 bg-white divide-y divide-neutral-200 mb-8"
+    >
+      <div class="px-6 py-4 bg-neutral-50 flex items-center justify-between">
+        <h2 class="text-base font-bold text-neutral-950">Interactive Speed Calculator</h2>
+        <span class="text-xs font-mono tabular-nums text-neutral-500">
+          Max Flow: {deterministicMath.effectiveVolumetricFlowMm3s} mm³/s
+        </span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-neutral-200">
+        <!-- Controls -->
+        <div class="md:col-span-7 p-6 space-y-6">
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-500 mb-2">
+              Nozzle Size
+            </label>
+            <div class="grid grid-cols-4 border border-neutral-300 divide-x divide-neutral-300" id="nozzle-btn-group">
+              {[0.2, 0.4, 0.6, 0.8].map((size) => (
+                <button
+                  type="button"
+                  data-nozzle={size}
+                  class={`nozzle-select-btn py-2.5 px-3 font-mono tabular-nums font-bold text-sm cursor-pointer transition-colors ${
+                    size === 0.4
+                      ? 'bg-neutral-950 text-white'
+                      : 'bg-white text-neutral-700 hover:bg-neutral-100'
+                  }`}
+                >
+                  {size.toFixed(1)}mm
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <label for="layer-height-slider" class="text-xs font-semibold uppercase tracking-wider text-neutral-500">
+                Layer Height
+              </label>
+              <span id="layer-height-display" class="font-mono tabular-nums font-bold text-sm text-orange-600">
+                0.20 mm
+              </span>
+            </div>
+            <input
+              id="layer-height-slider"
+              type="range"
+              min="0.08"
+              max="0.40"
+              step="0.02"
+              value="0.20"
+              class="w-full swiss-slider"
+            />
+            <div class="flex justify-between text-[11px] font-mono text-neutral-400 mt-1">
+              <span>0.08mm (Fine)</span>
+              <span>0.20mm (Standard)</span>
+              <span>0.40mm (Draft)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Output -->
+        <div class="md:col-span-5 p-6 bg-neutral-50/50 flex flex-col justify-between">
+          <div>
+            <span class="block text-xs font-semibold uppercase tracking-wider text-neutral-400">Safe Print Speed</span>
+            <div class="flex items-baseline gap-1.5 mt-1">
+              <span id="calc-max-speed" class="text-5xl font-mono tabular-nums font-extrabold text-neutral-950">
+                {deterministicMath.calculatedMaxPrintSpeedMmS}
+              </span>
+              <span class="text-sm font-mono text-neutral-500">mm/s</span>
+            </div>
+            <p id="calc-line-width-note" class="text-xs font-mono tabular-nums text-neutral-500 mt-1">
+              Line width: 0.42 mm
             </p>
           </div>
 
-          <div class="lg:col-span-4 p-6 sm:p-8 bg-neutral-50 flex flex-col justify-between">
+          <div class="grid grid-cols-2 gap-4 pt-4 mt-4 border-t border-neutral-200">
             <div>
-              <div class="text-[11px] font-mono uppercase tracking-widest text-neutral-500 mb-2">
-                HARDWARE CONFIGURATION BASELINE
-              </div>
-              <dl class="divide-y divide-neutral-200 border-y border-neutral-200 text-xs font-mono tabular-nums">
-                <div class="py-2 flex justify-between">
-                  <dt class="text-neutral-500">STOCK NOZZLE</dt>
-                  <dd class="font-bold text-neutral-950 uppercase">{printer.defaultNozzleMaterial}</dd>
-                </div>
-                <div class="py-2 flex justify-between">
-                  <dt class="text-neutral-500">HOTEND CEILING</dt>
-                  <dd class="font-bold text-neutral-950">{printer.maxNozzleTempC}°C</dd>
-                </div>
-                <div class="py-2 flex justify-between">
-                  <dt class="text-neutral-500">BED CEILING</dt>
-                  <dd class="font-bold text-neutral-950">{printer.maxBedTempC}°C</dd>
-                </div>
-                <div class="py-2 flex justify-between">
-                  <dt class="text-neutral-500">BUILD PLATE PREP</dt>
-                  <dd class="font-bold text-neutral-950 text-right max-w-[180px] truncate" title={page.bedSurfaceRecommendation}>
-                    {page.bedSurfaceRecommendation}
-                  </dd>
-                </div>
-              </dl>
-            </div>
-            <div class="pt-4 text-[11px] font-mono uppercase text-emerald-700 font-bold">
-              ● DETERMINISTIC VOLUMETRIC VERIFIED
-            </div>
-          </div>
-        </div>
-
-        <!-- 4-Column Quick Spec Telemetry Matrix -->
-        <div class="grid grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 divide-x divide-neutral-200 bg-white">
-          <div class="p-6 sm:p-8">
-            <div class="flex items-center justify-between text-[11px] font-mono uppercase tracking-widest text-neutral-500 mb-2">
-              <span>01.1 // NOZZLE TEMP</span>
-              <span class="text-orange-600 font-bold">THERMAL</span>
-            </div>
-            <div class="text-4xl sm:text-5xl font-mono tabular-nums font-bold text-neutral-950">
-              {deterministicMath.recommendedNozzleTempC}°C
-            </div>
-            <div class="text-xs font-mono tabular-nums text-neutral-500 mt-2">
-              RANGE: {filament.minNozzleTempC}–{filament.maxNozzleTempC}°C (MAX {printer.maxNozzleTempC}°C)
-            </div>
-          </div>
-
-          <div class="p-6 sm:p-8">
-            <div class="flex items-center justify-between text-[11px] font-mono uppercase tracking-widest text-neutral-500 mb-2">
-              <span>01.2 // BED TEMP</span>
-              <span class="text-neutral-900 font-bold">PLATE</span>
-            </div>
-            <div class="text-4xl sm:text-5xl font-mono tabular-nums font-bold text-neutral-950">
-              {deterministicMath.recommendedBedTempC}°C
-            </div>
-            <div class="text-xs font-mono tabular-nums text-neutral-500 mt-2">
-              RANGE: {filament.minBedTempC}–{filament.maxBedTempC}°C
-            </div>
-          </div>
-
-          <div class="p-6 sm:p-8">
-            <div class="flex items-center justify-between text-[11px] font-mono uppercase tracking-widest text-neutral-500 mb-2">
-              <span>01.3 // VOLUMETRIC CAP</span>
-              <span class="text-emerald-700 font-bold">FLOW</span>
-            </div>
-            <div class="text-4xl sm:text-5xl font-mono tabular-nums font-bold text-neutral-950">
-              {deterministicMath.effectiveVolumetricFlowMm3s}<span class="text-lg font-normal text-neutral-500 ml-1">mm³/s</span>
-            </div>
-            <div class="text-xs font-mono tabular-nums text-emerald-700 font-semibold mt-2">
-              MAX SPEED: {deterministicMath.calculatedMaxPrintSpeedMmS} mm/s @ 0.20MM
-            </div>
-          </div>
-
-          <div class="p-6 sm:p-8">
-            <div class="flex items-center justify-between text-[11px] font-mono uppercase tracking-widest text-neutral-500 mb-2">
-              <span>01.4 // RETRACTION</span>
-              <span class="text-neutral-900 font-bold">{printer.extruderType.toUpperCase()}</span>
-            </div>
-            <div class="text-4xl sm:text-5xl font-mono tabular-nums font-bold text-neutral-950">
-              {page.retractionDistanceMm}<span class="text-lg font-normal text-neutral-500 ml-1">mm</span>
-            </div>
-            <div class="text-xs font-mono tabular-nums text-neutral-500 mt-2">
-              SPEED: {page.retractionSpeedMmS} mm/s • FAN: {page.coolingFanMinPct}–{page.coolingFanMaxPct}%
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 02. INTERACTIVE KINEMATIC NOZZLE & LAYER HEIGHT SPEED CALCULATOR -->
-      <section
-        id="speed-calculator"
-        data-flow={deterministicMath.effectiveVolumetricFlowMm3s}
-        data-abrasive={String(isAbrasiveOrComposite)}
-        data-filament-name={filament.name}
-        class="divide-y divide-neutral-200"
-      >
-        <div class="p-6 sm:px-8 bg-neutral-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-          <div class="flex items-center gap-2.5">
-            <span class="bg-neutral-950 text-white font-mono uppercase text-xs px-2.5 py-1">
-              02 // KINEMATIC TELEMETRY INSTRUMENT
-            </span>
-            <h2 class="text-lg sm:text-xl font-black uppercase tracking-tight text-neutral-950">
-              Nozzle Diameter & Layer Height Speed Calculator
-            </h2>
-          </div>
-          <span class="text-xs font-mono tabular-nums text-neutral-700 uppercase">
-            FLOW CEILING CONSTANT: <strong>{deterministicMath.effectiveVolumetricFlowMm3s} MM³/S</strong>
-          </span>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-neutral-200">
-          <!-- Mechanical Controls Column -->
-          <div class="lg:col-span-7 p-6 sm:p-8 space-y-8 bg-white">
-            <!-- Nozzle Diameter Mechanical Detent Toggles -->
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <label class="text-xs font-mono uppercase tracking-wider font-bold text-neutral-950">
-                  A. NOZZLE ORIFICE DIAMETER (MM)
-                </label>
-                <span class="text-[11px] font-mono text-neutral-500 uppercase">SELECT CALIBRATED ORIFICE</span>
-              </div>
-              <div class="grid grid-cols-4 border border-neutral-950 divide-x divide-neutral-950" id="nozzle-btn-group">
-                {[0.2, 0.4, 0.6, 0.8].map((size) => (
-                  <button
-                    type="button"
-                    data-nozzle={size}
-                    class={`nozzle-select-btn py-3.5 px-4 font-mono tabular-nums font-bold text-sm uppercase cursor-pointer transition-none ${
-                      size === 0.4
-                        ? 'bg-neutral-950 text-white'
-                        : 'bg-neutral-50 text-neutral-950 hover:bg-neutral-200'
-                    }`}
-                  >
-                    {size.toFixed(1)} MM
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <!-- Layer Height Linear Potentiometer Slider -->
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <label for="layer-height-slider" class="text-xs font-mono uppercase tracking-wider font-bold text-neutral-950">
-                  B. LAYER THICKNESS (0.08 MM — 0.40 MM)
-                </label>
-                <span
-                  id="layer-height-display"
-                  class="bg-neutral-950 text-white font-mono tabular-nums uppercase text-xs px-2.5 py-1"
-                >
-                  0.20 MM
-                </span>
-              </div>
-              <input
-                id="layer-height-slider"
-                type="range"
-                min="0.08"
-                max="0.40"
-                step="0.02"
-                value="0.20"
-                class="w-full swiss-slider"
-              />
-              <div class="flex justify-between text-[11px] font-mono tabular-nums text-neutral-500 mt-2 uppercase">
-                <span>0.08 MM [FINE]</span>
-                <span>0.20 MM [NOMINAL]</span>
-                <span>0.32 MM [DRAFT]</span>
-                <span>0.40 MM [MAX]</span>
-              </div>
-            </div>
-
-            <!-- Mathematical Equation Readout -->
-            <div class="border border-neutral-300 bg-neutral-50 p-4 font-mono tabular-nums text-xs text-neutral-700">
-              <span class="block text-[10px] uppercase tracking-widest text-neutral-500 mb-1">
-                GOVERNED KINEMATIC EQUATION
+              <span class="block text-[11px] uppercase text-neutral-400">100g Print Time</span>
+              <span id="calc-print-time" class="text-lg font-mono tabular-nums font-bold text-neutral-950">
+                1h 36m
               </span>
-              <code>
-                V_max = Q_eff ({deterministicMath.effectiveVolumetricFlowMm3s} mm³/s) ÷ [ h_layer × (d_nozzle × 1.05) ]
-              </code>
             </div>
-          </div>
-
-          <!-- Digital Readout Column -->
-          <div class="lg:col-span-5 divide-y divide-neutral-200 bg-neutral-50 flex flex-col justify-between">
-            <div class="p-6 sm:p-8 bg-white">
-              <span class="block text-[11px] font-mono uppercase tracking-widest text-neutral-500 mb-1">
-                CALCULATED SAFE MAX PRINT SPEED
-              </span>
-              <div class="flex items-baseline gap-2">
-                <span
-                  id="calc-max-speed"
-                  class="text-5xl sm:text-6xl font-mono tabular-nums font-black text-neutral-950"
-                >
-                  {deterministicMath.calculatedMaxPrintSpeedMmS}
-                </span>
-                <span class="text-lg font-mono uppercase font-bold text-neutral-500">MM/S</span>
-              </div>
-              <p id="calc-line-width-note" class="text-xs font-mono tabular-nums text-neutral-600 mt-2 uppercase">
-                EXTRUSION WIDTH (105%): 0.42 MM @ 0.20 MM LAYER
-              </p>
-            </div>
-
-            <div class="grid grid-cols-2 divide-x divide-neutral-200">
-              <div class="p-6">
-                <span class="block text-[11px] font-mono uppercase tracking-widest text-neutral-500">
-                  EST. 100G SPOOL TIME
-                </span>
-                <div
-                  id="calc-print-time"
-                  class="text-2xl font-mono tabular-nums font-bold text-neutral-950 mt-1"
-                >
-                  1h 36m
-                </div>
-                <span class="text-[11px] font-mono text-neutral-500 uppercase">65% DUTY CYCLE</span>
-              </div>
-
-              <div class="p-6">
-                <span class="block text-[11px] font-mono uppercase tracking-widest text-neutral-500">
-                  ORIFICE CLOG STATUS
-                </span>
-                <div
-                  id="calc-clog-risk"
-                  class="text-sm font-mono tabular-nums font-bold text-emerald-700 mt-2 uppercase"
-                >
-                  ● NOMINAL CLEARANCE
-                </div>
-                <span id="calc-clog-sub" class="text-[11px] font-mono text-neutral-500 block mt-0.5 uppercase">
-                  UNRESTRICTED MELT ZONE
-                </span>
-              </div>
-            </div>
-
-            <!-- Dynamic Clog Warning Banner -->
-            <div
-              id="calc-clog-warning-banner"
-              class="hidden border-2 border-red-600 bg-red-50 p-4 text-xs font-mono text-red-950"
-            >
-              <strong>⚠️ CRITICAL ORIFICE JAM HAZARD:</strong> DO NOT EXTRUDE {filament.name.toUpperCase()} THROUGH A 0.2MM NOZZLE. CARBON/GLASS/GLOW PARTICULATES BRIDGE ACROSS &lt;0.4MM ORIFICES INSTANTLY. SELECT 0.4MM OR 0.6MM HARDENED STEEL.
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 03. MANDATORY ENGINEERING HARDWARE & CONSUMABLE REQUIREMENTS (AFFILIATE BLOCKERS) -->
-      <section aria-label="Mandatory Engineering Hardware & Consumable Specifications" class="divide-y divide-neutral-200">
-        <div class="p-6 sm:px-8 bg-neutral-100 flex items-center justify-between">
-          <div class="flex items-center gap-2.5">
-            <span class="bg-neutral-950 text-white font-mono uppercase text-xs px-2.5 py-1">
-              03 // MANDATORY HARDWARE & CONSUMABLE REQUIREMENTS
-            </span>
-            <h2 class="text-lg sm:text-xl font-black uppercase tracking-tight text-neutral-950">
-              Pre-Flight Material & Toolhead Verification
-            </h2>
-          </div>
-          <span class="hidden sm:inline-block text-xs font-mono uppercase text-neutral-600">
-            VERIFIED SPOOL & TOOLING SPECS
-          </span>
-        </div>
-
-        <div class="p-6 sm:p-8 space-y-6 bg-white">
-          <!-- Conditional Abrasive Blocker Alert (Exact Swiss Spec: border-2 border-amber-600 bg-amber-50/50 p-4 text-amber-950) -->
-          {isAbrasiveOrComposite && (
-            <div class="border-2 border-amber-600 bg-amber-50/50 p-4 sm:p-6 text-amber-950">
-              <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
-                <div class="space-y-2 max-w-3xl">
-                  <div class="flex flex-wrap items-center gap-2">
-                    <span class="bg-amber-600 text-white font-mono uppercase text-xs px-2.5 py-1 font-bold">
-                      MANDATORY TOOLHEAD UPGRADE // ABRASIVE POLYMER
-                    </span>
-                    <span class="font-mono tabular-nums text-xs uppercase font-semibold">
-                      STOCK NOZZLE: {printer.defaultNozzleMaterial}
-                    </span>
-                  </div>
-                  <h3 class="text-lg sm:text-xl font-black uppercase tracking-tight text-amber-950">
-                    ⚠️ Brass Nozzle Wear Warning: {filament.name} is abrasive and will destroy the stock nozzle on your {printer.name}. Upgrade to a 0.4mm/0.6mm Hardened Steel Nozzle before printing.
-                  </h3>
-                  <p class="text-xs sm:text-sm text-amber-900 leading-relaxed">
-                    Chopped carbon/glass fibers and glow-in-the-dark strontium aluminate particulates erode standard {printer.defaultNozzleMaterial} orifices within 250g of extrusion, causing severe dimensional drift and under-extrusion.
-                  </p>
-                </div>
-
-                <a
-                  href={hardenedNozzleAmazonUrl}
-                  target="_blank"
-                  rel="noopener noreferrer sponsored"
-                  class="w-full lg:w-auto shrink-0 text-center bg-neutral-950 hover:bg-neutral-800 text-white font-medium px-4 py-2 text-sm uppercase tracking-wider font-mono transition-none"
-                >
-                  Required: {printer.name} Hardened Steel Nozzle (0.4/0.6mm) ↗
-                </a>
-              </div>
-            </div>
-          )}
-
-          <!-- Conditional Moisture / Adhesion Blocker Alert -->
-          {deterministicMath.requiresFilamentDryer && (
-            <div class="border-2 border-amber-600 bg-amber-50/50 p-4 sm:p-6 text-amber-950">
-              <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
-                <div class="space-y-1.5 max-w-2xl">
-                  <div class="flex items-center gap-2">
-                    <span class="bg-neutral-950 text-white font-mono uppercase text-xs px-2.5 py-1">
-                      HYGROSCOPIC POLYMER CONDITIONING
-                    </span>
-                    <span class="font-mono text-xs uppercase font-bold text-amber-900">
-                      SURFACE: {page.bedSurfaceRecommendation}
-                    </span>
-                  </div>
-                  <h3 class="text-base sm:text-lg font-black uppercase tracking-tight text-amber-950">
-                    Active Thermal Desiccation Required for {filament.name} ({filament.materialType})
-                  </h3>
-                  <p class="text-xs sm:text-sm text-amber-900 leading-relaxed">
-                    Extruding unconditioned {filament.materialType} at {deterministicMath.recommendedNozzleTempC}°C induces steam hydrolysis in the hotend melt zone, degrading tensile weld strength and surface finish.
-                  </p>
-                </div>
-
-                <div class="flex flex-col sm:flex-row w-full lg:w-auto gap-3 shrink-0">
-                  <a
-                    href={filamentDryerAmazonUrl}
-                    target="_blank"
-                    rel="noopener noreferrer sponsored"
-                    class="text-center bg-neutral-950 hover:bg-neutral-800 text-white font-medium px-4 py-2 text-sm uppercase tracking-wider font-mono transition-none"
-                  >
-                    Filament Dryer Box ($39) ↗
-                  </a>
-                  <a
-                    href={buildPlateGlueAmazonUrl}
-                    target="_blank"
-                    rel="noopener noreferrer sponsored"
-                    class="text-center bg-neutral-950 hover:bg-neutral-800 text-white font-medium px-4 py-2 text-sm uppercase tracking-wider font-mono transition-none"
-                  >
-                    Textured PEI Plate / Liquid Glue ($16) ↗
-                  </a>
-                </div>
-              </div>
-            </div>
-          )}
-
-          <!-- Primary Certified Filament Spool Requirement Box -->
-          <div class="border border-neutral-300 bg-neutral-50 p-5 sm:p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
             <div>
-              <div class="flex items-center gap-2 mb-1.5">
-                <span class="bg-neutral-950 text-white font-mono uppercase text-xs px-2.5 py-1">
-                  PRIMARY CONSUMABLE SPEC
-                </span>
-                <span class="font-mono tabular-nums text-xs text-neutral-600 uppercase">
-                  DIAMETER: 1.75MM ±0.02MM // 1.0 KG SPOOL
-                </span>
-              </div>
-              <h3 class="text-lg font-black uppercase tracking-tight text-neutral-950">
-                {filament.name} ({filament.brand} {filament.materialType})
-              </h3>
-              <p class="text-xs sm:text-sm text-neutral-700 mt-0.5">
-                Reference polymer calibrated for {deterministicMath.effectiveVolumetricFlowMm3s} mm³/s volumetric flow on {printer.name}.
-              </p>
+              <span class="block text-[11px] uppercase text-neutral-400">Clog Risk</span>
+              <span id="calc-clog-risk" class="text-sm font-mono font-bold text-emerald-600 block mt-0.5">
+                Low Risk
+              </span>
             </div>
+          </div>
 
-            <a
-              href={primaryFilamentAmazonUrl}
-              target="_blank"
-              rel="noopener noreferrer sponsored"
-              class="w-full md:w-auto shrink-0 text-center bg-neutral-950 hover:bg-neutral-800 text-white font-medium px-4 py-2 text-sm uppercase tracking-wider font-mono transition-none"
-            >
-              Buy {filament.name} (1kg Spool) on Amazon ↗
-            </a>
+          <div
+            id="calc-clog-warning-banner"
+            class="hidden mt-3 border border-red-500 bg-red-50 p-3 text-xs text-red-900"
+          >
+            ⚠️ <strong>Clog Warning:</strong> Do not use a 0.2mm nozzle with {filament.name} (&lt;0.4mm orifices jam with composite fibers).
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- 04. ORCASLICER PARAMETER OVERRIDES & COMPLETE TELEMETRY TABLE -->
-      <section class="grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-neutral-200">
-        <!-- Left 8 Cols: 4 Specific Slicer Tweaks -->
-        <div class="lg:col-span-8 divide-y divide-neutral-200">
-          <div class="p-6 sm:px-8 bg-neutral-100">
-            <span class="bg-neutral-950 text-white font-mono uppercase text-xs px-2.5 py-1">
-              04 // ORCASLICER PROCESS OVERRIDES
+    <!-- 4. TOP ORCASLICER TIPS (Clean 2x2 Grid) -->
+    <section class="border border-neutral-300 bg-white divide-y divide-neutral-200 mb-8">
+      <div class="px-6 py-4 bg-neutral-50">
+        <h2 class="text-base font-bold text-neutral-950">Key OrcaSlicer Settings to Change</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-neutral-200">
+        {page.slicerTweaks.map((tweak, index) => (
+          <div class="p-5 flex items-start gap-3.5 border-b border-neutral-200">
+            <span class="bg-neutral-950 text-white font-mono tabular-nums text-xs px-2 py-0.5 shrink-0 mt-0.5">
+              {index + 1}
             </span>
-            <h2 class="text-xl font-black uppercase tracking-tight text-neutral-950 mt-2">
-              4 Calibrated Slicer Adjustments for {printer.name}
-            </h2>
+            <p class="text-sm text-neutral-700 leading-relaxed">{tweak}</p>
           </div>
+        ))}
+      </div>
+    </section>
 
-          <div class="divide-y divide-neutral-200">
-            {page.slicerTweaks.map((tweak, index) => (
-              <div class="p-6 sm:px-8 flex items-start gap-5 bg-white">
-                <span class="bg-neutral-950 text-white font-mono tabular-nums uppercase text-xs px-2.5 py-1 shrink-0 mt-0.5">
-                  04.{index + 1}
-                </span>
-                <p class="text-sm sm:text-base text-neutral-900 leading-relaxed">{tweak}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <!-- Right 4 Cols: Complete Tabular Specification Register -->
-        <div class="lg:col-span-4 divide-y divide-neutral-200 bg-neutral-50">
-          <div class="p-6 bg-neutral-100">
-            <span class="bg-neutral-950 text-white font-mono uppercase text-xs px-2.5 py-1">
-              PARAMETER REGISTER
-            </span>
-            <h3 class="text-xl font-black uppercase tracking-tight text-neutral-950 mt-2">
-              Slicer Cheat Sheet
-            </h3>
-          </div>
-
-          <dl class="divide-y divide-neutral-200 text-xs font-mono tabular-nums">
-            <div class="px-6 py-3.5 flex justify-between">
-              <dt class="text-neutral-500 uppercase">FIRST LAYER SPEED</dt>
-              <dd class="font-bold text-neutral-950">{page.firstLayerSpeedMmS} MM/S</dd>
-            </div>
-            <div class="px-6 py-3.5 flex justify-between">
-              <dt class="text-neutral-500 uppercase">NOZZLE TEMPERATURE</dt>
-              <dd class="font-bold text-orange-600">{deterministicMath.recommendedNozzleTempC} °C</dd>
-            </div>
-            <div class="px-6 py-3.5 flex justify-between">
-              <dt class="text-neutral-500 uppercase">BED TEMPERATURE</dt>
-              <dd class="font-bold text-neutral-950">{deterministicMath.recommendedBedTempC} °C</dd>
-            </div>
-            <div class="px-6 py-3.5 flex justify-between">
-              <dt class="text-neutral-500 uppercase">PART COOLING FAN</dt>
-              <dd class="font-bold text-neutral-950">{page.coolingFanMinPct}% – {page.coolingFanMaxPct}%</dd>
-            </div>
-            <div class="px-6 py-3.5 flex justify-between">
-              <dt class="text-neutral-500 uppercase">RETRACTION LENGTH</dt>
-              <dd class="font-bold text-neutral-950">{page.retractionDistanceMm} MM</dd>
-            </div>
-            <div class="px-6 py-3.5 flex justify-between">
-              <dt class="text-neutral-500 uppercase">RETRACTION VELOCITY</dt>
-              <dd class="font-bold text-neutral-950">{page.retractionSpeedMmS} MM/S</dd>
-            </div>
-            <div class="px-6 py-3.5 flex justify-between">
-              <dt class="text-neutral-500 uppercase">VOLUMETRIC LIMIT</dt>
-              <dd class="font-bold text-emerald-700">{deterministicMath.effectiveVolumetricFlowMm3s} MM³/S</dd>
-            </div>
-            <div class="p-6">
-              <dt class="text-neutral-500 uppercase mb-1.5">RECOMMENDED BUILD SURFACE</dt>
-              <dd class="font-bold text-neutral-950 bg-white p-3 border border-neutral-300">
-                {page.bedSurfaceRecommendation}
-              </dd>
-            </div>
-          </dl>
-        </div>
-      </section>
-
-      <!-- 05. FAILURE MODE & TROUBLESHOOTING MATRIX -->
-      <section class="divide-y divide-neutral-200">
-        <div class="p-6 sm:px-8 bg-neutral-100">
-          <span class="bg-neutral-950 text-white font-mono uppercase text-xs px-2.5 py-1">
-            05 // DIAGNOSTIC PROTOCOL
-          </span>
-          <h2 class="text-xl font-black uppercase tracking-tight text-neutral-950 mt-2">
-            {printer.name} × {filament.name} Troubleshooting Matrix
-          </h2>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-neutral-200 bg-white">
-          {page.troubleshootingMatrix.map((item, idx) => (
-            <div class="p-6 sm:p-8 flex flex-col justify-between">
-              <div>
-                <div class="flex items-center justify-between text-[11px] font-mono tabular-nums uppercase text-red-700 font-bold mb-2">
-                  <span>FAULT MODE 05.{idx + 1}</span>
-                  <span>DIAGNOSTIC</span>
-                </div>
-                <h3 class="font-black text-neutral-950 uppercase text-base mb-3 tracking-tight">
-                  {item.issue}
-                </h3>
-                <p class="text-xs text-neutral-600 mb-6 leading-relaxed">
-                  <strong class="font-mono uppercase text-neutral-950">ROOT CAUSE:</strong> {item.rootCause}
-                </p>
-              </div>
-              <div class="pt-4 border-t border-neutral-200">
-                <span class="block text-[11px] font-mono uppercase text-emerald-700 font-bold mb-1">
-                  CORRECTIVE ENGINEERING ACTION
-                </span>
-                <p class="text-xs sm:text-sm text-neutral-900 leading-relaxed">{item.exactFix}</p>
+    <!-- 5. COLLAPSIBLE TROUBLESHOOTING & FAQ (Keeps Page Clean & Short, Preserves 100% SEO) -->
+    <div class="space-y-4 mb-10">
+      <details class="group border border-neutral-300 bg-white">
+        <summary class="px-6 py-4 cursor-pointer flex items-center justify-between font-bold text-base text-neutral-950 hover:bg-neutral-50 list-none">
+          <span>Troubleshooting Common Issues (Stringing, Warping &amp; Clogs)</span>
+          <span class="font-mono text-sm text-neutral-400 group-open:rotate-45 transition-transform">+</span>
+        </summary>
+        <div class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-neutral-200 border-t border-neutral-200">
+          {page.troubleshootingMatrix.map((item) => (
+            <div class="p-5">
+              <h3 class="font-bold text-sm text-neutral-950 mb-1.5">{item.issue}</h3>
+              <p class="text-xs text-neutral-500 mb-3">{item.rootCause}</p>
+              <div class="text-xs text-neutral-900 bg-neutral-50 p-3 border border-neutral-200">
+                <strong class="text-emerald-700 block mb-0.5">Fix:</strong> {item.exactFix}
               </div>
             </div>
           ))}
         </div>
-      </section>
+      </details>
 
-      <!-- 06. TECHNICAL FAQ SPECIFICATION (JSON-LD BACKED) -->
-      <section class="divide-y divide-neutral-200">
-        <div class="p-6 sm:px-8 bg-neutral-100">
-          <span class="bg-neutral-950 text-white font-mono uppercase text-xs px-2.5 py-1">
-            06 // OPERATOR Q&A
-          </span>
-          <h2 class="text-xl font-black uppercase tracking-tight text-neutral-950 mt-2">
-            Frequently Asked Engineering Questions
-          </h2>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-neutral-200 bg-white">
-          {page.faq.map((item, idx) => (
-            <div class="p-6 sm:p-8 border-b border-neutral-200">
-              <div class="text-[11px] font-mono tabular-nums text-neutral-400 uppercase mb-1">
-                QUERY 06.{idx + 1}
-              </div>
-              <h3 class="font-bold text-neutral-950 text-base mb-2">{item.question}</h3>
-              <p class="text-sm text-neutral-700 leading-relaxed">{item.answer}</p>
+      <details class="group border border-neutral-300 bg-white">
+        <summary class="px-6 py-4 cursor-pointer flex items-center justify-between font-bold text-base text-neutral-950 hover:bg-neutral-50 list-none">
+          <span>Frequently Asked Questions ({page.faq.length})</span>
+          <span class="font-mono text-sm text-neutral-400 group-open:rotate-45 transition-transform">+</span>
+        </summary>
+        <div class="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-neutral-200 border-t border-neutral-200">
+          {page.faq.map((item) => (
+            <div class="p-5 border-b border-neutral-200">
+              <h3 class="font-bold text-sm text-neutral-950 mb-1.5">{item.question}</h3>
+              <p class="text-xs sm:text-sm text-neutral-600 leading-relaxed">{item.answer}</p>
             </div>
           ))}
         </div>
-      </section>
-
-      <!-- 07. INTERNAL LINK MESH & ADJACENT MATRIX COMBINATIONS -->
-      <section aria-label="Internal Link Mesh" class="divide-y divide-neutral-200">
-        <div class="p-6 sm:px-8 bg-neutral-100 flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div>
-            <span class="bg-neutral-950 text-white font-mono uppercase text-xs px-2.5 py-1">
-              07 // CONNECTED SPECIFICATION MESH
-            </span>
-            <h2 class="text-xl font-black uppercase tracking-tight text-neutral-950 mt-2">
-              Adjacent Printer × Polymer Calibration Sheets
-            </h2>
-          </div>
-          <div class="flex flex-wrap gap-2">
-            <a
-              href={withBase(`/printer/${printer.slug}/`)}
-              class="bg-neutral-950 hover:bg-neutral-800 text-white font-medium px-4 py-2 text-sm uppercase tracking-wider font-mono transition-none"
-            >
-              ALL {printer.name} PROFILES →
-            </a>
-            <a
-              href={withBase(`/filament/${filament.slug}/`)}
-              class="bg-neutral-950 hover:bg-neutral-800 text-white font-medium px-4 py-2 text-sm uppercase tracking-wider font-mono transition-none"
-            >
-              ALL {filament.name} PRINTERS →
-            </a>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-neutral-200 bg-white">
-          {neighbors.map((neighbor, idx) => {
-            const href = neighbor.isGenerated
-              ? withBase(`/${neighbor.slug}/`)
-              : withBase(`/printer/${neighbor.printer.slug}/#${neighbor.slug}`);
-            return (
-              <a
-                href={href}
-                class="group p-6 hover:bg-neutral-100 transition-none flex flex-col justify-between border-b border-neutral-200"
-              >
-                <div>
-                  <div class="flex items-center justify-between text-[11px] font-mono tabular-nums text-neutral-500 uppercase mb-1">
-                    <span>ADJ.0{idx + 1} // {neighbor.printer.name}</span>
-                    <span class="text-emerald-700 font-bold">
-                      {neighbor.deterministicMath.effectiveVolumetricFlowMm3s} MM³/S
-                    </span>
-                  </div>
-                  <div class="font-black text-base uppercase text-neutral-950 group-hover:text-orange-600 tracking-tight">
-                    {neighbor.printer.name} × {neighbor.filament.name}
-                  </div>
-                </div>
-                <div class="mt-4 pt-3 border-t border-neutral-200 flex items-center justify-between text-xs font-mono tabular-nums text-neutral-600">
-                  <span>
-                    {neighbor.deterministicMath.recommendedNozzleTempC}°C / {neighbor.deterministicMath.recommendedBedTempC}°C
-                  </span>
-                  <span class="font-bold text-neutral-950 group-hover:text-orange-600">
-                    {neighbor.deterministicMath.calculatedMaxPrintSpeedMmS} MM/S →
-                  </span>
-                </div>
-              </a>
-            );
-          })}
-        </div>
-      </section>
+      </details>
     </div>
+
+    <!-- 6. RELATED PROFILES -->
+    <section class="border border-neutral-300 bg-white divide-y divide-neutral-200">
+      <div class="px-6 py-4 bg-neutral-50 flex flex-wrap items-center justify-between gap-2">
+        <h2 class="text-sm font-bold uppercase tracking-wider text-neutral-500">Related Profiles</h2>
+        <div class="flex gap-4 text-xs font-semibold">
+          <a href={withBase(`/printer/${printer.slug}/`)} class="text-neutral-900 hover:text-orange-600">
+            All {printer.name} Filaments →
+          </a>
+          <a href={withBase(`/filament/${filament.slug}/`)} class="text-neutral-900 hover:text-orange-600">
+            All {filament.name} Printers →
+          </a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-neutral-200">
+        {neighbors.map((neighbor) => {
+          const href = neighbor.isGenerated
+            ? withBase(`/${neighbor.slug}/`)
+            : withBase(`/printer/${neighbor.printer.slug}/#${neighbor.slug}`);
+          return (
+            <a href={href} class="p-4 hover:bg-neutral-50 transition-colors flex items-center justify-between border-b border-neutral-200">
+              <div>
+                <div class="text-xs text-neutral-400">{neighbor.printer.name}</div>
+                <div class="font-bold text-sm text-neutral-950">{neighbor.filament.name}</div>
+              </div>
+              <div class="text-right font-mono tabular-nums text-xs">
+                <span class="font-bold text-neutral-950 block">{neighbor.deterministicMath.recommendedNozzleTempC}°C</span>
+                <span class="text-emerald-600">{neighbor.deterministicMath.calculatedMaxPrintSpeedMmS} mm/s</span>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </section>
   </div>
 
-  <!-- Client-Side Interactive Calculator & OrcaSlicer JSON Preset Generator -->
   <script>
     function initSlicerPageInteractions() {
-      // 1. One-Click Download .json OrcaSlicer Filament Preset
       const downloadBtn = document.getElementById('download-orca-preset-btn');
       if (downloadBtn) {
         downloadBtn.addEventListener('click', () => {
@@ -788,7 +496,6 @@ const orcaPresetPayload = {
         });
       }
 
-      // 2. Interactive Nozzle & Layer Speed Calculator
       const calcSection = document.getElementById('speed-calculator');
       if (!calcSection) return;
 
@@ -802,14 +509,13 @@ const orcaPresetPayload = {
       const lineWidthNote = document.getElementById('calc-line-width-note');
       const printTimeDisplay = document.getElementById('calc-print-time');
       const clogRiskEl = document.getElementById('calc-clog-risk');
-      const clogSubEl = document.getElementById('calc-clog-sub');
       const clogBanner = document.getElementById('calc-clog-warning-banner');
       const nozzleButtons = document.querySelectorAll('.nozzle-select-btn');
 
       function recalculate() {
         const layerHeight = slider ? parseFloat(slider.value) : 0.2;
         if (layerDisplay) {
-          layerDisplay.textContent = `${layerHeight.toFixed(2)} MM`;
+          layerDisplay.textContent = `${layerHeight.toFixed(2)} mm`;
         }
 
         const lineWidth = currentNozzle * 1.05;
@@ -819,7 +525,7 @@ const orcaPresetPayload = {
           speedDisplay.textContent = String(safeMaxSpeed);
         }
         if (lineWidthNote) {
-          lineWidthNote.textContent = `EXTRUSION WIDTH (105%): ${lineWidth.toFixed(2)} MM @ ${layerHeight.toFixed(2)} MM LAYER`;
+          lineWidthNote.textContent = `Line width: ${lineWidth.toFixed(2)} mm @ ${layerHeight.toFixed(2)} mm layer`;
         }
 
         const actualAvgFlow = effectiveFlow * 0.65;
@@ -830,26 +536,18 @@ const orcaPresetPayload = {
           printTimeDisplay.textContent = hours > 0 ? `${hours}h ${mins}m` : `${mins}m`;
         }
 
-        if (clogRiskEl && clogSubEl && clogBanner) {
+        if (clogRiskEl && clogBanner) {
           if (currentNozzle <= 0.2 && isAbrasive) {
-            clogRiskEl.textContent = '▲ CRITICAL JAM HAZARD';
-            clogRiskEl.className = 'text-sm font-mono tabular-nums font-bold text-red-600 mt-2 uppercase';
-            clogSubEl.textContent = '0.2MM + ABRASIVE FIBRES CLOG';
+            clogRiskEl.textContent = 'High Clog Risk';
+            clogRiskEl.className = 'text-sm font-mono font-bold text-red-600 block mt-0.5';
             clogBanner.classList.remove('hidden');
           } else if (currentNozzle === 0.4 && isAbrasive) {
-            clogRiskEl.textContent = '◆ ELEVATED WEAR RISK';
-            clogRiskEl.className = 'text-sm font-mono tabular-nums font-bold text-amber-600 mt-2 uppercase';
-            clogSubEl.textContent = 'REQUIRE HARDENED 0.4/0.6MM';
-            clogBanner.classList.add('hidden');
-          } else if (layerHeight > currentNozzle * 0.75) {
-            clogRiskEl.textContent = '◆ EXTRUSION CEILING';
-            clogRiskEl.className = 'text-sm font-mono tabular-nums font-bold text-amber-600 mt-2 uppercase';
-            clogSubEl.textContent = 'LAYER EXCEEDS 75% ORIFICE Ø';
+            clogRiskEl.textContent = 'Hardened Req';
+            clogRiskEl.className = 'text-sm font-mono font-bold text-amber-600 block mt-0.5';
             clogBanner.classList.add('hidden');
           } else {
-            clogRiskEl.textContent = '● NOMINAL CLEARANCE';
-            clogRiskEl.className = 'text-sm font-mono tabular-nums font-bold text-emerald-700 mt-2 uppercase';
-            clogSubEl.textContent = 'UNRESTRICTED MELT ZONE';
+            clogRiskEl.textContent = 'Low Risk';
+            clogRiskEl.className = 'text-sm font-mono font-bold text-emerald-600 block mt-0.5';
             clogBanner.classList.add('hidden');
           }
         }
@@ -857,16 +555,13 @@ const orcaPresetPayload = {
 
       nozzleButtons.forEach((btn) => {
         btn.addEventListener('click', () => {
-          const size = parseFloat(btn.getAttribute('data-nozzle') || '0.4');
-          currentNozzle = size;
-
+          currentNozzle = parseFloat(btn.getAttribute('data-nozzle') || '0.4');
           nozzleButtons.forEach((b) => {
             b.className =
-              'nozzle-select-btn py-3.5 px-4 font-mono tabular-nums font-bold text-sm uppercase cursor-pointer transition-none bg-neutral-50 text-neutral-950 hover:bg-neutral-200';
+              'nozzle-select-btn py-2.5 px-3 font-mono tabular-nums font-bold text-sm cursor-pointer transition-colors bg-white text-neutral-700 hover:bg-neutral-100';
           });
           btn.className =
-            'nozzle-select-btn py-3.5 px-4 font-mono tabular-nums font-bold text-sm uppercase cursor-pointer transition-none bg-neutral-950 text-white';
-
+            'nozzle-select-btn py-2.5 px-3 font-mono tabular-nums font-bold text-sm cursor-pointer transition-colors bg-neutral-950 text-white';
           recalculate();
         });
       });
