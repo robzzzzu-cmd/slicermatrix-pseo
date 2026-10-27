@@ -29,220 +29,411 @@ for (const seed of allSeeds) {
 const printers = Array.from(printersMap.values());
 const filaments = Array.from(filamentsMap.values());
 
-const title = 'SlicerMatrix — 3D Printer × Filament & Nozzle OrcaSlicer Profile Database';
+const title = 'SlicerMatrix — Swiss Metrology 3D Printer × Filament Calibration Database';
 const description =
-  'Search 1,000+ calibrated OrcaSlicer filament profiles, volumetric flow limits, nozzle abrasion warnings, and one-click JSON presets for Bambu Lab, Creality, Prusa, Qidi, Voron, and Elegoo 3D printers.';
+  'High-precision calibration and compatibility specification sheets for 1,000+ 3D Printer × Filament combinations. Deterministic volumetric flow rates, nozzle abrasion warnings, and downloadable OrcaSlicer JSON presets.';
 ---
 
 <BaseLayout title={title} description={description}>
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
-    <!-- Hero Section -->
-    <section class="text-center max-w-4xl mx-auto mb-12">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs font-mono font-semibold mb-6">
-        <span class="w-2 h-2 rounded-full bg-orange-400 animate-ping"></span>
-        <span>{allSeeds.length.toLocaleString()} Calibrated Combinations • {printers.length} Printers × {filaments.length} Filaments</span>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+    <!-- SWISS MODULAR SPECIFICATION SHEET HEADER -->
+    <section class="border border-neutral-300 bg-white divide-y divide-neutral-200 mb-14">
+      <!-- Top Classification Strip -->
+      <div class="grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-neutral-200 bg-neutral-100 text-[11px] font-mono tabular-nums uppercase tracking-wider text-neutral-600">
+        <div class="md:col-span-3 px-4 py-2.5 flex items-center justify-between">
+          <span>DOC.ID // SM-INDEX-01</span>
+          <span class="bg-neutral-950 text-white font-mono uppercase text-[10px] px-2 py-0.5">LIVE</span>
+        </div>
+        <div class="md:col-span-5 px-4 py-2.5">
+          <span>MATRIX CAPACITY: {allSeeds.length.toLocaleString()} COMBINATIONS ({printers.length} PRINTERS × {filaments.length} POLYMERS)</span>
+        </div>
+        <div class="md:col-span-4 px-4 py-2.5 md:text-right text-neutral-900 font-semibold">
+          <span>TOLERANCE: 1.75MM ±0.02MM // ORCASLICER</span>
+        </div>
       </div>
 
-      <h1 class="text-3xl sm:text-6xl font-extrabold tracking-tight text-white leading-[1.1] mb-5">
-        Precision <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-300">3D Printer × Filament</span> OrcaSlicer Matrix
-      </h1>
+      <!-- Asymmetric Swiss Hero Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-neutral-200">
+        <div class="lg:col-span-8 p-6 sm:p-10">
+          <div class="inline-flex items-center gap-2 mb-4">
+            <span class="bg-neutral-950 text-white font-mono uppercase text-xs px-2.5 py-1">
+              OPERATIONAL CALIBRATION UTILITY
+            </span>
+            <span class="font-mono tabular-nums text-xs uppercase text-orange-600 font-bold px-2 py-0.5 border border-orange-600 bg-orange-50">
+              {generatedPages.length} VERIFIED SPEC SHEETS
+            </span>
+          </div>
 
-      <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto mb-8">
-        Deterministic volumetric flow ceilings, safe print speeds, retraction tuning, hardware blocker alerts, and downloadable <code class="text-orange-300 font-mono">.json</code> OrcaSlicer filament presets.
-      </p>
+          <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-neutral-950 leading-[0.98] uppercase mb-6">
+            3D Printer × Filament Slicer Matrix.
+          </h1>
 
-      <!-- Interactive Printer × Filament Quick Jump Matcher -->
-      <div class="rounded-2xl border border-slate-800 bg-slate-900/80 backdrop-blur-md p-5 sm:p-6 shadow-2xl text-left">
-        <div class="flex items-center justify-between mb-3">
-          <span class="text-xs font-mono uppercase tracking-wider text-orange-400 font-semibold">
-            Instant Profile Lookup & Speed Matcher
-          </span>
-          <span class="text-xs font-mono text-slate-400">Select Printer + Filament</span>
+          <p class="text-base sm:text-lg text-neutral-700 leading-relaxed max-w-2xl">
+            Objective kinematic process parameters, volumetric flow ceilings, thermal boundaries, and mandatory nozzle abrasion diagnostics. Engineered for zero-friction OrcaSlicer profile deployment.
+          </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-3 items-end">
-          <div class="md:col-span-5">
-            <label for="matcher-printer" class="block text-xs font-mono text-slate-400 mb-1.5">3D Printer Model</label>
-            <select
-              id="matcher-printer"
-              class="w-full px-3.5 py-3 rounded-xl bg-slate-950 border border-slate-800 text-sm text-white font-medium focus:outline-none focus:border-orange-500"
+        <!-- Numerical Telemetry Sidebar -->
+        <div class="lg:col-span-4 divide-y divide-neutral-200 bg-neutral-50 flex flex-col justify-between">
+          <div class="p-6">
+            <span class="block text-[11px] font-mono uppercase tracking-widest text-neutral-500 mb-1">
+              01 // INDEXED HARDWARE SYSTEMS
+            </span>
+            <div class="text-4xl sm:text-5xl font-mono tabular-nums font-bold text-neutral-950">
+              {printers.length}
+            </div>
+            <span class="text-xs font-mono text-neutral-600 mt-1 block">
+              CoreXY, Bed-Slinger & Delta Kinematics
+            </span>
+          </div>
+
+          <div class="p-6">
+            <span class="block text-[11px] font-mono uppercase tracking-widest text-neutral-500 mb-1">
+              02 // CALIBRATED POLYMERS
+            </span>
+            <div class="text-4xl sm:text-5xl font-mono tabular-nums font-bold text-neutral-950">
+              {filaments.length}
+            </div>
+            <span class="text-xs font-mono text-neutral-600 mt-1 block">
+              PLA, PETG, TPU, ABS-GF, PA6-CF & PC
+            </span>
+          </div>
+
+          <div class="p-6 bg-white">
+            <span class="block text-[11px] font-mono uppercase tracking-widest text-neutral-500 mb-1">
+              03 // DETERMINISTIC OUTPUTS
+            </span>
+            <div class="text-3xl font-mono tabular-nums font-bold text-emerald-700">
+              {allSeeds.length.toLocaleString()} SPECS
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TYPEABLE AUTOCOMPLETE CALIBRATION TERMINAL (NO NATIVE SCROLL SELECTS) -->
+      <div class="p-6 sm:p-8 bg-neutral-100">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 bg-orange-600 inline-block"></span>
+            <h2 class="text-xs font-mono uppercase tracking-widest font-bold text-neutral-950">
+              INTERACTIVE PARAMETER LOOKUP // TYPE TO SEARCH PRINTER OR FILAMENT
+            </h2>
+          </div>
+          <span class="text-[11px] font-mono tabular-nums text-neutral-600">
+            KEYBOARD NAVIGATION SUPPORTED [↓ / ↑ / ENTER]
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
+          <!-- Typeable Printer Combobox -->
+          <div class="lg:col-span-5 relative" id="printer-combobox-container">
+            <label for="matcher-printer-input" class="block text-[11px] font-mono uppercase tracking-wider text-neutral-700 mb-1.5 font-semibold">
+              A. Target 3D Printer System (Type to Filter)
+            </label>
+            <div class="relative flex items-center">
+              <input
+                id="matcher-printer-input"
+                type="text"
+                autocomplete="off"
+                placeholder="Type printer (e.g. Bambu Lab P1S, K1 Max, Voron)..."
+                value={printers[0]?.name || ''}
+                data-selected-slug={printers[0]?.slug || ''}
+                class="w-full bg-white border-2 border-neutral-950 px-3.5 py-3 pr-16 text-sm font-mono text-neutral-950 placeholder-neutral-400 focus:outline-none focus:border-orange-600"
+              />
+              <button
+                type="button"
+                id="clear-printer-btn"
+                title="Clear printer input"
+                class="absolute right-2 px-2 py-1 text-[10px] font-mono uppercase bg-neutral-200 hover:bg-neutral-300 text-neutral-800 cursor-pointer"
+              >
+                CLR
+              </button>
+            </div>
+            <div
+              id="printer-selected-meta"
+              class="mt-1.5 text-[11px] font-mono tabular-nums text-neutral-600 flex items-center justify-between"
+            >
+              <span>SELECTED: <strong class="text-neutral-950">{printers[0]?.name}</strong></span>
+              <span>NOZZLE: {printers[0]?.defaultNozzleMaterial} • {printers[0]?.maxVolumetricFlowBaseline} mm³/s</span>
+            </div>
+
+            <!-- Typeable Dropdown Results List -->
+            <ul
+              id="matcher-printer-list"
+              class="hidden absolute z-30 left-0 right-0 top-[74px] bg-white border-2 border-neutral-950 divide-y divide-neutral-200 max-h-64 overflow-y-auto shadow-none"
             >
               {printers.map((p) => (
-                <option value={p.slug}>{p.name} ({p.defaultNozzleMaterial} • {p.maxVolumetricFlowBaseline} mm³/s)</option>
+                <li
+                  data-slug={p.slug}
+                  data-name={p.name}
+                  data-meta={`NOZZLE: ${p.defaultNozzleMaterial} • ${p.maxVolumetricFlowBaseline} mm³/s`}
+                  data-search={`${p.name} ${p.vendor} ${p.defaultNozzleMaterial} ${p.extruderType}`.toLowerCase()}
+                  class="printer-option px-3.5 py-2.5 hover:bg-neutral-950 hover:text-white cursor-pointer flex items-center justify-between text-xs font-mono transition-none"
+                >
+                  <span class="font-bold">{p.name}</span>
+                  <span class="text-[11px] opacity-75 tabular-nums">{p.defaultNozzleMaterial} | {p.maxNozzleTempC}°C</span>
+                </li>
               ))}
-            </select>
+            </ul>
           </div>
 
-          <div class="md:col-span-5">
-            <label for="matcher-filament" class="block text-xs font-mono text-slate-400 mb-1.5">Branded Filament</label>
-            <select
-              id="matcher-filament"
-              class="w-full px-3.5 py-3 rounded-xl bg-slate-950 border border-slate-800 text-sm text-white font-medium focus:outline-none focus:border-orange-500"
+          <!-- Typeable Filament Combobox -->
+          <div class="lg:col-span-5 relative" id="filament-combobox-container">
+            <label for="matcher-filament-input" class="block text-[11px] font-mono uppercase tracking-wider text-neutral-700 mb-1.5 font-semibold">
+              B. Target Polymer / Filament Spool (Type to Filter)
+            </label>
+            <div class="relative flex items-center">
+              <input
+                id="matcher-filament-input"
+                type="text"
+                autocomplete="off"
+                placeholder="Type filament (e.g. PolyLite PETG, PLA-CF, TPU 95A)..."
+                value={filaments[0]?.name || ''}
+                data-selected-slug={filaments[0]?.slug || ''}
+                class="w-full bg-white border-2 border-neutral-950 px-3.5 py-3 pr-16 text-sm font-mono text-neutral-950 placeholder-neutral-400 focus:outline-none focus:border-orange-600"
+              />
+              <button
+                type="button"
+                id="clear-filament-btn"
+                title="Clear filament input"
+                class="absolute right-2 px-2 py-1 text-[10px] font-mono uppercase bg-neutral-200 hover:bg-neutral-300 text-neutral-800 cursor-pointer"
+              >
+                CLR
+              </button>
+            </div>
+            <div
+              id="filament-selected-meta"
+              class="mt-1.5 text-[11px] font-mono tabular-nums text-neutral-600 flex items-center justify-between"
+            >
+              <span>SELECTED: <strong class="text-neutral-950">{filaments[0]?.name}</strong></span>
+              <span>TYPE: {filaments[0]?.materialType} • {filaments[0]?.volumetricFlowLimitMm3s} mm³/s</span>
+            </div>
+
+            <!-- Typeable Dropdown Results List -->
+            <ul
+              id="matcher-filament-list"
+              class="hidden absolute z-30 left-0 right-0 top-[74px] bg-white border-2 border-neutral-950 divide-y divide-neutral-200 max-h-64 overflow-y-auto shadow-none"
             >
               {filaments.map((f) => (
-                <option value={f.slug}>{f.name} ({f.materialType} • {f.volumetricFlowLimitMm3s} mm³/s)</option>
+                <li
+                  data-slug={f.slug}
+                  data-name={f.name}
+                  data-meta={`TYPE: ${f.materialType} • ${f.volumetricFlowLimitMm3s} mm³/s`}
+                  data-search={`${f.name} ${f.brand} ${f.materialType}`.toLowerCase()}
+                  class="filament-option px-3.5 py-2.5 hover:bg-neutral-950 hover:text-white cursor-pointer flex items-center justify-between text-xs font-mono transition-none"
+                >
+                  <span class="font-bold">{f.name}</span>
+                  <span class="text-[11px] opacity-75 tabular-nums">{f.materialType} | {f.volumetricFlowLimitMm3s} mm³/s</span>
+                </li>
               ))}
-            </select>
+            </ul>
           </div>
 
-          <div class="md:col-span-2">
+          <!-- Execute Action Button -->
+          <div class="lg:col-span-2 pt-0 lg:pt-[22px]">
             <button
               id="matcher-go-btn"
               type="button"
-              class="w-full py-3 px-4 rounded-xl bg-orange-500 hover:bg-orange-400 text-slate-950 font-extrabold text-sm shadow-lg shadow-orange-500/20 transition-all cursor-pointer"
+              class="w-full bg-neutral-950 hover:bg-neutral-800 text-white font-medium px-4 py-3 text-sm uppercase tracking-wider font-mono cursor-pointer border-2 border-neutral-950 transition-none"
             >
-              Load Specs →
+              OPEN SPEC →
             </button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Featured Deep-Dive Verified OrcaSlicer Pages -->
+    <!-- SECTION 01: VERIFIED ORCASLICER SPECIFICATION SHEETS -->
     <section id="verified-profiles" class="mb-16">
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
-        <div>
-          <span class="text-xs font-mono uppercase tracking-wider text-emerald-400">Ready-to-Download JSON Presets</span>
-          <h2 class="text-2xl sm:text-3xl font-bold text-white mt-0.5">
-            Featured Verified OrcaSlicer Profiles ({generatedPages.length})
-          </h2>
-        </div>
-        <div class="w-full sm:w-72">
-          <input
-            id="verified-search-input"
-            type="search"
-            placeholder="Filter verified profiles..."
-            class="w-full px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-orange-500"
-          />
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="verified-cards-grid">
-        {generatedPages.map((page) => (
-          <a
-            href={withBase(`/${page.slug}/`)}
-            data-search={`${page.printer.name} ${page.filament.name} ${page.filament.materialType} ${page.compatibilityVerdict}`.toLowerCase()}
-            class="verified-card group rounded-2xl border border-slate-800 bg-slate-900/70 hover:border-orange-500/50 p-6 transition-all flex flex-col justify-between shadow-lg"
-          >
-            <div>
-              <div class="flex items-center justify-between gap-2 mb-3">
-                <span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
-                  {page.compatibilityVerdict}
-                </span>
-                <span class="text-xs font-mono text-slate-400">{page.filament.materialType}</span>
-              </div>
-
-              <h3 class="text-lg font-bold text-white group-hover:text-orange-400 transition-colors mb-2">
-                {page.printer.name} × {page.filament.name}
-              </h3>
-
-              <p class="text-xs text-slate-300 line-clamp-3 leading-relaxed mb-4">
-                {page.heroSummary}
-              </p>
+      <div class="border border-neutral-300 bg-white divide-y divide-neutral-200">
+        <!-- Section Header Bar -->
+        <div class="p-6 flex flex-col md:flex-row md:items-center justify-between gap-4 bg-neutral-100">
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="bg-neutral-950 text-white font-mono uppercase text-xs px-2.5 py-1">
+                SECTION 01 // VERIFIED PROFILES
+              </span>
+              <span class="font-mono tabular-nums text-xs text-emerald-700 font-bold uppercase">
+                ● {generatedPages.length} COMPLETE CALIBRATION SHEETS
+              </span>
             </div>
+            <h2 class="text-2xl font-black uppercase tracking-tight text-neutral-950 mt-1">
+              Calibrated OrcaSlicer Profile Specifications
+            </h2>
+          </div>
 
-            <div class="pt-4 border-t border-slate-800/80 grid grid-cols-3 gap-2 text-center font-mono text-xs">
-              <div class="bg-slate-950 rounded-lg p-2 border border-slate-800/80">
-                <span class="block text-[10px] text-slate-500">NOZZLE</span>
-                <span class="font-bold text-orange-400">{page.deterministicMath.recommendedNozzleTempC}°C</span>
-              </div>
-              <div class="bg-slate-950 rounded-lg p-2 border border-slate-800/80">
-                <span class="block text-[10px] text-slate-500">FLOW</span>
-                <span class="font-bold text-emerald-400">{page.deterministicMath.effectiveVolumetricFlowMm3s} mm³/s</span>
-              </div>
-              <div class="bg-slate-950 rounded-lg p-2 border border-slate-800/80">
-                <span class="block text-[10px] text-slate-500">SPEED</span>
-                <span class="font-bold text-white">{page.deterministicMath.calculatedMaxPrintSpeedMmS} mm/s</span>
-              </div>
-            </div>
-          </a>
-        ))}
+          <div class="w-full md:w-80">
+            <label for="verified-search-input" class="sr-only">Type to filter verified profiles</label>
+            <input
+              id="verified-search-input"
+              type="search"
+              placeholder="TYPE TO FILTER VERIFIED PROFILES..."
+              class="w-full px-3.5 py-2.5 bg-white border border-neutral-400 text-xs font-mono text-neutral-950 placeholder-neutral-500 focus:outline-none focus:border-neutral-950"
+            />
+          </div>
+        </div>
+
+        <!-- Modular Grid of Verified Spec Sheets -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-neutral-200" id="verified-cards-grid">
+          {generatedPages.map((page, idx) => {
+            const verdictBadge =
+              page.compatibilityVerdict === 'Optimal Match'
+                ? 'bg-neutral-950 text-emerald-400'
+                : page.compatibilityVerdict === 'Requires Upgrade'
+                ? 'bg-amber-600 text-white'
+                : 'bg-red-700 text-white';
+
+            return (
+              <a
+                href={withBase(`/${page.slug}/`)}
+                data-search={`${page.printer.name} ${page.filament.name} ${page.filament.materialType} ${page.compatibilityVerdict}`.toLowerCase()}
+                class="verified-card group p-6 bg-white hover:bg-neutral-100 transition-none flex flex-col justify-between border-b border-neutral-200"
+              >
+                <div>
+                  <div class="flex items-center justify-between gap-2 mb-4">
+                    <span class="font-mono tabular-nums text-[11px] text-neutral-500 uppercase">
+                      SPEC #{String(idx + 1).padStart(3, '0')}
+                    </span>
+                    <span class={`${verdictBadge} font-mono uppercase text-xs px-2.5 py-1`}>
+                      {page.compatibilityVerdict}
+                    </span>
+                  </div>
+
+                  <div class="text-xs font-mono uppercase tracking-wider text-neutral-500 mb-1">
+                    {page.printer.vendor} × {page.filament.brand} ({page.filament.materialType})
+                  </div>
+
+                  <h3 class="text-xl font-black text-neutral-950 group-hover:text-orange-600 uppercase tracking-tight leading-snug mb-3">
+                    {page.printer.name} + {page.filament.name}
+                  </h3>
+
+                  <p class="text-xs text-neutral-700 leading-relaxed mb-6 line-clamp-3">
+                    {page.heroSummary}
+                  </p>
+                </div>
+
+                <div class="grid grid-cols-3 divide-x divide-neutral-200 border border-neutral-300 bg-neutral-50 text-center font-mono tabular-nums">
+                  <div class="p-2.5">
+                    <span class="block text-[10px] text-neutral-500 uppercase">NOZZLE</span>
+                    <span class="text-sm font-bold text-neutral-950">{page.deterministicMath.recommendedNozzleTempC}°C</span>
+                  </div>
+                  <div class="p-2.5">
+                    <span class="block text-[10px] text-neutral-500 uppercase">MAX FLOW</span>
+                    <span class="text-sm font-bold text-emerald-700">{page.deterministicMath.effectiveVolumetricFlowMm3s}</span>
+                  </div>
+                  <div class="p-2.5">
+                    <span class="block text-[10px] text-neutral-500 uppercase">SPEED</span>
+                    <span class="text-sm font-bold text-neutral-950">{page.deterministicMath.calculatedMaxPrintSpeedMmS} mm/s</span>
+                  </div>
+                </div>
+              </a>
+            );
+          })}
+        </div>
       </div>
     </section>
 
-    <!-- Top 25 3D Printer Hubs -->
+    <!-- SECTION 02: 25 PRINTER HARDWARE HUBS -->
     <section id="printers" class="mb-16">
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
-        <div>
-          <span class="text-xs font-mono uppercase tracking-wider text-orange-400">Hardware Category Hubs</span>
-          <h2 class="text-2xl sm:text-3xl font-bold text-white mt-0.5">
-            Browse by 3D Printer ({printers.length} Models)
-          </h2>
-        </div>
-        <input
-          id="printer-hub-search"
-          type="search"
-          placeholder="Search printers (Bambu, Creality, Voron)..."
-          class="w-full sm:w-72 px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-orange-500"
-        />
-      </div>
+      <div class="border border-neutral-300 bg-white divide-y divide-neutral-200">
+        <div class="p-6 flex flex-col md:flex-row md:items-center justify-between gap-4 bg-neutral-100">
+          <div>
+            <span class="bg-neutral-950 text-white font-mono uppercase text-xs px-2.5 py-1">
+              SECTION 02 // PRINTER HARDWARE INDEX
+            </span>
+            <h2 class="text-2xl font-black uppercase tracking-tight text-neutral-950 mt-2">
+              3D Printer Reference Hubs ({printers.length} Systems)
+            </h2>
+          </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="printer-hubs-grid">
-        {printers.map((printer) => (
-          <a
-            href={withBase(`/printer/${printer.slug}/`)}
-            data-search={`${printer.name} ${printer.vendor} ${printer.defaultNozzleMaterial}`.toLowerCase()}
-            class="printer-hub-card group rounded-xl border border-slate-800 bg-slate-900/50 hover:bg-slate-900 hover:border-orange-500/40 p-4 transition-all flex flex-col justify-between"
-          >
-            <div>
-              <div class="flex items-center justify-between text-[11px] font-mono text-slate-400 mb-1">
-                <span>{printer.vendor}</span>
-                <span class={printer.enclosed ? 'text-emerald-400' : 'text-slate-500'}>
-                  {printer.enclosed ? 'Enclosed' : 'Open Frame'}
-                </span>
+          <div class="w-full md:w-80">
+            <label for="printer-hub-search" class="sr-only">Type to filter printers</label>
+            <input
+              id="printer-hub-search"
+              type="search"
+              placeholder="TYPE TO FILTER PRINTERS (BAMBU, PRUSA, VORON)..."
+              class="w-full px-3.5 py-2.5 bg-white border border-neutral-400 text-xs font-mono text-neutral-950 placeholder-neutral-500 focus:outline-none focus:border-neutral-950"
+            />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 divide-y sm:divide-y-0 sm:divide-x divide-neutral-200" id="printer-hubs-grid">
+          {printers.map((printer, idx) => (
+            <a
+              href={withBase(`/printer/${printer.slug}/`)}
+              data-search={`${printer.name} ${printer.vendor} ${printer.defaultNozzleMaterial}`.toLowerCase()}
+              class="printer-hub-card group p-5 bg-white hover:bg-neutral-100 border-b border-neutral-200 flex flex-col justify-between transition-none"
+            >
+              <div>
+                <div class="flex items-center justify-between text-[10px] font-mono tabular-nums text-neutral-500 uppercase mb-2">
+                  <span>SYS.{String(idx + 1).padStart(2, '0')} // {printer.vendor}</span>
+                  <span class={printer.enclosed ? 'text-emerald-700 font-bold' : 'text-neutral-500'}>
+                    {printer.enclosed ? 'ENCLOSED' : 'OPEN'}
+                  </span>
+                </div>
+                <h3 class="font-bold text-neutral-950 group-hover:text-orange-600 uppercase text-sm tracking-tight mb-3">
+                  {printer.name}
+                </h3>
               </div>
-              <h3 class="font-bold text-white group-hover:text-orange-400 transition-colors text-base">
-                {printer.name}
-              </h3>
-            </div>
-            <div class="mt-3 pt-2.5 border-t border-slate-800/70 flex items-center justify-between text-xs font-mono text-slate-400">
-              <span>{printer.maxNozzleTempC}°C • {printer.defaultNozzleMaterial}</span>
-              <span class="text-orange-400">40 Filaments →</span>
-            </div>
-          </a>
-        ))}
+
+              <div class="pt-3 border-t border-neutral-200 flex items-center justify-between text-[11px] font-mono tabular-nums text-neutral-600">
+                <span>{printer.maxNozzleTempC}°C | {printer.defaultNozzleMaterial}</span>
+                <span class="font-bold text-neutral-950 group-hover:text-orange-600">40 →</span>
+              </div>
+            </a>
+          ))}
+        </div>
       </div>
     </section>
 
-    <!-- Top 40 Branded Filament Hubs -->
+    <!-- SECTION 03: 40 POLYMER / FILAMENT HUBS -->
     <section id="filaments">
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
-        <div>
-          <span class="text-xs font-mono uppercase tracking-wider text-amber-400">Material Category Hubs</span>
-          <h2 class="text-2xl sm:text-3xl font-bold text-white mt-0.5">
-            Browse by Branded Filament ({filaments.length} Spools)
-          </h2>
-        </div>
-        <input
-          id="filament-hub-search"
-          type="search"
-          placeholder="Search filaments (PETG, PLA-CF, PA6, TPU)..."
-          class="w-full sm:w-72 px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-orange-500"
-        />
-      </div>
+      <div class="border border-neutral-300 bg-white divide-y divide-neutral-200">
+        <div class="p-6 flex flex-col md:flex-row md:items-center justify-between gap-4 bg-neutral-100">
+          <div>
+            <span class="bg-neutral-950 text-white font-mono uppercase text-xs px-2.5 py-1">
+              SECTION 03 // POLYMER MATERIAL INDEX
+            </span>
+            <h2 class="text-2xl font-black uppercase tracking-tight text-neutral-950 mt-2">
+              Branded Filament Specification Hubs ({filaments.length} Spools)
+            </h2>
+          </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="filament-hubs-grid">
-        {filaments.map((filament) => (
-          <a
-            href={withBase(`/filament/${filament.slug}/`)}
-            data-search={`${filament.name} ${filament.brand} ${filament.materialType}`.toLowerCase()}
-            class="filament-hub-card group rounded-xl border border-slate-800 bg-slate-900/50 hover:bg-slate-900 hover:border-amber-500/40 p-4 transition-all flex flex-col justify-between"
-          >
-            <div>
-              <div class="flex items-center justify-between text-[11px] font-mono text-slate-400 mb-1">
-                <span>{filament.brand}</span>
-                <span class="px-1.5 py-0.2 rounded bg-slate-800 text-amber-300">{filament.materialType}</span>
+          <div class="w-full md:w-80">
+            <label for="filament-hub-search" class="sr-only">Type to filter filaments</label>
+            <input
+              id="filament-hub-search"
+              type="search"
+              placeholder="TYPE TO FILTER FILAMENTS (PETG, PLA-CF, PA6)..."
+              class="w-full px-3.5 py-2.5 bg-white border border-neutral-400 text-xs font-mono text-neutral-950 placeholder-neutral-500 focus:outline-none focus:border-neutral-950"
+            />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-neutral-200" id="filament-hubs-grid">
+          {filaments.map((filament, idx) => (
+            <a
+              href={withBase(`/filament/${filament.slug}/`)}
+              data-search={`${filament.name} ${filament.brand} ${filament.materialType}`.toLowerCase()}
+              class="filament-hub-card group p-5 bg-white hover:bg-neutral-100 border-b border-neutral-200 flex flex-col justify-between transition-none"
+            >
+              <div>
+                <div class="flex items-center justify-between text-[10px] font-mono tabular-nums text-neutral-500 uppercase mb-2">
+                  <span>MAT.{String(idx + 1).padStart(2, '0')} // {filament.brand}</span>
+                  <span class="px-1.5 py-0.5 bg-neutral-950 text-white font-bold">{filament.materialType}</span>
+                </div>
+                <h3 class="font-bold text-neutral-950 group-hover:text-orange-600 uppercase text-sm tracking-tight mb-3">
+                  {filament.name}
+                </h3>
               </div>
-              <h3 class="font-bold text-white group-hover:text-amber-300 transition-colors text-sm sm:text-base">
-                {filament.name}
-              </h3>
-            </div>
-            <div class="mt-3 pt-2.5 border-t border-slate-800/70 flex items-center justify-between text-xs font-mono text-slate-400">
-              <span>{filament.minNozzleTempC}–{filament.maxNozzleTempC}°C • {filament.volumetricFlowLimitMm3s} mm³/s</span>
-              <span class="text-amber-400">25 Printers →</span>
-            </div>
-          </a>
-        ))}
+
+              <div class="pt-3 border-t border-neutral-200 flex items-center justify-between text-[11px] font-mono tabular-nums text-neutral-600">
+                <span>{filament.minNozzleTempC}–{filament.maxNozzleTempC}°C | {filament.volumetricFlowLimitMm3s} mm³/s</span>
+                <span class="font-bold text-neutral-950 group-hover:text-orange-600">25 →</span>
+              </div>
+            </a>
+          ))}
+        </div>
       </div>
     </section>
   </div>
@@ -250,15 +441,124 @@ const description =
   <script define:vars={{ generatedSlugs: Array.from(generatedSlugSet), basePath: BASE }}>
     const generatedSet = new Set(generatedSlugs);
 
-    // 1. Matcher Jump Handler
-    const printerSelect = document.getElementById('matcher-printer');
-    const filamentSelect = document.getElementById('matcher-filament');
+    // Reusable Typeable Combobox Setup
+    function setupTypeableCombobox({
+      inputId,
+      listId,
+      clearBtnId,
+      metaId,
+      optionSelector,
+    }) {
+      const input = document.getElementById(inputId);
+      const list = document.getElementById(listId);
+      const clearBtn = document.getElementById(clearBtnId);
+      const meta = document.getElementById(metaId);
+      const options = Array.from(document.querySelectorAll(optionSelector));
+
+      if (!input || !list) return;
+
+      function filterOptions(query) {
+        const q = query.trim().toLowerCase();
+        let visibleCount = 0;
+        options.forEach((li) => {
+          const hay = li.getAttribute('data-search') || '';
+          const match = !q || hay.includes(q);
+          li.style.display = match ? '' : 'none';
+          if (match) visibleCount++;
+        });
+        if (visibleCount > 0) {
+          list.classList.remove('hidden');
+        } else {
+          list.classList.add('hidden');
+        }
+      }
+
+      function selectOption(li) {
+        const slug = li.getAttribute('data-slug') || '';
+        const name = li.getAttribute('data-name') || '';
+        const metaText = li.getAttribute('data-meta') || '';
+        input.value = name;
+        input.setAttribute('data-selected-slug', slug);
+        if (meta) {
+          meta.innerHTML = `<span>SELECTED: <strong class="text-neutral-950">${name}</strong></span><span>${metaText}</span>`;
+        }
+        list.classList.add('hidden');
+      }
+
+      input.addEventListener('focus', () => {
+        filterOptions('');
+      });
+
+      input.addEventListener('input', () => {
+        filterOptions(input.value);
+        // Auto-match first visible item's slug so hitting OPEN SPEC works immediately while typing
+        const q = input.value.trim().toLowerCase();
+        const firstMatch = options.find((li) => (li.getAttribute('data-search') || '').includes(q));
+        if (firstMatch) {
+          input.setAttribute('data-selected-slug', firstMatch.getAttribute('data-slug') || '');
+        }
+      });
+
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          const q = input.value.trim().toLowerCase();
+          const firstMatch = options.find((li) => (li.getAttribute('data-search') || '').includes(q));
+          if (firstMatch) {
+            selectOption(firstMatch);
+          }
+        } else if (e.key === 'Escape') {
+          list.classList.add('hidden');
+        }
+      });
+
+      options.forEach((li) => {
+        li.addEventListener('mousedown', (e) => {
+          e.preventDefault();
+          selectOption(li);
+        });
+      });
+
+      if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+          input.value = '';
+          input.focus();
+          filterOptions('');
+        });
+      }
+
+      document.addEventListener('click', (e) => {
+        if (!input.contains(e.target) && !list.contains(e.target) && (!clearBtn || !clearBtn.contains(e.target))) {
+          list.classList.add('hidden');
+        }
+      });
+    }
+
+    setupTypeableCombobox({
+      inputId: 'matcher-printer-input',
+      listId: 'matcher-printer-list',
+      clearBtnId: 'clear-printer-btn',
+      metaId: 'printer-selected-meta',
+      optionSelector: '.printer-option',
+    });
+
+    setupTypeableCombobox({
+      inputId: 'matcher-filament-input',
+      listId: 'matcher-filament-list',
+      clearBtnId: 'clear-filament-btn',
+      metaId: 'filament-selected-meta',
+      optionSelector: '.filament-option',
+    });
+
+    // Execute Lookup Navigation
+    const printerInput = document.getElementById('matcher-printer-input');
+    const filamentInput = document.getElementById('matcher-filament-input');
     const goBtn = document.getElementById('matcher-go-btn');
 
-    if (goBtn && printerSelect && filamentSelect) {
+    if (goBtn && printerInput && filamentInput) {
       goBtn.addEventListener('click', () => {
-        const pSlug = printerSelect.value;
-        const fSlug = filamentSelect.value;
+        const pSlug = printerInput.getAttribute('data-selected-slug') || 'bambu-lab-p1s';
+        const fSlug = filamentInput.getAttribute('data-selected-slug') || 'polymaker-polylite-petg';
         const comboSlug = `${pSlug}-${fSlug}-settings`;
         if (generatedSet.has(comboSlug)) {
           window.location.href = `${basePath}/${comboSlug}/`;
@@ -268,7 +568,7 @@ const description =
       });
     }
 
-    // 2. Directory Live Filters
+    // Live Grid Filters
     function bindFilter(inputId, cardSelector) {
       const input = document.getElementById(inputId);
       const cards = document.querySelectorAll(cardSelector);
