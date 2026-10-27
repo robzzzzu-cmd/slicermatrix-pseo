@@ -43,6 +43,8 @@ interface Props {
 
 const { printer, combinations, allPrinters } = Astro.props;
 const AFFILIATE_TAG = PUBLIC_AMAZON_AFFILIATE_TAG;
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, '');
+const withBase = (p: string) => `${BASE}${p.startsWith('/') ? p : '/' + p}`;
 
 const nozzleUpgradeUrl = `https://www.amazon.com/s?k=${encodeURIComponent(
   printer.name + ' hardened steel nozzle 0.4mm 0.6mm'
@@ -60,9 +62,9 @@ const description = `Complete engineering matrix of ${combinations.length} filam
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
     <!-- Breadcrumbs -->
     <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs font-mono text-slate-400 mb-6">
-      <a href="/" class="hover:text-orange-400 transition-colors">Home</a>
+      <a href={withBase('/')} class="hover:text-orange-400 transition-colors">Home</a>
       <span>/</span>
-      <a href="/#printers" class="hover:text-orange-400 transition-colors">Printers</a>
+      <a href={withBase('/#printers')} class="hover:text-orange-400 transition-colors">Printers</a>
       <span>/</span>
       <span class="text-slate-200">{printer.name}</span>
     </nav>
@@ -185,7 +187,7 @@ const description = `Complete engineering matrix of ${combinations.length} filam
                           <span class="w-2 h-2 rounded-full bg-emerald-400 shrink-0" title="Full Verified OrcaSlicer Profile"></span>
                         )}
                         <a
-                          href={item.isGenerated ? `/${item.slug}/` : `/filament/${item.filament.slug}/`}
+                          href={item.isGenerated ? withBase(`/${item.slug}/`) : withBase(`/filament/${item.filament.slug}/`)}
                           class="hover:text-orange-400 transition-colors font-semibold"
                         >
                           {item.filament.name}
@@ -237,14 +239,14 @@ const description = `Complete engineering matrix of ${combinations.length} filam
                       <div class="inline-flex items-center gap-2">
                         {item.isGenerated ? (
                           <a
-                            href={`/${item.slug}/`}
+                            href={withBase(`/${item.slug}/`)}
                             class="px-3 py-1.5 rounded-lg bg-orange-500 hover:bg-orange-400 text-slate-950 font-bold text-xs transition-colors"
                           >
                             Full Profile →
                           </a>
                         ) : (
                           <a
-                            href={`/filament/${item.filament.slug}/`}
+                            href={withBase(`/filament/${item.filament.slug}/`)}
                             class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 font-mono text-xs border border-slate-700 transition-colors"
                           >
                             Filament Hub
@@ -277,7 +279,7 @@ const description = `Complete engineering matrix of ${combinations.length} filam
       <div class="flex flex-wrap gap-2">
         {allPrinters.map((p) => (
           <a
-            href={`/printer/${p.slug}/`}
+            href={withBase(`/printer/${p.slug}/`)}
             class={`px-3 py-1.5 rounded-lg text-xs font-mono border transition-colors ${
               p.slug === printer.slug
                 ? 'bg-orange-500 text-slate-950 border-orange-400 font-bold'

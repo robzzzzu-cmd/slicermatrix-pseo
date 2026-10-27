@@ -10,6 +10,8 @@ import {
 const allSeeds = loadAllSeeds();
 const generatedPages = loadGeneratedPages();
 const generatedSlugSet = new Set(generatedPages.map((p) => p.slug));
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, '');
+const withBase = (p: string) => `${BASE}${p.startsWith('/') ? p : '/' + p}`;
 
 // Deduplicate printers & filaments
 const printersMap = new Map<string, PrinterSpec>();
@@ -118,7 +120,7 @@ const description =
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="verified-cards-grid">
         {generatedPages.map((page) => (
           <a
-            href={`/${page.slug}/`}
+            href={withBase(`/${page.slug}/`)}
             data-search={`${page.printer.name} ${page.filament.name} ${page.filament.materialType} ${page.compatibilityVerdict}`.toLowerCase()}
             class="verified-card group rounded-2xl border border-slate-800 bg-slate-900/70 hover:border-orange-500/50 p-6 transition-all flex flex-col justify-between shadow-lg"
           >
@@ -178,7 +180,7 @@ const description =
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="printer-hubs-grid">
         {printers.map((printer) => (
           <a
-            href={`/printer/${printer.slug}/`}
+            href={withBase(`/printer/${printer.slug}/`)}
             data-search={`${printer.name} ${printer.vendor} ${printer.defaultNozzleMaterial}`.toLowerCase()}
             class="printer-hub-card group rounded-xl border border-slate-800 bg-slate-900/50 hover:bg-slate-900 hover:border-orange-500/40 p-4 transition-all flex flex-col justify-between"
           >
@@ -222,7 +224,7 @@ const description =
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="filament-hubs-grid">
         {filaments.map((filament) => (
           <a
-            href={`/filament/${filament.slug}/`}
+            href={withBase(`/filament/${filament.slug}/`)}
             data-search={`${filament.name} ${filament.brand} ${filament.materialType}`.toLowerCase()}
             class="filament-hub-card group rounded-xl border border-slate-800 bg-slate-900/50 hover:bg-slate-900 hover:border-amber-500/40 p-4 transition-all flex flex-col justify-between"
           >
@@ -245,7 +247,7 @@ const description =
     </section>
   </div>
 
-  <script define:vars={{ generatedSlugs: Array.from(generatedSlugSet) }}>
+  <script define:vars={{ generatedSlugs: Array.from(generatedSlugSet), basePath: BASE }}>
     const generatedSet = new Set(generatedSlugs);
 
     // 1. Matcher Jump Handler
@@ -259,9 +261,9 @@ const description =
         const fSlug = filamentSelect.value;
         const comboSlug = `${pSlug}-${fSlug}-settings`;
         if (generatedSet.has(comboSlug)) {
-          window.location.href = `/${comboSlug}/`;
+          window.location.href = `${basePath}/${comboSlug}/`;
         } else {
-          window.location.href = `/printer/${pSlug}/#${comboSlug}`;
+          window.location.href = `${basePath}/printer/${pSlug}/#${comboSlug}`;
         }
       });
     }

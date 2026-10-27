@@ -50,6 +50,8 @@ interface Props {
 const { page, neighbors } = Astro.props;
 const { printer, filament, deterministicMath } = page;
 const AFFILIATE_TAG = PUBLIC_AMAZON_AFFILIATE_TAG;
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, '');
+const withBase = (p: string) => `${BASE}${p.startsWith('/') ? p : '/' + p}`;
 
 // Parametric Amazon URLs
 const primaryFilamentAmazonUrl = `https://www.amazon.com/s?k=${encodeURIComponent(
@@ -144,11 +146,11 @@ const orcaPresetPayload = {
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
     <!-- Breadcrumb Navigation -->
     <nav aria-label="Breadcrumb" class="flex flex-wrap items-center gap-2 text-xs font-mono text-slate-400 mb-6">
-      <a href="/" class="hover:text-orange-400 transition-colors">Home</a>
+      <a href={withBase('/')} class="hover:text-orange-400 transition-colors">Home</a>
       <span>/</span>
-      <a href={`/printer/${printer.slug}/`} class="hover:text-orange-400 transition-colors">{printer.name}</a>
+      <a href={withBase(`/printer/${printer.slug}/`)} class="hover:text-orange-400 transition-colors">{printer.name}</a>
       <span>/</span>
-      <a href={`/filament/${filament.slug}/`} class="hover:text-orange-400 transition-colors">{filament.name}</a>
+      <a href={withBase(`/filament/${filament.slug}/`)} class="hover:text-orange-400 transition-colors">{filament.name}</a>
       <span>/</span>
       <span class="text-slate-200">OrcaSlicer Settings</span>
     </nav>
@@ -591,13 +593,13 @@ const orcaPresetPayload = {
         </div>
         <div class="flex flex-wrap gap-3">
           <a
-            href={`/printer/${printer.slug}/`}
+            href={withBase(`/printer/${printer.slug}/`)}
             class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-mono border border-slate-700 transition-colors"
           >
             <span>All {printer.name} Profiles →</span>
           </a>
           <a
-            href={`/filament/${filament.slug}/`}
+            href={withBase(`/filament/${filament.slug}/`)}
             class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-mono border border-slate-700 transition-colors"
           >
             <span>All {filament.name} Printers →</span>
@@ -611,8 +613,8 @@ const orcaPresetPayload = {
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {neighbors.map((neighbor) => {
           const href = neighbor.isGenerated
-            ? `/${neighbor.slug}/`
-            : `/printer/${neighbor.printer.slug}/#${neighbor.slug}`;
+            ? withBase(`/${neighbor.slug}/`)
+            : withBase(`/printer/${neighbor.printer.slug}/#${neighbor.slug}`);
           return (
             <a
               href={href}
