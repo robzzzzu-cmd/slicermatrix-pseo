@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1s-siraya-tech-abs-gf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1S",
+    "slug": "bambu-lab-p1s",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Siraya Tech ABS-GF",
+    "slug": "siraya-tech-abs-gf",
+    "brand": "Siraya Tech",
+    "materialType": "ABS-GF",
+    "minNozzleTempC": 250,
+    "maxNozzleTempC": 270,
+    "minBedTempC": 95,
+    "maxBedTempC": 110,
+    "volumetricFlowLimitMm3s": 15,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 260,
+    "recommendedBedTempC": 100,
+    "effectiveVolumetricFlowMm3s": 15,
+    "calculatedMaxPrintSpeedMmS": 179,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-27T12:41:46.027Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab P1S handles Siraya Tech ABS-GF reliably up to a safe limit of 179 mm/s backed by a 15 mm³/s volumetric flow limit inside its enclosed chamber. However, you must upgrade the stock stainless steel nozzle and extruder gear assembly to hardened steel to prevent rapid abrasive wear from glass fibers.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 10,
+  "coolingFanMaxPct": 25,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with PVP glue stick or liquid adhesive as a release agent",
+  "slicerTweaks": [
+    "Cap Maximum Volumetric Speed to 15 mm³/s in the filament profile to prevent under-extrusion at high linear speeds.",
+    "Set Chamber Fan (exhaust) speed to 0% throughout the print to keep passive chamber temperatures above 45°C and eliminate warping.",
+    "Increase First Layer Line Width to 0.5 mm and First Layer Height to 0.24 mm to promote strong mechanical adhesion on textured PEI.",
+    "Enable Pressure Advance calibration and configure OrcaSlicer Seam Gap to 10% to eliminate glass-fiber seam bulging."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe nozzle orifice enlargement and erratic extrusion",
+      "rootCause": "Glass fibers in Siraya Tech ABS-GF rapidly erode the stock P1S stainless steel nozzle and extruder drive gears.",
+      "exactFix": "Install Bambu Lab official Hardened Steel Nozzle (0.4mm or 0.6mm) and Hardened Steel Extruder Gear Assembly."
+    },
+    {
+      "issue": "Corner lifting and print warping off the build plate",
+      "rootCause": "Bed temperature dropping below glass transition (Tg) or excessive auxiliary/chamber fan airflow cooling the lower layers.",
+      "exactFix": "Set bed temperature to the maximum 100°C, turn off Auxiliary and Chamber fans entirely, and preheat the chamber for 15 minutes before printing."
+    },
+    {
+      "issue": "Rough surface finish, intermittent popping, and poor layer bonding",
+      "rootCause": "Moisture absorption in hygroscopic ABS-GF polymer matrix causing micro-explosions at 260°C.",
+      "exactFix": "Dry the spool in an active blast-drying filament dryer at 70°C for 6 to 8 hours before printing, and print directly from a sealed dry box or desiccant-loaded AMS."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Siraya Tech ABS-GF with the stock Bambu Lab P1S hotend?",
+      "answer": "No, the stock P1S includes a stainless steel nozzle and extruder gear which will wear out in less than a single spool; upgrade to hardened steel components before printing."
+    },
+    {
+      "question": "Can I feed Siraya Tech ABS-GF through the Bambu Lab AMS?",
+      "answer": "Yes, but prolonged use will accelerate wear on the standard plastic AMS funnels and feeder gears, so inspect PTFE guide tubes regularly or use wear-resistant funnel guards."
+    },
+    {
+      "question": "What is the maximum safe printing speed for ABS-GF on the P1S?",
+      "answer": "At a standard 0.2mm layer height and 0.42mm line width, the maximum reliable print speed is 179 mm/s, corresponding to the material's 15 mm³/s maximum volumetric flow rate."
+    },
+    {
+      "question": "Do I need to leave the P1S door or top glass open when printing ABS-GF?",
+      "answer": "No, keep the door and top glass completely closed to maintain high internal chamber temperatures and minimize internal thermal stresses that cause warping."
+    }
+  ]
+}

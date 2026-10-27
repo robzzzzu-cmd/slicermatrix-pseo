@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1s-polymaker-polymax-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1S",
+    "slug": "bambu-lab-p1s",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Polymaker PolyMax PETG",
+    "slug": "polymaker-polymax-petg",
+    "brand": "Polymaker",
+    "materialType": "PETG",
+    "minNozzleTempC": 235,
+    "maxNozzleTempC": 250,
+    "minBedTempC": 70,
+    "maxBedTempC": 80,
+    "volumetricFlowLimitMm3s": 14,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 243,
+    "recommendedBedTempC": 75,
+    "effectiveVolumetricFlowMm3s": 14,
+    "calculatedMaxPrintSpeedMmS": 167,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-27T13:00:21.831Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1S handles Polymaker PolyMax PETG straight out of the box with the stock stainless steel nozzle and direct-drive extruder. By pinning the maximum volumetric flow rate to 14 mm³/s, the system achieves reliable print speeds up to 167 mm/s without sacrificing impact resistance or layer adhesion.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 50,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate (or Smooth PEI/High Temp Plate with glue stick applied as a release agent)",
+  "slicerTweaks": [
+    "Cap 'Max volumetric speed' at 14 mm³/s in the filament settings to maintain consistent extrusion at the calculated 167 mm/s speed limit.",
+    "Set nozzle temperature to 243°C and heatbed to 75°C to maximize the impact-modified inter-layer bonding of PolyMax PETG.",
+    "Disable the auxiliary part cooling fan (set to 0%) and keep the primary part cooling fan between 20% and 50% to prevent shrinkage-induced warping.",
+    "Enable 'Wipe while retracting' with a 1.5mm wipe distance and activate 'Avoid crossing walls' to prevent nozzle accumulation and localized stringing."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe stringing and surface whisker formation",
+      "rootCause": "PolyMax PETG is inherently hygroscopic and absorbs ambient moisture quickly, causing steam micro-explosions at the nozzle.",
+      "exactFix": "Dry the filament in a dedicated dryer at 65°C for 6 to 8 hours before printing, and verify direct-drive retraction is dialed to 0.8mm at 30 mm/s."
+    },
+    {
+      "issue": "Extruder heat creep and filament grinding",
+      "rootCause": "Printing an enclosed PETG job at continuous high bed temperatures (75°C) raises chamber temperatures above the material's glass transition threshold.",
+      "exactFix": "Crack the top glass cover or leave the front door slightly ajar during multi-hour prints to keep chamber ambient temperatures below 40°C."
+    },
+    {
+      "issue": "Build plate surface damage / over-adhesion",
+      "rootCause": "PETG bonds aggressively to raw PEI surfaces, risking tearing off the smooth PEI coating upon removal.",
+      "exactFix": "Switch to a Bambu Textured PEI Plate or apply a thin, uniform layer of PVP glue stick/liquid glue to serve as an interface release agent."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Does Polymaker PolyMax PETG require a hardened steel nozzle on the P1S?",
+      "answer": "No. PolyMax PETG uses impact modifiers rather than abrasive fibers (such as carbon or glass), making it 100% safe to print using the stock P1S stainless steel nozzle."
+    },
+    {
+      "question": "What is the recommended Pressure Advance (K-factor) setting for this setup?",
+      "answer": "On the P1S direct drive extruder, calibrated PolyMax PETG typically settles at a Pressure Advance K-factor between 0.032 and 0.040 at 243°C."
+    },
+    {
+      "question": "Should the P1S auxiliary chamber cooling fan be turned on?",
+      "answer": "No. The auxiliary cooling fan causes asymmetric cooling across the bed, which induces severe warping, corner lifting, and degraded layer adhesion in PETG prints."
+    },
+    {
+      "question": "How do I safely print PolyMax PETG using the Bambu AMS?",
+      "answer": "PolyMax PETG is fully AMS-compatible provided the spool is not deformed. Ensure desiccant in the AMS is dry to prevent the filament from absorbing moisture mid-print."
+    }
+  ]
+}

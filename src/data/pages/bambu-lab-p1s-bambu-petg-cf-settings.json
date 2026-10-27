@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1s-bambu-petg-cf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1S",
+    "slug": "bambu-lab-p1s",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Bambu PETG-CF",
+    "slug": "bambu-petg-cf",
+    "brand": "Bambu Lab",
+    "materialType": "PETG-CF",
+    "minNozzleTempC": 240,
+    "maxNozzleTempC": 270,
+    "minBedTempC": 65,
+    "maxBedTempC": 80,
+    "volumetricFlowLimitMm3s": 15,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 255,
+    "recommendedBedTempC": 73,
+    "effectiveVolumetricFlowMm3s": 15,
+    "calculatedMaxPrintSpeedMmS": 179,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-27T13:07:43.707Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab P1S produces exceptional carbon-fiber composite parts up to 179 mm/s capped at a 15 mm³/s volumetric flow limit. However, printing Bambu PETG-CF requires upgrading the stock stainless steel nozzle and extruder gears to hardened steel to prevent rapid abrasive wear.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 50,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with thin layer of glue stick or liquid release agent",
+  "slicerTweaks": [
+    "Cap 'Max volumetric speed' at 15 mm³/s in the filament profile to prevent under-extrusion at high travel velocities.",
+    "Set 'Pressure Advance' to approximately 0.038 s and run dynamic flow calibration via OrcaSlicer for clean seam alignment.",
+    "Reduce 'Auxiliary Part Cooling Fan' to 0% to prevent rapid differential cooling and edge warping on enclosed structural prints.",
+    "Enable 'Wipe while retracting' set to 2 mm to mitigate carbon fiber whisker stringing across open travels."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe bed tearing or permanent adhesion to PEI sheet",
+      "rootCause": "PETG binds chemically to smooth PEI surfaces when printed hot without a barrier layer.",
+      "exactFix": "Apply Bambu Liquid Glue or a standard glue stick as a release agent on a Textured PEI Plate, and maintain bed temperature at 73°C."
+    },
+    {
+      "issue": "Extruder gear slipping or sudden partial nozzle clogging",
+      "rootCause": "Abrasive chopped carbon fibers eroding the stock stainless steel nozzle orifice or lodging in worn extruder gear teeth.",
+      "exactFix": "Swap both the hotend assembly and extruder drive gears to Bambu Lab hardened steel components."
+    },
+    {
+      "issue": "Fine filament hairs and fuzzy stringing between perimeters",
+      "rootCause": "Moisture absorption in PETG polymer matrix boiling out at 255°C nozzle temperatures.",
+      "exactFix": "Dry the filament in an active convection dryer at 65°C for at least 8 hours prior to printing from the AMS."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Bambu PETG-CF using the stock P1S nozzle?",
+      "answer": "No, the P1S comes standard with a stainless steel nozzle and extruder gear, which will quickly erode from the chopped carbon fibers; upgrade to Bambu hardened steel hardware before printing."
+    },
+    {
+      "question": "Should I keep the P1S front door and top glass open during printing?",
+      "answer": "Keep the chamber closed to maintain thermal stability around 35-40°C, which prevents warping in PETG-CF, but keep auxiliary cooling fans off."
+    },
+    {
+      "question": "Is Bambu PETG-CF compatible with the standard Bambu AMS?",
+      "answer": "Yes, Bambu PETG-CF is fully compatible with the AMS, provided the spool is dried and cardboard edges (if non-Bambu spools are used) are rimmed."
+    },
+    {
+      "question": "What print speed cap should I specify in OrcaSlicer for PETG-CF?",
+      "answer": "Limit outer walls to 120-150 mm/s and infill up to 179 mm/s, regulated under a strict 15 mm³/s maximum volumetric flow rate."
+    }
+  ]
+}

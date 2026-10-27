@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1s-sunlu-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1S",
+    "slug": "bambu-lab-p1s",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Sunlu PETG",
+    "slug": "sunlu-petg",
+    "brand": "Sunlu",
+    "materialType": "PETG",
+    "minNozzleTempC": 230,
+    "maxNozzleTempC": 250,
+    "minBedTempC": 70,
+    "maxBedTempC": 85,
+    "volumetricFlowLimitMm3s": 15,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 240,
+    "recommendedBedTempC": 78,
+    "effectiveVolumetricFlowMm3s": 15,
+    "calculatedMaxPrintSpeedMmS": 179,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-27T12:18:30.254Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1S handles Sunlu PETG effortlessly out of the box using its stock stainless steel nozzle, achieving reliable print speeds up to 179 mm/s at a 15 mm³/s maximum volumetric flow rate. For optimal results, keep the enclosure door cracked or the top glass propped open during extended prints to avoid heat creep.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 60,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate (no adhesive required) or Smooth PEI Plate with Glue Stick as a release agent",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 15 mm³/s under Filament > Advanced to prevent under-extrusion at high speeds.",
+    "Turn off or limit the Auxiliary Part Cooling Fan to 0-10% to eliminate asymmetrical shrinkage and part warping.",
+    "Enable 'Wipe while retracting' with a 2mm distance to reduce nozzle accumulation and whisker stringing.",
+    "Calibrate Pressure Advance in OrcaSlicer to approximately 0.036-0.042 to ensure crisp corners without corner bulging."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Fine stringing and whisker formation across travel paths",
+      "rootCause": "Filament moisture absorption and residual nozzle pressure during non-print travel moves.",
+      "exactFix": "Dry filament at 65°C for 6 to 8 hours, enable retraction wipe in OrcaSlicer, and adjust nozzle temperature to 238-240°C."
+    },
+    {
+      "issue": "Build plate damage or extreme tear-out on smooth sheets",
+      "rootCause": "PETG forms an aggressive molecular bond directly onto smooth PEI surfaces without a sacrificial barrier.",
+      "exactFix": "Use a Bambu Textured PEI plate or apply a uniform layer of PVA glue stick as a release agent before printing."
+    },
+    {
+      "issue": "Extruder gear clicking and heat creep clog during long prints",
+      "rootCause": "High internal chamber temperature from the 78°C bed softens PETG in the direct drive cold zone.",
+      "exactFix": "Prop open the top glass cover or leave the front door ajar during prints to maintain chamber temperature below 38°C."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Should I keep the P1S door and top glass closed when printing Sunlu PETG?",
+      "answer": "It is recommended to vent the enclosure by cracking the front door or propping the top lid, which prevents chamber heat creep and gear jamming."
+    },
+    {
+      "question": "Does Sunlu PETG require an upgrade to a hardened steel nozzle on the P1S?",
+      "answer": "No, standard Sunlu PETG is non-abrasive and the stock stainless steel nozzle on the P1S provides full operational lifespan and performance."
+    },
+    {
+      "question": "Why are my PETG prints warping off the plate on the auxiliary fan side?",
+      "answer": "The P1S auxiliary fan creates rapid, uneven cooling on PETG; set the auxiliary fan speed to 0% in OrcaSlicer cooling parameters."
+    },
+    {
+      "question": "What should I do if my Sunlu PETG prints are making popping sounds and bubbling?",
+      "answer": "The material has absorbed ambient moisture; dry the spool thoroughly in a dedicated filament dryer at 65°C for 6-8 hours before use."
+    }
+  ]
+}

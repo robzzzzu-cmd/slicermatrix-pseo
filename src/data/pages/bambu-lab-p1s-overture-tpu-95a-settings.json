@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1s-overture-tpu-95a-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1S",
+    "slug": "bambu-lab-p1s",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Overture TPU 95A",
+    "slug": "overture-tpu-95a",
+    "brand": "Overture",
+    "materialType": "TPU",
+    "minNozzleTempC": 215,
+    "maxNozzleTempC": 235,
+    "minBedTempC": 40,
+    "maxBedTempC": 60,
+    "volumetricFlowLimitMm3s": 4.5,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 225,
+    "recommendedBedTempC": 50,
+    "effectiveVolumetricFlowMm3s": 4.5,
+    "calculatedMaxPrintSpeedMmS": 54,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-27T12:03:20.384Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1S handles Overture TPU 95A out of the box using its direct drive extruder, provided filament is fed externally rather than through the AMS. With a maximum volumetric flow rate capped at 4.5 mm³/s, the safe calculated maximum print speed is 54 mm/s to prevent extruder buckling.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 40,
+  "coolingFanMaxPct": 80,
+  "firstLayerSpeedMmS": 25,
+  "bedSurfaceRecommendation": "Textured PEI Plate with a thin layer of PVA glue stick or liquid glue as a release agent",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 4.5 mm³/s in the filament settings to automatically throttle print speeds under 54 mm/s.",
+    "Bypass the AMS and route filament directly from an external dry box to the direct drive toolhead to avoid jams.",
+    "Enable 'Avoid Crossing Walls' (Max detour length: 0) to minimize stringing and travel moves across outer perimeters.",
+    "Disable or reduce Pressure Advance to 0.02 - 0.04 to prevent excessive micro-retractions that grind flexible filament."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Extruder Gear Jam / Filament Wrapping around Drive Gear",
+      "rootCause": "Printing too fast or applying high backpressure, forcing flexible TPU to buckle inside the extruder cavity.",
+      "exactFix": "Limit Maximum Volumetric Speed strictly to 4.5 mm³/s and decrease print speed to 30-40 mm/s."
+    },
+    {
+      "issue": "Severe Stringing and Oozing",
+      "rootCause": "Moisture absorption due to hygroscopic nature of TPU or excessive nozzle temperature.",
+      "exactFix": "Dry the spool at 65°C for 6 to 8 hours and lower nozzle temperature to 220°C."
+    },
+    {
+      "issue": "Bed Damage / Over-Adhesion on PEI Sheet",
+      "rootCause": "TPU molecularly bonds to smooth and textured PEI surfaces when printed directly without a barrier.",
+      "exactFix": "Apply a uniform layer of PVA glue stick or Bambu Liquid Glue to serve as an interface release agent."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I feed Overture TPU 95A through the Bambu Lab AMS on the P1S?",
+      "answer": "No, flexible filaments like TPU 95A will bind and tangle inside the AMS internal feeders and PTFE routing tubes; always feed from the rear spool holder or an external drybox."
+    },
+    {
+      "question": "Should I keep the P1S front door or top glass open when printing TPU?",
+      "answer": "Yes, it is recommended to prop the top glass lid or crack the front door open to keep chamber temperatures low and prevent heat creep."
+    },
+    {
+      "question": "Does Overture TPU 95A require a hardened steel nozzle upgrade on the P1S?",
+      "answer": "No, Overture TPU 95A is non-abrasive and can be printed safely using the stock stainless steel nozzle installed on the P1S."
+    },
+    {
+      "question": "What is the recommended drying procedure for Overture TPU before printing?",
+      "answer": "Dry the filament in a dedicated filament dryer or the P1S heated bed at 65°C for at least 6-8 hours before printing, and print directly from a sealed dry box."
+    }
+  ]
+}

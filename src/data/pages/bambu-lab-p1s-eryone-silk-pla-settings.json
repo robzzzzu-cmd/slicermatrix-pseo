@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1s-eryone-silk-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1S",
+    "slug": "bambu-lab-p1s",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Eryone Silk PLA",
+    "slug": "eryone-silk-pla",
+    "brand": "Eryone",
+    "materialType": "Silk PLA",
+    "minNozzleTempC": 205,
+    "maxNozzleTempC": 225,
+    "minBedTempC": 55,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 12,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 215,
+    "recommendedBedTempC": 60,
+    "effectiveVolumetricFlowMm3s": 12,
+    "calculatedMaxPrintSpeedMmS": 143,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-27T12:22:10.105Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1S handles Eryone Silk PLA exceptionally well out of the box with its stock stainless steel nozzle and direct drive extruder. Print speeds must be capped at 143 mm/s to stay strictly within the material's 12 mm³/s volumetric flow limit and maintain a pristine silk sheen.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate (clean with warm water and dish soap; no adhesive required)",
+  "slicerTweaks": [
+    "Cap 'Max volumetric speed' at 12 mm³/s under the Filament profile to prevent underextrusion and loss of surface gloss.",
+    "Set outer wall speed to a consistent 60-80 mm/s to ensure a uniform, high-sheen silky finish across varying layer geometries.",
+    "Keep the top glass lid propped or front door slightly ajar to prevent heat creep within the P1S enclosure during long Silk PLA prints.",
+    "Set nozzle temperature to 215°C (up to 220°C for outer perimeters) and build plate to 60°C for optimal layer adhesion."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Dull or matte patches on curved surfaces",
+      "rootCause": "Inconsistent printing speeds causing variations in melt flow rate and cooling times, which alters the light-refracting elastomer alignment in silk additives.",
+      "exactFix": "Normalize outer wall speed to a flat 60 mm/s in OrcaSlicer and ensure the minimum layer cooling time is not abruptly throttling speed."
+    },
+    {
+      "issue": "Brittle prints and poor layer adhesion (delamination)",
+      "rootCause": "Silk PLA additives reduce interlayer bonding when printed at excessive speeds or insufficient nozzle temperatures.",
+      "exactFix": "Increase nozzle temperature to 220°C, reduce maximum volumetric flow to 10-12 mm³/s, and ensure auxiliary cooling fan speed is lowered to 30%."
+    },
+    {
+      "issue": "Extruder clicking and heat creep clogging",
+      "rootCause": "Printing PLA in a fully sealed P1S enclosure causes chamber temperatures to exceed 35°C, softening filament in the cold block.",
+      "exactFix": "Vent the printer by propping the top glass lid open 10-20mm or printing with the front door cracked open."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I run Eryone Silk PLA at default Bambu generic PLA speeds (up to 250-300 mm/s)?",
+      "answer": "No. Silk PLA uses elastomer modifiers that restrict melt flow and dull the finish at high speeds; you must constrain volumetric flow to 12 mm³/s (roughly 143 mm/s max)."
+    },
+    {
+      "question": "Does Eryone Silk PLA require a hardened steel nozzle upgrade on the P1S?",
+      "answer": "No, Eryone Silk PLA is non-abrasive, making the stock Bambu stainless steel 0.4mm nozzle completely safe and fully compatible."
+    },
+    {
+      "question": "Should I print Silk PLA with the P1S door closed?",
+      "answer": "It is strongly recommended to vent the enclosure by cracking the front door or shimming the top glass, as PLA easily succumbs to heat creep in an airtight P1S chamber."
+    },
+    {
+      "question": "Why does my Silk PLA print look duller than the raw spool filament?",
+      "answer": "Silk sheen requires slow, hot extrusion; lower your outer wall speed to 50-60 mm/s and increase the hotend temperature to 220°C to restore high reflectivity."
+    }
+  ]
+}

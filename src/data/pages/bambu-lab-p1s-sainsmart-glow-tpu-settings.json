@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1s-sainsmart-glow-tpu-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1S",
+    "slug": "bambu-lab-p1s",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Sainsmart Glow TPU",
+    "slug": "sainsmart-glow-tpu",
+    "brand": "SainSmart",
+    "materialType": "Glow TPU",
+    "minNozzleTempC": 215,
+    "maxNozzleTempC": 230,
+    "minBedTempC": 45,
+    "maxBedTempC": 60,
+    "volumetricFlowLimitMm3s": 4,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 223,
+    "recommendedBedTempC": 53,
+    "effectiveVolumetricFlowMm3s": 4,
+    "calculatedMaxPrintSpeedMmS": 48,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-27T12:34:54.109Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab P1S handles SainSmart Glow TPU reliably when routed from an external spool holder, reaching a safe maximum print speed of 48 mm/s based on its 4 mm³/s volumetric flow limit. However, printing this abrasive phosphorescent filament safely requires upgrading the stock stainless steel nozzle and extruder gears to hardened steel components.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 40,
+  "coolingFanMaxPct": 80,
+  "firstLayerSpeedMmS": 25,
+  "bedSurfaceRecommendation": "Textured PEI Plate + Glue Stick release agent",
+  "slicerTweaks": [
+    "Cap the Max Volumetric Speed to 4.0 mm³/s in the Filament settings to prevent extruder slipping and under-extrusion.",
+    "Set Retraction Length to 0.8 mm and Retraction Speed to 30 mm/s to minimize TPU stringing without grinding the soft filament.",
+    "Bypass the Bambu AMS entirely by feeding directly from an external dry box or the rear spool holder to prevent catastrophic feed jams.",
+    "Enable 'Wipe while retracting' (1 mm) and set Seam Position to 'Aligned' or 'Rear' to mitigate flexible oozing artifacts."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Extruder clogs and filament wraps around the drive gears",
+      "rootCause": "Feeding flexible TPU through the AMS or pushing volumetric speeds beyond the safe 4 mm³/s threshold.",
+      "exactFix": "Feed the spool externally through the PTFE tube directly into the toolhead and set Max Volumetric Speed to 4.0 mm³/s in OrcaSlicer."
+    },
+    {
+      "issue": "Rapid nozzle wear and loss of dimensional accuracy",
+      "rootCause": "Abrasive strontium aluminate glow particles eroding the stock P1S stainless steel nozzle orifice.",
+      "exactFix": "Install an official Bambu Lab 0.4mm or 0.6mm hardened steel complete hotend assembly before printing."
+    },
+    {
+      "issue": "Severe stringing, rough surface texture, and popping sounds during extrusion",
+      "rootCause": "High moisture absorption by the TPU polymer during ambient exposure.",
+      "exactFix": "Dry the spool at 55°C for at least 8 hours in an active filament dryer and print directly from a sealed enclosure."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I feed SainSmart Glow TPU through the Bambu Lab AMS?",
+      "answer": "No, TPU is too flexible for the AMS internal rollers and long PTFE guide paths, leading to severe binding and gear jams; always use the external spool holder."
+    },
+    {
+      "question": "Why is a hardened steel nozzle required for glow-in-the-dark TPU?",
+      "answer": "Glow TPU contains phosphorescent ceramic particles (typically strontium aluminate) that rapidly grind down stock stainless steel nozzles, enlarging the aperture within a single spool."
+    },
+    {
+      "question": "Should I print Glow TPU with the P1S door open or closed?",
+      "answer": "Printing with the front door cracked open or the top glass vented is recommended to maintain a low chamber temperature and prevent flexible TPU heat creep."
+    },
+    {
+      "question": "Why is glue stick necessary on the Textured PEI Plate for TPU?",
+      "answer": "TPU bonds excessively well to clean PEI, which can cause permanent damage or tear the PEI coating off the plate upon removal; the glue stick acts as a sacrificial release agent."
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1s-bambu-pla-cf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1S",
+    "slug": "bambu-lab-p1s",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Bambu PLA-CF",
+    "slug": "bambu-pla-cf",
+    "brand": "Bambu Lab",
+    "materialType": "PLA-CF",
+    "minNozzleTempC": 210,
+    "maxNozzleTempC": 240,
+    "minBedTempC": 45,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 16,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 225,
+    "recommendedBedTempC": 55,
+    "effectiveVolumetricFlowMm3s": 16,
+    "calculatedMaxPrintSpeedMmS": 190,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-27T11:58:07.715Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab P1S prints Bambu PLA-CF exceptionally well up to a calculated safe speed of 190 mm/s capped by its 16 mm³/s volumetric flow limit. However, you must upgrade the stock stainless steel nozzle and extruder gears to hardened steel to prevent rapid abrasive wear.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 50,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate (clean with warm water and dish soap; no adhesive needed)",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 16 mm³/s in the filament settings to eliminate underextrusion during high-speed moves.",
+    "Adjust Pressure Advance to approximately 0.024 and run dynamic flow calibration via OrcaSlicer for carbon-fiber filled resin.",
+    "Enable 'Wipe while retracting' set to 1 mm and set Retraction Distance to 0.8 mm to reduce stringing and nozzle buildup.",
+    "Vent the chamber by propping open the top glass lid or front door during long prints to prevent PLA heat creep and cold-end clogging."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Extruder clicking and severe underextrusion midway through a print",
+      "rootCause": "Heat creep caused by printing low-softening-temp PLA in a closed enclosure, or partial nozzle clogging from carbon fiber clusters in a 0.4mm orifice.",
+      "exactFix": "Crack the top glass lid or front door to drop chamber temp below 35°C, perform a cold pull, and maintain nozzle temperature at 225°C."
+    },
+    {
+      "issue": "Premature nozzle wear causing blown-out line widths and poor dimensional accuracy",
+      "rootCause": "The abrasive carbon fibers within Bambu PLA-CF quickly erode the factory P1S stainless steel nozzle orifice.",
+      "exactFix": "Replace the stock hotend and extruder gear assembly with genuine Bambu Lab hardened steel components."
+    },
+    {
+      "issue": "Rough, brittle perimeters and excessive surface fuzz/hair stringing",
+      "rootCause": "Moisture absorption by the PLA matrix and carbon fiber content boiling off inside the meltzone.",
+      "exactFix": "Dry the spool in a filament dryer at 55°C for 6 to 8 hours before printing, and store with active desiccant in the AMS."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Bambu PLA-CF using the stock P1S 0.4mm stainless steel hotend?",
+      "answer": "Technically yes, but only for a very short duration. The carbon fibers will quickly erode the stock stainless steel nozzle and gears within 1 to 2 spools, causing poor extrusion quality and ruined tolerances. Upgrading to hardened steel is strongly recommended."
+    },
+    {
+      "question": "Should I keep the P1S door closed or open when printing PLA-CF?",
+      "answer": "Keep the door cracked open or the top glass lid propped. Even with carbon fiber filling, the base polymer is standard PLA with a low glass transition temperature (~55°C), making it prone to heat creep clogging in a fully enclosed chamber."
+    },
+    {
+      "question": "Is Bambu PLA-CF fully compatible with the standard AMS unit?",
+      "answer": "Yes, Bambu PLA-CF is formulated and tested to feed safely through the AMS without brittle snapping, provided it is properly dried and you use hardened extruder components downstream."
+    },
+    {
+      "question": "Does PLA-CF require a 0.6mm nozzle, or is 0.4mm sufficient?",
+      "answer": "A 0.4mm hardened nozzle works reliably with Bambu PLA-CF because the chopped carbon fibers are milled short enough to avoid clogs under normal conditions, though a 0.6mm nozzle provides an extra safety margin against clogging."
+    }
+  ]
+}

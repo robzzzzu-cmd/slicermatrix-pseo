@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1s-polymaker-polylite-abs-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1S",
+    "slug": "bambu-lab-p1s",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Polymaker PolyLite ABS",
+    "slug": "polymaker-polylite-abs",
+    "brand": "Polymaker",
+    "materialType": "ABS",
+    "minNozzleTempC": 245,
+    "maxNozzleTempC": 265,
+    "minBedTempC": 90,
+    "maxBedTempC": 105,
+    "volumetricFlowLimitMm3s": 18,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 255,
+    "recommendedBedTempC": 98,
+    "effectiveVolumetricFlowMm3s": 18,
+    "calculatedMaxPrintSpeedMmS": 214,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-27T12:51:19.089Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1S prints Polymaker PolyLite ABS reliably right out of the box thanks to its enclosed chassis, reaching safe speeds up to 214 mm/s bounded by an 18 mm³/s max volumetric flow. No nozzle or enclosure modifications are required, provided the chamber is kept closed and the bed is heated to 98°C to minimize thermal contraction.",
+  "retractionDistanceMm": 0.6,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 20,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate with PVP glue stick or liquid adhesive as a release and bonding agent",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 18 mm³/s in filament settings with Nozzle Temperature at 255°C and Bed Temperature at 98°C.",
+    "Disable the Auxiliary Cooling Fan entirely (0%) and set the Chamber Exhaust Fan to 0% to retain heat and eliminate drafts.",
+    "Adjust Part Cooling Fan threshold to 0% min and 20% max, keeping the fan completely disabled for the first 3 layers.",
+    "Enable an outer brim with a 5mm to 8mm width and a 0.1mm brim-to-object gap to prevent corner lift on sharp geometry."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Corner Warping / Print Bed Detachment",
+      "rootCause": "High thermal shrinkage of ABS compounded by inadequate chamber heat soak or residue on the build plate.",
+      "exactFix": "Clean plate with warm soapy water, apply PVP glue, bump bed to 100°C, and let the bed heat-soak the closed enclosure for 15 minutes before starting."
+    },
+    {
+      "issue": "Layer Delamination / Horizontal Splitting",
+      "rootCause": "Excessive part cooling or low ambient chamber temp causing weak interlayer polymer diffusion.",
+      "exactFix": "Lower max cooling fan speed to 15%, set hotend temperature to 260°C, and ensure the auxiliary side fan is set to 0% in OrcaSlicer."
+    },
+    {
+      "issue": "Stringing and Blobs on Surface",
+      "rootCause": "Moisture saturation in hygroscopic ABS filament or lack of wipe on travel moves.",
+      "exactFix": "Dry the filament spool at 70°C for 6 hours in a dedicated filament dryer, and enable Wipe While Retracting (2mm) in extruder settings."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Do I need to leave the door or top glass cracked when printing PolyLite ABS?",
+      "answer": "No, always keep the door and top lid fully closed to maintain high internal chamber temperatures and prevent warping."
+    },
+    {
+      "question": "Is the stock stainless steel nozzle sufficient for Polymaker PolyLite ABS?",
+      "answer": "Yes, standard PolyLite ABS is non-abrasive, so the stock stainless steel 0.4mm nozzle will not experience premature wear."
+    },
+    {
+      "question": "How can I ensure adequate chamber temperature on the P1S for ABS?",
+      "answer": "Preheat the bed to 100°C with the enclosure closed for 10 to 15 minutes prior to printing to passively bring the chamber up to ~40-45°C."
+    },
+    {
+      "question": "What should I do if the AUX fan continues turning on automatically?",
+      "answer": "Edit the OrcaSlicer filament cooling profile and force the Auxiliary Part Cooling Fan speed to 0% for all print conditions."
+    }
+  ]
+}

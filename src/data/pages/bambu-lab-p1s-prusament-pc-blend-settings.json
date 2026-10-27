@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1s-prusament-pc-blend-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1S",
+    "slug": "bambu-lab-p1s",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Prusament PC Blend",
+    "slug": "prusament-pc-blend",
+    "brand": "Prusament",
+    "materialType": "PC",
+    "minNozzleTempC": 265,
+    "maxNozzleTempC": 285,
+    "minBedTempC": 105,
+    "maxBedTempC": 115,
+    "volumetricFlowLimitMm3s": 12,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 275,
+    "recommendedBedTempC": 100,
+    "effectiveVolumetricFlowMm3s": 12,
+    "calculatedMaxPrintSpeedMmS": 143,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-27T12:30:23.384Z",
+  "compatibilityVerdict": "Advanced Setup",
+  "heroSummary": "The Bambu Lab P1S handles Prusament PC Blend reliably within its fully enclosed build chamber, achieving a calculated safe maximum print speed of 143 mm/s at a 12 mm³/s volumetric flow limit. Because the stock bed caps at 100°C while PC Blend prefers 105–115°C, thermal chamber preheating and high-performance bed adhesion are strictly required.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 20,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate or Engineering Plate with PVA Glue Stick / Magigoo PC as a release agent",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 12 mm³/s under the Filament Settings > Advanced tab to automatically constrain feedrates to 143 mm/s at 0.2mm layer height.",
+    "Configure Bed Temperature to 100°C for all layers and disable the chamber exhaust fan completely (0% speed) to retain internal heat.",
+    "Reduce Part Cooling Fan to 0% for standard printing and cap Max Fan Speed at 20% only for overhangs under 25% or layers under 8 seconds.",
+    "Enable a 5mm to 8mm Brim with 0mm Brim-object gap to counteract high thermal shrinkage stress and prevent corner lifting."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Corner warping and bed detachment",
+      "rootCause": "Thermal contraction aggravated by the P1S bed temperature capping at 100°C, just below the optimal 105°C+ range.",
+      "exactFix": "Preheat the enclosed chamber by setting the bed to 100°C for 20 minutes before printing, apply liquid glue or Magigoo PC, and print with an outer brim."
+    },
+    {
+      "issue": "Layer separation and delamination",
+      "rootCause": "Excessive part cooling or chamber drafts causing poor interlayer bonding in polycarbonate.",
+      "exactFix": "Set part cooling fan threshold to 0% min / 15% max, turn off the auxiliary cooling fan entirely, and ensure top glass and door remain closed."
+    },
+    {
+      "issue": "Extrusion bubbling and rough surface finish",
+      "rootCause": "Moisture absorption; Prusament PC Blend is hygroscopic and hydrolyzes readily at 275°C.",
+      "exactFix": "Dry the filament spool in an active filament dryer at 80°C for at least 8 to 12 hours prior to loading, and feed directly from a dry box."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can the stock Bambu P1S stainless steel nozzle handle Prusament PC Blend?",
+      "answer": "Yes, standard Prusament PC Blend is an unfilled polycarbonate and is non-abrasive, so the stock stainless steel nozzle and extruder gears will not suffer rapid abrasive wear."
+    },
+    {
+      "question": "Is the 100°C maximum bed temperature of the P1S sufficient for PC Blend?",
+      "answer": "While Prusament recommends 105–115°C, 100°C is viable if you thoroughly heat-soak the P1S chamber before printing and use a quality adhesive like Magigoo PC or PVA glue stick."
+    },
+    {
+      "question": "Why is an adhesive or glue stick required on a textured PEI sheet?",
+      "answer": "Polycarbonate bonds aggressively to PEI coatings; without a release agent like PVA glue, parts can tear chunks of PEI directly off the build plate upon removal."
+    },
+    {
+      "question": "Can I print Prusament PC Blend using the Bambu AMS?",
+      "answer": "Yes, Prusament spools fit standard AMS slots, but ensure the filament is thoroughly dried beforehand to prevent brittleness that could snap inside the PTFE paths."
+    }
+  ]
+}
