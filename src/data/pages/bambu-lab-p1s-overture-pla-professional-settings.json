@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1s-overture-pla-professional-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1S",
+    "slug": "bambu-lab-p1s",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Overture PLA Professional",
+    "slug": "overture-pla-professional",
+    "brand": "Overture",
+    "materialType": "PLA+",
+    "minNozzleTempC": 200,
+    "maxNozzleTempC": 220,
+    "minBedTempC": 50,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 21,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 210,
+    "recommendedBedTempC": 58,
+    "effectiveVolumetricFlowMm3s": 21,
+    "calculatedMaxPrintSpeedMmS": 250,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-28T13:28:52.699Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1S handles Overture PLA Professional effortlessly right out of the box, sustaining safe maximum print speeds up to 250 mm/s at a 21 mm³/s volumetric flow limit. Because this modified PLA blend does not require a hardened nozzle, simply leave the top glass vented or the front door unlatched during long print runs to avoid heat creep.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 40,
+  "bedSurfaceRecommendation": "Bambu Textured PEI Plate without adhesive (clean with dish soap and warm water)",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 21 mm³/s in the Filament Settings to prevent under-extrusion at high-speed infill moves.",
+    "Enable Pressure Advance (K-factor) calibration and start with a baseline value of 0.024 tuned for direct drive.",
+    "Set Print Temperature to 215³C for high-speed printing above 200 mm/s to ensure adequate thermal transfer in the stainless steel hotend.",
+    "Configure Auxiliary Part Cooling Fan to 60-70% for steep overhangs and bridging, but drop chamber exhaust to prevent ambient drafts."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Extruder clicking and mid-print jam (Heat Creep)",
+      "rootCause": "Enclosed chamber air temperature rising above 35³C, softening PLA filament prematurely in the direct-drive extruder gears.",
+      "exactFix": "Prop the top glass panel open using printed risers or crack the front door open 10-20mm during printing."
+    },
+    {
+      "issue": "Corner lifting and warping on large flat models",
+      "rootCause": "Auxiliary cooling fan blowing unidirectional cold air aggressively across the lower print layers.",
+      "exactFix": "Reduce the auxiliary cooling fan speed to 0-30% for the initial 20 layers and set bed temperature to 60³C."
+    },
+    {
+      "issue": "Fine wispy stringing during travel moves across perimeters",
+      "rootCause": "Nozzle temperature slightly too high for detailed low-flow moves combined with inactive wipe settings.",
+      "exactFix": "Enable 'Wipe while retracting' (set to 2mm) and reduce printing temperature to 205³C-210³C for intricate geometries."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Do I need to leave the Bambu Lab P1S door open when printing Overture PLA Pro?",
+      "answer": "Yes, it is highly recommended to tilt open the top glass cover or crack the front door open, as PLA Pro has a relatively low glass transition temperature (~55-60³C) that makes it prone to heat creep clogging in a fully sealed chamber."
+    },
+    {
+      "question": "Can the stock stainless steel nozzle handle Overture PLA Pro?",
+      "answer": "Yes, Overture PLA Professional is a non-abrasive blend that uses impact modifiers rather than carbon fiber or glow pigments, meaning the stock stainless steel nozzle on the P1S will not experience accelerated wear."
+    },
+    {
+      "question": "What max volumetric flow rate should I set in OrcaSlicer for this filament?",
+      "answer": "Set the filament profile maximum volumetric speed to 21 mm³/s, which allows the P1S to comfortably reach standard linear speeds of 250 mm/s at a 0.2mm layer height and 0.42mm line width."
+    },
+    {
+      "question": "Is glue stick necessary on the Bambu Textured PEI plate for Overture PLA Pro?",
+      "answer": "No, glue stick is unnecessary. Overture PLA Pro adheres strongly to clean textured PEI at 55-60³C and releases freely once the build plate cools below 35³C."
+    }
+  ]
+}

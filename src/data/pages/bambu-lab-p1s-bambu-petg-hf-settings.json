@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1s-bambu-petg-hf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1S",
+    "slug": "bambu-lab-p1s",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Bambu PETG HF",
+    "slug": "bambu-petg-hf",
+    "brand": "Bambu Lab",
+    "materialType": "PETG",
+    "minNozzleTempC": 230,
+    "maxNozzleTempC": 260,
+    "minBedTempC": 65,
+    "maxBedTempC": 75,
+    "volumetricFlowLimitMm3s": 21,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 245,
+    "recommendedBedTempC": 70,
+    "effectiveVolumetricFlowMm3s": 21,
+    "calculatedMaxPrintSpeedMmS": 250,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-28T12:37:57.749Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1S handles Bambu PETG HF natively out of the box at up to 250 mm/s thanks to its high-flow formulation capable of 21 mm³/s. Because PETG HF is non-abrasive, the stock stainless steel nozzle and standard direct drive extruder require no hardware upgrades, though keeping the top glass vented during long prints is recommended.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 60,
+  "firstLayerSpeedMmS": 40,
+  "bedSurfaceRecommendation": "Textured PEI Plate (no release agent required) or Smooth PEI Plate with liquid glue release agent",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 21 mm³/s in the filament profile to prevent extrusion bottlenecks during high-speed moves.",
+    "Enable 'Wipe while retracting' set to 2 mm and configure 'Retract amount before wipe' to 70% to eliminate oozing and stringing.",
+    "Configure Fan Speed Thresholds with 'Keep fan always on' enabled, setting min cooling to 20% and max to 60% for layer times under 12 seconds.",
+    "Set Pressure Advance to approximately 0.038 s (run OrcaSlicer PA Line calibration) to eliminate corner bulging at 250 mm/s print speeds."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Fine hair-like stringing across travel moves",
+      "rootCause": "PETG HF absorbs ambient moisture rapidly, causing steam expansion in the meltzone, or travel speed is insufficient.",
+      "exactFix": "Dry filament in an active dryer at 65°C for 8 hours, enable 'Avoid crossing walls', and increase travel speed to 500 mm/s."
+    },
+    {
+      "issue": "Rough matte surface finish and under-extrusion at top speeds",
+      "rootCause": "Hotend temperature is too low to sustain 21 mm³/s flow, causing nozzle meltzone cooling.",
+      "exactFix": "Increase printing temperature from 245°C to 255°C and ensure OrcaSlicer max volumetric speed does not exceed 21 mm³/s."
+    },
+    {
+      "issue": "Excessive adhesion causing PEI sheet damage or part tearing",
+      "rootCause": "PETG bonds aggressively to smooth PEI coatings via molecular fusion when heated.",
+      "exactFix": "Switch to a Bambu Textured PEI plate, or apply Bambu Liquid Glue / PVA glue stick on Smooth PEI as a dedicated sacrificial release barrier."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Do I need to leave the P1S door or top glass open when printing Bambu PETG HF?",
+      "answer": "Ventilating the top glass or cracking the door is recommended during extended prints with high bed temperatures (70°C) to prevent chamber temps exceeding 45°C, which can cause heat creep."
+    },
+    {
+      "question": "Can I print Bambu PETG HF with the stock stainless steel nozzle?",
+      "answer": "Yes, PETG HF is a non-abrasive polymer without carbon or glass fibers, so the standard 0.4mm stainless steel nozzle will not experience premature wear."
+    },
+    {
+      "question": "How does PETG HF differ from standard Bambu PETG Basic in OrcaSlicer settings?",
+      "answer": "PETG HF features optimized melt rheology allowing a high volumetric limit of 21 mm³/s versus 13 mm³/s for PETG Basic, unlocking speeds up to 250 mm/s without sacrificing layer adhesion."
+    },
+    {
+      "question": "Is it mandatory to dry Bambu PETG HF straight out of the vacuum packaging?",
+      "answer": "Yes, PETG HF is hygroscopic and factory packaging often retains residual moisture; drying at 65°C for 6 to 8 hours before printing ensures optimal surface quality and minimal stringing."
+    }
+  ]
+}

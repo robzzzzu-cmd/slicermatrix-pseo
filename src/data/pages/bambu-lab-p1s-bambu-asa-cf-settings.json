@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1s-bambu-asa-cf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1S",
+    "slug": "bambu-lab-p1s",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Bambu ASA-CF",
+    "slug": "bambu-asa-cf",
+    "brand": "Bambu Lab",
+    "materialType": "ASA-CF",
+    "minNozzleTempC": 255,
+    "maxNozzleTempC": 280,
+    "minBedTempC": 90,
+    "maxBedTempC": 105,
+    "volumetricFlowLimitMm3s": 15,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 268,
+    "recommendedBedTempC": 98,
+    "effectiveVolumetricFlowMm3s": 15,
+    "calculatedMaxPrintSpeedMmS": 179,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-28T12:46:03.947Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab P1S handles Bambu ASA-CF exceptionally well up to a calculated safe speed of 179 mm/s at 15 mm³/s flow, provided the stock stainless steel nozzle and extruder gears are upgraded to hardened steel to prevent rapid abrasive wear. Its stock passive enclosure retains sufficient heat for minimal warping, making reliable structural parts achievable right out of the box once wear-resistant components are installed.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 10,
+  "coolingFanMaxPct": 25,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate + Liquid Glue / Glue Stick release agent",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 15 mm³/s in the filament settings to automatically cap linear print speeds to roughly 179 mm/s and avoid under-extrusion.",
+    "Lower Part Cooling Fan to 10% min and 25% max, and turn off the Auxiliary Part Fan completely (0%) to eliminate sharp thermal gradients that cause warping.",
+    "Enable Scarf Joint Seam or set Seam Gap to 10-15% with a 0.8mm wipe to conceal seams and prevent carbon-fiber particle clumping at layer changes.",
+    "Set Bed Temperature to 98°C and enable a 5mm outer-only brim with 0.1mm brim-object gap for optimal footprint adhesion on broad geometry."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Corner lifting and bed delamination on large cross-sections",
+      "rootCause": "Thermal contraction stress combined with insufficient chamber temperature or excessive drafts from auxiliary cooling fans.",
+      "exactFix": "Preheat the enclosed bed at 98°C for 15-20 minutes to heat-soak the chamber to >40°C, keep the front door and top glass shut, and disable the auxiliary fan."
+    },
+    {
+      "issue": "Severe nozzle clogging or rapid bore wear mid-print",
+      "rootCause": "Extruding abrasive carbon-fiber chopped strands through the stock stainless steel nozzle assembly, causing bore enlargement or particle bridging.",
+      "exactFix": "Install the official Bambu 0.4mm or 0.6mm Hardened Steel Hotend assembly and matching Hardened Steel Extruder Gear assembly."
+    },
+    {
+      "issue": "Rough outer walls, interior voids, and brittle layer adhesion",
+      "rootCause": "Moisture absorption in the ASA matrix causing micro-steam explosions during extrusion at 268°C.",
+      "exactFix": "Dry the filament in an active blast dryer at 80°C for 8 to 12 hours prior to printing and print directly from a sealed dry box or desiccant-loaded AMS."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Bambu ASA-CF with the stock P1S hotend without modifications?",
+      "answer": "No, the stock P1S comes with a stainless steel nozzle and extruder gears. The abrasive carbon fibers will erode the stainless nozzle orifice within a few hundred grams, leading to severe dimensional error and extrusion failure. You must upgrade to hardened steel components."
+    },
+    {
+      "question": "Should I leave the P1S door or top lid open when printing ASA-CF?",
+      "answer": "Keep the chamber fully enclosed with the door and top glass closed. ASA shrinks when cooled unevenly; an enclosed chamber traps ambient heat (~40-45°C), which is necessary to prevent warping and inter-layer cracking."
+    },
+    {
+      "question": "Is it safe to run Bambu ASA-CF through the AMS system?",
+      "answer": "Yes, Bambu ASA-CF is formulated and spooled to run reliably through the AMS. However, ensure you have upgraded to hardened extruder gears and maintain fresh desiccant inside the AMS, as ASA is hygroscopic."
+    },
+    {
+      "question": "Why use glue stick on a Textured PEI Plate for ASA-CF?",
+      "answer": "While ASA adheres very strongly to PEI, carbon fibers increase stiffness and the resin can bond excessively well. Glue stick acts primarily as a sacrificial release agent, protecting the PEI coating from tearing off during part removal."
+    }
+  ]
+}

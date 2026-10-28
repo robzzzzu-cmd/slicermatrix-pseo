@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1s-esun-abs-plus-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1S",
+    "slug": "bambu-lab-p1s",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "eSUN ABS+",
+    "slug": "esun-abs-plus",
+    "brand": "eSUN",
+    "materialType": "ABS+",
+    "minNozzleTempC": 240,
+    "maxNozzleTempC": 260,
+    "minBedTempC": 90,
+    "maxBedTempC": 105,
+    "volumetricFlowLimitMm3s": 18,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 250,
+    "recommendedBedTempC": 98,
+    "effectiveVolumetricFlowMm3s": 18,
+    "calculatedMaxPrintSpeedMmS": 214,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-28T12:56:45.339Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1S handles eSUN ABS+ exceptionally well out of the box thanks to its fully enclosed build chamber and capable direct drive toolhead. Utilizing the stock stainless steel nozzle, the printer reliably achieves safe peak speeds up to 214 mm/s at a max volumetric flow rate of 18 mm³/s.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 10,
+  "coolingFanMaxPct": 25,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with PVP glue stick or liquid adhesive as a release agent",
+  "slicerTweaks": [
+    "Cap the Max Volumetric Speed at 18 mm³/s in the filament profile to prevent under-extrusion at high travel velocities.",
+    "Disable the Auxiliary Part Cooling Fan completely (set to 0%) to prevent localized draft warping and corner lifting.",
+    "Set Chamber Exhaust Fan to a maximum of 20% or off during printing to retain internal chamber heat above 45°C.",
+    "Enable a 5mm outer-only brim with 0.1mm brim-object gap for sharp-cornered structural parts."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Corner lifting and bed detachment on large flat prints",
+      "rootCause": "Thermal contraction stress combined with insufficient chamber soaking or localized drafts from the auxiliary fan.",
+      "exactFix": "Turn off the aux fan completely, preheat the bed to 100°C with the door closed for 15 minutes prior to printing, and apply a fresh layer of liquid glue."
+    },
+    {
+      "issue": "Layer separation / delamination under mechanical load",
+      "rootCause": "Excessive part cooling or printing below the optimal extrusion temperature, reducing inter-layer polymer diffusion.",
+      "exactFix": "Increase nozzle temperature to 255°C, reduce part cooling fan speed to 10-15%, and ensure chamber exhaust fan does not exceed 10%."
+    },
+    {
+      "issue": "Rough outer walls and stringing",
+      "rootCause": "Moisture absorption in the hygroscopic ABS+ resin causing vapor pressure micro-explosions during melt.",
+      "exactFix": "Dry the spool in a filament dryer at 70°C for 6 to 8 hours before printing and lower retraction length to 0.8mm."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Does eSUN ABS+ require an upgraded hardened steel nozzle on the P1S?",
+      "answer": "No. eSUN ABS+ is an unmodified, non-abrasive blend that prints safely and cleanly on the stock stainless steel nozzle without premature wear."
+    },
+    {
+      "question": "Can I leave the P1S glass top lid or front door cracked open while printing ABS+?",
+      "answer": "No. Keep the front door closed and the top glass sealed to retain maximum chamber temperature and prevent drafts that cause warping."
+    },
+    {
+      "question": "What is the maximum reliable volumetric flow rate for eSUN ABS+ on the P1S?",
+      "answer": "A safe ceiling is 18 mm³/s at 250°C, translating to roughly 214 mm/s print speeds at a 0.2mm layer height and 0.42mm line width."
+    },
+    {
+      "question": "Why is glue stick recommended on the textured PEI sheet for ABS+?",
+      "answer": "Glue acts primarily as a sacrificial release agent, protecting the PEI coating from over-adhesion and plate tear-out upon cooling."
+    }
+  ]
+}

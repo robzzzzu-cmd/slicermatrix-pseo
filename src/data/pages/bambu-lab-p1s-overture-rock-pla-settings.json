@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1s-overture-rock-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1S",
+    "slug": "bambu-lab-p1s",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Overture Rock PLA",
+    "slug": "overture-rock-pla",
+    "brand": "Overture",
+    "materialType": "Matte PLA",
+    "minNozzleTempC": 195,
+    "maxNozzleTempC": 220,
+    "minBedTempC": 50,
+    "maxBedTempC": 60,
+    "volumetricFlowLimitMm3s": 16,
+    "isAbrasive": true,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 208,
+    "recommendedBedTempC": 55,
+    "effectiveVolumetricFlowMm3s": 16,
+    "calculatedMaxPrintSpeedMmS": 190,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-28T13:31:05.433Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab P1S can reliably print Overture Rock PLA at speeds up to 190 mm/s capped by a 16 mm³/s volumetric flow limit. However, because the mineral rock particles are abrasive, you must upgrade the stock stainless steel nozzle and extruder gears to hardened steel to prevent rapid wear.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate cleaned with dish soap and warm water (no adhesive required)",
+  "slicerTweaks": [
+    "Cap 'Max volumetric speed' under the Filament Settings tab to exactly 16 mm³/s to prevent severe underextrusion at high P1S feed rates.",
+    "Set nozzle temperature to 208°C for all layers and bed temperature to 55°C on the Bambu Textured PEI plate profile.",
+    "Lower outer wall speed to 100-120 mm/s to ensure a uniform, non-glossy matte rock surface finish across varying layer times.",
+    "Keep the top glass lid propped or front door slightly ajar during prolonged prints to maintain chamber temps below 35°C and eliminate heat creep."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Bore diameter enlargement and severe overextrusion over time",
+      "rootCause": "Abrasive mineral particulates in Rock PLA rapidly eroding the stock P1S stainless steel nozzle orifice.",
+      "exactFix": "Install the official Bambu Lab 0.4mm Hardened Steel Hotend assembly and hardened steel extruder drive gear."
+    },
+    {
+      "issue": "Extruder clicking and clumping mid-print (heat creep clog)",
+      "rootCause": "Printing PLA inside a fully enclosed P1S chamber raises the ambient temperature near the PLA glass transition point (55-60°C).",
+      "exactFix": "Prop the top glass cover open with a riser or vent the front door, and reduce retraction distance to 0.8mm at 35 mm/s."
+    },
+    {
+      "issue": "Weak layer adhesion and brittle parts along the Z-axis",
+      "rootCause": "Excessive cooling combined with insufficient melt temperature due to the high particulate content in stone-composite PLA.",
+      "exactFix": "Increase nozzle printing temperature from 208°C to 215°C and drop maximum part cooling fan speed to 80%."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Overture Rock PLA with the stock P1S stainless steel nozzle?",
+      "answer": "You can print short test prints, but the mineral additives will quickly bore out the stock stainless steel nozzle and wear the extruder gears. Upgrading to Bambu hardened steel components is strongly recommended."
+    },
+    {
+      "question": "Do I need to keep the P1S door closed while printing Overture Rock PLA?",
+      "answer": "No, you should keep the door cracked or prop open the top lid. PLA softens at low temperatures, and enclosed chamber temperatures can easily cause heat creep jams in the hotend."
+    },
+    {
+      "question": "Why is the top speed capped at 190 mm/s on the Bambu P1S?",
+      "answer": "Rock PLA contains non-melting mineral fillers that restrict melt flow, imposing a practical limit of 16 mm³/s volumetric speed, which equates to roughly 190 mm/s with standard 0.4mm nozzle layer geometry."
+    },
+    {
+      "question": "Does Overture Rock PLA need to be dried before printing?",
+      "answer": "Standard PLA is minimally hygroscopic, but the mineral fillers can draw moisture over time; if you observe stringing or micro-popping, dry the spool at 45°C for 4 to 6 hours."
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1s-esun-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1S",
+    "slug": "bambu-lab-p1s",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "eSUN PETG",
+    "slug": "esun-petg",
+    "brand": "eSUN",
+    "materialType": "PETG",
+    "minNozzleTempC": 230,
+    "maxNozzleTempC": 250,
+    "minBedTempC": 70,
+    "maxBedTempC": 85,
+    "volumetricFlowLimitMm3s": 14,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 240,
+    "recommendedBedTempC": 78,
+    "effectiveVolumetricFlowMm3s": 14,
+    "calculatedMaxPrintSpeedMmS": 167,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-28T12:51:37.267Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1S handles eSUN PETG out of the box with outstanding reliability using the stock direct-drive extruder and stainless steel nozzle. By locking the volumetric flow rate to 14 mm³/s, the system achieves a reliable safe maximum print speed of 167 mm/s without sacrificing layer bonding or surface quality.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 50,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate (clean with dish soap; glue stick recommended strictly as a release agent to prevent surface damage)",
+  "slicerTweaks": [
+    "Set Filament Max Volumetric Speed to 14 mm³/s in OrcaSlicer to prevent under-extrusion at high feedrates.",
+    "Disable the Auxiliary Part Cooling Fan completely (set to 0%) to prevent asymmetric warping and differential shrinkage.",
+    "Calibrate Pressure Advance (PA) in OrcaSlicer, setting the direct-drive baseline to approximately 0.036 for crisp corners without blobbing.",
+    "Enable 'Wipe while retracting' (2 mm wipe distance) and set Z-hop to 0.4 mm Spiral to eliminate PETG nozzle accumulation and wisps."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Hairy stringing and fine whisker buildup on travel moves",
+      "rootCause": "PETG is highly hygroscopic and absorbs ambient moisture quickly, causing steam micro-explosions and nozzle drool.",
+      "exactFix": "Dry the filament spool in a dedicated dryer at 65°C for 6 to 8 hours before printing, and keep retraction at 0.8 mm at 30 mm/s."
+    },
+    {
+      "issue": "Over-adhesion and build plate coating tear-out",
+      "rootCause": "PETG chemically bonds strongly to PEI coatings when printed at high bed temperatures without an interface layer.",
+      "exactFix": "Apply a thin, even layer of liquid glue or PVP glue stick as a sacrificial release agent, and ensure the bed cools below 35°C before removing parts."
+    },
+    {
+      "issue": "Weak layer bonding and matte chalky exterior finish",
+      "rootCause": "Part cooling fan running too high or volumetric flow exceeding 14 mm³/s, chilling the melt pool before fusion.",
+      "exactFix": "Cap part cooling fan speed to a maximum of 50%, turn off the auxiliary cooling fan, and print outer walls at 240°C."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Do I need to leave the P1S glass top or door open when printing eSUN PETG?",
+      "answer": "No, PETG has a higher glass transition temperature (~75°C to 80°C) than PLA, so leaving the chamber fully closed will not induce heat creep during standard print jobs."
+    },
+    {
+      "question": "Should I upgrade the stock stainless steel nozzle on the P1S for eSUN PETG?",
+      "answer": "No upgrade is necessary because standard eSUN PETG is non-abrasive; the stock stainless steel hotend effortlessly withstands the required 240°C printing temperature."
+    },
+    {
+      "question": "Why is the auxiliary chamber fan causing my PETG parts to warp on the P1S?",
+      "answer": "The auxiliary fan directs cold air unilaterally across the build plate, introducing uneven thermal contraction in PETG; it should be set to 0% in OrcaSlicer."
+    },
+    {
+      "question": "Can I push eSUN PETG beyond 167 mm/s on the Bambu Lab P1S?",
+      "answer": "You can only increase speed if you decrease layer height or line width; at 0.2mm layer height and 0.42mm extrusion width, 167 mm/s represents the hard physical boundary of the 14 mm³/s hotend melt capacity."
+    }
+  ]
+}

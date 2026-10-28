@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1s-polymaker-polylite-asa-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1S",
+    "slug": "bambu-lab-p1s",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Polymaker PolyLite ASA",
+    "slug": "polymaker-polylite-asa",
+    "brand": "Polymaker",
+    "materialType": "ASA",
+    "minNozzleTempC": 240,
+    "maxNozzleTempC": 260,
+    "minBedTempC": 90,
+    "maxBedTempC": 105,
+    "volumetricFlowLimitMm3s": 17,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 250,
+    "recommendedBedTempC": 98,
+    "effectiveVolumetricFlowMm3s": 17,
+    "calculatedMaxPrintSpeedMmS": 202,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-28T12:33:47.549Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The enclosed Bambu Lab P1S handles Polymaker PolyLite ASA right out of the box, reaching safe print speeds up to 202 mm/s based on its 17 mm³/s volumetric flow limit. Thanks to the fully enclosed chamber and standard stainless steel nozzle compatibility, thermal stability is easily maintained without hardware modifications.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 10,
+  "coolingFanMaxPct": 25,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with PVP glue stick or liquid adhesive as a release agent",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 17 mm³/s in the filament profile to cap continuous high-speed flow within safe melt limits.",
+    "Disable the chamber exhaust fan and set Part Cooling Fan to 10% min / 25% max with a 30s layer time threshold to prevent layer delamination.",
+    "Adjust Bed Temperature to 98°C for all layers and set First Layer Speed to 35 mm/s to ensure robust build plate adhesion.",
+    "Enable a 5mm outer brim with 0.1mm brim-object gap in Others tab to protect high-stress corners from lifting."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Corner warping and bed detachment",
+      "rootCause": "Excessive chamber draft and thermal shrinkage of ASA when printed below optimal chamber ambient temperature.",
+      "exactFix": "Preheat the bed at 100°C for 15 minutes with the chamber closed before printing, use a 5mm brim, and set bed temperature to 98°C."
+    },
+    {
+      "issue": "Interlayer splitting / weak layer bonding",
+      "rootCause": "Part cooling fan running too fast or chamber exhaust fan actively cooling the part during printing.",
+      "exactFix": "Turn off the chamber fan completely in the filament start G-code/OrcaSlicer fan settings, and cap part cooling between 10% and 25%."
+    },
+    {
+      "issue": "Stringing and surface blobs",
+      "rootCause": "Moisture absorption in the hygroscopic ASA filament or insufficient retraction length on the direct drive extruder.",
+      "exactFix": "Dry the filament spool at 70°C for 6 to 8 hours and ensure retraction distance is set to 0.8 mm with 30 mm/s retraction speed."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Does Polymaker PolyLite ASA require a hardened steel nozzle on the P1S?",
+      "answer": "No, PolyLite ASA is non-abrasive, so the stock stainless steel nozzle on the Bambu Lab P1S is fully compatible and will not suffer premature wear."
+    },
+    {
+      "question": "Can I reach 202 mm/s print speed across all features?",
+      "answer": "Yes, standard walls and infill can run at 202 mm/s under a 0.2mm layer height and 0.42mm line width, but slow down outer walls to around 100-120 mm/s and the first layer to 35 mm/s for surface quality and adhesion."
+    },
+    {
+      "question": "Should I print with the P1S door or top lid open?",
+      "answer": "Keep both the door and top glass lid completely closed during printing to retain heat and prevent rapid cooling that causes warping and cracking in ASA."
+    },
+    {
+      "question": "How should I handle the styrene emissions produced by ASA?",
+      "answer": "Ensure the P1S carbon filter is properly seated, run the print in a well-ventilated room, or vent the exhaust port externally, as ASA produces VOCs during extrusion."
+    }
+  ]
+}

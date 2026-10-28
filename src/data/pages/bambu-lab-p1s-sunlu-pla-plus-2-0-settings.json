@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1s-sunlu-pla-plus-2-0-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1S",
+    "slug": "bambu-lab-p1s",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Sunlu PLA+ 2.0",
+    "slug": "sunlu-pla-plus-2-0",
+    "brand": "Sunlu",
+    "materialType": "PLA+",
+    "minNozzleTempC": 205,
+    "maxNozzleTempC": 230,
+    "minBedTempC": 55,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 24,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 218,
+    "recommendedBedTempC": 60,
+    "effectiveVolumetricFlowMm3s": 24,
+    "calculatedMaxPrintSpeedMmS": 286,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-28T13:32:28.294Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1S handles Sunlu PLA+ 2.0 flawlessly out of the box, achieving speeds up to 286 mm/s utilizing a 24 mm³/s volumetric flow limit. No hardened nozzle or enclosure upgrades are necessary, though cracking the top glass is recommended during extended runs to mitigate heat creep.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate at 60°C (clean with warm water and detergent; no glue required)",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 24 mm³/s in the filament settings to safely saturate flow at 286 mm/s.",
+    "Set printing temperature to 218°C (first layer 220°C, other layers 218°C) to balance melt fluidity and layer bonding.",
+    "Cap Auxiliary Cooling Fan to 40-60% to prevent uneven shrinkage and warping on the left side of large prints.",
+    "Tune Pressure Advance to 0.022 for clean corners and seam transitions on the stock Direct Drive extruder."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Extruder Clogging / Heat Creep",
+      "rootCause": "Enclosed chamber temperature exceeding the glass transition threshold of PLA during prolonged printing.",
+      "exactFix": "Prop open the top glass cover or crack the front door slightly to vent chamber heat."
+    },
+    {
+      "issue": "Corner Lifting / Warping",
+      "rootCause": "Auxiliary part fan cooling the print too rapidly on one side or a greasy build plate.",
+      "exactFix": "Wash the textured PEI plate with dish soap and reduce the auxiliary cooling fan speed to 30% in OrcaSlicer."
+    },
+    {
+      "issue": "Surface Finish Inconsistency (Glossy vs Matte Stripes)",
+      "rootCause": "Printing speed drastically varying between inner and outer perimeters at high volumetric flow rates.",
+      "exactFix": "Set outer wall speed to a consistent 150-180 mm/s and maintain nozzle temperature at 220°C."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Do I need a hardened steel nozzle to print Sunlu PLA+ 2.0 on the P1S?",
+      "answer": "No, Sunlu PLA+ 2.0 contains no abrasive additives such as carbon fiber or glow powder, making the stock stainless steel nozzle completely suitable."
+    },
+    {
+      "question": "Should the P1S door and top lid stay closed when printing PLA+?",
+      "answer": "It is recommended to leave the top glass propped open or the front door cracked to prevent chamber heat creep from softening filament before the heatbreak."
+    },
+    {
+      "question": "Can Sunlu PLA+ 2.0 achieve Bambu High Speed print profiles?",
+      "answer": "Yes, with its calibrated 24 mm³/s maximum volumetric speed limit, it comfortably achieves up to 286 mm/s at standard 0.2mm layer heights."
+    },
+    {
+      "question": "Does Sunlu PLA+ 2.0 require drying before use?",
+      "answer": "While standard PLA+ is not severely hygroscopic, pre-drying at 45-50°C for 4 hours will eliminate minor micro-stringing and optimize surface quality."
+    }
+  ]
+}

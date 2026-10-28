@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1s-esun-etpu-95a-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1S",
+    "slug": "bambu-lab-p1s",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "eSUN eTPU-95A",
+    "slug": "esun-etpu-95a",
+    "brand": "eSUN",
+    "materialType": "TPU",
+    "minNozzleTempC": 210,
+    "maxNozzleTempC": 230,
+    "minBedTempC": 45,
+    "maxBedTempC": 60,
+    "volumetricFlowLimitMm3s": 4.5,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 220,
+    "recommendedBedTempC": 53,
+    "effectiveVolumetricFlowMm3s": 4.5,
+    "calculatedMaxPrintSpeedMmS": 54,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-28T13:06:37.461Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1S handles eSUN eTPU-95A reliably out of the box using its direct-drive extruder, reaching a safe calculated max speed of 54 mm/s at a 4.5 mm³/s volumetric flow limit. While the stock stainless steel nozzle and enclosed design are fully compatible, the filament must bypass the AMS and be fed directly from an external spool.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 40,
+  "coolingFanMaxPct": 80,
+  "firstLayerSpeedMmS": 25,
+  "bedSurfaceRecommendation": "Textured PEI Plate with PVP Glue Stick (mandatory release agent to prevent permanent bonding)",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 4.5 mm³/s in the filament profile to cap extrusion demands and avoid buckling.",
+    "Bypass the Bambu AMS unit entirely; feed directly from the rear spool holder or an external dry box into the toolhead.",
+    "Enable 'Avoid Crossing Walls' and set 'Wipe while Retracting' to 2.0 mm to suppress flexible stringing and surface oozing.",
+    "Set Pressure Advance (PA) to approximately 0.045 to maintain sharp corners and prevent bulging under direct-drive tension."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Filament buckling or wrapping around extruder drive gears",
+      "rootCause": "Extruder backpressure caused by excessive volumetric flow, high print speed, or overly aggressive retraction speeds.",
+      "exactFix": "Cap volumetric flow rate to 4.5 mm³/s, reduce retraction speed to 30 mm/s or lower, and ensure printing temperatures do not drop below 220°C."
+    },
+    {
+      "issue": "Excessive fine stringing and surface blobbing",
+      "rootCause": "Wet hygroscopic TPU absorbing ambient moisture or suboptimal travel/retraction tuning.",
+      "exactFix": "Dry the filament spool at 65°C for 6-8 hours before printing, increase travel speed to 250 mm/s, and tune retraction distance to 0.8 mm."
+    },
+    {
+      "issue": "PEI sheet damage or bed adhesion tearing during part removal",
+      "rootCause": "TPU inherently over-adheres to smooth or textured PEI surfaces without a sacrificial separation barrier.",
+      "exactFix": "Apply a uniform coat of liquid glue or PVP glue stick as a release agent across the plate, and wait until the bed cools completely below 30°C before removing the print."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I feed eSUN eTPU-95A through the Bambu Lab AMS?",
+      "answer": "No. TPU is too elastic and will buckle inside the AMS internal funnels and long PTFE tubes. Always feed flexible filament from the external spool holder directly to the extruder."
+    },
+    {
+      "question": "Do I need to leave the P1S door or top glass lid open when printing TPU?",
+      "answer": "Yes, it is best practice to crack open the front door or vent the top glass lid to prevent excessive chamber heat buildup, which can soften the TPU prematurely in the extruder gears and cause clogging."
+    },
+    {
+      "question": "Do I need a hardened steel nozzle to print eSUN eTPU-95A?",
+      "answer": "No, standard eSUN eTPU-95A is non-abrasive, making the stock P1S stainless steel nozzle completely suitable and wear-resistant for this material."
+    },
+    {
+      "question": "Why is the print speed capped at 54 mm/s for this profile?",
+      "answer": "Flexible filaments experience severe friction and buckling when driven through narrow melt zones; limiting speed to 54 mm/s respects the 4.5 mm³/s volumetric flow ceiling, ensuring continuous extrusion without slipping."
+    }
+  ]
+}

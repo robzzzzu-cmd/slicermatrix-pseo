@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1s-esun-epa-cf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1S",
+    "slug": "bambu-lab-p1s",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "eSUN ePA-CF",
+    "slug": "esun-epa-cf",
+    "brand": "eSUN",
+    "materialType": "PA-CF",
+    "minNozzleTempC": 265,
+    "maxNozzleTempC": 285,
+    "minBedTempC": 75,
+    "maxBedTempC": 90,
+    "volumetricFlowLimitMm3s": 11,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 275,
+    "recommendedBedTempC": 83,
+    "effectiveVolumetricFlowMm3s": 11,
+    "calculatedMaxPrintSpeedMmS": 131,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-28T13:01:52.737Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab P1S requires upgrading to a hardened steel nozzle and extruder gear before printing abrasive eSUN ePA-CF to prevent rapid mechanical wear. Once upgraded, the enclosed chamber provides an optimal thermal environment to reliably achieve speeds up to 131 mm/s at a capped volumetric flow rate of 11 mm³/s.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 20,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with PVP glue stick or liquid adhesive as an interface and release layer",
+  "slicerTweaks": [
+    "Cap Maximum Volumetric Speed to 11 mm³/s in the filament settings to eliminate extrusion starvation at high feedrates.",
+    "Lower part cooling fan thresholds to 0% min and 20% max (with 0% for the first 3 layers) to maintain high interlayer bonding strength.",
+    "Set outer wall speed to 80 mm/s and inner wall speed to 120 mm/s to optimize surface finish and dimension consistency while staying below the 131 mm/s volumetric limit.",
+    "Enable Wipe While Retracting with a 1.0 mm wipe distance to minimize carbon fiber seam blobbing and z-seam stringing."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Intermittent under-extrusion and rapid nozzle orifice expansion",
+      "rootCause": "Carbon fiber abrasive wear on the stock P1S stainless steel nozzle and extruder drive gears.",
+      "exactFix": "Replace the stock stainless hotend and extruder with official Bambu Lab hardened steel components."
+    },
+    {
+      "issue": "Severe stringing, rough surface finish, and brittle layer adhesion",
+      "rootCause": "Hydrolysis caused by high moisture absorption in the hygroscopic polyamide matrix.",
+      "exactFix": "Dry the filament in an active blast oven or dry box at 70-80°C for at least 8 to 12 hours before printing directly from a dry enclosure."
+    },
+    {
+      "issue": "Part warping and bed corner peeling",
+      "rootCause": "Thermal contraction from chamber draft or excessive part cooling fan airflow.",
+      "exactFix": "Preheat the enclosed chamber by setting the bed to 85°C for 15 minutes, disable auxiliary fan, and apply a thin layer of glue stick on the textured PEI sheet."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print eSUN ePA-CF with the stock Bambu Lab P1S nozzle?",
+      "answer": "No, the stock P1S ships with a stainless steel nozzle and unhardened extruder gears, which eSUN ePA-CF will wear out within a single spool; install Bambu hardened steel replacements first."
+    },
+    {
+      "question": "Do I need to keep the P1S door and top glass closed when printing eSUN ePA-CF?",
+      "answer": "Yes, keep the chamber fully closed to retain ambient heat and prevent ambient drafts, which helps reduce warping and maximizes layer adhesion in nylon."
+    },
+    {
+      "question": "Is an AMS compatible with eSUN ePA-CF on the P1S?",
+      "answer": "While it can feed, continuous use of stiff, abrasive carbon fiber filament will groove standard AMS plastic funnels and Bowden tubes; external dry-box feeding is recommended for long-term reliability."
+    },
+    {
+      "question": "What is the maximum printing speed I can use for eSUN ePA-CF?",
+      "answer": "Due to the 11 mm³/s maximum volumetric flow rate, standard 0.4mm nozzle lines at 0.2mm layer height are mechanically capped at 131 mm/s to ensure complete plasticization."
+    }
+  ]
+}

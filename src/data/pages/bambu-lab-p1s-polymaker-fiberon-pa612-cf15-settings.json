@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1s-polymaker-fiberon-pa612-cf15-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1S",
+    "slug": "bambu-lab-p1s",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Polymaker Fiberon PA612-CF15",
+    "slug": "polymaker-fiberon-pa612-cf15",
+    "brand": "Polymaker",
+    "materialType": "PA612-CF",
+    "minNozzleTempC": 275,
+    "maxNozzleTempC": 295,
+    "minBedTempC": 45,
+    "maxBedTempC": 55,
+    "volumetricFlowLimitMm3s": 12,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 285,
+    "recommendedBedTempC": 50,
+    "effectiveVolumetricFlowMm3s": 12,
+    "calculatedMaxPrintSpeedMmS": 143,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-28T12:37:41.374Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab P1S requires a hardened steel nozzle and hardened extruder gear upgrade before processing abrasive Polymaker Fiberon PA612-CF15. Once upgraded, it reliably achieves safe speeds up to 143 mm/s capped by a conservative 12 mm³/s volumetric flow limit.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 10,
+  "coolingFanMaxPct": 25,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Bambu Textured PEI Plate with PVA glue stick or Magigoo PA release agent",
+  "slicerTweaks": [
+    "Set the Maximum Volumetric Speed cap to 12 mm³/s to prevent severe underextrusion due to high carbon fiber melt viscosity.",
+    "Configure Nozzle Temperature to 285°C for all layers and Bed Temperature to 50°C to match Polymaker's low-warpage PA612 formulation.",
+    "Tune Pressure Advance to roughly 0.038 and set Retraction Distance to 0.8 mm at 30 mm/s to eliminate fiber oozing.",
+    "Enable 'Avoid Crossing Walls' and set Outer Wall Speed to 80 mm/s to ensure clean surface matte consistency and dimensionally accurate perimeters."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Rapid nozzle wear and inconsistent extrusion diameter",
+      "rootCause": "Abrasive 15% carbon fiber reinforcement eroding the stock Bambu P1S stainless steel nozzle.",
+      "exactFix": "Install the official Bambu Lab 0.4mm Hardened Steel Hotend assembly and Hardened Steel Extruder Gears."
+    },
+    {
+      "issue": "Brittle layer bonding and Z-axis splitting",
+      "rootCause": "Excessive auxiliary/part cooling fan speed cooling the nylon extrudate below its fusion threshold.",
+      "exactFix": "Cap maximum part cooling fan to 25%, turn off the auxiliary chamber fan completely, and keep the P1S door closed."
+    },
+    {
+      "issue": "Rough fuzzy texture, popping noises, and stringing",
+      "rootCause": "Hygroscopic PA612 polymer matrix saturated with atmospheric moisture.",
+      "exactFix": "Dehydrate the spool in a filament dryer at 80°C for 8 to 12 hours prior to printing, and print directly from a sealed dry container."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I feed Polymaker Fiberon PA612-CF15 directly through the Bambu AMS?",
+      "answer": "Yes, but prolonged use will wear the standard plastic AMS funnel inlets; use wear-resistant ceramic/PTFE guides or feed from an external drybox."
+    },
+    {
+      "question": "Why is the recommended bed temperature set to only 50°C for a nylon filament?",
+      "answer": "PA612 has significantly lower crystallization shrinkage than pure PA6, allowing it to adhere stably at 45-55°C without warping when using proper bed adhesives."
+    },
+    {
+      "question": "What will happen if I attempt to print this on the stock P1S hotend?",
+      "answer": "The abrasive carbon fibers will erode the stock stainless steel nozzle within a few hundred grams, enlarging the orifice and ruining dimensional accuracy."
+    },
+    {
+      "question": "Does the P1S need an actively heated chamber for this material?",
+      "answer": "No, the enclosed passive chamber of the P1S combined with bed radiation is sufficient due to the low-shrinkage chemical backbone of PA612."
+    }
+  ]
+}

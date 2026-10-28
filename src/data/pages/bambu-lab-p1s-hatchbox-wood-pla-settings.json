@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1s-hatchbox-wood-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1S",
+    "slug": "bambu-lab-p1s",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Hatchbox Wood PLA",
+    "slug": "hatchbox-wood-pla",
+    "brand": "Hatchbox",
+    "materialType": "Wood PLA",
+    "minNozzleTempC": 195,
+    "maxNozzleTempC": 220,
+    "minBedTempC": 50,
+    "maxBedTempC": 60,
+    "volumetricFlowLimitMm3s": 11,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 208,
+    "recommendedBedTempC": 55,
+    "effectiveVolumetricFlowMm3s": 11,
+    "calculatedMaxPrintSpeedMmS": 131,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-28T13:42:20.638Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab P1S can reliably print Hatchbox Wood PLA at up to 131 mm/s governed by an 11 mm³/s volumetric speed cap, but it requires upgrading from the stock stainless steel nozzle to a hardened steel assembly to prevent rapid bore erosion. Additionally, printing with the top glass lid propped or front door cracked prevents heat creep jamming caused by the organic wood fibers.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with clean surface (IPA wipe), no adhesive required",
+  "slicerTweaks": [
+    "Cap 'Max volumetric speed' at 11 mm³/s in the filament profile to prevent extruder skipping and under-extrusion on long perimeters.",
+    "Set outer wall speed to 80 mm/s and inner walls to 120 mm/s to ensure consistent surface sheen without exceeding fiber flow limits.",
+    "Enable 'Wipe while retracting' set to 2 mm to eliminate wood fiber stringing and nozzle oozing during non-print travel moves.",
+    "Lower retraction speed to 30 mm/s and distance to 0.8 mm to prevent pulling melted fiber particles into the upper cold break."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Nozzle Clogging / Partial Extrusion",
+      "rootCause": "Wood fiber particle agglomeration and heat creep occurring in an enclosed chamber with a small or worn nozzle.",
+      "exactFix": "Install a 0.6mm or hardened 0.4mm nozzle, vent the P1S top glass cover, and keep hotend temperature at or below 208°C."
+    },
+    {
+      "issue": "Stringing and Hairy Artifacts",
+      "rootCause": "Excess moisture trapped within the organic wood fibers causing micro-boiling in the melt zone.",
+      "exactFix": "Dry the spool in a filament dryer at 50°C for 6 to 8 hours and enable OrcaSlicer Avoid Crossing Walls."
+    },
+    {
+      "issue": "First Layer Poor Adhesion or Curling",
+      "rootCause": "Bed temperature set outside optimal range or residue buildup on the textured plate reducing contact.",
+      "exactFix": "Wash the Textured PEI plate with warm water and dish soap, set bed temperature to 55°C, and slow first layer to 35 mm/s."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I run Hatchbox Wood PLA through the Bambu Lab AMS?",
+      "answer": "It is not recommended because wood-filled filaments are brittle, prone to snapping inside the PTFE guide tubes, and cause accelerated wear on the stock AMS feeder funnels."
+    },
+    {
+      "question": "Why is a hardened steel nozzle required for wood PLA on the P1S?",
+      "answer": "Wood fibers and particulate additives act as mild abrasives that enlarge the stock stainless steel nozzle orifice over time, leading to inconsistent extrusion widths."
+    },
+    {
+      "question": "Should I print Hatchbox Wood PLA with the P1S door closed?",
+      "answer": "No, you should crack open the front door or prop up the top glass lid to avoid heat creep, which softens PLA prematurely and causes stubborn clogs."
+    },
+    {
+      "question": "Will a 0.4mm nozzle work, or should I switch to a 0.6mm nozzle?",
+      "answer": "A 0.4mm hardened nozzle works fine for Hatchbox Wood PLA, but switching to a 0.6mm hardened nozzle drastically lowers clogging risk from larger wood particulates."
+    }
+  ]
+}

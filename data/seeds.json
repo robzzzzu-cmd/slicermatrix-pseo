@@ -267,7 +267,7 @@
   },
   {
     "slug": "bambu-lab-p1s-polymaker-pa6-cf-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1S",
       "slug": "bambu-lab-p1s",
@@ -419,7 +419,7 @@
   },
   {
     "slug": "bambu-lab-p1s-polymaker-polylite-asa-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1S",
       "slug": "bambu-lab-p1s",
@@ -533,7 +533,7 @@
   },
   {
     "slug": "bambu-lab-p1s-polymaker-fiberon-pa612-cf15-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1S",
       "slug": "bambu-lab-p1s",
@@ -571,7 +571,7 @@
   },
   {
     "slug": "bambu-lab-p1s-bambu-petg-hf-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1S",
       "slug": "bambu-lab-p1s",
@@ -647,7 +647,7 @@
   },
   {
     "slug": "bambu-lab-p1s-bambu-paht-cf-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1S",
       "slug": "bambu-lab-p1s",
@@ -685,7 +685,7 @@
   },
   {
     "slug": "bambu-lab-p1s-bambu-asa-cf-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1S",
       "slug": "bambu-lab-p1s",
@@ -723,7 +723,7 @@
   },
   {
     "slug": "bambu-lab-p1s-esun-petg-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1S",
       "slug": "bambu-lab-p1s",
@@ -761,7 +761,7 @@
   },
   {
     "slug": "bambu-lab-p1s-esun-abs-plus-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1S",
       "slug": "bambu-lab-p1s",
@@ -799,7 +799,7 @@
   },
   {
     "slug": "bambu-lab-p1s-esun-epa-cf-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1S",
       "slug": "bambu-lab-p1s",
@@ -837,7 +837,7 @@
   },
   {
     "slug": "bambu-lab-p1s-esun-etpu-95a-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1S",
       "slug": "bambu-lab-p1s",
@@ -875,7 +875,7 @@
   },
   {
     "slug": "bambu-lab-p1s-overture-pla-professional-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1S",
       "slug": "bambu-lab-p1s",
@@ -951,7 +951,7 @@
   },
   {
     "slug": "bambu-lab-p1s-overture-rock-pla-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1S",
       "slug": "bambu-lab-p1s",
@@ -989,7 +989,7 @@
   },
   {
     "slug": "bambu-lab-p1s-sunlu-pla-plus-2-0-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1S",
       "slug": "bambu-lab-p1s",
@@ -1255,7 +1255,7 @@
   },
   {
     "slug": "bambu-lab-p1s-hatchbox-wood-pla-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1S",
       "slug": "bambu-lab-p1s",

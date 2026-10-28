@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1s-bambu-paht-cf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1S",
+    "slug": "bambu-lab-p1s",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Bambu PAHT-CF",
+    "slug": "bambu-paht-cf",
+    "brand": "Bambu Lab",
+    "materialType": "PAHT-CF",
+    "minNozzleTempC": 275,
+    "maxNozzleTempC": 295,
+    "minBedTempC": 90,
+    "maxBedTempC": 105,
+    "volumetricFlowLimitMm3s": 11,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 285,
+    "recommendedBedTempC": 98,
+    "effectiveVolumetricFlowMm3s": 11,
+    "calculatedMaxPrintSpeedMmS": 131,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-28T12:41:19.621Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab P1S handles Bambu PAHT-CF exceptionally well but strictly requires upgrading the stock stainless steel nozzle and extruder gears to hardened steel before printing. Once upgraded, it safely prints up to 131 mm/s governed by an 11 mm³/s maximum volumetric flow rate.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 20,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate or Engineering Plate + Bambu Liquid Glue / PVP Glue Stick as a release interface",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 11 mm³/s in the Filament Settings to cap speeds safely at 131 mm/s for a 0.2mm layer height.",
+    "Lower Part Cooling Fan to 0% threshold and cap maximum fan speed at 20% to prevent layer delamination and severe warping.",
+    "Enable a 5mm outer brim with a 0.1mm brim-to-object gap to combat corner lifting under high chamber thermal stress.",
+    "Set the nozzle temperature to 285°C and bed temperature to 98°C, keeping the P1S front door and top glass lid fully closed throughout printing."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Rough surface finish, severe stringing, and loud popping sounds during extrusion",
+      "rootCause": "Excess moisture absorption; PAHT-CF is extremely hygroscopic and hydrolyzes in the melt zone.",
+      "exactFix": "Dry the spool in a dedicated filament dryer or the P1S heatbed chamber at 80°C for 8-12 hours before printing, and print directly from a dry box or sealed AMS with fresh desiccant."
+    },
+    {
+      "issue": "Part warping and corner lifting off the build plate",
+      "rootCause": "Inadequate bed temperature or insufficient bed pre-heating causing high thermal contraction stress at the base.",
+      "exactFix": "Set bed temperature to 98°C, apply Bambu liquid glue stick evenly across the textured PEI plate, and pre-heat the enclosed chamber for 15-20 minutes prior to starting the print."
+    },
+    {
+      "issue": "Extruder clicking, severe under-extrusion, or nozzle clogs mid-print",
+      "rootCause": "Abrasive carbon fibers wearing out the stock stainless steel nozzle/gears or particulate clogging a 0.4mm orifice at lower extrusion temps.",
+      "exactFix": "Replace both the nozzle assembly and extruder gears with Bambu Hardened Steel components and ensure hotend temperature is set no lower than 285°C."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Bambu PAHT-CF on the P1S with the stock stainless steel nozzle and gears?",
+      "answer": "No. The carbon fiber fill is highly abrasive and will rapidly erode the stock stainless steel nozzle aperture and extruder drive gears within a few hundred grams of printing. You must install Bambu hardened steel components."
+    },
+    {
+      "question": "Why is the print speed capped at 131 mm/s when the P1S can run at 500 mm/s?",
+      "answer": "PAHT-CF has a high melt viscosity and an effective volumetric flow limit of 11 mm³/s. With a 0.4mm nozzle, 0.42mm line width, and 0.2mm layer height, 131 mm/s reaches that flow boundary; exceeding it causes severe under-extrusion."
+    },
+    {
+      "question": "Can I feed PAHT-CF through the Bambu AMS?",
+      "answer": "Yes, Bambu PAHT-CF is formulated to be AMS-compatible. However, prolonged use of carbon-fiber filaments will wear AMS funnels and internal PTFE tubes faster, and the filament must be thoroughly dry to prevent brittle snapping inside the feeder paths."
+    },
+    {
+      "question": "Should I keep the P1S glass lid and front door open or closed during printing?",
+      "answer": "Keep both the glass top lid and the front door completely closed. PAHT-CF requires a hot, draft-free chamber to prevent rapid thermal contraction, residual internal stress, and premature layer delamination."
+    }
+  ]
+}
