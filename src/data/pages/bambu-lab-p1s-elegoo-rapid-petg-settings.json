@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1s-elegoo-rapid-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1S",
+    "slug": "bambu-lab-p1s",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Elegoo Rapid PETG",
+    "slug": "elegoo-rapid-petg",
+    "brand": "Elegoo",
+    "materialType": "PETG",
+    "minNozzleTempC": 230,
+    "maxNozzleTempC": 255,
+    "minBedTempC": 70,
+    "maxBedTempC": 85,
+    "volumetricFlowLimitMm3s": 20,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 243,
+    "recommendedBedTempC": 78,
+    "effectiveVolumetricFlowMm3s": 20,
+    "calculatedMaxPrintSpeedMmS": 238,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-29T13:19:10.416Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1S handles Elegoo Rapid PETG out of the box with exceptional consistency, reaching real-world print speeds up to 238 mm/s backed by a 20 mm³/s volumetric flow limit. While the stock stainless steel nozzle and enclosed chamber are fully capable, keeping the top glass vented during long prints prevents heat creep and nozzle buildup.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 60,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with liquid glue or glue stick as a release agent",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 20 mm³/s under Filament Settings to prevent under-extrusion at high print speeds.",
+    "Enable 'Wipe while retracting' set to 2 mm with 0.8 mm retraction to eliminate fine PETG whisker stringing.",
+    "Configure Part Cooling Fan threshold to keep the auxiliary side fan completely disabled (0%) to eliminate asymmetric part warping.",
+    "Set First Layer Flow Ratio to 0.98 to avoid PETG accumulation on the nozzle tip during initial squish."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Stringing and fine cobwebbing across travel paths",
+      "rootCause": "PETG is highly hygroscopic and absorbs ambient moisture, lowering melt viscosity and causing post-retraction ooze.",
+      "exactFix": "Dry the spool at 65°C for 6-8 hours in an active filament dryer, and increase retraction distance to 0.8 mm with 35 mm/s speed in OrcaSlicer."
+    },
+    {
+      "issue": "Severe bed adhesion causing PEI coating tear-out",
+      "rootCause": "PETG molecularly bonds with smooth PEI surfaces under high bed temperatures.",
+      "exactFix": "Apply a uniform layer of PVA glue stick or Bambu Liquid Glue to serve as an interface release agent, and drop bed temperature to 75°C."
+    },
+    {
+      "issue": "Rough top surfaces or nozzle dragging during high-speed infill",
+      "rootCause": "Crossing infill lines with Grid pattern causes nozzle collision when printing rapid-flow PETG.",
+      "exactFix": "Change infill pattern to Gyroid or Cross Hatch in OrcaSlicer to prevent nozzle crossover on the same layer plane."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Should the Bambu Lab P1S front door or top glass remain open when printing Elegoo Rapid PETG?",
+      "answer": "Yes, it is recommended to crack the front door or prop open the top lid by 1-2 cm during extended prints to maintain chamber temps below 40°C and prevent heat creep."
+    },
+    {
+      "question": "Do I need to upgrade the P1S stainless steel nozzle to hardened steel for Elegoo Rapid PETG?",
+      "answer": "No, standard Elegoo Rapid PETG is completely non-abrasive, so the stock stainless steel nozzle provides full performance without wear."
+    },
+    {
+      "question": "Why does the surface finish turn matte when printing at max speed (238 mm/s)?",
+      "answer": "Rapid cooling and extrusion at peak volumetric flow rate (20 mm³/s) limits polymer re-crystallization time; to restore a glossy sheen, lower outer wall speed to 100 mm/s."
+    },
+    {
+      "question": "What Pressure Advance (PA) value should I set in OrcaSlicer for this combination?",
+      "answer": "The ideal calibrated Pressure Advance for Elegoo Rapid PETG on the P1S direct drive extruder typically falls between 0.032 and 0.038 s."
+    }
+  ]
+}

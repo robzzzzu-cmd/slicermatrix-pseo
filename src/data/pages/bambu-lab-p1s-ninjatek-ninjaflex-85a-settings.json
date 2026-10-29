@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1s-ninjatek-ninjaflex-85a-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1S",
+    "slug": "bambu-lab-p1s",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "NinjaTek NinjaFlex 85A",
+    "slug": "ninjatek-ninjaflex-85a",
+    "brand": "NinjaTek",
+    "materialType": "TPU 85A",
+    "minNozzleTempC": 225,
+    "maxNozzleTempC": 240,
+    "minBedTempC": 40,
+    "maxBedTempC": 55,
+    "volumetricFlowLimitMm3s": 2.8,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 233,
+    "recommendedBedTempC": 48,
+    "effectiveVolumetricFlowMm3s": 2.8,
+    "calculatedMaxPrintSpeedMmS": 33,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-29T13:44:29.715Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1S handles NinjaTek NinjaFlex 85A out of the box using its direct drive extruder, operating safely at speeds up to 33 mm/s capped by a strict 2.8 mm³/s volumetric flow limit. While the stock stainless steel nozzle and enclosed frame are fully compatible, the filament must bypass the AMS via the external spool holder to prevent buckling.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 40,
+  "coolingFanMaxPct": 80,
+  "firstLayerSpeedMmS": 20,
+  "bedSurfaceRecommendation": "Textured PEI Plate + Glue Stick release agent",
+  "slicerTweaks": [
+    "Set 'Max volumetric speed' to 2.8 mm³/s in the filament profile to prevent the extruder gears from chewing or wrapping the ultra-flexible 85A TPU.",
+    "Disable 'Reduce retraction before travel' and enforce a low retraction speed of 30 mm/s with 0.8 mm retraction distance to avoid nozzle clogging and filament stretching.",
+    "Set outer wall speed, inner wall speed, and infill speeds uniformly to 30-33 mm/s to maintain constant extrusion pressure and eliminate surface artifacts.",
+    "Enable 'Avoid crossing perimeters' (Avoid crossing walls) with a max detour distance of 200 mm to conceal minor ooze/stringing internally."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Filament wrapping around extruder drive gears (buckling)",
+      "rootCause": "Extruder backpressure caused by exceeding 2.8 mm³/s volumetric speed or feeding from the high-friction AMS path.",
+      "exactFix": "Bypass the AMS entirely to feed directly from an external low-friction roller spool, and cap Max Volumetric Flow at 2.8 mm³/s with nozzle temp raised to 235°C."
+    },
+    {
+      "issue": "Severe bed adhesion causing PEI coating tear-out",
+      "rootCause": "TPU creates an aggressive molecular bond directly with smooth or textured PEI when heated.",
+      "exactFix": "Apply a uniform layer of PVP glue stick or liquid release agent across the Textured PEI plate prior to heating to act as a sacrificial release interface."
+    },
+    {
+      "issue": "Heavy stringing and foaming surface texture",
+      "rootCause": "Hydrophilic polyurethane resin absorbing atmospheric moisture within hours of exposure.",
+      "exactFix": "Dry the filament in an active convection dryer at 55°C for at least 8 to 12 hours prior to printing, and print directly from a sealed dry box."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I feed NinjaFlex 85A through the Bambu AMS?",
+      "answer": "No, flexible filaments softer than 95A will buckle, bind, and jam inside the internal feed gears and long PTFE routing tubes of the AMS; always feed directly from the rear spool holder or an external dry box."
+    },
+    {
+      "question": "Do I need to leave the P1S door or top glass lid open when printing NinjaFlex?",
+      "answer": "Yes, cracking the front door or propping the top lid is recommended during long prints to prevent chamber heat buildup, which can soften the TPU in the extruder cold zone and cause feed jams."
+    },
+    {
+      "question": "Do I need to upgrade to a hardened steel nozzle for NinjaFlex 85A?",
+      "answer": "No, standard NinjaFlex 85A is non-abrasive, making the stock P1S stainless steel nozzle completely suitable without premature wear."
+    },
+    {
+      "question": "Why is my print speed capped at only 33 mm/s?",
+      "answer": "The high elasticity and melt-viscosity of 85A elastomer restrict flow to 2.8 mm³/s; pushing beyond 33 mm/s at 0.2mm layer height and 0.42mm line width causes extruder slippage and filament jamming."
+    }
+  ]
+}

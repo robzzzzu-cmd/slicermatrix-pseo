@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-esun-pla-plus-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1",
+    "slug": "bambu-lab-a1",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "eSUN PLA+",
+    "slug": "esun-pla-plus",
+    "brand": "eSUN",
+    "materialType": "PLA+",
+    "minNozzleTempC": 205,
+    "maxNozzleTempC": 225,
+    "minBedTempC": 55,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 22,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 215,
+    "recommendedBedTempC": 60,
+    "effectiveVolumetricFlowMm3s": 22,
+    "calculatedMaxPrintSpeedMmS": 262,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-29T13:47:54.111Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab A1 handles eSUN PLA+ straight out of the box with exceptional reliability, pushing up to 262 mm/s safely within a 22 mm³/s volumetric flow limit. Thanks to non-abrasive additives and low thermal shrinkage, no hardened nozzle upgrade or chamber enclosure is required.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 40,
+  "bedSurfaceRecommendation": "Textured PEI Plate (no adhesive required; ensure surface is cleaned with isopropyl alcohol)",
+  "slicerTweaks": [
+    "Cap the Max Volumetric Speed at 22 mm³/s in the Filament Profile to prevent high-speed underextrusion.",
+    "Set Printing Temperature to 215°C for standard layers and 220°C for the first layer to maximize bed adhesion.",
+    "Tune Pressure Advance (Linear Advance) to approximately 0.024 for the stock direct drive extruder using the OrcaSlicer PA tower.",
+    "Enable Scarf Joint Seam or set Seam Position to 'Aligned' with Seam Gap at 10% to eliminate surface zits at high speeds."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Corner lifting or localized warping",
+      "rootCause": "Inadequate first layer bed temperature or drafts cooling the lower perimeter on the open-frame bed.",
+      "exactFix": "Increase bed temperature to 62°C, set first layer fan speed to 0% for the first 3 layers, and clean the PEI plate thoroughly with dish soap and warm water."
+    },
+    {
+      "issue": "Matte finish and weak layer bonding on fast outer walls",
+      "rootCause": "Exceeding the melt rate of eSUN PLA+ at default high print accelerations.",
+      "exactFix": "Lower outer wall speed to 150 mm/s or increase hotend temperature to 225°C to restore melt pool fluidity and gloss."
+    },
+    {
+      "issue": "Stringing and wisps across travel moves",
+      "rootCause": "PLA+ modifiers increase melt viscosity and elasticity, causing oozing if wipe distance is insufficient.",
+      "exactFix": "Enable 'Wipe while retracting' with a 2.0 mm wipe distance and ensure retraction speed is set to 35 mm/s."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I use the Bambu Lab High Flow or Generic PLA preset for eSUN PLA+?",
+      "answer": "Yes, but you should adjust the Max Volumetric Speed to 22 mm³/s and set the printing temperature to 215°C, as eSUN PLA+ requires slightly higher heat than standard PLA."
+    },
+    {
+      "question": "Do I need a hardened steel nozzle to print eSUN PLA+ on the A1?",
+      "answer": "No, eSUN PLA+ is non-abrasive, so the stock stainless steel nozzle on the Bambu Lab A1 provides full durability without accelerated wear."
+    },
+    {
+      "question": "Is an enclosure recommended for eSUN PLA+ on the Bambu Lab A1?",
+      "answer": "No, an enclosure is not recommended because PLA+ requires rapid cooling; enclosing the open-frame A1 could increase chamber temperatures and risk heat creep clogs."
+    },
+    {
+      "question": "How do I avoid filament feeding issues in the AMS Lite with eSUN cardboard spools?",
+      "answer": "Use printable snap-on spool rim adapters or wind the filament onto a Bambu reusable spool to prevent cardboard dust accumulation and ensure smooth rolling on the AMS Lite."
+    }
+  ]
+}

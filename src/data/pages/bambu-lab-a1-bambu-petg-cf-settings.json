@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-bambu-petg-cf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1",
+    "slug": "bambu-lab-a1",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Bambu PETG-CF",
+    "slug": "bambu-petg-cf",
+    "brand": "Bambu Lab",
+    "materialType": "PETG-CF",
+    "minNozzleTempC": 240,
+    "maxNozzleTempC": 270,
+    "minBedTempC": 65,
+    "maxBedTempC": 80,
+    "volumetricFlowLimitMm3s": 15,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 255,
+    "recommendedBedTempC": 73,
+    "effectiveVolumetricFlowMm3s": 15,
+    "calculatedMaxPrintSpeedMmS": 179,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-29T14:07:06.916Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab A1 prints Bambu PETG-CF exceptionally well up to a safe maximum print speed of 179 mm/s at 15 mm³/s flow, provided the stock stainless steel nozzle is upgraded. You must install a hardened steel hotend assembly before printing to prevent rapid abrasive wear from the embedded carbon fibers.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 50,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with liquid glue or glue stick as a release agent",
+  "slicerTweaks": [
+    "Cap Max Volumetric Speed at 15 mm³/s under Filament Settings > Basic Information to prevent underextrusion at high travel speeds.",
+    "Enable 'Wipe while retracting' set to 2 mm with a 0.2 mm Z-hop on retraction to minimize carbon fiber whisker stringing and nozzle buildup.",
+    "Set the First Layer Bed Temperature to 75°C and subsequent layers to 73°C to maintain bed adhesion without causing lower-layer heat softening.",
+    "Lower Part Cooling Fan thresholds to min 20% and max 50%, setting 'Keep fan always on' with layer time thresholds tuned for adequate inter-layer bonding."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Extruder clicking, inconsistent extrusion, or rapid nozzle wear",
+      "rootCause": "Printing abrasive carbon-fiber-filled material through the stock stainless steel nozzle or insufficient melting temperature.",
+      "exactFix": "Install the official Bambu Lab 0.4mm or 0.6mm Hardened Steel Hotend assembly and increase printing temperature to 255°C."
+    },
+    {
+      "issue": "Severe stringing, fuzzy surface whiskers, and oozing",
+      "rootCause": "Moisture absorption in hygroscopic PETG matrix compounded by carbon fibers facilitating capillary oozing.",
+      "exactFix": "Dry the filament spool in a dedicated filament dryer at 65°C for at least 8 hours prior to printing and calibrate retraction to 0.8mm at 35 mm/s."
+    },
+    {
+      "issue": "Bed adhesion failure or PETG tearing PEI coating upon removal",
+      "rootCause": "Excessive adhesion between bare PEI and PETG copolymer, or bed temperature dropping below glass transition.",
+      "exactFix": "Apply a thin layer of PVP glue stick or liquid glue to act as a separation release agent on the Textured PEI sheet, and raise the bed temperature to 75°C."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Bambu PETG-CF with the stock Bambu Lab A1 hotend out of the box?",
+      "answer": "No. The stock A1 includes a stainless steel nozzle, which will rapidly erode from the abrasive carbon fibers. You must purchase and install the Bambu Hardened Steel Hotend before running PETG-CF."
+    },
+    {
+      "question": "Does the Bambu Lab A1 require an enclosure to print PETG-CF?",
+      "answer": "No, an enclosure is not required. PETG-CF experiences significantly less thermal shrinkage and warping than ABS or Nylon, printing reliably on an open-frame bed slinger like the A1."
+    },
+    {
+      "question": "Can I use the Bambu 4-in-1 AMS Lite with Bambu PETG-CF?",
+      "answer": "Yes, Bambu PETG-CF is fully compatible with the AMS Lite feeder system; however, frequent use will accelerate wear on the plastic PTFE guide funnels compared to standard PLA."
+    },
+    {
+      "question": "Why is my PETG-CF print weak along the layer lines?",
+      "answer": "PETG-CF interlayer bonding suffers when printed with excessive cooling or too quickly. Limit maximum part cooling to 50%, ensure the hotend temperature is at 255°C, and keep volumetric flow within 15 mm³/s."
+    }
+  ]
+}

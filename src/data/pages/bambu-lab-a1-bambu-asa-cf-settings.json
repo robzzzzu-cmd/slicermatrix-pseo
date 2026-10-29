@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-bambu-asa-cf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1",
+    "slug": "bambu-lab-a1",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Bambu ASA-CF",
+    "slug": "bambu-asa-cf",
+    "brand": "Bambu Lab",
+    "materialType": "ASA-CF",
+    "minNozzleTempC": 255,
+    "maxNozzleTempC": 280,
+    "minBedTempC": 90,
+    "maxBedTempC": 105,
+    "volumetricFlowLimitMm3s": 15,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 268,
+    "recommendedBedTempC": 98,
+    "effectiveVolumetricFlowMm3s": 15,
+    "calculatedMaxPrintSpeedMmS": 179,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": true
+  },
+  "generatedAt": "2026-10-29T14:13:37.134Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab A1 can hit a maximum speed of 179 mm/s at 15 mm³/s volumetric flow with Bambu ASA-CF once upgraded with an official hardened steel hotend assembly. Because the A1 has an open-frame bed slinger architecture, an external enclosure or tall draft shield is strictly required to prevent catastrophic warping and layer separation.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 20,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate with Bambu Liquid Glue or PVP Glue Stick release agent",
+  "slicerTweaks": [
+    "Cap Maximum Volumetric Speed at 15 mm³/s in Filament Settings to avoid under-extrusion at high travel speeds.",
+    "Enable Draft Shield in Others > Ooze Prevention, set to full height to mitigate thermal shock from the open-frame A1 chassis.",
+    "Disable Auxiliary Part Cooling Fan completely (0%) and cap Part Cooling Fan between 0% and 20% to prevent inter-layer cracking.",
+    "Set Pressure Advance (PA) to 0.038 and enable Scarf Joint Seam to minimize visible carbon fiber seam bulges."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe Corner Lifting and Bed Detachment",
+      "rootCause": "Ambient thermal contraction caused by cool air drafts circulating around the open A1 bed plate at 98°C.",
+      "exactFix": "Apply PVP glue stick as an adhesion promoter, increase brim width to 8mm with 0.1mm brim-object gap, and operate the printer inside a draft-blocking enclosure."
+    },
+    {
+      "issue": "Bore Enlargement and Extrusion Inconsistency",
+      "rootCause": "Carbon fiber particles eroding the stock Bambu A1 stainless steel nozzle orifice within a few hundred grams of printing.",
+      "exactFix": "Swap the stock stainless steel hotend for the Bambu Lab A1 Hardened Steel 0.4mm Hotend Assembly before loading ASA-CF."
+    },
+    {
+      "issue": "Inter-Layer Delamination and Splitting",
+      "rootCause": "Excessive part cooling or printing temperature set too low, preventing proper polymer chain fusion between passes.",
+      "exactFix": "Increase nozzle temperature to 270°C, verify part cooling fan is capped at 15% maximum, and enclose the machine to raise passive ambient air temperature."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Bambu ASA-CF using the stock Bambu Lab A1 nozzle?",
+      "answer": "No, the stock nozzle is stainless steel and will rapidly erode from the abrasive carbon fibers; you must upgrade to the Bambu hardened steel hotend assembly."
+    },
+    {
+      "question": "Is an enclosure strictly necessary for printing ASA-CF on the A1?",
+      "answer": "Yes, ASA contracts significantly upon cooling, so printing on an open-frame bed slinger without a protective draft tent or enclosure leads to severe warping and layer cracking."
+    },
+    {
+      "question": "What bed temperature should I run for Bambu ASA-CF on the A1?",
+      "answer": "Run the bed at 98°C to 100°C (the maximum limit of the A1 heated bed) paired with glue stick to keep the bottom layers above their glass transition relaxation point."
+    },
+    {
+      "question": "How should Bambu ASA-CF be dried and prepared?",
+      "answer": "Dry the spool in a dedicated filament dryer at 80°C for 8 to 12 hours prior to printing, as moisture causes matrix hydrolysis, foaming, and brittle extrusion."
+    }
+  ]
+}

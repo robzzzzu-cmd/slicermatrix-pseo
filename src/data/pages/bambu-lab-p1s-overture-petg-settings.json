@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1s-overture-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1S",
+    "slug": "bambu-lab-p1s",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Overture PETG",
+    "slug": "overture-petg",
+    "brand": "Overture",
+    "materialType": "PETG",
+    "minNozzleTempC": 230,
+    "maxNozzleTempC": 250,
+    "minBedTempC": 75,
+    "maxBedTempC": 85,
+    "volumetricFlowLimitMm3s": 14,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 240,
+    "recommendedBedTempC": 80,
+    "effectiveVolumetricFlowMm3s": 14,
+    "calculatedMaxPrintSpeedMmS": 167,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-29T12:37:33.400Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1S handles Overture PETG natively out of the box with exceptional consistency, operating at a safe maximum print speed of 167 mm/s capped by its 14 mm³/s volumetric flow limit. Neither a hardened steel nozzle upgrade nor strict chamber preheating is required, though keeping the top glass vented during extended runs helps prevent heat creep.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 50,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with glue stick or liquid release agent",
+  "slicerTweaks": [
+    "Cap Max Volumetric Speed at 14.0 mm³/s in the Filament Profile to prevent extrusion starvation at standard line widths.",
+    "Set Retraction Length to 0.8 mm and Retraction Speed to 35 mm/s to eliminate fine whisker stringing common with Overture PETG.",
+    "Lower Part Cooling Fan to 20% minimum and 50% maximum, ensuring robust inter-layer bonding while avoiding excessive gloss gradients.",
+    "Enable 'Wipe while retracting' set to 2 mm with a travel speed of 500 mm/s to cleanly break melt-zone surface tension without nozzle buildup."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe stringing and fine spiderweb artifacts across travel moves",
+      "rootCause": "Overture PETG is hygroscopic and quickly absorbs atmospheric moisture, lowering melt viscosity and causing drool during non-print travels.",
+      "exactFix": "Dry filament in a dedicated dryer at 65°C for 6 hours; set OrcaSlicer Z-hop type to 'Spiral' or 'Auto' and set wipe distance to 2 mm."
+    },
+    {
+      "issue": "Excessive bed adhesion resulting in PEI coating tearing upon part removal",
+      "rootCause": "PETG chemically cross-bonds to hot PEI surfaces, creating an adhesion bond stronger than the PEI-to-steel substrate adhesive.",
+      "exactFix": "Apply a uniform layer of PVP glue stick or Bambu Liquid Glue as a release interface, and let the bed cool below 35°C before removing parts."
+    },
+    {
+      "issue": "Extruder clogs and clicking during long prints inside the closed chamber",
+      "rootCause": "Heat creep softens PETG inside the cold zone above the heat break due to high internal ambient temperatures exceeding the material glass transition point.",
+      "exactFix": "Crack open the top glass lid or prop the front door slightly open to maintain internal chamber temperatures below 40°C."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Do I need to leave the Bambu Lab P1S front door or glass lid open for Overture PETG?",
+      "answer": "Yes, it is recommended to vent the top glass or crack the door open during prolonged prints, as chamber temperatures above 45°C can cause premature filament softening and heat creep in the extruder."
+    },
+    {
+      "question": "Can I print Overture PETG on the stock stainless steel nozzle of the P1S?",
+      "answer": "Yes, Overture PETG is non-abrasive and works safely with the stock 0.4mm stainless steel nozzle without causing accelerated bore wear."
+    },
+    {
+      "question": "Why is my maximum print speed limited to 167 mm/s on the P1S?",
+      "answer": "At a standard 0.42 mm line width and 0.20 mm layer height, 167 mm/s equals roughly 14.0 mm³/s, which is the reliable volumetric melt capacity of the stock hotend for this viscous PETG resin."
+    },
+    {
+      "question": "Should I use the Bambu Engineering Plate or Textured PEI Plate?",
+      "answer": "The Textured PEI Plate is optimal because the micro-texture facilitates release, though applying a light layer of glue stick is still strongly advised as a sacrificial release barrier."
+    }
+  ]
+}

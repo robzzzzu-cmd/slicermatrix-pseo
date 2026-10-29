@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1s-sunlu-high-speed-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1S",
+    "slug": "bambu-lab-p1s",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Sunlu High Speed PLA",
+    "slug": "sunlu-high-speed-pla",
+    "brand": "Sunlu",
+    "materialType": "HS-PLA",
+    "minNozzleTempC": 210,
+    "maxNozzleTempC": 235,
+    "minBedTempC": 55,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 26,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 223,
+    "recommendedBedTempC": 60,
+    "effectiveVolumetricFlowMm3s": 24,
+    "calculatedMaxPrintSpeedMmS": 286,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-29T12:40:20.497Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1S handles Sunlu High Speed PLA effortlessly straight out of the box, reaching safe speeds up to 286 mm/s backed by a 24 mm³/s volumetric flow limit. No nozzle upgrades or chamber modifications are required, though printing with the top glass vented or front door propped is recommended during extended high-speed runs.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 40,
+  "bedSurfaceRecommendation": "Textured PEI Plate (no adhesive required; clean with warm dish soap and water)",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 24 mm³/s in the OrcaSlicer filament profile to prevent extrusion bottlenecks during rapid infill and perimeters.",
+    "Set Printing Temperature to 225°C for first layer and other layers to maintain low melt viscosity at speeds exceeding 250 mm/s.",
+    "Enable Auxiliary Part Cooling Fan at 60-70% for short layer times to accelerate solidification on overhangs and bridges.",
+    "Calibrate Pressure Advance using the OrcaSlicer PA tower or line method; expect an optimal value between 0.020 and 0.026 s for this high-flow formulation."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Matte finish streaks alternating with glossy bands across outer walls",
+      "rootCause": "Extrusion speed varies widely across geometric features, changing the melt temperature and crystallite cooling rate of the high-speed polymer.",
+      "exactFix": "Align outer wall speed in OrcaSlicer to a fixed value (e.g., 180-200 mm/s) to keep shear rates and cooling kinetics uniform across the entire exterior."
+    },
+    {
+      "issue": "Extruder clicking and under-extrusion 30-45 minutes into long prints",
+      "rootCause": "Heat creep occurs inside the fully enclosed P1S chamber when high bed temperatures warm the chamber air past the glass transition temperature of HS-PLA.",
+      "exactFix": "Crack open the top glass cover or slightly prop the front chamber door to keep ambient internal temperatures below 38°C."
+    },
+    {
+      "issue": "Corner bulges and rough seams at high travel-to-print transitions",
+      "rootCause": "Mismatched Pressure Advance (Linear Advance) setting causing excess material deposition as the printhead decelerates into corners.",
+      "exactFix": "Enable Pressure Advance in the OrcaSlicer filament tab and calibrate between 0.020 and 0.024 s, accompanied by a 0.8 mm retraction distance."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Do I need to leave the Bambu Lab P1S front door open when printing Sunlu HS-PLA?",
+      "answer": "Yes, for long prints or heated bed temperatures at or above 60°C, propping the door or top glass avoids chamber heat creep and filament softening in the extruder gears."
+    },
+    {
+      "question": "Can the stock stainless steel nozzle handle Sunlu High Speed PLA?",
+      "answer": "Yes, standard Sunlu HS-PLA contains no abrasive fibers or particles, making the stock stainless steel nozzle fully compatible without premature wear."
+    },
+    {
+      "question": "What is the primary difference in OrcaSlicer settings between standard PLA and HS-PLA on the P1S?",
+      "answer": "The primary difference is the Max Volumetric Flow limit (boosted from ~15 mm³/s to 24 mm³/s) and a slightly higher hotend temperature (220-225°C) to facilitate rapid melting."
+    },
+    {
+      "question": "Does Sunlu HS-PLA require active drying before printing on the P1S?",
+      "answer": "Sunlu HS-PLA is not highly hygroscopic, but drying at 45-50°C for 4 hours will eliminate stringing and surface micro-popping if the spool has been exposed to ambient humidity."
+    }
+  ]
+}

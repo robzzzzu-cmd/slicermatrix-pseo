@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1s-amolen-glow-in-the-dark-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1S",
+    "slug": "bambu-lab-p1s",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Amolen Glow in the Dark PLA",
+    "slug": "amolen-glow-in-the-dark-pla",
+    "brand": "Amolen",
+    "materialType": "Glow PLA",
+    "minNozzleTempC": 205,
+    "maxNozzleTempC": 225,
+    "minBedTempC": 55,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 14,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 215,
+    "recommendedBedTempC": 60,
+    "effectiveVolumetricFlowMm3s": 14,
+    "calculatedMaxPrintSpeedMmS": 167,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-29T13:30:33.489Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab P1S can reliably print Amolen Glow in the Dark PLA at speeds up to 167 mm/s capped by a 14 mm³/s volumetric limit, but requires an immediate hardened steel nozzle and extruder gear upgrade. The strontium aluminate phosphorescent particles in this filament will rapidly erode the stock stainless steel nozzle and destroy dimensional accuracy.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate washed with dish soap and water (no glue required)",
+  "slicerTweaks": [
+    "Cap Maximum Volumetric Speed to 14.0 mm³/s in the filament settings to eliminate under-extrusion at high linear speeds.",
+    "Set Nozzle Temperature to 215°C for all layers and Bed Temperature to 60°C on the Textured PEI profile.",
+    "Enable Wipe While Retracting with a 1.0 mm wipe distance to reduce stringing caused by the mineral particulate fillers.",
+    "Keep the front glass door cracked or top lid vented during extended prints to maintain chamber temperatures below 35°C and prevent heat creep."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Sudden severe over-extrusion and loss of detail mid-spool",
+      "rootCause": "Abrasive strontium aluminate particles have bored out the stock stainless steel nozzle orifice from 0.4 mm to over 0.6 mm.",
+      "exactFix": "Replace the stock stainless hotend assembly with an official Bambu Lab Hardened Steel Hotend (0.4 mm) and hardened extruder gears."
+    },
+    {
+      "issue": "Extruder clicking and under-extrusion after 30-45 minutes of printing",
+      "rootCause": "Heat creep occurs because the enclosed chamber traps heat, softening low-Tg PLA in the direct drive cold zone.",
+      "exactFix": "Crack open the front glass door or prop open the top glass lid with a vented riser to keep internal chamber temperatures under 35°C."
+    },
+    {
+      "issue": "Rough surface finish, excessive stringing, and popping sounds during extrusion",
+      "rootCause": "The PLA base and phosphorescent additives have absorbed ambient moisture, causing hydrolytic degradation and steam pockets.",
+      "exactFix": "Dry the filament spool in an active filament dryer or on the P1S heatbed (with an enclosure cover) at 50°C for 6 to 8 hours prior to printing."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Amolen Glow in the Dark PLA using the stock P1S stainless steel nozzle?",
+      "answer": "No. The glow-in-the-dark additives contain extremely hard strontium aluminate crystals that will rapidly bore out the stock stainless steel nozzle within a single spool, permanently degrading print quality. You must install a hardened steel nozzle before printing."
+    },
+    {
+      "question": "Is it safe to run this abrasive filament through the Bambu Lab AMS?",
+      "answer": "It is not recommended for sustained use without wear-resistant funnel inserts. Glow PLA will groove the plastic AMS feeder funnels and internal PTFE guide tubes over time; printing directly from an external dry box or upgraded spool holder is the safer option."
+    },
+    {
+      "question": "Why should I vent the chamber of the P1S when printing this PLA filament?",
+      "answer": "The P1S enclosure naturally retains heat, often driving chamber temperatures past 40°C. Because standard PLA has a low glass transition temperature (~55-60°C), thermal transfer up the direct drive throat causes the filament to prematurely soften, leading to severe extruder jams."
+    },
+    {
+      "question": "How do I maximize the glow intensity of the finished print?",
+      "answer": "Increase the number of wall loops to at least 3 or 4 and boost the top shell thickness. More mass and denser perimeter walls allow more phosphorescent particles to capture and hold UV excitation light, producing a much brighter and longer-lasting glow."
+    }
+  ]
+}

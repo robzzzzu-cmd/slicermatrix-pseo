@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1s-elegoo-rapid-pla-plus-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1S",
+    "slug": "bambu-lab-p1s",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Elegoo Rapid PLA+",
+    "slug": "elegoo-rapid-pla-plus",
+    "brand": "Elegoo",
+    "materialType": "HS-PLA+",
+    "minNozzleTempC": 210,
+    "maxNozzleTempC": 230,
+    "minBedTempC": 55,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 25,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 220,
+    "recommendedBedTempC": 60,
+    "effectiveVolumetricFlowMm3s": 24,
+    "calculatedMaxPrintSpeedMmS": 286,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-29T13:13:37.064Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1S handles Elegoo Rapid PLA+ natively with exceptional performance, reaching a calculated safe max print speed of 286 mm/s at 24 mm³/s volumetric flow. The stock stainless steel nozzle and direct drive extruder require no hardware upgrades, though venting the top glass is recommended during extended runs to prevent heat creep.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate (no adhesive required; ensure surface is degreased with warm water and dish soap)",
+  "slicerTweaks": [
+    "Set 'Max volumetric speed' to 24 mm³/s under the Filament > Flow ratio tab to fully utilize high-speed melt characteristics without under-extruding.",
+    "Enable 'Pressure Advance' calibrated to 0.022 to maintain crisp corner geometry at high acceleration rates.",
+    "Adjust part cooling fan threshold to keep the auxiliary cooling fan at 50-70% to prevent corner curling on rapid layer transitions.",
+    "Set outer wall speed to 200 mm/s and inner wall/infill up to 286 mm/s to balance surface finish with peak throughput."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Extruder clicking and subsequent clogging (Heat Creep)",
+      "rootCause": "Chamber ambient temperature rising excessively due to fully sealed P1S enclosure while running bed at 60°C with high PLA flow.",
+      "exactFix": "Crack the top glass cover open with a riser spacer or keep the front glass door ajar during long prints to maintain chamber temps below 35°C."
+    },
+    {
+      "issue": "Corner lifting and warping on large footprints",
+      "rootCause": "Excessive drafts from the auxiliary fan blowing directly on the first 5-10 layers, or oily residue on the textured PEI plate.",
+      "exactFix": "Wash the PEI sheet with dish soap, set bed temperature to 65°C for the first layer, and set the auxiliary fan to 0% for the first 10mm of print height."
+    },
+    {
+      "issue": "Micro-stringing and fine filament cobwebs during rapid travels",
+      "rootCause": "High-fluidity resin in Rapid PLA+ combined with slight over-temperature (above 225°C) or inactive wipe on retraction.",
+      "exactFix": "Lower printing nozzle temperature from 230°C to 220°C and enable 'Wipe while retracting' with a 2mm wipe distance in OrcaSlicer."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Elegoo Rapid PLA+ with the P1S door and top glass completely closed?",
+      "answer": "It is not recommended for prints lasting over 1 hour. PLA has a low glass transition temperature (~55-60°C), and an enclosed P1S chamber can trap heat, causing heat creep inside the cold zone and leading to extruder clogs. Prop the lid or door slightly."
+    },
+    {
+      "question": "Do I need to upgrade to a hardened steel nozzle to run Elegoo Rapid PLA+?",
+      "answer": "No. Elegoo Rapid PLA+ is non-abrasive and runs cleanly through the stock 0.4mm stainless steel nozzle on the P1S without premature wear."
+    },
+    {
+      "question": "Why does OrcaSlicer cap my speeds below 286 mm/s even if I manually set the travel speed higher?",
+      "answer": "The slicer dynamically throttles linear speed based on the 24 mm³/s Max Volumetric Flow limit. At standard 0.2mm layer heights and 0.42mm line widths, speed will peak at roughly 286 mm/s to prevent under-extrusion."
+    },
+    {
+      "question": "Does Elegoo Rapid PLA+ need to be dried before printing on the P1S?",
+      "answer": "Generally no, as it is non-hygroscopic compared to engineering materials like PETG or Nylon. However, if exposed to high ambient humidity for weeks, drying at 45-50°C for 4 hours will eliminate minor surface popping and stringing."
+    }
+  ]
+}

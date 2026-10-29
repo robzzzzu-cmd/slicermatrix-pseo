@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1s-sunlu-asa-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1S",
+    "slug": "bambu-lab-p1s",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Sunlu ASA",
+    "slug": "sunlu-asa",
+    "brand": "Sunlu",
+    "materialType": "ASA",
+    "minNozzleTempC": 245,
+    "maxNozzleTempC": 265,
+    "minBedTempC": 90,
+    "maxBedTempC": 105,
+    "volumetricFlowLimitMm3s": 17,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 255,
+    "recommendedBedTempC": 98,
+    "effectiveVolumetricFlowMm3s": 17,
+    "calculatedMaxPrintSpeedMmS": 202,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-29T12:41:28.503Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1S handles Sunlu ASA out of the box with its fully enclosed chamber, achieving reliable print speeds up to 202 mm/s bounded by a 17 mm³/s volumetric flow limit. The stock stainless steel nozzle and 100°C heated bed are fully sufficient for non-abrasive ASA without requiring hardware upgrades.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 10,
+  "coolingFanMaxPct": 25,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with liquid glue or glue stick as an interface/release agent",
+  "slicerTweaks": [
+    "Set filament Max Volumetric Speed to 17 mm³/s to automatically constrain line speeds to a safe 202 mm/s ceiling.",
+    "Disable the Auxiliary Part Cooling fan completely (0%) to eliminate directional drafts that cause warping and splitting.",
+    "Preheat the bed at 98°C for 15 minutes before printing with door closed to soak the chamber to roughly 40-50°C.",
+    "Add a 5mm outer brim with a 0.1mm brim-object gap to anchor sharp corners against thermal contraction forces."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Corner lifting and bed detachment",
+      "rootCause": "Thermal contraction caused by low chamber temperature or lack of an adhesion interface layer on PEI.",
+      "exactFix": "Preheat the chamber by idling the bed at 98°C for 15 minutes, apply PVA/liquid glue stick to the textured PEI sheet, and avoid opening the glass door."
+    },
+    {
+      "issue": "Inter-layer delamination or cracking along Z-axis",
+      "rootCause": "Excessive part cooling or low extrusion temperature hindering inter-layer polymer diffusion.",
+      "exactFix": "Increase nozzle temperature to 260°C, verify the auxiliary fan is off (0%), and restrict the main part cooling fan between 10% and 20% maximum."
+    },
+    {
+      "issue": "Fine stringing and rough surface finish",
+      "rootCause": "Moisture absorption in hygroscopic ASA filament leading to micro-steam eruptions at the nozzle tip.",
+      "exactFix": "Dehydrate the spool in a filament dryer at 70°C for 6 to 8 hours and verify retraction distance is tuned to 0.8mm at 30mm/s."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Do I need to upgrade the Bambu Lab P1S to a hardened steel nozzle to print Sunlu ASA?",
+      "answer": "No, standard Sunlu ASA contains no abrasive fillers like carbon fiber or glass, making it fully compatible with the stock stainless steel nozzle."
+    },
+    {
+      "question": "Should the P1S door and top glass remain open or closed during ASA printing?",
+      "answer": "Keep the door and top lid fully closed to trap bed heat and create an insulated chamber environment that prevents shrinkage-induced warping."
+    },
+    {
+      "question": "Can Sunlu ASA be fed directly through the Bambu Lab AMS?",
+      "answer": "Yes, Sunlu ASA feeds smoothly through the AMS, provided plastic spools are used or cardboard spool edges are fitted with printable adapter rings."
+    },
+    {
+      "question": "How should chamber ventilation be managed during printing?",
+      "answer": "Keep the internal carbon exhaust fan at minimal or low speed during the print to retain heat, but ventilate the room thoroughly afterwards to dissipate styrene emissions."
+    }
+  ]
+}

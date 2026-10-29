@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1s-prusament-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1S",
+    "slug": "bambu-lab-p1s",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Prusament PETG",
+    "slug": "prusament-petg",
+    "brand": "Prusament",
+    "materialType": "PETG",
+    "minNozzleTempC": 240,
+    "maxNozzleTempC": 255,
+    "minBedTempC": 75,
+    "maxBedTempC": 90,
+    "volumetricFlowLimitMm3s": 15,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 248,
+    "recommendedBedTempC": 83,
+    "effectiveVolumetricFlowMm3s": 15,
+    "calculatedMaxPrintSpeedMmS": 179,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-29T12:47:35.245Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1S handles Prusament PETG exceptionally well straight out of the box, achieving a reliable maximum print speed of 179 mm/s capped at a 15 mm³/s volumetric flow limit. No nozzle upgrades are required for this non-abrasive polymer, though keeping the top glass vented during long prints helps prevent heat creep in the enclosed chamber.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 50,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate (clean with dish soap) or Smooth PEI Plate with liquid glue stick as a release agent",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 15 mm³/s under Filament Settings > Advanced to ensure the print speed automatically limits around the 179 mm/s ceiling.",
+    "Lower Part Cooling Fan to Min 20% / Max 50% with fan threshold layer times between 10s and 30s to preserve layer adhesion and optical gloss.",
+    "Set Pressure Advance (PA) to approximately 0.038 s in OrcaSlicer Device Calibration to eliminate PETG blobbing at seam reversals on the direct drive extruder.",
+    "Enable 'Wipe while retracting' set to 1.5 mm and 'Retract on layer change' to minimize PETG filament stringing and nozzle buildup."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe fine hair stringing and web accumulation across travel moves",
+      "rootCause": "PETG is hygroscopic and exhibits low melt viscosity at 248°C, which worsens when wet or without adequate wipe moves.",
+      "exactFix": "Dry filament at 65°C for 6 hours; set retraction to 0.8 mm at 35 mm/s and enable OrcaSlicer 'Wipe while retracting' at 1.5 mm."
+    },
+    {
+      "issue": "Excessive bed adhesion tearing PEI coating upon part removal",
+      "rootCause": "PETG chemically welds to raw smooth PEI sheets at bed temperatures of 80°C and above.",
+      "exactFix": "Switch to a Bambu Textured PEI plate, or apply a thin layer of PVP glue stick or liquid release agent on smooth surfaces before printing."
+    },
+    {
+      "issue": "Brittle inter-layer bonding or easy layer separation under mechanical load",
+      "rootCause": "Excessive part cooling or excessive chamber auxiliary fan airflow freezing the extruded bead too rapidly.",
+      "exactFix": "Disable the auxiliary chamber fan completely and clamp maximum part cooling fan speed to 50% in the filament profile."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Should I print Prusament PETG on the P1S with the front door open or closed?",
+      "answer": "Keep the front door cracked open or the top glass lid vented if ambient room temperature exceeds 25°C to avoid heat creep, though full enclosure is safe for smaller prints."
+    },
+    {
+      "question": "Do I need to upgrade to a hardened steel nozzle to print Prusament PETG?",
+      "answer": "No, standard Prusament PETG is non-abrasive and prints reliably on the P1S stock stainless steel hotend without causing premature wear."
+    },
+    {
+      "question": "Why is the maximum recommended speed capped at 179 mm/s?",
+      "answer": "At a standard 0.42 mm line width and 0.20 mm layer height, 179 mm/s consumes 15 mm³/s of filament, which is the realistic melt rate limit for the stock P1S hotend on PETG."
+    },
+    {
+      "question": "Does Prusament PETG need to be dried before loading into the AMS?",
+      "answer": "Yes, PETG absorbs ambient moisture quickly, causing pops, stringing, and weak seams. Dry the spool at 65°C for 6 hours before placing it in the AMS with fresh desiccant."
+    }
+  ]
+}

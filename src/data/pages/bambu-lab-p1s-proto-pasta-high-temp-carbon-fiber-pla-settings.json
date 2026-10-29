@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1s-proto-pasta-high-temp-carbon-fiber-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1S",
+    "slug": "bambu-lab-p1s",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Proto-pasta High Temp Carbon Fiber PLA",
+    "slug": "proto-pasta-high-temp-carbon-fiber-pla",
+    "brand": "Proto-pasta",
+    "materialType": "PLA-CF",
+    "minNozzleTempC": 210,
+    "maxNozzleTempC": 230,
+    "minBedTempC": 55,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 13,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 220,
+    "recommendedBedTempC": 60,
+    "effectiveVolumetricFlowMm3s": 13,
+    "calculatedMaxPrintSpeedMmS": 155,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-29T13:34:57.854Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab P1S can reliably process Proto-pasta High Temp Carbon Fiber PLA up to a safe maximum speed of 155 mm/s constrained by a 13 mm³/s volumetric flow limit. However, printing this abrasive composite requires replacing the stock stainless steel nozzle and extruder gears with hardened steel components to avoid rapid wear.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 40,
+  "coolingFanMaxPct": 80,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with liquid glue or glue stick as a protective release agent",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 13 mm³/s under the Filament profile to enforce the 155 mm/s maximum linear speed ceiling.",
+    "Enable 'Wipe while retracting' set to 2 mm to prevent stringing and clumping common with carbon fiber-loaded melt pools.",
+    "Set the Top Glass / Front Door status note or crack the chamber door open to prevent heat creep with low-Tg PLA matrices.",
+    "Adjust Pressure Advance (PA) to 0.024-0.028 to maintain crisp corners despite the increased viscosity from carbon fiber milling."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Extruder Gear Slippage / Nozzle Clogging",
+      "rootCause": "Carbon fiber particles clogging in a worn stock 0.4mm stainless steel nozzle or heat creep caused by an enclosed chamber printing PLA.",
+      "exactFix": "Upgrade to a 0.4mm or 0.6mm hardened steel hotend, upgrade to hardened extruder gears, and vent the top glass or leave the door ajar during printing."
+    },
+    {
+      "issue": "Severe Over-Extrusion and Dimensional Inaccuracy",
+      "rootCause": "The abrasive carbon fiber particles rapidly enlarged the stock stainless steel nozzle orifice beyond 0.4mm.",
+      "exactFix": "Swap out the worn nozzle assembly for an official Bambu Lab hardened steel hotend and recalibrate flow dynamics."
+    },
+    {
+      "issue": "Rough Surface Texture and Excessive Brittle Layer Separation",
+      "rootCause": "Wet filament causing steam voids during extrusion, exacerbated by high part cooling preventing fiber entanglement.",
+      "exactFix": "Dry filament at 50°C for 6 hours in an active dryer, and cap maximum part cooling fan speed to 80%."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Proto-pasta HTPLA-CF using the stock Bambu P1S stainless steel nozzle?",
+      "answer": "No, carbon fiber fibers are highly abrasive and will erode the stock stainless steel nozzle and extruder gears in less than one spool, degrading print quality and causing clogs."
+    },
+    {
+      "question": "Should I keep the P1S door and top lid fully closed for Proto-pasta HTPLA-CF?",
+      "answer": "No, because HTPLA has a standard PLA base with a low glass transition temperature (~55-60°C), an enclosed chamber can cause heat creep and extruder jams; prop the door open or vent the top glass."
+    },
+    {
+      "question": "Does Proto-pasta HTPLA-CF work reliably with the Bambu AMS?",
+      "answer": "Yes, but because the fibers make the filament more brittle and abrasive, ensure the spool rolls freely, and upgrade to hardened steel extruder feeder funnels if running extensive quantities."
+    },
+    {
+      "question": "How do I anneal Proto-pasta HTPLA to achieve its high-temp resistance on the P1S?",
+      "answer": "Bake the finished print in an oven or on the P1S heated bed at 110°C for 30–60 minutes; account for roughly 1-2% shrinkage in X/Y and 1% expansion in Z by scaling the model in OrcaSlicer beforehand."
+    }
+  ]
+}

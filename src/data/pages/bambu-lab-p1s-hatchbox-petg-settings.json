@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1s-hatchbox-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1S",
+    "slug": "bambu-lab-p1s",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Hatchbox PETG",
+    "slug": "hatchbox-petg",
+    "brand": "Hatchbox",
+    "materialType": "PETG",
+    "minNozzleTempC": 230,
+    "maxNozzleTempC": 245,
+    "minBedTempC": 70,
+    "maxBedTempC": 85,
+    "volumetricFlowLimitMm3s": 14,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 238,
+    "recommendedBedTempC": 78,
+    "effectiveVolumetricFlowMm3s": 14,
+    "calculatedMaxPrintSpeedMmS": 167,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-29T12:52:42.928Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1S handles Hatchbox PETG natively out of the box with its stock stainless steel nozzle and direct drive extruder. Capable of reaching up to 167 mm/s based on an optimal volumetric flow rate of 14 mm³/s, printing with the front door cracked open prevents internal heat creep.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 50,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with a thin layer of PVP glue stick or liquid release agent to prevent permanent bonding and PEI tear-out.",
+  "slicerTweaks": [
+    "Cap Maximum Volumetric Speed at 14 mm³/s in the Hatchbox PETG filament profile to avoid under-extrusion at high print speeds.",
+    "Set Pressure Advance to 0.038 s and enable a Wipe Distance of 1.0 mm to cleanly sever liquid PETG strings during travel moves.",
+    "Lower internal bridging fan speed to 60% and reduce auxiliary chamber fan to 0% to prevent rapid cooling, warpage, and brittle layer adhesion.",
+    "Set Z-Hop When Retracting to 0.4 mm with 'Spiral Lift' or 'Auto' selected to eliminate nozzle collision over delicate curled perimeters."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Stringing and Wispy Hairs Across Travel Gaps",
+      "rootCause": "PETG is hygroscopic and possesses low melt viscosity, leading to ooze when moisture expands or retraction wipe is insufficient.",
+      "exactFix": "Dry the filament at 65°C for 6 to 8 hours in an active dryer, set Retraction Distance to 0.8 mm at 35 mm/s, and enable 'Wipe While Retracting' with 1.0 mm wipe distance."
+    },
+    {
+      "issue": "Print Surface Chipping or Tearing PEI Coating",
+      "rootCause": "PETG forms an extremely aggressive molecular bond to smooth and textured PEI sheets when printed without an interface boundary.",
+      "exactFix": "Apply a uniform layer of PVA/PVP glue stick or dedicated liquid release agent to the bed before printing, and allow the bed to cool below 30°C before part removal."
+    },
+    {
+      "issue": "Extruder Clogging and Heat Creep Mid-Print",
+      "rootCause": "Chamber ambient temperatures rise above 40°C in a fully closed P1S enclosure, causing PETG to soften before entering the melt zone.",
+      "exactFix": "Leave the front glass door ajar or tilt open the top glass cover during printing, while disabling the Auxiliary Part Fan."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Should the Bambu Lab P1S enclosure door and top glass remain closed when printing Hatchbox PETG?",
+      "answer": "No, it is highly recommended to crack open the front glass door or vent the top glass lid to keep the chamber below 40°C and avoid heat creep in the direct drive extruder."
+    },
+    {
+      "question": "Do I need to upgrade to a hardened steel nozzle to print Hatchbox PETG on the P1S?",
+      "answer": "No, standard Hatchbox PETG is non-abrasive, making the stock stainless steel 0.4 mm nozzle completely suitable for continuous production printing."
+    },
+    {
+      "question": "Why is the Maximum Volumetric Speed restricted to 14 mm³/s instead of typical Bambu PLA speeds?",
+      "answer": "PETG has a higher melt viscosity than PLA, so limiting throughput to 14 mm³/s (approx 167 mm/s at 0.2mm layer height) guarantees complete thermal melting and strong interlayer bonds without under-extrusion."
+    },
+    {
+      "question": "Can I use the Bambu Cool Plate or Smooth PEI Plate without glue for Hatchbox PETG?",
+      "answer": "Never print PETG directly on bare smooth PEI or the Cool Plate; PETG will permanently fuse to the sheet and tear the coating away upon removal. Always use glue stick as a release agent."
+    }
+  ]
+}

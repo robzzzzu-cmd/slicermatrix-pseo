@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-overture-tpu-95a-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1",
+    "slug": "bambu-lab-a1",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Overture TPU 95A",
+    "slug": "overture-tpu-95a",
+    "brand": "Overture",
+    "materialType": "TPU",
+    "minNozzleTempC": 215,
+    "maxNozzleTempC": 235,
+    "minBedTempC": 40,
+    "maxBedTempC": 60,
+    "volumetricFlowLimitMm3s": 4.5,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 225,
+    "recommendedBedTempC": 50,
+    "effectiveVolumetricFlowMm3s": 4.5,
+    "calculatedMaxPrintSpeedMmS": 54,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-29T13:50:45.699Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab A1 handles Overture TPU 95A exceptionally well straight out of the box using its direct drive extruder, provided the filament is fed from the external spool holder rather than the AMS Lite. Expect consistent, defect-free parts capped at a safe maximum print speed of 54 mm/s governed by a conservative 4.5 mm³/s volumetric flow limit.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 40,
+  "coolingFanMaxPct": 80,
+  "firstLayerSpeedMmS": 25,
+  "bedSurfaceRecommendation": "Textured PEI Plate with a thin layer of PVA/PVP glue stick as a release agent",
+  "slicerTweaks": [
+    "Cap Maximum Volumetric Speed at 4.5 mm³/s in the filament profile to prevent extruder motor skipping and under-extrusion.",
+    "Enable 'Avoid Crossing Walls' with a max detour distance of 200 mm to conceal inevitable TPU travel ooze within infill.",
+    "Set Retraction Distance to 0.8 mm at 30 mm/s and disable 'Wipe while Retracting' to prevent flexible filament buckling in the heatbreak.",
+    "Set Top Surface Skin Speed to 35 mm/s and First Layer Speed to 25 mm/s for optimal layer consolidation and surface sheen."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Extruder gear jamming or filament wrap-around",
+      "rootCause": "Excessive backpressure from attempting to print beyond 4.5 mm³/s or feeding flexible filament through high-friction AMS Lite paths.",
+      "exactFix": "Feed filament directly via the external spool holder and enforce a strict 4.5 mm³/s maximum volumetric speed limit in OrcaSlicer."
+    },
+    {
+      "issue": "Heavy stringing, branching, and perimeter bubbling",
+      "rootCause": "High moisture absorption in the hygroscopic TPU matrix converting to vapor inside the 225°C hotend.",
+      "exactFix": "Dry the filament spool in a dedicated dryer at 50-55°C for 6 to 8 hours before printing, and print directly from a sealed drybox."
+    },
+    {
+      "issue": "Bed gouging or PEI surface tearing during part removal",
+      "rootCause": "Excessive chemical adhesion between polyurethane elastomer and bare PEI coating.",
+      "exactFix": "Apply a uniform layer of liquid glue or PVA glue stick to the build plate as a sacrificial separation barrier, and allow the bed to cool below 30°C before flexing."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I feed Overture TPU 95A through the Bambu Lab AMS Lite?",
+      "answer": "No, the AMS Lite is not compatible with flexible filaments like TPU 95A due to long Bowden tube friction and the automated retractor mechanism; you must feed it directly from the external spool holder."
+    },
+    {
+      "question": "Do I need to upgrade to a hardened steel nozzle on the Bambu A1 for this material?",
+      "answer": "No, standard Overture TPU 95A is completely non-abrasive, meaning the stock stainless steel nozzle on the Bambu Lab A1 is fully suitable and will not suffer premature wear."
+    },
+    {
+      "question": "Why is the printing speed restricted to 54 mm/s?",
+      "answer": "Due to the elastic modulus and melt rheology of 95A polyurethane, direct drive feeding starts to buckle or slip when exceeding a volumetric flow rate of 4.5 mm³/s, which correlates to roughly 54 mm/s at a 0.2mm layer height."
+    },
+    {
+      "question": "How can I prevent severe TPU over-adhesion on the Bambu Textured PEI plate?",
+      "answer": "Always apply a thin, even coat of washable glue stick before printing; TPU bonds molecularly to PEI, and the glue acts as a critical release agent to prevent tearing the textured coating upon removal."
+    }
+  ]
+}

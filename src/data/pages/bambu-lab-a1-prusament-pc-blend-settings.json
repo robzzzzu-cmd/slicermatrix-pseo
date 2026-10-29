@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-prusament-pc-blend-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1",
+    "slug": "bambu-lab-a1",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Prusament PC Blend",
+    "slug": "prusament-pc-blend",
+    "brand": "Prusament",
+    "materialType": "PC",
+    "minNozzleTempC": 265,
+    "maxNozzleTempC": 285,
+    "minBedTempC": 105,
+    "maxBedTempC": 115,
+    "volumetricFlowLimitMm3s": 12,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 275,
+    "recommendedBedTempC": 100,
+    "effectiveVolumetricFlowMm3s": 12,
+    "calculatedMaxPrintSpeedMmS": 143,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": true
+  },
+  "generatedAt": "2026-10-29T13:57:04.091Z",
+  "compatibilityVerdict": "Advanced Setup",
+  "heroSummary": "The Bambu Lab A1 can print Prusament PC Blend at speeds up to 143 mm/s capped by a 12 mm³/s volumetric flow limit. However, successful printing requires an external draft enclosure and disciplined bed adhesion strategies because the A1's open frame and 100°C bed ceiling fall just below ideal polycarbonate thermal thresholds.",
+  "retractionDistanceMm": 0.6,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 20,
+  "firstLayerSpeedMmS": 25,
+  "bedSurfaceRecommendation": "Textured PEI Plate with Magigoo PC or PVA Glue Stick release agent",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 12 mm³/s in the filament profile to cap print speed at roughly 143 mm/s and avoid hotend under-extrusion.",
+    "Force Bed Temperature to 100°C across all layers and Hotend Temperature to 275°C.",
+    "Enable a 10 mm outer brim with 0.0 mm Brim-object gap to mechanical anchor edges against warp stresses.",
+    "Turn off regular layer cooling fans (0%) and restrict maximum cooling to 20% strictly for overhangs below 25 seconds layer time."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Corner lifting and severe warping from build plate",
+      "rootCause": "The A1 bed hits a maximum of 100°C, slightly below the PC glass transition temperature, combined with cool ambient room drafts.",
+      "exactFix": "Apply a uniform layer of glue stick or Magigoo PC, add a 10mm mouse-ear/brim, and place a physical draft tent over the printer."
+    },
+    {
+      "issue": "Interlayer cracking and splitting along Z-axis",
+      "rootCause": "Excessive part cooling airflow or ambient drafts chilling the extruded beads prematurely before polymer bonding occurs.",
+      "exactFix": "Set part cooling fans to 0%, enable the Draft Shield feature in OrcaSlicer, and keep ambient printer space warm."
+    },
+    {
+      "issue": "Rough surface finish, frothing, and excessive stringing",
+      "rootCause": "Prusament PC Blend is hygroscopic and has absorbed ambient moisture, flashing into steam during extrusion at 275°C.",
+      "exactFix": "Bake the spool in a dedicated filament dryer at 80°C for 8 to 12 hours prior to printing and print from a dry box."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Prusament PC Blend reliably without an enclosure on the Bambu A1?",
+      "answer": "Small parts under 50 mm can succeed open-air with a brim, but medium to large components will warp or delaminate without a draft shield or external enclosure tent."
+    },
+    {
+      "question": "Does Prusament PC Blend require a hardened steel nozzle on the Bambu A1?",
+      "answer": "No, standard Prusament PC Blend is an unreinforced polymer blend and does not require hardened steel, meaning the stock stainless steel nozzle is sufficient."
+    },
+    {
+      "question": "How do I mitigate the A1's 100°C bed limit when Prusament recommends 105-115°C?",
+      "answer": "Max out the bed at 100°C, allow the plate to heat-soak for 10 minutes before starting, utilize specialized PC adhesive, and eliminate room drafts."
+    },
+    {
+      "question": "Can I use the Bambu AMS Lite to feed Prusament PC Blend?",
+      "answer": "Yes, standard PC Blend feeds through the AMS Lite, but the filament must be completely dry, and high-tension spool resistance should be monitored to prevent feed errors."
+    }
+  ]
+}
