@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-bambu-paht-cf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1",
+    "slug": "bambu-lab-a1",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Bambu PAHT-CF",
+    "slug": "bambu-paht-cf",
+    "brand": "Bambu Lab",
+    "materialType": "PAHT-CF",
+    "minNozzleTempC": 275,
+    "maxNozzleTempC": 295,
+    "minBedTempC": 90,
+    "maxBedTempC": 105,
+    "volumetricFlowLimitMm3s": 11,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 285,
+    "recommendedBedTempC": 98,
+    "effectiveVolumetricFlowMm3s": 11,
+    "calculatedMaxPrintSpeedMmS": 131,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": true
+  },
+  "generatedAt": "2026-10-30T13:15:15.431Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab A1 can print Bambu PAHT-CF up to a safe maximum print speed of 131 mm/s based on an 11 mm³/s volumetric flow limit, but it mandates an immediate swap to a hardened steel hotend assembly due to abrasive carbon fibers. Because the A1 has an open-frame design, printing large or warping-prone parts in high-temperature polyamide requires draft protection or an enclosure tent alongside a bed temp running near its 100°C ceiling.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 20,
+  "firstLayerSpeedMmS": 25,
+  "bedSurfaceRecommendation": "Textured PEI Plate or High-Temp Smooth Plate with Bambu Liquid Glue / PVP Glue Stick as an interface and release agent",
+  "slicerTweaks": [
+    "Cap Maximum Volumetric Speed to 11 mm³/s in the PAHT-CF filament profile to avoid under-extrusion and high-meltback jams.",
+    "Lower part cooling fan to 0% for base layers and 10-20% max for standard layers, setting fan threshold speed to trigger only on layer times under 15 seconds.",
+    "Enable a 5mm outer-only brim with zero brim-object gap to combat high corner-lifting stresses caused by open-frame thermal contraction.",
+    "Set the First Layer and Other Layer bed temperature to 98°C, and calibrate Pressure Advance specifically between 0.035 and 0.045 to eliminate stringing."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Rapid nozzle bore erosion and erratic extrusion width",
+      "rootCause": "The stock Bambu Lab A1 comes equipped with a stainless steel nozzle, which degrades rapidly from chopped carbon fiber abrasion within tens to hundreds of grams.",
+      "exactFix": "Install an official Bambu Lab 0.4mm or 0.6mm Hardened Steel Hotend assembly before feeding PAHT-CF."
+    },
+    {
+      "issue": "Severe bed warping and corner lifting mid-print",
+      "rootCause": "Thermal shock from the open-frame A1 cooling the nylon matrix unevenly, combined with insufficient bed adhesion near its 100°C threshold.",
+      "exactFix": "Set bed temp to 98°C, apply a thin uniform layer of PVP glue stick/liquid glue, use a wide brim (5-10mm), and shield the printer from room drafts using a draft shield or enclosure tent."
+    },
+    {
+      "issue": "Rough surface finish, excessive stringing, and popping sounds at hotend",
+      "rootCause": "Moisture absorption; PAHT-CF is highly hygroscopic and absorbs ambient humidity within hours, boiling during extrusion at 285°C.",
+      "exactFix": "Dry the spool in a dedicated active blast-drying filament dryer at 80°C for 8 to 12 hours prior to printing, and print directly from a sealed dry box."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Bambu PAHT-CF with the stock A1 nozzle?",
+      "answer": "No. The stock nozzle on the A1 is stainless steel, which will quickly widen and deform due to the abrasive carbon fibers. You must install a hardened steel hotend assembly."
+    },
+    {
+      "question": "Does the open-frame A1 struggle with warping on PAHT-CF?",
+      "answer": "Small to medium parts print reliably with the bed at 98°C and a brim, but large or dense components will warp due to ambient thermal gradients. A draft enclosure tent is highly recommended."
+    },
+    {
+      "question": "Why is the print speed limited to 131 mm/s?",
+      "answer": "PAHT-CF has high melt viscosity, which restricts its maximum volumetric flow rate to roughly 11 mm³/s. At a standard 0.2mm layer height and 0.42mm line width, 131 mm/s is the calculated physical extrusion ceiling."
+    },
+    {
+      "question": "Can I use the AMS Lite to feed Bambu PAHT-CF into the A1?",
+      "answer": "Yes, but prolonged use of abrasive carbon fiber filaments will cause grooving in plastic AMS Lite funnels and PTFE tubing. Inspect wear paths regularly or feed directly from an external dry box."
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-sainsmart-glow-tpu-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1",
+    "slug": "bambu-lab-a1",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Sainsmart Glow TPU",
+    "slug": "sainsmart-glow-tpu",
+    "brand": "SainSmart",
+    "materialType": "Glow TPU",
+    "minNozzleTempC": 215,
+    "maxNozzleTempC": 230,
+    "minBedTempC": 45,
+    "maxBedTempC": 60,
+    "volumetricFlowLimitMm3s": 4,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 223,
+    "recommendedBedTempC": 53,
+    "effectiveVolumetricFlowMm3s": 4,
+    "calculatedMaxPrintSpeedMmS": 48,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-30T12:51:03.342Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab A1 handles Sainsmart Glow TPU reliably at an effective maximum print speed of 48 mm/s capped by a 4 mm³/s volumetric flow limit. However, printing this material requires upgrading the stock stainless steel nozzle to a Bambu hardened steel hotend due to the highly abrasive phosphorescent additives.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 60,
+  "firstLayerSpeedMmS": 25,
+  "bedSurfaceRecommendation": "Textured PEI Plate with PVP Glue Stick (applied as an essential release agent)",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 4.0 mm³/s in the Filament Settings to prevent extruder gear grinding and filament buckling.",
+    "Enable 'Avoid Crossing Walls' (Max Detour Length: 0) to minimize messy outer surface stringing caused by TPU ooze during travels.",
+    "Reduce retraction length to 0.8 mm and speed to 30 mm/s to prevent soft filament from wrapping around the direct drive dual-gear extruder.",
+    "Disable pressure advance or tune down to 0.04s, ensuring wipe on loops is active (1 mm) to relieve elastic melt-zone nozzle backpressure."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Extruder clogs or wraps filament around drive gears",
+      "rootCause": "Excessive backpressure inside the hotend caused by attempting to exceed the 4 mm³/s volumetric threshold or using overly aggressive retraction.",
+      "exactFix": "Set Maximum Volumetric Flow to 4 mm³/s, reduce retraction distance to 0.8 mm at 30 mm/s, and increase nozzle temperature to 225°C."
+    },
+    {
+      "issue": "Severe stringing, hair-like webbing, and rough surface finish",
+      "rootCause": "Filament moisture absorption (TPU is hygroscopic) combined with glow additives nucleating melt ooze.",
+      "exactFix": "Dry the filament spool in a blast dryer at 55°C for 6 to 8 hours prior to printing, and set 'Wipe on retraction' to 1.5 mm."
+    },
+    {
+      "issue": "Bed surface tear-out or permanent fusion to the PEI sheet",
+      "rootCause": "TPU creates an aggressive chemical bond to smooth and textured PEI surfaces when directly printed without an interface layer.",
+      "exactFix": "Apply a uniform layer of liquid glue stick or hairspray across the Textured PEI Plate to serve as a sacrificial release agent."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I feed Sainsmart Glow TPU through the Bambu Lab AMS Lite on the A1?",
+      "answer": "No, flexible TPU filaments frequently jam within the tight bends and motorized feeder paths of the AMS Lite. Feed this filament directly from an external dry box or top-mounted spool holder into the toolhead."
+    },
+    {
+      "question": "Why is a hardened steel hotend required if this is just TPU?",
+      "answer": "Phosphorescent glow-in-the-dark filaments contain hard strontium aluminate or zinc sulfide particles that act like liquid sandpaper, rapidly boring out the factory stainless steel nozzle orifice within a few hundred grams."
+    },
+    {
+      "question": "What is the maximum printing speed I can set in OrcaSlicer for this filament?",
+      "answer": "With a standard 0.4 mm line width and 0.2 mm layer height, the safe maximum print speed is 48 mm/s, which corresponds strictly to the 4 mm³/s safe volumetric melt limit of flexible TPU."
+    },
+    {
+      "question": "Do I need to enclose the Bambu Lab A1 when printing Glow TPU?",
+      "answer": "No, Glow TPU exhibits virtually zero thermal shrinkage and prints cleanly in an open-frame environment without warping; an enclosure is neither required nor recommended."
+    }
+  ]
+}

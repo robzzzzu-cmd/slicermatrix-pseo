@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-polymaker-polylite-abs-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1",
+    "slug": "bambu-lab-a1",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Polymaker PolyLite ABS",
+    "slug": "polymaker-polylite-abs",
+    "brand": "Polymaker",
+    "materialType": "ABS",
+    "minNozzleTempC": 245,
+    "maxNozzleTempC": 265,
+    "minBedTempC": 90,
+    "maxBedTempC": 105,
+    "volumetricFlowLimitMm3s": 18,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 255,
+    "recommendedBedTempC": 98,
+    "effectiveVolumetricFlowMm3s": 18,
+    "calculatedMaxPrintSpeedMmS": 214,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": true
+  },
+  "generatedAt": "2026-10-30T12:57:29.732Z",
+  "compatibilityVerdict": "Advanced Setup",
+  "heroSummary": "The Bambu Lab A1 can push Polymaker PolyLite ABS up to 214 mm/s under its 18 mm³/s volumetric flow ceiling, but its open-frame design makes parts highly prone to warping and layer separation. Reliable printing demands an ambient draft shield or DIY enclosure along with maxing out the bed temperature at 98°C.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 15,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate with Magigoo or PVP Glue Stick release agent",
+  "slicerTweaks": [
+    "Cap Maximum Volumetric Speed at 18 mm³/s in filament settings to prevent underextrusion at high speeds.",
+    "Set Bed Temperature to 98°C and Nozzle Temperature to 255°C to maximize layer bonding on the open bed.",
+    "Enable a 5mm to 8mm Outer Brim with a 0.0mm Brim-Object Gap to anchor sharp corners against warping.",
+    "Disable the auxiliary cooling fan entirely and set layer cooling fan to 0% normal, scaling to 15% only for overhangs."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe corner lifting and bed detaching",
+      "rootCause": "High thermal shrinkage of ABS exposed to open-air convection currents and drafts.",
+      "exactFix": "Clean bed with isopropyl alcohol, apply PVP glue stick, set bed temp to 98°C, and use a 10mm brim with a draft shield."
+    },
+    {
+      "issue": "Layer splitting and mid-print cracking",
+      "rootCause": "Rapid differential cooling between layers due to unheated ambient air and excessive fan speed.",
+      "exactFix": "Turn part cooling fan down to 0%, increase nozzle temp to 260°C, and place an external enclosure over the A1."
+    },
+    {
+      "issue": "Stringing, whisker artifacts, and nozzle popping",
+      "rootCause": "PolyLite ABS has absorbed atmospheric moisture during storage or open-air use.",
+      "exactFix": "Dry the filament spool in a dedicated dryer at 70°C for at least 6 hours before printing."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print large ABS parts on an open-frame Bambu Lab A1?",
+      "answer": "Large parts will struggle due to ABS thermal contraction in an open room; small components print fine, but large prints require an enclosure."
+    },
+    {
+      "question": "Does Polymaker PolyLite ABS require a hardened steel nozzle on the A1?",
+      "answer": "No, standard PolyLite ABS is non-abrasive, meaning the stock stainless steel nozzle handles it without premature bore wear."
+    },
+    {
+      "question": "Is it safe to run the Bambu Lab A1 bed at 98°C continuously?",
+      "answer": "Yes, the A1 bed is rated up to 100°C, making 98°C within its safe operating limits for ABS adhesion."
+    },
+    {
+      "question": "Do I need to manage fumes when printing PolyLite ABS on the A1?",
+      "answer": "Yes, ABS emits styrene and VOCs during printing; operate the printer in a well-ventilated room or with an active carbon air filter."
+    }
+  ]
+}

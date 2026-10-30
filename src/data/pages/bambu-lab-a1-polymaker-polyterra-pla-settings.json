@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-polymaker-polyterra-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1",
+    "slug": "bambu-lab-a1",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Polymaker PolyTerra PLA",
+    "slug": "polymaker-polyterra-pla",
+    "brand": "Polymaker",
+    "materialType": "PLA",
+    "minNozzleTempC": 195,
+    "maxNozzleTempC": 225,
+    "minBedTempC": 50,
+    "maxBedTempC": 60,
+    "volumetricFlowLimitMm3s": 21,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 210,
+    "recommendedBedTempC": 55,
+    "effectiveVolumetricFlowMm3s": 21,
+    "calculatedMaxPrintSpeedMmS": 250,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-30T12:38:32.412Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab A1 handles Polymaker PolyTerra PLA straight out of the box with exceptional surface finish on its stock stainless steel nozzle and open-frame design. Tuned for a 21 mm³/s volumetric flow limit, this setup reaches a reliable maximum print speed of 250 mm/s without compromising layer adhesion.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 40,
+  "bedSurfaceRecommendation": "Textured PEI Plate (clean with Isopropyl Alcohol or warm dish soap, no adhesive required)",
+  "slicerTweaks": [
+    "Cap the Max Volumetric Speed at 21 mm³/s in the Filament Settings to prevent under-extrusion at high print speeds.",
+    "Set Hotend Temperature to 210°C (First Layer 215°C) and Bed Temperature to 55°C for optimal matte finish and bed adhesion.",
+    "Enable Pressure Advance calibration with an initial manual value around 0.024 s/mm or use Bambu dynamic flow calibration.",
+    "Set Seam Alignment to Scarf Joint with a 10mm scarf length and 0.5mm start height to completely hide the Z-seam on matte surfaces."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Weak interlayer bonding / brittle prints along Z-axis",
+      "rootCause": "PolyTerra PLA contains mineral fillers that reduce natural interlayer weld strength if cooled too aggressively or printed too cold at high linear speeds.",
+      "exactFix": "Increase printing temperature from 210°C to 220°C and reduce the maximum part cooling fan from 100% to 70% in OrcaSlicer filament cooling settings."
+    },
+    {
+      "issue": "Stringing and fuzzy retractions on travels",
+      "rootCause": "Direct drive retraction distance too low or nozzle travel unretracted across open perimeters.",
+      "exactFix": "Increase retraction length to 0.8 mm at 30 mm/s, check 'Wipe on Loops', and enable 'Avoid Crossing Walls' with a max detour factor of 1.5."
+    },
+    {
+      "issue": "First layer peeling or corner lifting",
+      "rootCause": "PEI plate contaminated with skin oils or print bed temperature set too low.",
+      "exactFix": "Wash the Textured PEI Plate thoroughly with warm water and Dawn dish soap, set bed temperature to 60°C for the first layer, and set first layer speed to 35-40 mm/s."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Does Polymaker PolyTerra PLA require a hardened steel nozzle on the Bambu Lab A1?",
+      "answer": "No. Although PolyTerra uses organic and mineral matte additives, it is non-abrasive and fully compatible with the A1's stock stainless steel nozzle."
+    },
+    {
+      "question": "Can I use cardboard PolyTerra spools directly inside the Bambu Lab AMS Lite?",
+      "answer": "Yes, but it is strongly recommended to print reusable plastic spool edge rings or snap-on adapters to prevent cardboard dust accumulation and ensure smooth rolling on AMS Lite rotary holders."
+    },
+    {
+      "question": "Why does the surface sheen vary between high-speed and low-speed sections?",
+      "answer": "Matte PLAs appear glossier when printed hotter or slower. In OrcaSlicer, set consistent outer wall speeds (e.g., 150-200 mm/s) to ensure uniform surface texture throughout the model."
+    },
+    {
+      "question": "Do I need to enclose the Bambu Lab A1 to print PolyTerra PLA?",
+      "answer": "No, an enclosure is not needed and actually discouraged for PLA. PolyTerra prints best in an open-air environment with ample airflow to prevent heat creep in the toolhead."
+    }
+  ]
+}

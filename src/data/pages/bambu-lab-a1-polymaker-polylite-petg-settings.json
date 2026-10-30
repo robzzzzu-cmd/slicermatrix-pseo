@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-polymaker-polylite-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1",
+    "slug": "bambu-lab-a1",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Polymaker PolyLite PETG",
+    "slug": "polymaker-polylite-petg",
+    "brand": "Polymaker",
+    "materialType": "PETG",
+    "minNozzleTempC": 230,
+    "maxNozzleTempC": 250,
+    "minBedTempC": 70,
+    "maxBedTempC": 80,
+    "volumetricFlowLimitMm3s": 14,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 240,
+    "recommendedBedTempC": 75,
+    "effectiveVolumetricFlowMm3s": 14,
+    "calculatedMaxPrintSpeedMmS": 167,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-30T12:33:52.735Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab A1 handles Polymaker PolyLite PETG straight out of the box with exceptional reliability and layer bonding. With a conservative max volumetric flow rate of 14 mm³/s, the printer reliably achieves safe sustained printing speeds up to 167 mm/s without requiring an enclosure or nozzle upgrade.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 50,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with liquid glue or glue stick as a release agent",
+  "slicerTweaks": [
+    "Cap Maximum Volumetric Speed to 14 mm³/s under the Filament Settings to avoid under-extrusion at high print speeds.",
+    "Enable 'Avoid Crossing Walls' with a Max Detour Length of 0 to minimize stringing and nozzle oozing over exterior perimeters.",
+    "Set Pressure Advance to 0.038 (calibrated via OrcaSlicer dynamic flow calibration) to eliminate corner bulging and seam blobbing.",
+    "Lower Part Cooling Fan to 20-50% with Fan Speed Threshold layer times at 30s to maximize layer adhesion and mechanical strength."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe fine whisps and stringing across open travels",
+      "rootCause": "PETG absorbs moisture rapidly, causing steam micro-explosions in the hotend, paired with overly aggressive travel speeds.",
+      "exactFix": "Dry the filament spool at 65°C for 6-8 hours, increase travel speed to 500 mm/s, and set retraction distance to 0.8 mm at 30 mm/s."
+    },
+    {
+      "issue": "First layer tearing PEI coating upon part removal",
+      "rootCause": "PETG forms an aggressive chemical bond with PEI surfaces when directly printed without an interface barrier.",
+      "exactFix": "Apply a thin layer of PVP glue stick or liquid glue to the Textured PEI Plate to serve as a sacrificial release agent, and allow the bed to cool below 35°C before part removal."
+    },
+    {
+      "issue": "Burnt material blobs and nozzle dragging through previous layers",
+      "rootCause": "PETG sticks to the stainless steel nozzle tip due to slight over-extrusion or thermal accumulation, burning and dropping onto the print.",
+      "exactFix": "Reduce extrusion multiplier / flow ratio to 0.95 in OrcaSlicer, ensure the silicone sock is intact, and enable 0.2 mm Z-hop on retraction."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Polymaker PolyLite PETG on the Bambu Lab A1 without an enclosure?",
+      "answer": "Yes, PolyLite PETG does not require an enclosure and performs reliably in open-frame printers since it does not suffer from extreme thermal shrinkage like ABS or ASA."
+    },
+    {
+      "question": "Do I need to upgrade to a hardened steel nozzle to print PolyLite PETG?",
+      "answer": "No, standard PolyLite PETG is non-abrasive, so the stock Bambu Lab A1 stainless steel nozzle provides full longevity without premature wear."
+    },
+    {
+      "question": "Why is my maximum printing speed limited to 167 mm/s?",
+      "answer": "The 167 mm/s limit is calculated from the hotend volumetric melt ceiling of 14 mm³/s at standard 0.2mm layer height and 0.42mm line width to prevent under-extrusion and weak interlayer bonds."
+    },
+    {
+      "question": "Can I use the Bambu Lab AMS Lite directly with this filament?",
+      "answer": "Yes, Polymaker PolyLite PETG cardboard spools work well with the AMS Lite, though printing an external plastic spool adapter ring is recommended to prevent cardboard rim degradation during rewinding."
+    }
+  ]
+}

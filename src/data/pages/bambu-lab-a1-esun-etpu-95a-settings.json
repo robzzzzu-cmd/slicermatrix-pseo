@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-esun-etpu-95a-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1",
+    "slug": "bambu-lab-a1",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "eSUN eTPU-95A",
+    "slug": "esun-etpu-95a",
+    "brand": "eSUN",
+    "materialType": "TPU",
+    "minNozzleTempC": 210,
+    "maxNozzleTempC": 230,
+    "minBedTempC": 45,
+    "maxBedTempC": 60,
+    "volumetricFlowLimitMm3s": 4.5,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 220,
+    "recommendedBedTempC": 53,
+    "effectiveVolumetricFlowMm3s": 4.5,
+    "calculatedMaxPrintSpeedMmS": 54,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-30T13:21:23.927Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab A1 handles eSUN eTPU-95A reliably out of the box using its stock stainless steel direct-drive toolhead and open frame. Safe maximum throughput is limited to 54 mm/s based on an effective 4.5 mm³/s volumetric flow limit to prevent filament buckling in the extruder.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 40,
+  "coolingFanMaxPct": 80,
+  "firstLayerSpeedMmS": 25,
+  "bedSurfaceRecommendation": "Textured PEI Plate + Glue Stick (strictly as a release agent)",
+  "slicerTweaks": [
+    "Cap 'Max volumetric speed' at exactly 4.5 mm³/s in the Filament settings to automatically clamp linear speeds to safe thresholds.",
+    "Enable 'Avoid crossing walls' with a max detour length factor to route travel moves through the infill and reduce visible stringing.",
+    "Set Retraction distance to 0.8 mm and Retraction speed to 30 mm/s with 2.0 mm wipe distance to minimize nozzle oozing.",
+    "Set outer wall speed to 35-40 mm/s and inner wall speed to 50 mm/s to ensure consistent extrusion width on perimeter walls."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Filament buckling or jamming inside extruder gears",
+      "rootCause": "Backpressure caused by exceeding 4.5 mm³/s volumetric flow or printing at too low a nozzle temperature.",
+      "exactFix": "Ensure Max Volumetric Speed is set to 4.5 mm³/s, increase nozzle temperature to 220°C, and keep speeds under 54 mm/s."
+    },
+    {
+      "issue": "Severe stringing, surface fuzz, and popping noises",
+      "rootCause": "Hygroscopic moisture absorption converting to steam in the meltzone during travel moves.",
+      "exactFix": "Dehydrate the filament spool in a dedicated dryer at 65°C for 6 to 8 hours and print directly from a sealed drybox."
+    },
+    {
+      "issue": "Permanent bonding and bed surface tearing upon print removal",
+      "rootCause": "High chemical affinity between molten TPU and bare PEI coating without a separation barrier.",
+      "exactFix": "Apply a thin, uniform layer of PVP glue stick as a sacrificial release agent and let the bed cool below 30°C before removing."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I feed eSUN eTPU-95A through the Bambu Lab AMS Lite?",
+      "answer": "No, flexible filaments like eTPU-95A will buckle and jam within the AMS Lite drive gears and long PTFE tubing; feed it directly from the external spool holder."
+    },
+    {
+      "question": "Do I need a hardened steel nozzle to print eSUN eTPU-95A on the Bambu Lab A1?",
+      "answer": "No, eSUN eTPU-95A contains no abrasive fibers or particles, so the stock A1 stainless steel nozzle works optimally without premature wear."
+    },
+    {
+      "question": "Why does OrcaSlicer print slower than my configured 100 mm/s speed setting?",
+      "answer": "OrcaSlicer enforces the 4.5 mm³/s volumetric speed limit, which automatically clamps linear print speed to roughly 54 mm/s at standard 0.2mm layer heights."
+    },
+    {
+      "question": "Does the Bambu Lab A1 need an enclosure to print TPU successfully?",
+      "answer": "No, TPU does not require an enclosure and prints best in open-air environments to prevent heat creep in the extruder cold block."
+    }
+  ]
+}

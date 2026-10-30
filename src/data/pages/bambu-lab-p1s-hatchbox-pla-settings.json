@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1s-hatchbox-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1S",
+    "slug": "bambu-lab-p1s",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Hatchbox PLA",
+    "slug": "hatchbox-pla",
+    "brand": "Hatchbox",
+    "materialType": "PLA",
+    "minNozzleTempC": 195,
+    "maxNozzleTempC": 215,
+    "minBedTempC": 50,
+    "maxBedTempC": 60,
+    "volumetricFlowLimitMm3s": 19,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 205,
+    "recommendedBedTempC": 55,
+    "effectiveVolumetricFlowMm3s": 19,
+    "calculatedMaxPrintSpeedMmS": 226,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-30T12:31:35.942Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1S handles Hatchbox PLA exceptionally well out of the box with its stock stainless steel nozzle and direct drive extruder. Based on an effective volumetric flow limit of 19 mm³/s, this setup safely reaches speeds up to 226 mm/s while keeping the chamber door cracked or top glass vented to prevent heat creep.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 100,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate (cleaned with warm water and dish soap, no adhesive required)",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 19 mm³/s in the filament profile to cap print speeds safely at 226 mm/s for 0.2mm layers.",
+    "Configure nozzle temperature to 205°C for standard printing and 210°C for the first layer, with bed temperature set to 55°C.",
+    "Enable auxiliary part cooling fan at 70% and set the main part cooling fan to 100% to maximize bridging and overhang performance.",
+    "Set Pressure Advance (PA) to 0.022 in the filament settings and verify clean corner deceleration using OrcaSlicer line calibration."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Extruder clicking and hotend clogging mid-print (Heat Creep)",
+      "rootCause": "The fully enclosed P1S chamber traps heat, softening Hatchbox PLA inside the heatbreak before it reaches the melt zone.",
+      "exactFix": "Print with the front glass door cracked open or the top glass lid propped, and verify the cold-end heatsink fan runs properly."
+    },
+    {
+      "issue": "Fine stringing and wisps across travel moves",
+      "rootCause": "Nozzle temperature slightly exceeding ideal melt viscosity or inadequate retraction on rapid travel moves.",
+      "exactFix": "Reduce nozzle temperature from 215°C down to 200-205°C and ensure retraction distance is set to 0.8 mm at 35 mm/s."
+    },
+    {
+      "issue": "Corner lifting and warping on large flat prints",
+      "rootCause": "Excessive cooling from the auxiliary chamber fan blowing directly on the lowest layers combined with finger oils on PEI.",
+      "exactFix": "Wash the textured PEI plate with hot water and dish soap, turn off the auxiliary fan for the first 5 layers, and keep bed temperature at 55°C."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Hatchbox PLA with the Bambu Lab P1S enclosure fully closed?",
+      "answer": "It is not recommended; low glass transition temperature filaments like PLA can suffer from heat creep and extruder jams if the P1S chamber exceeds 35°C, so venting the door or lid is best practice."
+    },
+    {
+      "question": "Do I need to upgrade to a hardened steel nozzle to print Hatchbox PLA?",
+      "answer": "No, standard Hatchbox PLA is non-abrasive and works perfectly with the stock P1S stainless steel nozzle without causing premature wear."
+    },
+    {
+      "question": "Why is my maximum print speed capped at 226 mm/s?",
+      "answer": "With a standard 0.4 mm nozzle and 0.2 mm layer height, the safe volumetric flow rate of Hatchbox PLA is roughly 19 mm³/s, which mathematically limits safe linear extrusion speed to 226 mm/s without under-extrusion."
+    },
+    {
+      "question": "Does Hatchbox PLA need to be dried before printing on the P1S?",
+      "answer": "Hatchbox PLA is generally not very hygroscopic and prints well straight out of the vacuum bag, though drying at 45°C for 4-6 hours can eliminate persistent micro-stringing if exposed to high humidity."
+    }
+  ]
+}

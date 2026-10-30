@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-sunlu-pla-plus-2-0-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1",
+    "slug": "bambu-lab-a1",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Sunlu PLA+ 2.0",
+    "slug": "sunlu-pla-plus-2-0",
+    "brand": "Sunlu",
+    "materialType": "PLA+",
+    "minNozzleTempC": 205,
+    "maxNozzleTempC": 230,
+    "minBedTempC": 55,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 24,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 218,
+    "recommendedBedTempC": 60,
+    "effectiveVolumetricFlowMm3s": 24,
+    "calculatedMaxPrintSpeedMmS": 286,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-30T13:30:40.941Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab A1 easily achieves up to 286 mm/s with Sunlu PLA+ 2.0 by leveraging its 24 mm³/s maximum volumetric flow rate. The stock stainless steel direct drive toolhead and open-frame design are ideal for this material without requiring hardware modifications.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate (no adhesive required)",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 24 mm³/s in the Filament Settings to fully utilize Sunlu PLA+ 2.0 flow properties without exceeding the extruder limits.",
+    "Tune Pressure Advance to 0.022 in the device filament calibration tab to eliminate corner swelling at high acceleration.",
+    "Adjust Nozzle Temperature to 220°C for infill/inner walls and 215°C for outer perimeters to maximize layer adhesion while maintaining surface finish.",
+    "Enable 'Slow down for overhangs' and keep auxiliary/part cooling fans at 100% to maintain crisp bridging on the open-frame bed slinger."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Corner lifting / edge warping on long rectangular models",
+      "rootCause": "Localized draft cooling the lower layers too rapidly on the open-frame bed plate or incorrect initial bed temperature.",
+      "exactFix": "Increase the bed temperature to 62°C for all layers, add a 5mm outer brim, and ensure the room is free from drafts."
+    },
+    {
+      "issue": "Stringing and whisker formation across open travels",
+      "rootCause": "Residual pressure in the melt zone compounded by printing PLA+ at elevated flow temperatures.",
+      "exactFix": "Enable OrcaSlicer wipe on retract (1.5mm), activate avoid crossing walls, and reduce travel nozzle temp to 215°C."
+    },
+    {
+      "issue": "Matte bands alternating with glossy bands along outer perimeters",
+      "rootCause": "Significant print speed variations causing inconsistent cooling rates and phase transitions in the PLA+ resin matrix.",
+      "exactFix": "Cap the outer wall speed to a uniform 180 mm/s in OrcaSlicer to ensure a consistent glossy surface texture across the entire part."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Does Sunlu PLA+ 2.0 require an enclosure on the Bambu Lab A1?",
+      "answer": "No, an enclosure is not required and is actually discouraged for PLA+ because open airflow prevents heat creep and ensures rapid layer cooling."
+    },
+    {
+      "question": "Can I use the stock 0.4mm stainless steel nozzle with this filament?",
+      "answer": "Yes, Sunlu PLA+ 2.0 is non-abrasive, making the stock stainless steel nozzle on the A1 perfectly durable and safe for high-volume printing."
+    },
+    {
+      "question": "Why does my print under-extrude when printing above 250 mm/s?",
+      "answer": "If printing thick layer heights (e.g., 0.28mm), you may exceed the 24 mm³/s volumetric limit; verify that your layer height and line width match the volumetric flow cap in OrcaSlicer."
+    },
+    {
+      "question": "What is the recommended bed adhesion prep for Sunlu PLA+ 2.0 on the A1?",
+      "answer": "Wash the Textured PEI plate with warm water and dish soap to remove finger oils; no glue stick or adhesive is necessary for standard PLA+ printing."
+    }
+  ]
+}

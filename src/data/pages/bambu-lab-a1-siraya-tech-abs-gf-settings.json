@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-siraya-tech-abs-gf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1",
+    "slug": "bambu-lab-a1",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Siraya Tech ABS-GF",
+    "slug": "siraya-tech-abs-gf",
+    "brand": "Siraya Tech",
+    "materialType": "ABS-GF",
+    "minNozzleTempC": 250,
+    "maxNozzleTempC": 270,
+    "minBedTempC": 95,
+    "maxBedTempC": 110,
+    "volumetricFlowLimitMm3s": 15,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 260,
+    "recommendedBedTempC": 100,
+    "effectiveVolumetricFlowMm3s": 15,
+    "calculatedMaxPrintSpeedMmS": 179,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": true
+  },
+  "generatedAt": "2026-10-30T12:54:01.533Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab A1 can print Siraya Tech ABS-GF at speeds up to 179 mm/s within its 15 mm³/s volumetric limit, but it strictly requires swapping out the stock stainless steel nozzle for a hardened steel assembly. Additionally, because the A1 is an open-frame printer, drafting management or an enclosure is necessary to avoid catastrophic layer splitting and warp.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 15,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate with PVP glue stick or liquid adhesive release barrier",
+  "slicerTweaks": [
+    "Cap 'Max volumetric speed' at 15 mm³/s in OrcaSlicer filament settings to prevent under-extrusion at high linear speeds.",
+    "Enable a 5mm to 8mm outer brim with a 0mm brim-object gap to counteract high thermal contraction on open-bed prints.",
+    "Enable 'Draft Shield' under the Others tab to create a sacrificial perimeter wall that traps bed heat and deflects ambient drafts.",
+    "Disable the auxiliary fan entirely and set layer cooling fan to 0% for the first 4 layers, capping maximum fan speed at 15% for overhangs."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Rapid nozzle bore enlargement and irregular extrusion width",
+      "rootCause": "The abrasive glass fibers in Siraya Tech ABS-GF quickly ream out the factory stainless steel nozzle orifice.",
+      "exactFix": "Replace the stock hotend with an official Bambu Lab 0.4mm or 0.6mm Hardened Steel Hotend assembly."
+    },
+    {
+      "issue": "Severe corner lifting and print detachment from the build surface",
+      "rootCause": "Uncontrolled ambient drafts on the open-frame bed induce strong thermal contraction stresses in the ABS matrix.",
+      "exactFix": "Set bed temperature to 100°C, apply a uniform layer of liquid glue/glue stick, and enable OrcaSlicer's Draft Shield feature."
+    },
+    {
+      "issue": "Interlayer splitting and delamination along the Z-axis",
+      "rootCause": "Excessive part cooling or low printing temperature preventing proper glass-transition fusion between layers.",
+      "exactFix": "Increase nozzle temperature to 265°C, lower max part cooling fan to 10%, and eliminate external room airflow."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Siraya Tech ABS-GF with the stock Bambu Lab A1 out of the box?",
+      "answer": "No. The stock A1 includes a stainless steel nozzle that will wear out within hundreds of grams of abrasive glass-fiber filament. You must install a Bambu Hardened Steel hotend first."
+    },
+    {
+      "question": "Is it safe to run Siraya Tech ABS-GF through the AMS Lite?",
+      "answer": "It is not recommended. The rigid, abrasive fibers will wear down the AMS Lite feeding funnels, internal gears, and standard PTFE tubing over time; use an external spool mount instead."
+    },
+    {
+      "question": "What drying parameters should be used for this filament?",
+      "answer": "Dry Siraya Tech ABS-GF in a dedicated filament dryer at 70°C for 6 to 8 hours before printing to eliminate moisture-induced voiding, poor layer bonding, and stringing."
+    },
+    {
+      "question": "How should I handle VOC emissions since the A1 has no chamber enclosure?",
+      "answer": "Because the A1 is open-frame, print only in a well-ventilated space, vent air externally with an exhaust duct, or enclose the printer using a tent equipped with an active carbon and HEPA filtration unit."
+    }
+  ]
+}

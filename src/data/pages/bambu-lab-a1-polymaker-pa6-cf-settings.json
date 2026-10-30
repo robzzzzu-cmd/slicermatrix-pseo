@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-polymaker-pa6-cf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1",
+    "slug": "bambu-lab-a1",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Polymaker PA6-CF",
+    "slug": "polymaker-pa6-cf",
+    "brand": "Polymaker",
+    "materialType": "PA6-CF",
+    "minNozzleTempC": 280,
+    "maxNozzleTempC": 300,
+    "minBedTempC": 40,
+    "maxBedTempC": 50,
+    "volumetricFlowLimitMm3s": 11,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 290,
+    "recommendedBedTempC": 45,
+    "effectiveVolumetricFlowMm3s": 11,
+    "calculatedMaxPrintSpeedMmS": 131,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": true
+  },
+  "generatedAt": "2026-10-30T12:47:49.667Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab A1 can print Polymaker PA6-CF at speeds up to 131 mm/s capped by an 11 mm³/s volumetric limit, but it mandates swapping the stock stainless steel nozzle for a hardened steel hotend assembly. Furthermore, because the A1 is an open-frame bedslinger, printing large structural nylon parts demands a draft shield or enclosure environment to avoid thermal stress and delamination.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 20,
+  "firstLayerSpeedMmS": 25,
+  "bedSurfaceRecommendation": "Textured PEI Plate with Magigoo PA or PVA glue stick release agent",
+  "slicerTweaks": [
+    "Cap Maximum Volumetric Speed to 11 mm³/s in the Filament Settings to prevent under-extrusion and hotend heat creep at high flow rates.",
+    "Enable Draft Shield (Auto or Height-based) in OrcaSlicer to trap localized radiant heat from the 45-50°C bed on this open-frame printer.",
+    "Set Hotend Temperature to 290°C for all layers and limit Part Cooling Fan to 0% nominal and 20% max for short layer times.",
+    "Increase Pressure Advance to approximately 0.045 s (calibrate via PA line/pattern test) and set Z-hop type to Spiral Z-hop at 0.4 mm to prevent nozzle collisions with abrasive carbon fibers."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe layer separation and corner lifting (warping)",
+      "rootCause": "Open-frame draft exposure and bed-slinger airflow causing rapid crystallization and uneven thermal shrinkage in nylon.",
+      "exactFix": "Increase bed temperature to 50°C, enable a tall OrcaSlicer Draft Shield around the perimeter, and eliminate room drafts or install a tent enclosure."
+    },
+    {
+      "issue": "Fuzzy rough surface finish, oozing, and intermittent popping sounds",
+      "rootCause": "Moisture absorption by the highly hygroscopic PA6 base resin during storage or printing.",
+      "exactFix": "Dry the filament spool in an active oven or filament dryer at 80-100°C for at least 8 to 12 hours before printing, and feed directly from a dry box."
+    },
+    {
+      "issue": "Gradual severe extrusion inconsistency and rapid nozzle bore widening",
+      "rootCause": "Abrasive chopped carbon fibers eroding the stock A1 stainless steel nozzle orifice.",
+      "exactFix": "Upgrade the quick-swap hotend assembly immediately to the official Bambu Lab Hardened Steel Hotend (0.4mm or 0.6mm)."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Polymaker PA6-CF with the stock Bambu Lab A1 nozzle?",
+      "answer": "No. The stock A1 hotend uses stainless steel, which will quickly erode from the chopped carbon fibers, ruining dimensional accuracy and print quality within a few hundred grams. You must install the Bambu Lab Hardened Steel Hotend."
+    },
+    {
+      "question": "Why does Polymaker PA6-CF recommend a relatively low bed temperature (45-50°C)?",
+      "answer": "Polymaker's PA6-CF formulation is engineered to optimize crystallization dynamics and bed grip at lower surface temps when used with specialized adhesives like Magigoo PA or glue stick, preventing premature softening and bed damage."
+    },
+    {
+      "question": "Does the open-frame nature of the Bambu Lab A1 prevent printing functional nylon parts?",
+      "answer": "Small to medium components print reliably with an OrcaSlicer draft shield, but tall or broad cross-section parts will suffer from layer splitting without an ambient enclosure to trap radiant heat."
+    },
+    {
+      "question": "Can I print PA6-CF directly from the Bambu Lab AMS Lite?",
+      "answer": "Yes, but the filament must be fully predried, and prolonged ambient exposure will ruin the print. Additionally, abrasive fibers can wear the plastic funnels over time, so feeding from an active heated drybox is strongly recommended."
+    }
+  ]
+}

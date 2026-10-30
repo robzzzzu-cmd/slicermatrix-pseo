@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-bambu-petg-hf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1",
+    "slug": "bambu-lab-a1",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Bambu PETG HF",
+    "slug": "bambu-petg-hf",
+    "brand": "Bambu Lab",
+    "materialType": "PETG",
+    "minNozzleTempC": 230,
+    "maxNozzleTempC": 260,
+    "minBedTempC": 65,
+    "maxBedTempC": 75,
+    "volumetricFlowLimitMm3s": 21,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 245,
+    "recommendedBedTempC": 70,
+    "effectiveVolumetricFlowMm3s": 21,
+    "calculatedMaxPrintSpeedMmS": 250,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-30T13:10:37.863Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab A1 easily processes Bambu PETG HF at high volumetric throughput up to 21 mm³/s, allowing real-world print speeds of up to 250 mm/s. As an open-frame printer with a direct-drive extruder and stainless steel nozzle, no hardware upgrades or enclosure additions are necessary.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 60,
+  "firstLayerSpeedMmS": 40,
+  "bedSurfaceRecommendation": "Textured PEI Plate with liquid glue or glue stick as a release agent",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 21 mm³/s in the filament profile to fully leverage the high-flow characteristics of PETG HF.",
+    "Enable 'Wipe while retracting' (2 mm distance) and activate 'Avoid crossing perimeters' to prevent stringing and nozzle accumulation.",
+    "Configure Pressure Advance to 0.038 s (K-factor) to maintain sharp corners and prevent seam bulging at high travel accelerations.",
+    "Set the First Layer Bed Temperature to 70°C and Subsequent Layers to 70°C, lowering part cooling fan to 0% for the first 3 layers to guarantee bed adhesion."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Stringing and Hairy Whisker Artifacts",
+      "rootCause": "PETG HF is hygroscopic and exhibits reduced melt strength when wet, exacerbated by high melt-zone dwell time.",
+      "exactFix": "Dry the filament spool at 65°C for 8 hours before printing, and increase retraction distance to 0.8 mm at 35 mm/s in OrcaSlicer."
+    },
+    {
+      "issue": "PEI Surface Damage or Extreme Over-Adhesion",
+      "rootCause": "PETG has a natural affinity for PEI and can fuse chemically to the coating during cooling.",
+      "exactFix": "Apply a uniform layer of liquid glue or PVA glue stick to act as an interfacial release barrier, and wait until the bed cools below 35°C before part removal."
+    },
+    {
+      "issue": "Corner Warping or Lifting from Bed",
+      "rootCause": "Excessive cooling fan operation combined with room drafts on the open-frame A1 chassis.",
+      "exactFix": "Reduce cooling fan speed to 20% minimum / 50% maximum, set the bed temperature to 75°C, and add a 5 mm outer brim in OrcaSlicer."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Bambu PETG HF on the Bambu Lab A1 using the stock stainless steel nozzle?",
+      "answer": "Yes. Bambu PETG HF contains no abrasive fibers like glass or carbon, making the stock stainless steel nozzle completely safe from accelerated wear."
+    },
+    {
+      "question": "Does printing PETG HF on the A1 require an enclosure?",
+      "answer": "No. PETG HF does not suffer from extreme thermal shrinkage like ABS or PC, so an enclosure is unnecessary and could even cause heat creep in the extruder."
+    },
+    {
+      "question": "Why is a release agent necessary on the Textured PEI Plate for PETG?",
+      "answer": "PETG can bond excessively to the PEI surface at 70°C, risking tearing the PEI film off the spring steel sheet upon removal; glue provides an essential sacrificial release layer."
+    },
+    {
+      "question": "How do I maximize print speed without under-extruding PETG HF on the A1?",
+      "answer": "Maintain a nozzle temperature of 245°C–250°C to keep polymer viscosity low, and cap your maximum volumetric flow rate at 21 mm³/s in OrcaSlicer."
+    }
+  ]
+}

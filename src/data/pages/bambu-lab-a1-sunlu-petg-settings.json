@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-sunlu-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1",
+    "slug": "bambu-lab-a1",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Sunlu PETG",
+    "slug": "sunlu-petg",
+    "brand": "Sunlu",
+    "materialType": "PETG",
+    "minNozzleTempC": 230,
+    "maxNozzleTempC": 250,
+    "minBedTempC": 70,
+    "maxBedTempC": 85,
+    "volumetricFlowLimitMm3s": 15,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 240,
+    "recommendedBedTempC": 78,
+    "effectiveVolumetricFlowMm3s": 15,
+    "calculatedMaxPrintSpeedMmS": 179,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-30T12:41:50.106Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab A1 handles Sunlu PETG flawlessly out of the box without requiring an enclosure or nozzle upgrade. With a 15 mm³/s maximum volumetric flow rate, it achieves reliable, high-quality printing at safe speeds up to 179 mm/s.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 50,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with liquid glue or glue stick as a release agent",
+  "slicerTweaks": [
+    "Cap the Max Volumetric Speed at 15 mm³/s in the filament profile to prevent under-extrusion at high travel speeds.",
+    "Set Pressure Advance to 0.038 s and enable a 0.2mm Z-hop on retraction to prevent nozzle dragging through sticky PETG.",
+    "Lower the first layer acceleration to 500 mm/s² and set first layer line width to 0.5 mm for enhanced initial bed adhesion.",
+    "Enable 'Wipe while retracting' (2 mm wipe distance) to mitigate fine PETG hair stringing across open travels."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Stringing and fine cobwebbing across travel gaps",
+      "rootCause": "PETG absorbs ambient moisture quickly, decreasing melt viscosity and creating persistent ooze.",
+      "exactFix": "Dry the spool at 65°C for 6 hours; set OrcaSlicer retraction to 0.8 mm at 30 mm/s with 2 mm nozzle wipe."
+    },
+    {
+      "issue": "Bed adhesion failure or edge warping on long prints",
+      "rootCause": "Bed temperature set too low or oils on the Textured PEI sheet breaking adhesion on cooling edges.",
+      "exactFix": "Wash the build plate thoroughly with warm water and dish soap, and raise the bed temperature to 78°C."
+    },
+    {
+      "issue": "PEI sheet damage or excessive bonding causing surface tear-out",
+      "rootCause": "PETG bonds aggressively to smooth or unconditioned PEI surfaces without a sacrificial boundary.",
+      "exactFix": "Apply a thin layer of PVA glue stick or Bambu liquid glue to act as an essential release interface."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Sunlu PETG on the Bambu A1 without an enclosure?",
+      "answer": "Yes, PETG does not require an enclosure and prints exceptionally well in open-air environments without ambient draft sensitivity."
+    },
+    {
+      "question": "Why do I need a glue stick on the Bambu Textured PEI plate for PETG?",
+      "answer": "PETG can fuse directly to PEI coatings; the glue stick acts as a release agent to prevent permanently ripping the PEI coating off the plate."
+    },
+    {
+      "question": "Do I need to upgrade to a hardened steel nozzle for Sunlu PETG?",
+      "answer": "No, standard Sunlu PETG is non-abrasive, making the stock Bambu A1 stainless steel nozzle perfectly suitable for long-term printing."
+    },
+    {
+      "question": "What is the true maximum print speed for Sunlu PETG on the Bambu A1?",
+      "answer": "At standard 0.2mm layer height and 0.42mm line width, the 15 mm³/s volumetric limit caps your safe maximum print speed at 179 mm/s."
+    }
+  ]
+}

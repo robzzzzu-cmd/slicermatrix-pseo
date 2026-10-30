@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-overture-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1",
+    "slug": "bambu-lab-a1",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Overture PETG",
+    "slug": "overture-petg",
+    "brand": "Overture",
+    "materialType": "PETG",
+    "minNozzleTempC": 230,
+    "maxNozzleTempC": 250,
+    "minBedTempC": 75,
+    "maxBedTempC": 85,
+    "volumetricFlowLimitMm3s": 14,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 240,
+    "recommendedBedTempC": 80,
+    "effectiveVolumetricFlowMm3s": 14,
+    "calculatedMaxPrintSpeedMmS": 167,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-30T13:28:47.610Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab A1 handles Overture PETG flawlessly out of the box using its standard direct-drive toolhead and stock stainless steel nozzle without needing an enclosure. Adhering to the 14 mm³/s volumetric flow limit maintains an optimal safe printing speed of 167 mm/s while preventing under-extrusion and stringing.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 50,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate with a thin layer of glue stick or liquid glue as a release agent",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 14 mm³/s in the filament profile to cap travel speeds automatically at 167 mm/s.",
+    "Enable 'Wipe while Retracting' with a 2 mm wipe distance to minimize nozzle tip buildup and fine wisps.",
+    "Turn off the auxiliary part cooling fan completely (0%) to eliminate draft-induced warping and premature layer chilling.",
+    "Set Pressure Advance (Flow Dynamics) to 0.040 to prevent corner bulging and oozing across travel moves."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Excessive wispy stringing and nozzle blob accumulation",
+      "rootCause": "Material has absorbed ambient moisture or retraction wipe settings are disabled.",
+      "exactFix": "Dehydrate the spool in a filament dryer at 65°C for 6 hours, enable 2 mm retraction wipe, and reduce nozzle temp to 235°C."
+    },
+    {
+      "issue": "First layer tearing or permanently bonding to build sheet",
+      "rootCause": "PETG creates an overly aggressive chemical bond with bare PEI surfaces when printed hot.",
+      "exactFix": "Apply a uniform layer of PVP glue stick or Bambu Liquid Glue onto the Textured PEI Plate to serve as a sacrificial release layer."
+    },
+    {
+      "issue": "Brittle layer adhesion and perimeter separation",
+      "rootCause": "Excessive cooling fan airflow quenching extruded plastic before molecular bonding occurs.",
+      "exactFix": "Clamp part cooling between 20% minimum and 50% maximum, and increase nozzle temperature to 245°C."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Do I need an enclosure to print Overture PETG on the Bambu Lab A1?",
+      "answer": "No, PETG prints optimally in an open-frame environment; excessive ambient chamber heat can induce heat creep and filament softening in the extruder."
+    },
+    {
+      "question": "Can the stock Bambu A1 stainless steel nozzle handle this filament?",
+      "answer": "Yes, standard Overture PETG is non-abrasive, meaning the stock stainless steel nozzle will not experience premature wear."
+    },
+    {
+      "question": "Why is the filament popping and leaving rough surface voids?",
+      "answer": "PETG is highly hygroscopic; steam bubbles formed during extrusion cause popping and voids, requiring 6-8 hours of drying at 65°C."
+    },
+    {
+      "question": "Why is the top surface finish cloudy or uneven at high speeds?",
+      "answer": "Exceeding the melt capacity causes uneven crystallization; ensure volumetric flow is strictly capped at 14 mm³/s and slow top surface speed to 100 mm/s."
+    }
+  ]
+}

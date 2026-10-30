@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-polymaker-fiberon-pa612-cf15-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1",
+    "slug": "bambu-lab-a1",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Polymaker Fiberon PA612-CF15",
+    "slug": "polymaker-fiberon-pa612-cf15",
+    "brand": "Polymaker",
+    "materialType": "PA612-CF",
+    "minNozzleTempC": 275,
+    "maxNozzleTempC": 295,
+    "minBedTempC": 45,
+    "maxBedTempC": 55,
+    "volumetricFlowLimitMm3s": 12,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 285,
+    "recommendedBedTempC": 50,
+    "effectiveVolumetricFlowMm3s": 12,
+    "calculatedMaxPrintSpeedMmS": 143,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": true
+  },
+  "generatedAt": "2026-10-30T13:07:30.684Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab A1 can process Polymaker Fiberon PA612-CF15 up to 143 mm/s at a 12 mm³/s volumetric flow limit, but requires swapping the stock stainless nozzle for a hardened steel hotend assembly. Because the A1 is an open-bed machine, large technical prints will require draft shielding or an enclosure to prevent warping, alongside active filament drying.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 20,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate or Engineering Plate with PVA Glue Stick / Magigoo PA release agent",
+  "slicerTweaks": [
+    "Cap Maximum Volumetric Speed at 12 mm³/s in the filament profile to prevent under-extrusion and heat creep.",
+    "Set nozzle temperature to 285°C and bed temperature to 50°C, lowering part cooling fan to 0% min and 20% max to preserve layer bonding.",
+    "Configure a 5-8 mm outer brim with 0.1 mm brim-object gap to counteract bed lifting on an open-frame printer.",
+    "Enable Wipe While Retracting (2 mm distance) and Retract on Layer Change to minimize CF surface zits and seam blobs."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe nozzle bore wear and rapid under-extrusion",
+      "rootCause": "Carbon fibers in PA612-CF15 quickly erode the stock stainless steel nozzle of the Bambu Lab A1.",
+      "exactFix": "Install an official Bambu Lab hardened steel 0.4mm or 0.6mm hotend assembly and recalibrate flow dynamics."
+    },
+    {
+      "issue": "Corner lifting and warping on larger structural prints",
+      "rootCause": "Thermal contraction of nylon caused by ambient air drafts circulating around the open A1 bed.",
+      "exactFix": "Add a draft shield in OrcaSlicer or enclose the printer, lower cooling fan speeds to 0%, and use Magigoo PA on a 50°C textured plate."
+    },
+    {
+      "issue": "Rough fuzzy surface, stringing, and popping noises during extrusion",
+      "rootCause": "Polyamide absorbs ambient moisture rapidly, causing micro-steam bursts inside the melt zone.",
+      "exactFix": "Dry the spool at 80°C for at least 8 to 12 hours in a dedicated blast-dryer and feed directly from a sealed dry box."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Fiberon PA612-CF15 using the stock 0.4mm Bambu A1 nozzle?",
+      "answer": "No. The stock A1 hotend uses stainless steel, which the abrasive 15% carbon fibers will ruin within a few hundred grams. Upgrade to a hardened steel hotend first."
+    },
+    {
+      "question": "Can I use the Bambu AMS Lite with Polymaker PA612-CF?",
+      "answer": "Yes, but with caution. Carbon fiber filaments induce heavy abrasive wear on the plastic AMS Lite funnel inlets, and brittle dry nylon can snap in tight PTFE tube bends."
+    },
+    {
+      "question": "Does PA612-CF warp as aggressively as standard PA6?",
+      "answer": "No. PA612 absorbs significantly less moisture and exhibits lower thermal shrinkage than neat PA6, making it substantially easier to print on the open-frame A1."
+    },
+    {
+      "question": "Why is the maximum volumetric flow rate limited to 12 mm³/s?",
+      "answer": "The high viscosity and carbon fiber loading of PA612-CF impede flow at high shear rates, requiring a 12 mm³/s limit to maintain structural layer adhesion and prevent feeder skipping."
+    }
+  ]
+}

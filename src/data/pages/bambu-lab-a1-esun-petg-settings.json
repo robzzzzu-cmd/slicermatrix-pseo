@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-esun-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1",
+    "slug": "bambu-lab-a1",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "eSUN PETG",
+    "slug": "esun-petg",
+    "brand": "eSUN",
+    "materialType": "PETG",
+    "minNozzleTempC": 230,
+    "maxNozzleTempC": 250,
+    "minBedTempC": 70,
+    "maxBedTempC": 85,
+    "volumetricFlowLimitMm3s": 14,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 240,
+    "recommendedBedTempC": 78,
+    "effectiveVolumetricFlowMm3s": 14,
+    "calculatedMaxPrintSpeedMmS": 167,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-30T13:17:44.667Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab A1 handles eSUN PETG seamlessly out of the box with its direct drive extruder and 300°C stainless steel hotend, requiring no enclosure or hardened nozzle upgrades. You can reliably achieve real-world printing speeds up to 167 mm/s capped by a conservative maximum volumetric flow rate of 14 mm³/s.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 50,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with liquid glue or glue stick as a release agent to prevent surface tearing",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 14 mm³/s in the filament profile to prevent under-extrusion at high print speeds.",
+    "Enable Z-Hop during retraction (0.4 mm Normal) and activate 'Avoid Crossing Walls' to eliminate PETG nozzle buildup and surface dragging.",
+    "Configure nozzle temperature to 240°C for all layers and set the heatbed to 75°C for optimal layer adhesion without warping.",
+    "Reduce aux/cooling fan threshold: set Part Cooling Fan between 20% and 50% max, keeping the fan off for the first 3 layers to ensure maximum interlayer bonding."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe fine stringing and web-like hairs across open travels",
+      "rootCause": "PETG is inherently hygroscopic and fluid at 240°C, causing ooze when exposed to ambient moisture.",
+      "exactFix": "Dry the spool at 65°C for 6 hours in a filament dryer, and set OrcaSlicer wipe distance to 2.0 mm on loop."
+    },
+    {
+      "issue": "Build plate damage or chunks torn from PEI sheet upon part removal",
+      "rootCause": "PETG chemically bonds aggressively to smooth or bare PEI surfaces when directly printed without an interface layer.",
+      "exactFix": "Apply a uniform layer of PVA glue stick or Bambu Liquid Glue as a sacrificial release agent, and wait until the bed cools to under 30°C before flexing."
+    },
+    {
+      "issue": "Rough, matte surface finish and brittle layer separation",
+      "rootCause": "Volumetric speed exceeding 14 mm³/s causing hotend under-temperature and under-extrusion at high linear speeds.",
+      "exactFix": "Cap the filament profile Max Volumetric Speed at 14 mm³/s and lower outer wall speed to 120 mm/s."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print eSUN PETG on the Bambu Lab A1 without an enclosure?",
+      "answer": "Yes, PETG does not require a heated enclosure and prints reliably on the open-frame A1, provided the room is free from strong cold drafts."
+    },
+    {
+      "question": "Do I need to upgrade to a hardened steel nozzle for standard eSUN PETG?",
+      "answer": "No, standard eSUN PETG is non-abrasive, making the stock stainless steel nozzle on the Bambu Lab A1 completely sufficient."
+    },
+    {
+      "question": "Why is my PETG sticking too well to the Bambu Textured PEI plate?",
+      "answer": "PETG has very high chemical affinity for PEI; always use a thin coat of glue stick as a release barrier to avoid stripping the PEI coating."
+    },
+    {
+      "question": "What is the true maximum speed I can print eSUN PETG on the A1?",
+      "answer": "While the A1 can move up to 500 mm/s, eSUN PETG is limited by melting capacity to 14 mm³/s, yielding a safe maximum print speed of 167 mm/s at 0.2mm layer height and 0.42mm line width."
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-overture-pla-professional-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1",
+    "slug": "bambu-lab-a1",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Overture PLA Professional",
+    "slug": "overture-pla-professional",
+    "brand": "Overture",
+    "materialType": "PLA+",
+    "minNozzleTempC": 200,
+    "maxNozzleTempC": 220,
+    "minBedTempC": 50,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 21,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 210,
+    "recommendedBedTempC": 58,
+    "effectiveVolumetricFlowMm3s": 21,
+    "calculatedMaxPrintSpeedMmS": 250,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-10-30T13:23:14.061Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab A1 handles Overture PLA Professional seamlessly out of the box using its stock stainless steel nozzle in an open-air environment. Tuned with an effective volumetric flow cap of 21 mm³/s, the printer reliably sustains printing speeds up to 250 mm/s with exceptional layer adhesion.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 40,
+  "bedSurfaceRecommendation": "Textured PEI Plate (clean with Isopropyl Alcohol or warm soapy water, no glue required)",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 21 mm³/s under the Filament > Advanced tab to automatically constrain flow limits.",
+    "Calibrate Pressure Advance (PA) in OrcaSlicer, setting the dynamic flow calibration factor to approximately 0.022 for clean corners.",
+    "Configure Nozzle Temperature to 210°C for all layers and Bed Temperature to 58°C to ensure optimal layer bonding without premature softening.",
+    "Enable Wipe While Retracting with a distance of 1.0 mm to mitigate minor stringing during rapid non-print travels."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Corner bulging and dimensional swelling on high-speed directional changes",
+      "rootCause": "Improper Pressure Advance compensation under rapid acceleration curves exceeding standard PLA defaults.",
+      "exactFix": "Run OrcaSlicer Line PA calibration and update the PA value from default 0.020 to 0.024."
+    },
+    {
+      "issue": "Under-extrusion or matte striping during sustained high-speed infill runs",
+      "rootCause": "Exceeding the melt capacity of the hotend beyond the safe 21 mm³/s volumetric limit.",
+      "exactFix": "Cap the filament Max Volumetric Speed at 21 mm³/s and raise nozzle printing temperature from 205°C to 215°C."
+    },
+    {
+      "issue": "First layer peeling or edge warping on large planar prints",
+      "rootCause": "Bed temperature set too low or minor fingerprint oils preventing uniform adhesion on textured PEI.",
+      "exactFix": "Wash the PEI sheet with warm water and Dawn dish soap, then set the initial layer bed temperature to 60°C with fan speed off for the first 3 layers."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Does Overture PLA Professional require a hardened steel nozzle on the Bambu Lab A1?",
+      "answer": "No, Overture PLA Professional is a modified non-abrasive polymer alloy that prints perfectly on the stock A1 stainless steel nozzle without premature wear."
+    },
+    {
+      "question": "Can I print this filament with the Bambu Lab A1 top-mount spool holder or AMS Lite?",
+      "answer": "Yes, standard cardboard or plastic Overture spools mount and feed reliably into both the standard spool holder and the AMS Lite feeder system without friction issues."
+    },
+    {
+      "question": "Why is my surface finish matte at higher print speeds?",
+      "answer": "High volumetric throughput can lead to slight thermal drop across the melt zone; increase the nozzle temperature by 5°C to 10°C (up to 220°C) to restore a consistent glossy sheen."
+    },
+    {
+      "question": "Should the Bambu Lab A1 be enclosed when printing Overture PLA Professional?",
+      "answer": "No, printing PLA inside an enclosed chamber can cause heat creep leading to extruder clogs; open-frame printing with standard room ventilation is strongly recommended."
+    }
+  ]
+}

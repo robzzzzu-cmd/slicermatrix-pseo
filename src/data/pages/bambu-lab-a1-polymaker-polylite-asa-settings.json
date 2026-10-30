@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-polymaker-polylite-asa-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1",
+    "slug": "bambu-lab-a1",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Polymaker PolyLite ASA",
+    "slug": "polymaker-polylite-asa",
+    "brand": "Polymaker",
+    "materialType": "ASA",
+    "minNozzleTempC": 240,
+    "maxNozzleTempC": 260,
+    "minBedTempC": 90,
+    "maxBedTempC": 105,
+    "volumetricFlowLimitMm3s": 17,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 250,
+    "recommendedBedTempC": 98,
+    "effectiveVolumetricFlowMm3s": 17,
+    "calculatedMaxPrintSpeedMmS": 202,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": true
+  },
+  "generatedAt": "2026-10-30T12:56:00.647Z",
+  "compatibilityVerdict": "Advanced Setup",
+  "heroSummary": "The Bambu Lab A1 can print Polymaker PolyLite ASA at speeds up to 202 mm/s supported by an effective volumetric flow rate of 17 mm³/s. However, because the A1 is an open-frame bedslinger, successful printing requires mitigating ambient drafts or utilizing a draft shield/enclosure to prevent severe warping and layer separation.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 20,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate with PVP glue stick or Magigoo as an adhesive and release interface",
+  "slicerTweaks": [
+    "Set Bed Temperature to 98°C and Nozzle Temperature to 250°C to maximize inter-layer bonding near the A1 hardware limit.",
+    "Enable a 10 mm wide Outer Brim with 0 mm brim-object gap to mechanically restrain corners from lifting on un-enclosed beds.",
+    "Set Maximum Volumetric Speed to 17 mm³/s in the filament profile to prevent under-extrusion at high travel rates.",
+    "Configure Part Cooling Fan to 0% for the first 3 layers, keeping normal fan speed between 10% and 20% to prevent rapid thermal contraction."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Corner lifting and warping off the build plate",
+      "rootCause": "High thermal shrinkage coefficient of ASA exacerbated by open ambient air currents across the heated bed.",
+      "exactFix": "Increase bed temperature to 100°C, apply PVP glue stick on the Textured PEI plate, add a 10 mm brim, and enable a draft shield in OrcaSlicer."
+    },
+    {
+      "issue": "Delamination and horizontal layer splitting mid-print",
+      "rootCause": "Excessive part cooling or low ambient temperature leading to poor thermal fusion between successive layers.",
+      "exactFix": "Reduce auxiliary and part cooling fan speeds to a maximum of 15% and lower printing speed by 20% to increase thermal dwell time."
+    },
+    {
+      "issue": "Stringing, oozing, and surface bubbling",
+      "rootCause": "Moisture absorption in the hygroscopic ASA filament converting to steam in the hotend.",
+      "exactFix": "Dry the filament spool in a dedicated dryer at 70°C for 6 to 8 hours prior to printing, and set retraction to 0.8 mm at 30 mm/s."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print PolyLite ASA safely on an open-frame Bambu Lab A1?",
+      "answer": "Yes, but ASA emits styrene fumes and is prone to warping from ambient drafts; ensure printing is conducted in a well-ventilated area or tent enclosure away from room drafts."
+    },
+    {
+      "question": "Do I need to upgrade to a hardened steel nozzle for Polymaker PolyLite ASA?",
+      "answer": "No, standard PolyLite ASA is non-abrasive, meaning the stock stainless steel nozzle on the A1 is completely compatible without premature wear."
+    },
+    {
+      "question": "Why is the bed temperature limited to 98°C-100°C on the A1?",
+      "answer": "The Bambu Lab A1 has a hardware safety ceiling of 100°C for its bed; setting it to 98°C provides safe, stable thermal performance close to the glass transition temperature of ASA."
+    },
+    {
+      "question": "Is an auxiliary cooling fan recommended for ASA prints on the A1?",
+      "answer": "No, auxiliary cooling fans should be turned completely off, as directional forced air causes immediate layer separation and edge warping in ASA."
+    }
+  ]
+}
