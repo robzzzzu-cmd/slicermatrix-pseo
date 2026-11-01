@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-elegoo-rapid-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1",
+    "slug": "bambu-lab-a1",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Elegoo Rapid PETG",
+    "slug": "elegoo-rapid-petg",
+    "brand": "Elegoo",
+    "materialType": "PETG",
+    "minNozzleTempC": 230,
+    "maxNozzleTempC": 255,
+    "minBedTempC": 70,
+    "maxBedTempC": 85,
+    "volumetricFlowLimitMm3s": 20,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 243,
+    "recommendedBedTempC": 78,
+    "effectiveVolumetricFlowMm3s": 20,
+    "calculatedMaxPrintSpeedMmS": 238,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-01T13:22:13.386Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab A1 handles Elegoo Rapid PETG natively without enclosure or nozzle hardware upgrades, reaching print speeds up to 238 mm/s backed by a 20 mm³/s maximum volumetric flow rate. Excellent thermal stability and direct-drive extrusion allow this open-frame setup to deliver functional PETG parts quickly and reliably.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 60,
+  "firstLayerSpeedMmS": 40,
+  "bedSurfaceRecommendation": "Textured PEI Plate with liquid glue or glue stick as a release agent to prevent surface damage",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 20 mm³/s in the filament settings to safely sustain printing up to 238 mm/s without underextrusion.",
+    "Configure Nozzle Temperature to 245°C for initial and subsequent layers, and set Bed Temperature to 78°C to ensure solid bed adhesion.",
+    "Enable 'Wipe while retracting' with a 2 mm wipe distance to minimize PETG oozing and fine stringing during high-speed travel moves.",
+    "Set Pressure Advance (PA) to 0.038 using linear advance calibration to eliminate corner swelling at elevated speeds."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe stringing and fine cobwebs between travel moves",
+      "rootCause": "PETG has absorbed ambient moisture, lowering melt viscosity and causing high-temperature oozing.",
+      "exactFix": "Dry the spool at 65°C for 6 to 8 hours in a filament dryer, and increase retraction speed to 40 mm/s."
+    },
+    {
+      "issue": "Print tearing chunks out of the PEI coating on part removal",
+      "rootCause": "PETG bonds chemically to PEI when printed directly on clean, bare textured or smooth plates.",
+      "exactFix": "Apply a thin layer of PVA glue stick or Bambu liquid glue as an interface release agent before printing, and let the bed cool fully to room temperature before part removal."
+    },
+    {
+      "issue": "Interlayer delamination or poor structural part strength",
+      "rootCause": "Excessive part cooling fan speed preventing adequate polymer chain fusion between layers at high speeds.",
+      "exactFix": "Lower maximum part cooling fan speed to 40% and increase hotend temperature to 250°C to maximize layer adhesion."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Does the Bambu Lab A1 need an enclosure to print Elegoo Rapid PETG?",
+      "answer": "No, Elegoo Rapid PETG prints reliably on the open-frame Bambu Lab A1 without an enclosure because PETG does not suffer from high shrinkage or extreme thermal draft sensitivity like ABS or ASA."
+    },
+    {
+      "question": "Can the stock stainless steel nozzle on the A1 handle Elegoo Rapid PETG?",
+      "answer": "Yes, standard Elegoo Rapid PETG is completely non-abrasive, making the stock stainless steel 0.4mm nozzle fully sufficient for long-term production."
+    },
+    {
+      "question": "Why is glue stick recommended if the Bambu textured PEI plate provides good adhesion?",
+      "answer": "PETG adheres excessively well to PEI coatings, posing a risk of ripping the PEI film off the steel spring sheet upon removal. Glue acts as a sacrificial release layer rather than an adhesive."
+    },
+    {
+      "question": "How do I achieve the rated 238 mm/s speed without underextruding?",
+      "answer": "Set the Max Volumetric Speed in OrcaSlicer to 20 mm³/s and the hotend temperature to 245°C-250°C to guarantee smooth plasticization at high travel rates."
+    }
+  ]
+}

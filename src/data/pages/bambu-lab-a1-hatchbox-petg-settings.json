@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-hatchbox-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1",
+    "slug": "bambu-lab-a1",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Hatchbox PETG",
+    "slug": "hatchbox-petg",
+    "brand": "Hatchbox",
+    "materialType": "PETG",
+    "minNozzleTempC": 230,
+    "maxNozzleTempC": 245,
+    "minBedTempC": 70,
+    "maxBedTempC": 85,
+    "volumetricFlowLimitMm3s": 14,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 238,
+    "recommendedBedTempC": 78,
+    "effectiveVolumetricFlowMm3s": 14,
+    "calculatedMaxPrintSpeedMmS": 167,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-01T13:14:18.842Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab A1 handles Hatchbox PETG natively on its stock stainless steel nozzle without needing an enclosure, achieving reliable prints at up to 167 mm/s based on a 14 mm³/s volumetric flow limit. Thanks to the direct drive extruder and automated bed leveling, it delivers robust layer adhesion and smooth surface finishes out of the box.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 50,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate with a thin layer of PVP glue stick or liquid glue as a release agent",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 14 mm³/s in OrcaSlicer to prevent under-extrusion at standard layer heights.",
+    "Enable Z-Hop during retraction (0.2 mm spiral or auto z-hop) to avoid the nozzle scarring cooled PETG infill.",
+    "Configure Fan Speed Thresholds to 20% minimum and 50% maximum, keeping the auxiliary fan completely off to maintain layer bonding.",
+    "Lower First Layer Print Speed to 30 mm/s and set First Layer Bed Temperature to 78°C to secure excellent first layer adhesion without warping."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe fine stringing and nozzle whisker build-up",
+      "rootCause": "PETG is hygroscopic and picks up atmospheric moisture, or retraction settings are insufficiently clearing the nozzle melt zone.",
+      "exactFix": "Dry the filament in a dedicated dryer at 65°C for 6 to 8 hours; increase retraction to 0.8 mm at 35 mm/s and enable wipe on loop retract (2 mm)."
+    },
+    {
+      "issue": "Print tearing chunks out of smooth PEI sheet upon removal",
+      "rootCause": "PETG creates an overly aggressive chemical bond with bare smooth PEI surfaces at standard bed temperatures.",
+      "exactFix": "Switch to a Textured PEI Plate and apply a thin layer of glue stick to serve as an interface and release agent, letting the plate cool completely below 35°C before removing."
+    },
+    {
+      "issue": "Weak interlayer adhesion and brittle vertical walls",
+      "rootCause": "Excessive part cooling or printing below the optimal melt temperature for the direct-drive flow rate.",
+      "exactFix": "Raise nozzle temperature to 238°C-242°C, limit maximum cooling fan speed to 50%, and turn off the aux fan."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Do I need to upgrade the Bambu Lab A1 stock stainless steel nozzle for Hatchbox PETG?",
+      "answer": "No, Hatchbox PETG is a non-abrasive polymer, meaning the stock 0.4mm stainless steel nozzle is fully compatible and will not suffer premature wear."
+    },
+    {
+      "question": "Can I print Hatchbox PETG inside an enclosure on the Bambu Lab A1?",
+      "answer": "No, the Bambu Lab A1 is designed as an open-frame printer; enclosing it can cause heat creep in the direct drive toolhead and overheat mainboard electronics."
+    },
+    {
+      "question": "What is the recommended drying temperature and time for Hatchbox PETG?",
+      "answer": "Dry the spool at 65°C for at least 6 to 8 hours before printing, as moisture rapidly causes stringing, popping, and surface defects."
+    },
+    {
+      "question": "Why is glue stick required on the PEI bed when printing PETG?",
+      "answer": "Unlike with PLA where glue improves bed adhesion, with PETG on PEI the glue serves as a release agent to prevent permanent bonding and surface damage to the build sheet."
+    }
+  ]
+}

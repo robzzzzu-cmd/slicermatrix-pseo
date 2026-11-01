@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-prusament-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1",
+    "slug": "bambu-lab-a1",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Prusament PLA",
+    "slug": "prusament-pla",
+    "brand": "Prusament",
+    "materialType": "PLA",
+    "minNozzleTempC": 205,
+    "maxNozzleTempC": 220,
+    "minBedTempC": 55,
+    "maxBedTempC": 60,
+    "volumetricFlowLimitMm3s": 20,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 213,
+    "recommendedBedTempC": 58,
+    "effectiveVolumetricFlowMm3s": 20,
+    "calculatedMaxPrintSpeedMmS": 238,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-01T13:08:15.331Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab A1 handles Prusament PLA effortlessly out of the box on its open-frame architecture with the stock stainless steel nozzle. Utilizing an effective maximum volumetric flow rate of 20 mm³/s, it reliably achieves safe print speeds up to 238 mm/s without requiring hardware upgrades.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 100,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 40,
+  "bedSurfaceRecommendation": "Textured PEI Plate (no adhesive required; clean with warm water and dish soap)",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 20 mm³/s in the filament settings to maintain consistent extrusion at high travel rates.",
+    "Tune Pressure Advance (Linear Advance) to approximately 0.024-0.028 for the Bambu A1 direct drive extruder.",
+    "Configure Nozzle Temperature to 215°C for the initial layer and 213°C for subsequent layers to balance fluidity and stringing resistance.",
+    "Enable Scarf Joint Seam or set Seam Gap to 15% in OrcaSlicer Quality tab to virtually eliminate visible Z-seams on cylindrical profiles."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Fine whispy stringing during long non-print travel moves",
+      "rootCause": "Prusament PLA exhibits slightly lower melt viscosity at high nozzle temperatures combined with insufficient direct drive retraction.",
+      "exactFix": "Increase retraction distance from 0.8mm to 1.0mm, enable 'Wipe while retracting' (2mm wipe distance), and lower print temperature to 210°C."
+    },
+    {
+      "issue": "Corner lifting or warping on large flat models",
+      "rootCause": "Bed temperature set below optimal thermal range or finger grease contamination reducing PEI adhesion.",
+      "exactFix": "Raise bed temperature to 60°C, thoroughly wash the PEI sheet with dish soap and warm water, and apply a 5mm outer brim."
+    },
+    {
+      "issue": "Under-extrusion or matte banding on high-speed outer perimeters",
+      "rootCause": "Hotend thermal transfer bottleneck exceeding volumetric flow limits at default generic PLA profile speeds.",
+      "exactFix": "Cap Outer Wall speed to 180 mm/s and ensure Max Volumetric Speed is clamped to 20 mm³/s in OrcaSlicer filament settings."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Does Prusament PLA require a hardened steel nozzle on the Bambu Lab A1?",
+      "answer": "No, standard Prusament PLA is non-abrasive and works perfectly with the Bambu Lab A1's stock stainless steel nozzle without causing premature wear."
+    },
+    {
+      "question": "Can I print Prusament PLA at the A1's default 500 mm/s speed mode?",
+      "answer": "While the motion system can hit 500 mm/s, the filament's melt flow rate caps safe printing speeds at 238 mm/s (at standard 0.2mm layer height and 0.42mm line width) to prevent severe under-extrusion."
+    },
+    {
+      "question": "Is an enclosure needed or recommended for printing Prusament PLA on the Bambu A1?",
+      "answer": "No, PLA requires effective heat dissipation; printing on an open-frame printer like the A1 prevents heat creep and nozzle clogging."
+    },
+    {
+      "question": "What is the recommended build plate temperature for Prusament PLA on the A1 Textured PEI sheet?",
+      "answer": "A bed temperature between 55°C and 60°C (target 58°C) is ideal, providing excellent adhesion when heated and spontaneous part release once cooled below 35°C."
+    }
+  ]
+}

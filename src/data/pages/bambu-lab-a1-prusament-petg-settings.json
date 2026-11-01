@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-prusament-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1",
+    "slug": "bambu-lab-a1",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Prusament PETG",
+    "slug": "prusament-petg",
+    "brand": "Prusament",
+    "materialType": "PETG",
+    "minNozzleTempC": 240,
+    "maxNozzleTempC": 255,
+    "minBedTempC": 75,
+    "maxBedTempC": 90,
+    "volumetricFlowLimitMm3s": 15,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 248,
+    "recommendedBedTempC": 83,
+    "effectiveVolumetricFlowMm3s": 15,
+    "calculatedMaxPrintSpeedMmS": 179,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-01T13:10:28.342Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab A1 handles Prusament PETG exceptionally well right out of the box using its stock stainless steel nozzle and open-frame architecture. With an effective volumetric flow limit of 15 mm³/s, the printer reliably sustains speeds up to 179 mm/s at standard 0.2mm layer heights.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 50,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with no adhesive needed, or Smooth PEI Plate with glue stick as a release agent",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 15 mm³/s in the filament settings to prevent under-extrusion at high print speeds.",
+    "Enable 'Wipe while retracting' (2 mm distance) and activate 'Avoid crossing walls' to minimize fine PETG stringing.",
+    "Set the nozzle temperature to 250°C for the first layer and 248°C for subsequent layers to ensure optimal layer fusion on the stainless steel hotend.",
+    "Limit cooling fan speed between 20% and 50% with layer times below 30 seconds to maintain maximum inter-layer bonding strength."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Stringing and fine whisker buildup during travel moves",
+      "rootCause": "PETG absorbs ambient moisture quickly, decreasing viscosity, combined with aggressive non-print travel moves without wipe.",
+      "exactFix": "Dry filament at 65°C for 6 hours; set retraction distance to 0.8 mm at 35 mm/s and enable 'Wipe on Loops' in OrcaSlicer."
+    },
+    {
+      "issue": "First layer tearing or parts bonding too strongly to Smooth PEI",
+      "rootCause": "PETG has high molecular adhesion to smooth PEI coatings, risking plate damage, or nozzle Z-offset dragging through molten bead.",
+      "exactFix": "Switch to the Bambu Textured PEI plate, or apply a thin layer of PVP glue stick on smooth PEI as a sacrificial release barrier."
+    },
+    {
+      "issue": "Matte finish and weak layer-to-layer strength at high speeds",
+      "rootCause": "Volumetric flow bottleneck causing melt zone starvation and excessive part cooling fan speed exceeding 60%.",
+      "exactFix": "Cap volumetric speed to 15 mm³/s, lower Max Fan Speed to 50%, and raise printing temperature to 252°C."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Does the Bambu Lab A1 need an enclosure to print Prusament PETG reliably?",
+      "answer": "No, Prusament PETG does not require an enclosure and prints best on an open-frame printer like the A1 to prevent heat creep and excessive chamber heat."
+    },
+    {
+      "question": "Can the stock stainless steel nozzle on the A1 withstand Prusament PETG?",
+      "answer": "Yes, standard Prusament PETG is non-abrasive, so the stock stainless steel nozzle will handle it without accelerated wear."
+    },
+    {
+      "question": "Why is the maximum printing speed capped at 179 mm/s?",
+      "answer": "The flow is capped to respect Prusament PETG's safe volumetric limit of 15 mm³/s on the A1 hotend at standard 0.42mm line width and 0.2mm layer height."
+    },
+    {
+      "question": "Do I need glue stick on the Bambu Textured PEI plate for Prusament PETG?",
+      "answer": "No, textured PEI releases PETG cleanly once cooled below 35°C; glue is only recommended on smooth PEI sheets as a release agent to prevent surface tear-out."
+    }
+  ]
+}

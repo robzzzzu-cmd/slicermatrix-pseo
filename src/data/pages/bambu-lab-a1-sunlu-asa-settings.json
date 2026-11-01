@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-sunlu-asa-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1",
+    "slug": "bambu-lab-a1",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Sunlu ASA",
+    "slug": "sunlu-asa",
+    "brand": "Sunlu",
+    "materialType": "ASA",
+    "minNozzleTempC": 245,
+    "maxNozzleTempC": 265,
+    "minBedTempC": 90,
+    "maxBedTempC": 105,
+    "volumetricFlowLimitMm3s": 17,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 255,
+    "recommendedBedTempC": 98,
+    "effectiveVolumetricFlowMm3s": 17,
+    "calculatedMaxPrintSpeedMmS": 202,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": true
+  },
+  "generatedAt": "2026-11-01T13:06:51.417Z",
+  "compatibilityVerdict": "Advanced Setup",
+  "heroSummary": "The Bambu Lab A1 can print Sunlu ASA up to a calculated safe speed of 202 mm/s based on a 17 mm³/s maximum volumetric flow rate. However, because the A1 is an open-bed printer and ASA is highly prone to warping and layer separation from ambient drafts, an external enclosure or draft shield setup is strictly required for reliable prints.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 20,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with a thin layer of PVA glue stick or specialized adhesive (e.g., Magigoo)",
+  "slicerTweaks": [
+    "Set Bed Temperature to 98°C for all layers and Nozzle Temperature to 255°C, ensuring maximum bed heating without exceeding the A1 100°C limit.",
+    "Enable a 5mm outer brim with a 0.1mm brim-object gap to aggressively anchor corners and prevent thermal lifting.",
+    "Limit Part Cooling Fan speed to 0% minimum and 20% maximum, reserving higher cooling (up to 30%) strictly for overhangs under 25% threshold.",
+    "Cap the Max Volumetric Speed at 17 mm³/s in the filament profile to prevent extrusion grinding during high-speed moves."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Corner Lifting and Bed Detachment",
+      "rootCause": "Severe thermal contraction of ASA caused by open-frame drafts and inadequate first layer adhesion at bed edge.",
+      "exactFix": "Increase bed temperature to 100°C, apply Magigoo/glue stick on a clean Textured PEI sheet, enable a 6-8mm brim, and shield the printer from room air currents."
+    },
+    {
+      "issue": "Interlayer Delamination and Cracking",
+      "rootCause": "Excessive part cooling fan or cold ambient air causing premature crystallization and weak polymer bonding between layers.",
+      "exactFix": "Disable the part cooling fan completely for general geometry (0% min/max), enable a multi-layer tall draft shield in OrcaSlicer, or place a temporary enclosure over the printer."
+    },
+    {
+      "issue": "Surface Blobbing and Stringing",
+      "rootCause": "Sunlu ASA absorbing atmospheric moisture, causing steam micro-explosions in the hotend.",
+      "exactFix": "Dry the filament spool in an active filament dryer at 70°C for 6 to 8 hours before printing, and tune direct drive retraction to 0.8mm at 30mm/s."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Sunlu ASA on the Bambu Lab A1 without an enclosure?",
+      "answer": "Small parts (under 30-40mm footprint) can succeed with a draft shield and zero fan speed, but medium to large functional parts will almost certainly warp and crack without an enclosure due to ambient air drafts."
+    },
+    {
+      "question": "Does Sunlu ASA require a hardened steel nozzle upgrade on the Bambu Lab A1?",
+      "answer": "No, standard Sunlu ASA is non-abrasive and can be printed safely using the stock stainless steel nozzle installed on the Bambu Lab A1."
+    },
+    {
+      "question": "What is the maximum printing speed I can achieve with Sunlu ASA on the A1?",
+      "answer": "With a 17 mm³/s volumetric flow limit at standard 0.2mm layer height and 0.42mm line width, the calculated safe ceiling speed is approximately 202 mm/s."
+    },
+    {
+      "question": "Are there health hazards printing ASA in an open area with the A1?",
+      "answer": "Yes, ASA releases styrene emissions and ultrafine particles during printing; ensure the Bambu Lab A1 is operated in a well-ventilated room or equipped with an activated carbon filtration system."
+    }
+  ]
+}

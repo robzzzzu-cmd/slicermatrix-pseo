@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-esun-abs-plus-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1",
+    "slug": "bambu-lab-a1",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "eSUN ABS+",
+    "slug": "esun-abs-plus",
+    "brand": "eSUN",
+    "materialType": "ABS+",
+    "minNozzleTempC": 240,
+    "maxNozzleTempC": 260,
+    "minBedTempC": 90,
+    "maxBedTempC": 105,
+    "volumetricFlowLimitMm3s": 18,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 250,
+    "recommendedBedTempC": 98,
+    "effectiveVolumetricFlowMm3s": 18,
+    "calculatedMaxPrintSpeedMmS": 214,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": true
+  },
+  "generatedAt": "2026-11-01T12:55:34.485Z",
+  "compatibilityVerdict": "Advanced Setup",
+  "heroSummary": "The Bambu Lab A1 can melt eSUN ABS+ at an effective volumetric flow rate of 18 mm³/s, unlocking a safe maximum print speed of 214 mm/s at standard layer heights. However, because the A1 is an open-frame bedslinger, successful printing requires an external enclosure or draft shield to prevent severe warping and delamination.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 20,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate + PVP glue stick (applied as an adhesion promoter and release agent)",
+  "slicerTweaks": [
+    "Set Bed Temperature to 98°C for all layers and Nozzle Temperature to 250°C to maximize inter-layer adhesion without exceeding A1 bed limits.",
+    "Limit Part Cooling Fan to 0% base speed and a maximum of 15-20% only for overhangs shorter than 2 seconds to prevent premature thermal shrinkage.",
+    "Enable a 5mm outer brim with 0mm Brim-object gap to mechanically anchor sharp corners directly to the build plate.",
+    "Set Max Volumetric Speed cap to 18 mm³/s in the filament profile and enable Draft Shield mode to isolate the part from ambient cross-breezes."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe corner lifting and bed detachment",
+      "rootCause": "High thermal contraction coefficient combined with open-bed ambient drafts causing uneven cooling at the base.",
+      "exactFix": "Increase bed temperature to 98°C, apply a fresh coat of PVP glue stick, add an external tent enclosure or tall draft shield, and add a 6mm mouse-ear brim."
+    },
+    {
+      "issue": "Inter-layer cracking (delamination) midway through tall prints",
+      "rootCause": "Open-air convective cooling dropping the ambient temperature below the glass transition threshold, stalling layer-to-layer molecular diffusion.",
+      "exactFix": "Turn off part cooling completely (0%), reduce print speed to 150 mm/s to elevate ambient thermal radiation from the nozzle, and isolate the machine inside an enclosure."
+    },
+    {
+      "issue": "Surface popping, roughness, and localized stringing",
+      "rootCause": "Moisture absorption by the ABS+ filament boiling off inside the 250°C hotend melt zone.",
+      "exactFix": "Dry the filament in an active filament dryer at 70°C for 6 to 8 hours before printing, and ensure direct feed from a sealed dry box."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print eSUN ABS+ safely on the Bambu Lab A1 without an enclosure?",
+      "answer": "Only for very small, low-profile parts under 30mm tall using a draft shield and brim. Medium to large parts will inevitably warp or crack without a passive enclosure or draft-free enclosure tent."
+    },
+    {
+      "question": "Will the stock stainless steel nozzle on the A1 wear out with eSUN ABS+?",
+      "answer": "No, eSUN ABS+ does not contain abrasive additives like carbon fiber or glass fiber, making the stock stainless steel nozzle completely safe to use."
+    },
+    {
+      "question": "Why is the bed temperature limited to 98°C instead of the recommended 100-105°C?",
+      "answer": "The Bambu Lab A1 has a hardware safety maximum bed temperature of 100°C; targeting 98°C ensures stable thermal regulation without tripping firmware protection limits."
+    },
+    {
+      "question": "Is it safe to put the Bambu Lab A1 inside a full third-party enclosure?",
+      "answer": "Yes, but ensure the ambient chamber temperature does not exceed 45-50°C to prevent mainboard and stepper motor driver overheating, as the A1 electronics are not actively vented outside the chassis."
+    }
+  ]
+}

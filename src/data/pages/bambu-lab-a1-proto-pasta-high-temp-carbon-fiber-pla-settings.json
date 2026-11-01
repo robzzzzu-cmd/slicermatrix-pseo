@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-proto-pasta-high-temp-carbon-fiber-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1",
+    "slug": "bambu-lab-a1",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Proto-pasta High Temp Carbon Fiber PLA",
+    "slug": "proto-pasta-high-temp-carbon-fiber-pla",
+    "brand": "Proto-pasta",
+    "materialType": "PLA-CF",
+    "minNozzleTempC": 210,
+    "maxNozzleTempC": 230,
+    "minBedTempC": 55,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 13,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 220,
+    "recommendedBedTempC": 60,
+    "effectiveVolumetricFlowMm3s": 13,
+    "calculatedMaxPrintSpeedMmS": 155,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-01T13:26:49.444Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab A1 easily achieves the safe max speed of 155 mm/s constrained by a 13 mm³/s volumetric flow limit on Proto-pasta High Temp Carbon Fiber PLA. However, the stock stainless steel nozzle must be upgraded to a hardened steel hotend assembly to prevent rapid bore wear and extrusion failure.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 40,
+  "coolingFanMaxPct": 80,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate cleaned with isopropyl alcohol; no glue stick required at 60°C.",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 13 mm³/s in the filament settings to maintain extrusion consistency below 155 mm/s.",
+    "Enable Wipe While Retracting (set to 2 mm) to prevent stringing and nozzle buildup caused by stiff carbon fibers.",
+    "Adjust Pressure Advance (PA) to approximately 0.022-0.026 via OrcaSlicer calibration to account for carbon fiber stiffness.",
+    "Set Wall Generator to Arachne with a minimum wall line width of 0.45 mm for improved layer bonding and fiber alignment."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Extruder clogs or rapid under-extrusion mid-print",
+      "rootCause": "Carbon fiber agglomeration in the 0.4mm orifice or abrasive wear on the stock stainless steel nozzle tip.",
+      "exactFix": "Install an official Bambu Lab hardened steel 0.4mm or 0.6mm hotend, and increase nozzle temperature to 225°C."
+    },
+    {
+      "issue": "Surface fuzziness, brittleness, and poor layer adhesion",
+      "rootCause": "Moisture absorption by the PLA base resin reducing polymer chain integrity during melt extrusion.",
+      "exactFix": "Dry the filament in a dedicated filament dryer at 50°C for 6 to 8 hours prior to printing."
+    },
+    {
+      "issue": "Corner warping or part detaching from the build plate",
+      "rootCause": "Excessive early cooling fan speed or oily fingerprint residue on the textured PEI sheet.",
+      "exactFix": "Wash the build plate with warm water and dish soap, set bed temperature to 60°C, and keep part cooling off for the first 3 layers."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Proto-pasta HT-CF PLA with the stock Bambu Lab A1 hotend?",
+      "answer": "No, the stock hotend uses a stainless steel nozzle which will quickly erode from the chopped carbon fibers, enlarging the orifice and ruining print tolerances within a few hundred grams."
+    },
+    {
+      "question": "Is an enclosure required to print this high-temp carbon fiber PLA on the A1?",
+      "answer": "No, an enclosure is not required; because it is PLA-based, it prints reliably on the open-frame A1 without chamber heating, which could actually cause heat creep."
+    },
+    {
+      "question": "Does Proto-pasta HT-CF PLA work inside the Bambu Lab AMS Lite?",
+      "answer": "Yes, but prolonged usage of abrasive carbon fiber filaments can cause groove wear on the AMS Lite PTFE funnel guides over time, so inspect guides periodically."
+    },
+    {
+      "question": "How do I achieve the high-temperature resistance advertised by Proto-pasta?",
+      "answer": "The printed part must be annealed (heat-treated) in a controlled oven at 95°C to 110°C for roughly 30 minutes to crystallize the amorphous PLA structure."
+    }
+  ]
+}

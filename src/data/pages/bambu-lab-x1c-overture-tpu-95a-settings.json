@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-x1c-overture-tpu-95a-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab X1C",
+    "slug": "bambu-lab-x1c",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 110,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 26
+  },
+  "filament": {
+    "name": "Overture TPU 95A",
+    "slug": "overture-tpu-95a",
+    "brand": "Overture",
+    "materialType": "TPU",
+    "minNozzleTempC": 215,
+    "maxNozzleTempC": 235,
+    "minBedTempC": 40,
+    "maxBedTempC": 60,
+    "volumetricFlowLimitMm3s": 4.5,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 225,
+    "recommendedBedTempC": 50,
+    "effectiveVolumetricFlowMm3s": 4.5,
+    "calculatedMaxPrintSpeedMmS": 54,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-01T13:38:12.427Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab X1C handles Overture TPU 95A exceptionally well straight out of the box using its direct drive extruder and hardened steel nozzle without requiring hardware modifications. To prevent extruder wrapping and under-extrusion, cap the volumetric flow rate at 4.5 mm³/s, yielding a safe maximum printing speed of 54 mm/s.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 40,
+  "coolingFanMaxPct": 80,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate with a thin layer of PVA glue stick as a release agent",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 4.5 mm³/s in the filament profile to cap print speeds safely around 54 mm/s.",
+    "Disable filament retraction during wipe movements and reduce retraction speed to 30 mm/s with 0.8 mm length to prevent flexible filament bunching above the gears.",
+    "Turn off 'Reduce infill retraction' and enable 'Avoid crossing walls' to minimize stringing artifacts across exterior perimeters.",
+    "Set the print bed temperature to 50°C and keep the top glass cracked or chamber door open to prevent heat creep inside the enclosed X1C."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Extruder clogs and filament wraps around the drive gears",
+      "rootCause": "Excessive backpressure caused by attempting to print beyond 4.5 mm³/s volumetric speed or printing with chamber heat creep.",
+      "exactFix": "Clamp maximum volumetric flow to 4.5 mm³/s, loosen chamber temperature by propping the top glass open, and ensure nozzle temperature is at 225°C."
+    },
+    {
+      "issue": "Severe fine stringing and web-like branching between travel moves",
+      "rootCause": "Moisture absorption by the hygroscopic TPU matrix or unoptimized travel z-hop settings.",
+      "exactFix": "Dry the filament in a dedicated dryer at 65°C for at least 8 hours, enable 'Wipe while retracting' (2 mm), and set Z-hop to 0 mm."
+    },
+    {
+      "issue": "Part bonds too strongly and tears the PEI sheet coating upon removal",
+      "rootCause": "Direct thermal welding of polyurethane to hot PEI coating without a sacrificial barrier layer.",
+      "exactFix": "Apply a uniform layer of liquid glue or PVA glue stick over the Textured PEI plate before printing to act strictly as a release agent."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I feed Overture TPU 95A through the Bambu Lab AMS?",
+      "answer": "No, flexible filaments like TPU 95A will jam inside the internal feed paths and funnel funnels of the AMS; feed directly from the external spool holder."
+    },
+    {
+      "question": "Should I print TPU with the Bambu Lab X1C door closed or open?",
+      "answer": "Keep the front door cracked or the top glass propped open to maintain a low chamber temperature, preventing the soft filament from buckling prior to entering the melt zone."
+    },
+    {
+      "question": "Do I need to dry Overture TPU 95A straight out of the vacuum-sealed pouch?",
+      "answer": "Yes, TPU is extremely hygroscopic and factory packaging frequently contains residual moisture; dry at 65°C for 6 to 8 hours prior to use for string-free results."
+    },
+    {
+      "question": "Why does OrcaSlicer default print speeds fail on TPU prints?",
+      "answer": "Stock high-speed profiles exceed the 4.5 mm³/s flow capability of soft TPU, creating excessive backpressure that buckles the filament out of the extruder guide path."
+    }
+  ]
+}

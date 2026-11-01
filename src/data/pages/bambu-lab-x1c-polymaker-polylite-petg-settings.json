@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-x1c-polymaker-polylite-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab X1C",
+    "slug": "bambu-lab-x1c",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 110,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 26
+  },
+  "filament": {
+    "name": "Polymaker PolyLite PETG",
+    "slug": "polymaker-polylite-petg",
+    "brand": "Polymaker",
+    "materialType": "PETG",
+    "minNozzleTempC": 230,
+    "maxNozzleTempC": 250,
+    "minBedTempC": 70,
+    "maxBedTempC": 80,
+    "volumetricFlowLimitMm3s": 14,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 240,
+    "recommendedBedTempC": 75,
+    "effectiveVolumetricFlowMm3s": 14,
+    "calculatedMaxPrintSpeedMmS": 167,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-01T13:32:46.414Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab X1C handles Polymaker PolyLite PETG exceptionally well out of the box with its direct-drive extruder and hardened steel nozzle. By capping the maximum volumetric speed at 14 mm³/s, the printer reliably prints at speeds up to 167 mm/s without experiencing under-extrusion or loss of layer adhesion.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 60,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate (or Smooth PEI with Glue Stick as a release agent to prevent tearing)",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 14 mm³/s in the filament settings to automatically limit line speeds to 167 mm/s.",
+    "Adjust Nozzle Temperature to 240°C and Bed Temperature to 75°C across all layers for balanced flow and adhesion.",
+    "Enable 'Wipe while retracting' with a distance of 2.0 mm to mitigate fine PETG surface stringing and nozzle buildup.",
+    "Keep the top glass lid propped or the front door unlatched if the enclosure chamber exceeds 40°C to eliminate heat creep risks."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe stringing and fine hair buildup",
+      "rootCause": "PETG is hygroscopic and oozes significantly when moisture expands in the melt zone, exacerbated by excessive nozzle temperature.",
+      "exactFix": "Dry the filament spool in a blast dryer at 65°C for 6 to 8 hours and ensure retraction is set to 0.8 mm at 35 mm/s with Z-hop set to 'Normal Auto'."
+    },
+    {
+      "issue": "Build plate surface damage / tearing on part removal",
+      "rootCause": "PETG bonds aggressively to bare smooth PEI surfaces, creating a bond stronger than the PEI coating itself.",
+      "exactFix": "Switch to a Bambu Textured PEI plate or apply a thin, uniform layer of PVP glue stick/liquid glue as a sacrificial release agent on smooth plates."
+    },
+    {
+      "issue": "Layer delamination or brittle structural parts",
+      "rootCause": "Excessive auxiliary cooling or high part cooling fan speeds exceeding 60% cooling the molten bead too rapidly.",
+      "exactFix": "Disable the auxiliary chamber fan completely and clamp maximum part cooling fan speed to 60% with a minimum threshold of 20%."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Polymaker PolyLite PETG at the Bambu X1C default 250-300 mm/s profile speeds?",
+      "answer": "No, standard PolyLite PETG has a melt flow rate limited to roughly 14 mm³/s, meaning attempts to print above 167 mm/s at 0.2mm layer height will cause severe under-extrusion and matte, weak layers."
+    },
+    {
+      "question": "Should I print PETG with the X1C door closed or open?",
+      "answer": "Keep the top glass vented or the door cracked open during long prints to prevent chamber temperatures exceeding 40°C, which can cause direct-drive heat creep."
+    },
+    {
+      "question": "Does PolyLite PETG require nozzle hardening on the X1C?",
+      "answer": "No, PolyLite PETG is non-abrasive, though the X1C's stock hardened steel nozzle works perfectly without requiring any hardware changes."
+    },
+    {
+      "question": "What Pressure Advance (PA) value should I calibrate for PolyLite PETG on the X1C?",
+      "answer": "PolyLite PETG typically calibrates to a PA value between 0.032 and 0.042 s on the Bambu direct drive extruder, which eliminates bulging corners."
+    }
+  ]
+}

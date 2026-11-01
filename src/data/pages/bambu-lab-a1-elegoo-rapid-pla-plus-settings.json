@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-elegoo-rapid-pla-plus-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1",
+    "slug": "bambu-lab-a1",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Elegoo Rapid PLA+",
+    "slug": "elegoo-rapid-pla-plus",
+    "brand": "Elegoo",
+    "materialType": "HS-PLA+",
+    "minNozzleTempC": 210,
+    "maxNozzleTempC": 230,
+    "minBedTempC": 55,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 25,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 220,
+    "recommendedBedTempC": 60,
+    "effectiveVolumetricFlowMm3s": 24,
+    "calculatedMaxPrintSpeedMmS": 286,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-01T13:18:35.949Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab A1 easily achieves up to 286 mm/s printing speed with Elegoo Rapid PLA+ leveraging its high-flow melt capabilities up to 24 mm³/s. As a standard non-abrasive PLA variant, it runs completely stock on the stainless steel nozzle without needing an enclosure or hardware upgrades.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 40,
+  "bedSurfaceRecommendation": "Textured PEI Plate (clean with warm water and dish soap, no adhesive required)",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 24 mm³/s in the filament profile to prevent underextrusion at peak acceleration.",
+    "Configure Nozzle Temperature to 220°C for all layers and Heated Bed to 60°C for optimal melt fluidity and plate adhesion.",
+    "Enable Pressure Advance with an initial calibrated K-value of 0.022 for the stock direct drive extruder and high-flow PLA+.",
+    "Set outer wall speed to 150 mm/s and inner wall speed to 250 mm/s to ensure dimensional accuracy while utilizing the filament's high-speed capability."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Corner lifting or warping on wide footprints",
+      "rootCause": "Localized draft cooling the print edges prematurely or residual finger oils on the PEI surface reducing adhesion.",
+      "exactFix": "Wash the textured PEI sheet with dish soap and warm water, bump bed temperature to 65°C for layer 1, and add a 5mm outer brim in OrcaSlicer."
+    },
+    {
+      "issue": "Matte finish and weak layer bonding at high speeds",
+      "rootCause": "Extrusion temperature drops below the required melt flow threshold at feed rates exceeding 200 mm/s.",
+      "exactFix": "Increase nozzle printing temperature from 220°C to 230°C in the filament settings and verify the volumetric speed cap is set to 24 mm³/s."
+    },
+    {
+      "issue": "Fine wispy stringing during rapid travel moves",
+      "rootCause": "High-fluidity modified resin oozing during high acceleration travel paths over open voids.",
+      "exactFix": "Increase retraction speed to 40 mm/s, enable 'Wipe while retracting' (2mm distance), and ensure travel speed is at least 500 mm/s."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I use the stock stainless steel nozzle with Elegoo Rapid PLA+ on the Bambu Lab A1?",
+      "answer": "Yes, Elegoo Rapid PLA+ is completely non-abrasive and does not contain carbon, glass, or glow additives, making it safe for the stock stainless steel nozzle."
+    },
+    {
+      "question": "Do I need to enclose the Bambu Lab A1 to print this material?",
+      "answer": "No, an enclosure is not required and actually discouraged; PLA+ cools best in open-frame environments to avoid heat creep and achieve crisp overhangs."
+    },
+    {
+      "question": "Why is the calculated speed capped at 286 mm/s when the Bambu Lab A1 can move at 500 mm/s?",
+      "answer": "While the motion system can hit 500 mm/s, a 24 mm³/s volumetric flow limit at standard 0.42mm line width and 0.2mm layer height caps maximum continuous extrusion speed to 286 mm/s to maintain layer integrity."
+    },
+    {
+      "question": "Does Elegoo Rapid PLA+ require drying prior to use?",
+      "answer": "Standard PLA+ is minimally hygroscopic, but drying at 45°C-50°C for 4 hours will reduce micro-stringing and pop sounds if the spool was stored exposed in humid ambient air."
+    }
+  ]
+}

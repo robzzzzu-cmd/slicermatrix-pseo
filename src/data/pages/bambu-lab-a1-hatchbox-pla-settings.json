@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-hatchbox-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1",
+    "slug": "bambu-lab-a1",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Hatchbox PLA",
+    "slug": "hatchbox-pla",
+    "brand": "Hatchbox",
+    "materialType": "PLA",
+    "minNozzleTempC": 195,
+    "maxNozzleTempC": 215,
+    "minBedTempC": 50,
+    "maxBedTempC": 60,
+    "volumetricFlowLimitMm3s": 19,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 205,
+    "recommendedBedTempC": 55,
+    "effectiveVolumetricFlowMm3s": 19,
+    "calculatedMaxPrintSpeedMmS": 226,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-01T13:11:38.085Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab A1 handles Hatchbox PLA exceptionally well out of the box with its stock stainless steel nozzle and open-frame design. Leveraging an effective max volumetric flow of 19 mm³/s, you can safely sustain print speeds up to 226 mm/s without requiring hardware modifications.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate (no adhesive required; ensure surface is cleaned with isopropyl alcohol or warm soapy water)",
+  "slicerTweaks": [
+    "Cap Maximum Volumetric Speed at 19.0 mm³/s in the Filament Settings to avoid under-extrusion at high print velocities.",
+    "Set Hotend Temperature to 205³C for all layers and Heated Bed Temperature to 55³C.",
+    "Enable Pressure Advance (K-factor) calibration or manually configure the default profile value to approximately 0.020 for the direct drive extruder.",
+    "Adjust outer wall speed to 120 mm/s and inner wall/infill speeds up to 226 mm/s to balance outer surface finish with rapid infill deposition."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "First Layer Detachment or Corner Warping",
+      "rootCause": "Contaminants or skin oils on the Textured PEI sheet, or insufficient first layer squish/temperature.",
+      "exactFix": "Wash the PEI sheet with warm water and dish soap, verify bed temperature is at 55³C, and reduce first layer speed to 30-35 mm/s."
+    },
+    {
+      "issue": "Stringing and Oozing Between Travel Moves",
+      "rootCause": "Nozzle temperature exceeding material requirements or inadequate retraction on travel moves.",
+      "exactFix": "Ensure target temperature does not exceed 205³C, verify retraction length is set to 0.8 mm at 35 mm/s, and enable 'Wipe while retracting'."
+    },
+    {
+      "issue": "Matte Streaks or Under-extrusion on Fast Infill",
+      "rootCause": "Volumetric flow bottleneck when exceeding the hotend melting capacity on high-speed movements.",
+      "exactFix": "Strictly enforce the 19 mm³/s Max Volumetric Speed limit in OrcaSlicer to prevent speeds exceeding 226 mm/s at 0.2 mm layer height."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Does Hatchbox PLA require a hardened steel nozzle upgrade on the Bambu Lab A1?",
+      "answer": "No, standard Hatchbox PLA is non-abrasive and runs safely on the stock stainless steel nozzle installed on the Bambu Lab A1."
+    },
+    {
+      "question": "Can I print Hatchbox PLA with an enclosure on the Bambu Lab A1?",
+      "answer": "Enclosing the printer is not recommended for standard PLA, as heat retention can cause heat creep and clogging in the direct drive cold zone."
+    },
+    {
+      "question": "What is the maximum practical print speed for Hatchbox PLA on the A1?",
+      "answer": "Using a standard 0.4 mm nozzle at 0.2 mm layer height with a 0.42 mm line width, the maximum reliable print speed is 226 mm/s, corresponding to the 19 mm³/s flow threshold."
+    },
+    {
+      "question": "Do I need to dry Hatchbox PLA before printing on the Bambu Lab A1?",
+      "answer": "Hatchbox PLA is generally ready out of the bag and is not highly hygroscopic, though if exposed to ambient humidity for extended periods, drying at 45³C for 4-6 hours improves surface consistency."
+    }
+  ]
+}

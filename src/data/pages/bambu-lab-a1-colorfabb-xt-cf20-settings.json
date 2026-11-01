@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-colorfabb-xt-cf20-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1",
+    "slug": "bambu-lab-a1",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "ColorFabb XT-CF20",
+    "slug": "colorfabb-xt-cf20",
+    "brand": "ColorFabb",
+    "materialType": "PETG-CF",
+    "minNozzleTempC": 245,
+    "maxNozzleTempC": 265,
+    "minBedTempC": 70,
+    "maxBedTempC": 80,
+    "volumetricFlowLimitMm3s": 12,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 255,
+    "recommendedBedTempC": 75,
+    "effectiveVolumetricFlowMm3s": 12,
+    "calculatedMaxPrintSpeedMmS": 143,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-01T13:29:57.014Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab A1 prints ColorFabb XT-CF20 reliably up to 143 mm/s capped by a 12 mm³/s max volumetric flow rate, but requires swapping the stock stainless steel hotend for a hardened steel assembly to prevent rapid abrasive wear. Once upgraded with hardened components, the A1's open-bed architecture effortlessly handles this high-strength copolyester without needing an enclosed chamber.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 45,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate + Liquid Glue or Glue Stick release agent",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 12 mm³/s under the Filament > Flow ratio tab to strictly prevent extruder skipping past 143 mm/s.",
+    "Enable Wipe While Retracting (2 mm distance) and set Retraction Length to 0.8 mm to manage stringing caused by carbon fibers.",
+    "Lower Part Cooling Fan to 20% Min and 45% Max with Keep Fan Always On disabled for the first 3 layers to guarantee maximum inter-layer adhesion.",
+    "Adjust Pressure Advance to roughly 0.038 s and calibrate via OrcaSlicer dynamic flow calibration for the hardened nozzle."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Rapid nozzle bore enlargement and erratic extrusion",
+      "rootCause": "ColorFabb XT-CF20 contains 20% micro-carbon fibers that erode the Bambu Lab A1 stock stainless steel nozzle within a few hundred grams of printing.",
+      "exactFix": "Install an official Bambu Lab 0.4mm or 0.6mm Hardened Steel Hotend assembly before running this composite filament."
+    },
+    {
+      "issue": "Severe bed adhesion causing PEI coating tear-out",
+      "rootCause": "ColorFabb XT copolyester forms an aggressive chemical bond to bare PEI surfaces, ripping the coating off during part removal.",
+      "exactFix": "Apply a uniform layer of glue stick or Bambu Liquid Glue on the Textured PEI plate to act as an essential sacrificial release agent."
+    },
+    {
+      "issue": "Fuzzy, brittle perimeter walls with visible pitting",
+      "rootCause": "ColorFabb XT-CF20 is hygroscopic; absorbed moisture turns to steam inside the 255°C melt zone causing voids and micro-explosions.",
+      "exactFix": "Dry the spool in a filament dryer at 65°C to 70°C for 6 to 8 hours before printing, and print directly from a sealed dry box if ambient humidity is high."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print ColorFabb XT-CF20 with the stock Bambu A1 stainless steel nozzle?",
+      "answer": "No. The 20% carbon fiber content will quickly erode the softer stainless steel aperture, degrading dimensional accuracy and surface finish within hours. Upgrade to a hardened steel nozzle."
+    },
+    {
+      "question": "Does ColorFabb XT-CF20 require an enclosure on the Bambu A1?",
+      "answer": "No enclosure is necessary. Unlike standard ABS or Nylon-CF, XT-CF20 is a PETG-based copolyester that exhibits minimal shrinkage and prints cleanly in open-air ambient environments."
+    },
+    {
+      "question": "Why is the print speed capped at 143 mm/s?",
+      "answer": "The material's maximum safe volumetric flow rate is 12 mm³/s; at a standard 0.42 mm line width and 0.20 mm layer height, 143 mm/s represents the mechanical upper limit before under-extrusion occurs."
+    },
+    {
+      "question": "Can I feed ColorFabb XT-CF20 through the Bambu Lab AMS Lite?",
+      "answer": "While it can run through the AMS Lite, abrasive carbon fiber filaments accelerate wear on the AMS Lite funnels and PTFE tubes. Inspect PTFE tubes frequently or feed directly from an external dry spool holder."
+    }
+  ]
+}

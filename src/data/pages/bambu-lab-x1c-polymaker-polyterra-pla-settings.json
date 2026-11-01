@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-x1c-polymaker-polyterra-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab X1C",
+    "slug": "bambu-lab-x1c",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 110,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 26
+  },
+  "filament": {
+    "name": "Polymaker PolyTerra PLA",
+    "slug": "polymaker-polyterra-pla",
+    "brand": "Polymaker",
+    "materialType": "PLA",
+    "minNozzleTempC": 195,
+    "maxNozzleTempC": 225,
+    "minBedTempC": 50,
+    "maxBedTempC": 60,
+    "volumetricFlowLimitMm3s": 21,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 210,
+    "recommendedBedTempC": 55,
+    "effectiveVolumetricFlowMm3s": 21,
+    "calculatedMaxPrintSpeedMmS": 250,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-01T13:34:45.542Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab X1C handles Polymaker PolyTerra PLA exceptionally well out of the box, reaching safe print speeds up to 250 mm/s based on its 21 mm³/s maximum volumetric flow rate. Keep the glass top or front door vented to avoid heat creep during prolonged prints within the enclosed chamber.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with no adhesive required (clean with isopropyl alcohol or warm dish soap).",
+  "slicerTweaks": [
+    "Set the Maximum Volumetric Speed limit to 21 mm³/s in the filament profile to prevent underextrusion at high speeds.",
+    "Tune Pressure Advance (Linear Advance) specifically between 0.022 and 0.028 to maintain sharp corners and prevent matte surface bulging.",
+    "Keep Chamber Temperature Management in check by venting the top glass lid or setting the chamber exhaust fan to 70% to prevent heat creep.",
+    "Lower outer wall speed to 120-150 mm/s while keeping inner walls at 250 mm/s to ensure an ultra-uniform matte surface finish."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Extruder clicking and clogs during long prints",
+      "rootCause": "Heat creep caused by printing low-temperature PLA inside a fully sealed X1C chamber, softening the filament above the heat break.",
+      "exactFix": "Prop open the top glass cover or crack the front glass door during printing, and verify the cold-end fan is running at 100%."
+    },
+    {
+      "issue": "Weak layer adhesion and brittle parts along Z-axis",
+      "rootCause": "Excessive high-speed part cooling combined with printing below the optimal polymer bonding temperature for matte PLA.",
+      "exactFix": "Increase nozzle temperature from 210°C to 220°C and reduce the auxiliary part cooling fan to 30% or turn it off entirely."
+    },
+    {
+      "issue": "Uneven matte sheen and patchy striping on outer perimeters",
+      "rootCause": "Speed differential between standard wall paths and decelerations causing localized cooling rate variations.",
+      "exactFix": "Enable 'Precise Z-height' and set a uniform outer wall speed (e.g., 100-120 mm/s) so melt temperature and cooling stay consistent."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Polymaker PolyTerra PLA directly from the Bambu AMS?",
+      "answer": "Yes, PolyTerra PLA is compatible with the AMS; however, ensure the cardboard spool edges are in good condition or use printable spool rim adapters to prevent cardboard dust and rotation slipping."
+    },
+    {
+      "question": "Do I need glue stick on the Bambu Textured PEI plate for PolyTerra PLA?",
+      "answer": "No, PolyTerra PLA adheres exceptionally well to a clean Textured PEI plate at 55°C without any glue or adhesive aids and releases naturally once cooled."
+    },
+    {
+      "question": "Why is the top surface rougher than standard PLA at high speeds?",
+      "answer": "PolyTerra contains organic/mineral matte additives that make the melt less fluid; lower your top surface speed to 80 mm/s and enable ironing for a smooth velvety finish."
+    },
+    {
+      "question": "Do I need to dry PolyTerra PLA before printing on the X1C?",
+      "answer": "While not strongly hygroscopic like nylon, fresh or moist spools can show mild stringing; drying at 45°C for 4-6 hours restores optimal string-free performance."
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-amolen-glow-in-the-dark-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1",
+    "slug": "bambu-lab-a1",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Amolen Glow in the Dark PLA",
+    "slug": "amolen-glow-in-the-dark-pla",
+    "brand": "Amolen",
+    "materialType": "Glow PLA",
+    "minNozzleTempC": 205,
+    "maxNozzleTempC": 225,
+    "minBedTempC": 55,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 14,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 215,
+    "recommendedBedTempC": 60,
+    "effectiveVolumetricFlowMm3s": 14,
+    "calculatedMaxPrintSpeedMmS": 167,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-01T13:25:15.549Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab A1 prints Amolen Glow in the Dark PLA reliably at up to 167 mm/s based on a 14 mm³/s volumetric limit, but requires swapping the stock stainless steel nozzle for a hardened steel hotend to prevent rapid abrasive wear. The open-frame design is fully compatible with standard PLA bed temperatures (60°C) without needing an enclosure.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 40,
+  "bedSurfaceRecommendation": "Textured PEI Plate cleaned with dish soap and warm water (no adhesive required)",
+  "slicerTweaks": [
+    "Cap Maximum Volumetric Speed to 14 mm³/s in the filament profile to prevent under-extrusion at speeds above 167 mm/s.",
+    "Increase wall line count to 3 or 4 to enhance phosphorescent glow brightness and intensity without compromising structural density.",
+    "Enable 'Avoid Crossing Walls' (Max detour length: 0) to minimize surface travel marks caused by abrasive particles trailing across outer perimeters.",
+    "Set Hotend Temperature to 215°C for all layers and Initial Layer Bed Temperature to 60°C to guarantee smooth flow and strong first-layer bonding."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Premature nozzle wear and uneven extrusion diameter",
+      "rootCause": "Strontium aluminate phosphorescent particles in the filament severely abrade the stock Bambu Lab stainless steel nozzle orifice.",
+      "exactFix": "Install the official Bambu Lab 0.4mm Hardened Steel Hotend assembly and select the hardened nozzle option in the printer settings."
+    },
+    {
+      "issue": "Stringing and rough surface finish",
+      "rootCause": "Amolen Glow PLA is hygroscopic and absorbs ambient humidity, resulting in moisture boil and oozing at the hotend.",
+      "exactFix": "Dry the spool in a filament dryer at 50°C for 6 to 8 hours before printing, and verify retraction distance is tuned to 0.8 mm."
+    },
+    {
+      "issue": "First layer peeling or corner warping",
+      "rootCause": "Contaminants such as finger oils on the Textured PEI Plate reduce adhesion for modified PLA formulations.",
+      "exactFix": "Scrub the textured PEI sheet thoroughly with warm water and degreasing dish soap, dry with an unwashed microfiber cloth, and increase bed temperature to 62°C."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Amolen Glow in the Dark PLA with the stock Bambu A1 stainless steel nozzle?",
+      "answer": "No, printing glow-in-the-dark filament with stainless steel will enlarge the nozzle orifice within a few hundred grams of printing, degrading print quality and layer consistency; a hardened steel nozzle upgrade is required."
+    },
+    {
+      "question": "Can I feed Amolen Glow PLA through the Bambu Lab AMS Lite?",
+      "answer": "Yes, but prolonged use will cause gradual wear on the AMS Lite feeder funnels and PTFE tubes due to abrasive particles; inspect feeding components periodically for grooving."
+    },
+    {
+      "question": "Why does my print glow faintly compared to the product photos?",
+      "answer": "Phosphorescent glow relies on volume and wall thickness; increasing outer walls to 3 or 4 and utilizing 20%+ gyroid infill dramatically amplifies light storage compared to thin single-wall prints."
+    },
+    {
+      "question": "Does printing Amolen Glow PLA on the Bambu A1 require an enclosure?",
+      "answer": "No, Glow PLA prints best in an open-air environment with standard cooling (80-100%); an enclosure can cause heat creep and clogging in the direct drive toolhead."
+    }
+  ]
+}

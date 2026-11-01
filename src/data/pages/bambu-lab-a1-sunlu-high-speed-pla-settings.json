@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-sunlu-high-speed-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1",
+    "slug": "bambu-lab-a1",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Sunlu High Speed PLA",
+    "slug": "sunlu-high-speed-pla",
+    "brand": "Sunlu",
+    "materialType": "HS-PLA",
+    "minNozzleTempC": 210,
+    "maxNozzleTempC": 235,
+    "minBedTempC": 55,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 26,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 223,
+    "recommendedBedTempC": 60,
+    "effectiveVolumetricFlowMm3s": 24,
+    "calculatedMaxPrintSpeedMmS": 286,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-01T13:05:49.865Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab A1 handles Sunlu High Speed PLA flawlessly out of the box with its stock stainless steel nozzle and open-frame design. Leveraging a high volumetric flow rate of 24 mm³/s, the system achieves reliable sustained print speeds up to 286 mm/s at standard 0.2mm layer heights.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 100,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 50,
+  "bedSurfaceRecommendation": "Textured PEI Plate (clean with isopropyl alcohol or warm dish soap, no adhesive required)",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 24 mm³/s in the filament settings to safely sustain 286 mm/s line speed without under-extrusion.",
+    "Calibrate Pressure Advance using the OrcaSlicer PA line or pattern method; typical PA for Sunlu HS-PLA on the A1 sits around 0.024.",
+    "Set Nozzle Temperature to 223°C for all layers to ensure sufficient melt flow through the stainless steel hotend at high velocities.",
+    "Configure Slow Down for Overhangs with threshold speeds down to 30 mm/s on steep angles (above 50 degrees) to compensate for high-inertia toolhead moves."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Matte finish or micro-gaps on high-speed outer perimeters",
+      "rootCause": "Extrusion temperature dropping below optimal melt rate at 286 mm/s due to stock stainless steel nozzle thermal lag.",
+      "exactFix": "Increase printing temperature by 5°C (to 228°C-230°C) or reduce outer wall speed to 200 mm/s to preserve surface sheen and layer bonding."
+    },
+    {
+      "issue": "Stringing and fine wisps across travel moves",
+      "rootCause": "High-fluidity HS-PLA polymer dripping during unretracted rapid travels.",
+      "exactFix": "Enable 'Wipe while retracting' (set wipe distance to 2mm) and increase Z-hop type to 'Spiral' or 'Auto' in OrcaSlicer extruder settings."
+    },
+    {
+      "issue": "Curling on sharp corners or small overhang features",
+      "rootCause": "Insufficient localized freeze time despite 100% cooling fan due to aggressive print speeds.",
+      "exactFix": "Increase 'Minimum layer time' under cooling settings to 4 seconds to force the print head to slow down over low-volume layers."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Sunlu High Speed PLA using the stock Bambu Lab A1 stainless steel nozzle?",
+      "answer": "Yes, Sunlu High Speed PLA is completely non-abrasive, making the stock 0.4mm stainless steel nozzle on the Bambu Lab A1 fully capable of printing it at max performance without accelerated wear."
+    },
+    {
+      "question": "Why is the target printing temperature (223°C) higher than standard PLA (200-210°C)?",
+      "answer": "At volumetric flows reaching 24 mm³/s and speeds of 286 mm/s, filament moves through the melt zone rapidly, requiring an elevated nozzle temperature to fully liquefy the core before extrusion."
+    },
+    {
+      "question": "Does Sunlu High Speed PLA require an enclosure on the Bambu Lab A1?",
+      "answer": "No, PLA requires rapid cooling to prevent heat creep and poor bridging, so the open-frame design of the Bambu Lab A1 is actually preferred over an enclosed chamber."
+    },
+    {
+      "question": "Do I need to dry Sunlu HS-PLA before printing?",
+      "answer": "While PLA is relatively non-hygroscopic and prints well straight out of the vacuum seal, drying at 45°C-50°C for 4 hours is recommended if the spool has been exposed to ambient humidity for extended periods."
+    }
+  ]
+}
