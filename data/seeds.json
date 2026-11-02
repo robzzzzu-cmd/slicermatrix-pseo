@@ -3117,7 +3117,7 @@
   },
   {
     "slug": "bambu-lab-x1c-esun-pla-plus-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab X1C",
       "slug": "bambu-lab-x1c",
@@ -3231,7 +3231,7 @@
   },
   {
     "slug": "bambu-lab-x1c-sunlu-petg-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab X1C",
       "slug": "bambu-lab-x1c",
@@ -3269,7 +3269,7 @@
   },
   {
     "slug": "bambu-lab-x1c-eryone-silk-pla-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab X1C",
       "slug": "bambu-lab-x1c",
@@ -3307,7 +3307,7 @@
   },
   {
     "slug": "bambu-lab-x1c-polymaker-pa6-cf-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab X1C",
       "slug": "bambu-lab-x1c",
@@ -3345,7 +3345,7 @@
   },
   {
     "slug": "bambu-lab-x1c-prusament-pc-blend-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab X1C",
       "slug": "bambu-lab-x1c",
@@ -3383,7 +3383,7 @@
   },
   {
     "slug": "bambu-lab-x1c-sainsmart-glow-tpu-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab X1C",
       "slug": "bambu-lab-x1c",
@@ -3421,7 +3421,7 @@
   },
   {
     "slug": "bambu-lab-x1c-siraya-tech-abs-gf-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab X1C",
       "slug": "bambu-lab-x1c",
@@ -3459,7 +3459,7 @@
   },
   {
     "slug": "bambu-lab-x1c-polymaker-polylite-asa-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab X1C",
       "slug": "bambu-lab-x1c",
@@ -3497,7 +3497,7 @@
   },
   {
     "slug": "bambu-lab-x1c-polymaker-polylite-abs-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab X1C",
       "slug": "bambu-lab-x1c",
@@ -3535,7 +3535,7 @@
   },
   {
     "slug": "bambu-lab-x1c-polymaker-polymax-petg-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab X1C",
       "slug": "bambu-lab-x1c",
@@ -3573,7 +3573,7 @@
   },
   {
     "slug": "bambu-lab-x1c-polymaker-fiberon-pa612-cf15-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab X1C",
       "slug": "bambu-lab-x1c",
@@ -3649,7 +3649,7 @@
   },
   {
     "slug": "bambu-lab-x1c-bambu-petg-cf-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab X1C",
       "slug": "bambu-lab-x1c",

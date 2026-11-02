@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-x1c-polymaker-fiberon-pa612-cf15-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab X1C",
+    "slug": "bambu-lab-x1c",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 110,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 26
+  },
+  "filament": {
+    "name": "Polymaker Fiberon PA612-CF15",
+    "slug": "polymaker-fiberon-pa612-cf15",
+    "brand": "Polymaker",
+    "materialType": "PA612-CF",
+    "minNozzleTempC": 275,
+    "maxNozzleTempC": 295,
+    "minBedTempC": 45,
+    "maxBedTempC": 55,
+    "volumetricFlowLimitMm3s": 12,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 285,
+    "recommendedBedTempC": 50,
+    "effectiveVolumetricFlowMm3s": 12,
+    "calculatedMaxPrintSpeedMmS": 143,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-02T15:49:54.186Z",
+  "compatibilityVerdict": "Advanced Setup",
+  "heroSummary": "The Bambu Lab X1C handles Polymaker Fiberon PA612-CF15 exceptionally well out of the box thanks to its stock hardened steel nozzle, reaching a safe maximum print speed of 143 mm/s capped by a 12 mm³/s volumetric flow limit. Because this polyamide copolymer is highly hygroscopic, active drying and strict chamber management are required to achieve peak mechanical strength and dimensional precision.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 10,
+  "coolingFanMaxPct": 30,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Bambu Textured PEI Plate or Engineering Plate with PVA-based glue stick / Magigoo PA",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 12 mm³/s in the filament profile to prevent extrusion starvation at speeds exceeding 143 mm/s.",
+    "Lower Part Cooling Fan to 10% min and 30% max, with Auxiliary Fan set to 0% to prevent warping and inter-layer separation.",
+    "Set Seam Gap to 15% and enable Wipe on Loop Retract to mitigate carbon fiber filament oozing and seam bumps.",
+    "Configure Extrusion Multiplier (Flow Ratio) to 0.98 after standard flow calibration to avoid top surface over-extrusion caused by carbon fiber stiffness."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Rough surface finish, severe stringing, and audible popping during extrusion",
+      "rootCause": "High moisture absorption in the PA612 matrix vaporizing inside the 285°C nozzle.",
+      "exactFix": "Dry the spool at 80°C to 100°C for 8 to 12 hours in a dedicated blast dry oven or drybox, and feed directly from an active desiccated container or drybox."
+    },
+    {
+      "issue": "Corner lifting and first-layer warping on large engineering footprints",
+      "rootCause": "Inadequate build plate thermal stability or direct cold draft from the auxiliary chamber fan.",
+      "exactFix": "Set bed temperature to 50°C, apply a thin uniform layer of Magigoo PA or PVA glue, disable the chamber auxiliary fan, and print with a 5mm outer brim."
+    },
+    {
+      "issue": "Inter-layer delamination or brittle mechanical part fracture along the Z-axis",
+      "rootCause": "Excessive cooling fan speeds or printing below the optimal polymer fusion temperature.",
+      "exactFix": "Raise nozzle temperature to 290°C, restrict maximum part cooling fan speed to 20%, and keep the printer door and top glass lid fully closed during the print."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I feed Fiberon PA612-CF15 directly from the Bambu AMS?",
+      "answer": "Yes, but prolonged usage of abrasive carbon fiber filaments will wear down the AMS plastic funnels and internal PTFE tubing. It is recommended to install ceramic funnel inserts or feed directly from a drybox through the external spool holder for large production jobs."
+    },
+    {
+      "question": "Why is the bed temperature only set to 50°C for a nylon material?",
+      "answer": "Polymaker Fiberon PA612-CF15 features a modified low-shrinkage chemical matrix designed to avoid excessive thermal crystallization stresses, making 45°C–55°C optimal when paired with a proper adhesive barrier."
+    },
+    {
+      "question": "Do I need to leave the Bambu Lab X1C door or lid open when printing PA612-CF?",
+      "answer": "No. Keep the door and lid fully closed to maintain a stable interior ambient temperature and prevent rapid cooling drafts that degrade layer adhesion in polyamide filaments."
+    },
+    {
+      "question": "Is a 0.4mm nozzle safe, or will the 15% carbon fiber fibers cause clogging?",
+      "answer": "The X1C's stock 0.4mm hardened steel nozzle handles Fiberon PA612-CF15 well due to milled short fibers, but retraction should be kept under 1.0mm and print temperatures above 280°C to eliminate micro-clog risks."
+    }
+  ]
+}

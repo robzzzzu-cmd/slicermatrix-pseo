@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-x1c-prusament-pc-blend-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab X1C",
+    "slug": "bambu-lab-x1c",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 110,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 26
+  },
+  "filament": {
+    "name": "Prusament PC Blend",
+    "slug": "prusament-pc-blend",
+    "brand": "Prusament",
+    "materialType": "PC",
+    "minNozzleTempC": 265,
+    "maxNozzleTempC": 285,
+    "minBedTempC": 105,
+    "maxBedTempC": 115,
+    "volumetricFlowLimitMm3s": 12,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 275,
+    "recommendedBedTempC": 110,
+    "effectiveVolumetricFlowMm3s": 12,
+    "calculatedMaxPrintSpeedMmS": 143,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-02T15:29:53.183Z",
+  "compatibilityVerdict": "Advanced Setup",
+  "heroSummary": "The Bambu Lab X1C handles Prusament PC Blend reliably out of the box using its stock hardened steel nozzle and enclosed chamber. Capping volumetric throughput to 12 mm³/s ensures robust layer bonding at safe print speeds up to 143 mm/s.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 20,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate with glue stick or liquid glue applied as a release agent",
+  "slicerTweaks": [
+    "Set Filament Max Volumetric Speed to 12 mm³/s in OrcaSlicer to prevent high-speed underextrusion.",
+    "Disable the Auxiliary Part Cooling Fan completely (0%) to prevent localized drafts and edge curling.",
+    "Set Bed Temperature to 110°C and preheat the chamber by running the bed for 15-20 minutes before initiating the print.",
+    "Enable an outer brim with a 5 mm width and a 0.1 mm brim-object gap to anchor sharp corners firmly."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Corner warping and bed detachment",
+      "rootCause": "High thermal shrinkage stress combined with insufficient chamber temperature or lack of release barrier.",
+      "exactFix": "Apply Bambu Liquid Glue or PVP glue stick on the Textured PEI plate, keep the door and top lid sealed, and pre-heat the bed at 110°C for 20 minutes."
+    },
+    {
+      "issue": "Layer separation and brittle inter-layer bonding",
+      "rootCause": "Excessive part cooling fan speeds chilling the extruded PC bead below its glass transition temperature prematurely.",
+      "exactFix": "Lower part cooling fan speeds to 0% min and 20% max, turn off the aux fan, and raise nozzle temperature to 275°C."
+    },
+    {
+      "issue": "Stringing, oozing, and surface micro-bubbles",
+      "rootCause": "Moisture absorption in the hygroscopic polycarbonate matrix causing steam cavitation in the hotend.",
+      "exactFix": "Dry the spool in an active filament dryer or the X1C chamber drying mode at 75°C for at least 8 to 12 hours before printing."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Do I need an adhesive on the Textured PEI plate when printing Prusament PC Blend?",
+      "answer": "Yes, an adhesive like glue stick or liquid glue is mandatory as a sacrificial release agent to prevent the polycarbonate from permanently bonding and ripping off the PEI coating."
+    },
+    {
+      "question": "Should the Bambu Lab X1C door or top lid be left open when printing PC?",
+      "answer": "No, the chamber must remain fully closed during the entire print job to trap ambient heat and avoid thermal contraction warping."
+    },
+    {
+      "question": "Can Prusament PC Blend be used in the Bambu AMS?",
+      "answer": "Yes, standard Prusament spools fit the AMS, but ensure the desiccant packs are fresh because PC absorbs ambient moisture very rapidly."
+    },
+    {
+      "question": "Why is the printing speed restricted to 143 mm/s?",
+      "answer": "At a 0.2mm layer height and 0.42mm line width, 143 mm/s corresponds to the safe 12 mm³/s maximum volumetric limit of the stock hotend to ensure complete plasticization."
+    }
+  ]
+}

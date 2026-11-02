@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-x1c-eryone-silk-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab X1C",
+    "slug": "bambu-lab-x1c",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 110,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 26
+  },
+  "filament": {
+    "name": "Eryone Silk PLA",
+    "slug": "eryone-silk-pla",
+    "brand": "Eryone",
+    "materialType": "Silk PLA",
+    "minNozzleTempC": 205,
+    "maxNozzleTempC": 225,
+    "minBedTempC": 55,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 12,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 215,
+    "recommendedBedTempC": 60,
+    "effectiveVolumetricFlowMm3s": 12,
+    "calculatedMaxPrintSpeedMmS": 143,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-02T15:21:28.385Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab X1C handles Eryone Silk PLA out of the box with exceptional surface finish, constrained to a safe max print speed of 143 mm/s due to its 12 mm³/s volumetric flow limit. While the hardened steel nozzle is standard on the X1C, ensure the top glass or front door is vented to prevent heat creep during prolonged prints.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate or Smooth PEI Plate with no adhesive required (clean with dish soap and warm water)",
+  "slicerTweaks": [
+    "Cap the Maximum Volumetric Speed to 12 mm³/s in the Eryone Silk PLA filament profile to prevent matte patches and under-extrusion.",
+    "Set outer wall speed to a uniform 60-80 mm/s to ensure consistent silk sheen and avoid directional reflectivity banding.",
+    "Enable 'Wipe while retracting' with a 2 mm wipe distance to eliminate surface stringing and zits inherent to low-viscosity silk additives.",
+    "Keep the chamber vented by popping open the top glass cover or leaving the front door ajar to maintain chamber temperatures below 35°C."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Inconsistent sheen with alternating glossy and matte bands",
+      "rootCause": "Fluctuations in print speed and nozzle temperature causing uneven crystallization and melting of elastomers.",
+      "exactFix": "Normalize Outer Wall and Inner Wall speeds to 80 mm/s and fix nozzle temperature to 215°C across all feature types."
+    },
+    {
+      "issue": "Extruder clogs or clicking during long prints",
+      "rootCause": "Chamber heat creep in the enclosed X1C causing the low-Tg silk filament to soften prematurely in the extruder gears.",
+      "exactFix": "Prop the top glass lid open with a riser or crack the front door open, keeping the bed temp capped at 60°C."
+    },
+    {
+      "issue": "Weak layer adhesion and brittle parts along Z-axis",
+      "rootCause": "Silk elastomers disrupting interlayer polymer bonding when printed too cold or overcooled by auxiliary fans.",
+      "exactFix": "Increase nozzle temperature to 220°C-225°C and reduce Auxiliary Part Cooling Fan speed to 0% in OrcaSlicer."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Eryone Silk PLA at default Bambu standard speeds (250-300 mm/s)?",
+      "answer": "No, standard Bambu profiles exceed the melt capability of silk polymers; you must cap volumetric flow at 12 mm³/s, yielding a safe maximum print speed of around 143 mm/s."
+    },
+    {
+      "question": "Do I need glue stick on the Bambu Textured PEI plate for Silk PLA?",
+      "answer": "No, Silk PLA adheres well directly to clean textured PEI at 60°C and releases easily once the plate cools down below 35°C."
+    },
+    {
+      "question": "Why does my silk print look matte instead of shiny?",
+      "answer": "Silk additives need sufficient heat and lower speeds to orient properly; printing too fast or at too low a temperature causes a dull, matte appearance."
+    },
+    {
+      "question": "Is Eryone Silk PLA compatible with the Bambu AMS?",
+      "answer": "Yes, standard 1kg Eryone spools are AMS compatible, but ensure the spool rim is intact (use spool rings if plastic/cardboard rims slip)."
+    }
+  ]
+}

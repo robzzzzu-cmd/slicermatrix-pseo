@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-x1c-sunlu-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab X1C",
+    "slug": "bambu-lab-x1c",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 110,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 26
+  },
+  "filament": {
+    "name": "Sunlu PETG",
+    "slug": "sunlu-petg",
+    "brand": "Sunlu",
+    "materialType": "PETG",
+    "minNozzleTempC": 230,
+    "maxNozzleTempC": 250,
+    "minBedTempC": 70,
+    "maxBedTempC": 85,
+    "volumetricFlowLimitMm3s": 15,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 240,
+    "recommendedBedTempC": 78,
+    "effectiveVolumetricFlowMm3s": 15,
+    "calculatedMaxPrintSpeedMmS": 179,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-02T15:19:29.276Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab X1C handles Sunlu PETG exceptionally well right out of the box using its standard hardened steel direct-drive setup. Running a safe volumetric flow cap of 15 mm³/s yields reliable top speeds up to 179 mm/s without compromising layer adhesion.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 50,
+  "firstLayerSpeedMmS": 40,
+  "bedSurfaceRecommendation": "Textured PEI Plate with liquid glue or glue stick as a release agent",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 15 mm³/s in the filament settings to prevent under-extrusion at 179 mm/s.",
+    "Lower the Part Cooling Fan to 20% minimum and 50% maximum to ensure high layer bonding strength.",
+    "Enable Wipe While Retracting (2 mm distance) and set Retraction Length to 0.8 mm to mitigate PETG oozing and stringing.",
+    "Turn off or limit the Auxiliary Part Cooling Fan to 0% to prevent edge curling and warping on larger prints."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Stringing and Wisps",
+      "rootCause": "PETG absorbs ambient moisture quickly and has high melt viscosity causing nozzle drool.",
+      "exactFix": "Dry the filament at 65°C for 6 hours, lower nozzle temperature to 235-240°C, and enable Z-hop with retraction wipe."
+    },
+    {
+      "issue": "PEI Sheet Tearing or Over-Adhesion",
+      "rootCause": "PETG chemically fuses directly with clean smooth or textured PEI surfaces during cooling.",
+      "exactFix": "Apply a thin, even coat of Bambu Liquid Glue or glue stick to serve as a sacrificial release interface."
+    },
+    {
+      "issue": "Layer Separation or Brittle Parts",
+      "rootCause": "Excessive part cooling or chamber auxiliary fan chilling the extruded plastic too quickly.",
+      "exactFix": "Disable the auxiliary chamber fan completely and cap the main part cooling fan between 30% and 50%."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Should the X1C chamber door be open or closed when printing Sunlu PETG?",
+      "answer": "Keep the glass door closed or slightly vented in warm ambient rooms; PETG benefits from a draft-free environment around 35-40°C to prevent warping."
+    },
+    {
+      "question": "Why does Sunlu PETG rip pieces off my build plate?",
+      "answer": "PETG forms an extremely strong molecular bond with PEI. Always apply a release agent like glue stick or liquid glue before printing."
+    },
+    {
+      "question": "Can I print Sunlu PETG faster than 179 mm/s on the X1C?",
+      "answer": "Exceeding 179 mm/s at 0.2mm layer height and 0.42mm line width surpasses the 15 mm³/s melt rate, leading to matte finish, weak layer bonding, and extrusion clicking."
+    },
+    {
+      "question": "Does Sunlu PETG require drying right out of the sealed vacuum bag?",
+      "answer": "Yes, PETG often retains residual moisture from factory water-bath cooling; drying for 6 hours at 65°C eliminates stringing and micro-bubbles."
+    }
+  ]
+}

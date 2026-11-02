@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-x1c-polymaker-pa6-cf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab X1C",
+    "slug": "bambu-lab-x1c",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 110,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 26
+  },
+  "filament": {
+    "name": "Polymaker PA6-CF",
+    "slug": "polymaker-pa6-cf",
+    "brand": "Polymaker",
+    "materialType": "PA6-CF",
+    "minNozzleTempC": 280,
+    "maxNozzleTempC": 300,
+    "minBedTempC": 40,
+    "maxBedTempC": 50,
+    "volumetricFlowLimitMm3s": 11,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 290,
+    "recommendedBedTempC": 45,
+    "effectiveVolumetricFlowMm3s": 11,
+    "calculatedMaxPrintSpeedMmS": 131,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-02T15:27:20.137Z",
+  "compatibilityVerdict": "Advanced Setup",
+  "heroSummary": "The Bambu Lab X1C handles Polymaker PA6-CF out of the box thanks to its hardened steel nozzle and enclosed chamber, topping out at a safe print speed of 131 mm/s at 11 mm³/s volumetric flow. Because PA6-CF is extremely hygroscopic and warp-prone, thorough pre-drying and strict chamber thermal management are essential for structural success.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 20,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Engineering Plate or Textured PEI Plate with PVP glue stick or specialized Magigoo PA adhesive",
+  "slicerTweaks": [
+    "Cap Max Volumetric Speed at 11 mm³/s in the filament profile to prevent under-extrusion and high-speed nozzle clogs.",
+    "Set Part Cooling Fan to 0% for standard layers and allow a maximum of 20% only on overhangs shorter than 10 seconds to maintain maximum layer adhesion.",
+    "Enable a 5mm outer brim with 0mm brim-object gap to counteract bed lifting forces during crystallization.",
+    "Configure Retraction to 0.8 mm at 35 mm/s with 1 mm wipe distance to eliminate stringing without inducing fiber grinding."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe stringing, surface popping, and weak layer bonding",
+      "rootCause": "Excess moisture absorption in the PA6 nylon polymer matrix.",
+      "exactFix": "Dry the filament spool in a blast dryer or on the X1C heatbed at 80°C-100°C for 8-12 hours before printing, and print directly from an active dry box."
+    },
+    {
+      "issue": "Corner lifting and print detaching from build surface",
+      "rootCause": "Inadequate build surface preparation and thermal shock due to low bed temperature or drafts.",
+      "exactFix": "Apply a uniform layer of PVP glue stick or Magigoo PA on the Engineering Plate, set bed temperature to 45°C-50°C, and keep the chamber door closed."
+    },
+    {
+      "issue": "Extruder gear skipping or mid-print clogging",
+      "rootCause": "Heat creep in the cold break during low-speed high-temperature printing, or fiber accumulation at high volumetric demands.",
+      "exactFix": "Maintain maximum volumetric speed at or below 11 mm³/s, ensure hotend fan runs at 100%, and avoid chamber temps exceeding 55°C to avoid premature softening."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I feed Polymaker PA6-CF through the Bambu AMS unit?",
+      "answer": "While technically possible, continuous use is not advised because abrasive carbon fibers wear down plastic funnel inlets, and brittle PA6-CF filaments may snap inside internal tubing."
+    },
+    {
+      "question": "Do I need to anneal Polymaker PA6-CF after printing on the X1C?",
+      "answer": "Yes, annealing at 80°C-100°C for 6 to 16 hours is recommended to relieve internal stress, maximize crystalline structure, and achieve published tensile strength ratings."
+    },
+    {
+      "question": "Why is the target bed temperature set so low (45°C) for a high-temp nylon?",
+      "answer": "Polymaker PA6-CF utilizes specialized anti-warping morphology optimized for lower bed temperatures around 40°C-50°C; higher bed temperatures can actually increase thermal stress and warping."
+    },
+    {
+      "question": "Can I print Polymaker PA6-CF with a standard 0.4mm nozzle?",
+      "answer": "Yes, the X1C comes standard with a hardened steel 0.4mm nozzle that handles carbon fibers; however, for heavily filled materials or large prints, a 0.6mm hardened nozzle further minimizes clog risks."
+    }
+  ]
+}

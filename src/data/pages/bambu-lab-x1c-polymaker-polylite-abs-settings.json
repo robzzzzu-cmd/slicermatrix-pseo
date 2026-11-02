@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-x1c-polymaker-polylite-abs-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab X1C",
+    "slug": "bambu-lab-x1c",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 110,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 26
+  },
+  "filament": {
+    "name": "Polymaker PolyLite ABS",
+    "slug": "polymaker-polylite-abs",
+    "brand": "Polymaker",
+    "materialType": "ABS",
+    "minNozzleTempC": 245,
+    "maxNozzleTempC": 265,
+    "minBedTempC": 90,
+    "maxBedTempC": 105,
+    "volumetricFlowLimitMm3s": 18,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 255,
+    "recommendedBedTempC": 98,
+    "effectiveVolumetricFlowMm3s": 18,
+    "calculatedMaxPrintSpeedMmS": 214,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-02T15:47:56.637Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab X1C handles Polymaker PolyLite ABS out of the box with its fully enclosed chamber, hardened steel nozzle, and high bed temperature capability. Tuned for an 18 mm³/s max volumetric flow rate, the printer safely achieves speeds up to 214 mm/s while maintaining excellent layer adhesion.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 10,
+  "coolingFanMaxPct": 25,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with PVP glue stick or liquid adhesive as a release agent",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 18 mm³/s in the filament profile to cap outer walls and infill speeds within the safe 214 mm/s limit.",
+    "Disable the Auxiliary Part Cooling Fan completely (set to 0%) to prevent localized draft chilling and corner warping.",
+    "Set the chamber exhaust fan to 0% during printing and enable a 10-15 minute bed preheat at 100°C to saturate the enclosure above 45°C.",
+    "Configure Part Cooling Fan threshold: Min 10% / Max 25% with 30s layer time thresholds, and enable 'Keep fan always on' to stabilize thermal mass."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Corner lifting and print warping off the bed",
+      "rootCause": "Chamber ambient temperature is too low or cold drafts from the aux fan triggered thermal contraction stresses.",
+      "exactFix": "Turn off the aux fan, preheat the bed to 100°C for 15 minutes before printing to heat-soak the chamber to >45°C, and use a 5mm outer brim with 0.1mm gap."
+    },
+    {
+      "issue": "Interlayer cracking and delamination along Z-axis",
+      "rootCause": "Excessive part cooling or excessive volumetric flow leading to poor polymer melt fusion.",
+      "exactFix": "Reduce maximum part cooling fan speed to 20%, ensure nozzle temp is at 255°C, and limit max volumetric speed to 18 mm³/s."
+    },
+    {
+      "issue": "Bubbling surface finish and stringing artifacts",
+      "rootCause": "PolyLite ABS has absorbed atmospheric moisture causing steam micro-explosions at the nozzle exit.",
+      "exactFix": "Dry the spool at 70°C for 6 to 8 hours in a dedicated filament dryer or the X1C chamber, and print directly from an airtight dry box or Bambu AMS with desiccant."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I leave the Bambu Lab X1C glass door open when printing PolyLite ABS?",
+      "answer": "No. Keep both the front glass door and top glass lid fully closed to trap heat and prevent ambient drafts, which will immediately warp ABS parts."
+    },
+    {
+      "question": "Is the Bambu AMS compatible with Polymaker PolyLite ABS?",
+      "answer": "Yes, PolyLite ABS spools fit and feed seamlessly through the AMS, provided the spool is not physically damaged and desiccant packs inside are fresh."
+    },
+    {
+      "question": "Why use glue stick on a textured PEI plate for ABS?",
+      "answer": "PolyLite ABS adheres extremely strongly to PEI; the glue stick acts as a release interface to prevent the print from tearing the PEI coating off the steel plate during removal."
+    },
+    {
+      "question": "What is the optimal chamber preheat routine for this setup?",
+      "answer": "Home the toolhead, raise the bed near the top glass, set the bed temperature to 100°C, and allow 10 to 15 minutes of soak time until the internal chamber reads at least 45°C."
+    }
+  ]
+}

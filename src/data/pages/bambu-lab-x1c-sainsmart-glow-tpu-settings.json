@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-x1c-sainsmart-glow-tpu-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab X1C",
+    "slug": "bambu-lab-x1c",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 110,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 26
+  },
+  "filament": {
+    "name": "Sainsmart Glow TPU",
+    "slug": "sainsmart-glow-tpu",
+    "brand": "SainSmart",
+    "materialType": "Glow TPU",
+    "minNozzleTempC": 215,
+    "maxNozzleTempC": 230,
+    "minBedTempC": 45,
+    "maxBedTempC": 60,
+    "volumetricFlowLimitMm3s": 4,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 223,
+    "recommendedBedTempC": 53,
+    "effectiveVolumetricFlowMm3s": 4,
+    "calculatedMaxPrintSpeedMmS": 48,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-02T15:35:08.097Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab X1C handles Sainsmart Glow TPU exceptionally well out of the box thanks to its standard hardened steel nozzle and direct-drive extruder. By capping maximum volumetric speed at 4 mm³/s, the system achieves consistent extrusion up to a safe maximum print speed of 48 mm/s without risking toolhead clogs or jams.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 60,
+  "firstLayerSpeedMmS": 25,
+  "bedSurfaceRecommendation": "Textured PEI Plate + Glue Stick (acting as a release agent to prevent PEI damage)",
+  "slicerTweaks": [
+    "Cap Maximum Volumetric Speed to 4.0 mm³/s in the filament profile to avoid exceeding the melt rate and jamming the direct drive extruder.",
+    "Bypass the Bambu AMS entirely and feed directly from an external dry box or the rear spool holder through the PTFE tube to prevent flexible filament binding.",
+    "Set Retraction Distance to 0.8 mm at 30 mm/s and enable 'Wipe while Retracting' to minimize oozing and stringing common to phosphorescent TPU.",
+    "Keep the chamber door cracked open or remove the top glass lid during printing to prevent heat creep inside the enclosed X1C chamber."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Extruder gear grinding and filament buckling before nozzle entry",
+      "rootCause": "Volumetric speed set too high or heat creep softening the flexible filament in the extruder gears.",
+      "exactFix": "Reduce Maximum Volumetric Speed to 3.5-4.0 mm³/s, prop open the top glass lid, and loosen the extruder idler tension if accessible."
+    },
+    {
+      "issue": "Severe stringing and heavy cobwebbing across travel paths",
+      "rootCause": "Moisture absorption by the hygroscopic TPU combined with excessive nozzle temperature or disabled retraction.",
+      "exactFix": "Dry filament at 55°C for 6-8 hours, lower nozzle temperature to 220°C, and enable Avoid Crossing Wall surfaces in OrcaSlicer."
+    },
+    {
+      "issue": "Print permanently fusing to the build plate and tearing the coating",
+      "rootCause": "TPU creates an excessively strong molecular bond directly to clean PEI surfaces when heated.",
+      "exactFix": "Apply a uniform layer of PVP glue stick or liquid release agent across the Textured PEI Plate prior to starting the print."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I run Sainsmart Glow TPU through the Bambu Lab AMS?",
+      "answer": "No, flexible TPU filaments (especially abrasive glow-in-the-dark variants) will compress, buckle, and jam inside the AMS feeder funnels and internal multiplexer pathways; always feed it from the external spool holder."
+    },
+    {
+      "question": "Will phosphorescent Glow TPU wear down my stock X1C nozzle?",
+      "answer": "No, the Bambu Lab X1C comes standard with a hardened steel nozzle and hardened extruder gears, which are fully rated to withstand abrasive additives like strontium aluminate found in glow TPU."
+    },
+    {
+      "question": "Why does my print look milky and fail to glow brightly?",
+      "answer": "Under-extrusion or thin wall thickness limits glow pigment density; increase wall loops to at least 3 or 4 and ensure filament is thoroughly dried to maintain full light-trapping density."
+    },
+    {
+      "question": "Should the X1C enclosure door stay closed while printing TPU?",
+      "answer": "No, leave the front door slightly ajar or vent the top glass panel to keep internal chamber temperatures cool and eliminate the risk of heat creep softening the filament."
+    }
+  ]
+}

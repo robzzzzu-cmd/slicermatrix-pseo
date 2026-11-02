@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-x1c-esun-pla-plus-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab X1C",
+    "slug": "bambu-lab-x1c",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 110,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 26
+  },
+  "filament": {
+    "name": "eSUN PLA+",
+    "slug": "esun-pla-plus",
+    "brand": "eSUN",
+    "materialType": "PLA+",
+    "minNozzleTempC": 205,
+    "maxNozzleTempC": 225,
+    "minBedTempC": 55,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 22,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 215,
+    "recommendedBedTempC": 60,
+    "effectiveVolumetricFlowMm3s": 22,
+    "calculatedMaxPrintSpeedMmS": 262,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-02T15:13:47.273Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab X1C pairs exceptionally well with eSUN PLA+, reaching a calculated safe max print speed of 262 mm/s sustained by a 22 mm³/s volumetric flow limit. Thanks to the direct drive extruder and hardened steel nozzle, this setup requires no hardware upgrades, though venting the top glass or door is recommended to avoid heat creep.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 100,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate (clean with Isopropyl Alcohol or warm dish soap, no adhesive required)",
+  "slicerTweaks": [
+    "Set 'Max volumetric speed' to 22 mm³/s under the Filament > Basic Information tab to prevent underextrusion at high feedrates.",
+    "Enable 'Keep fan always on' and set auxiliary part cooling fan to 70% to prevent curling on fast overhangs and short layer times.",
+    "Tune Pressure Advance (Linear Advance) to approximately 0.022 in OrcaSlicer calibration to ensure sharp, clean corners at 262 mm/s.",
+    "Set printing temperature to 215°C for standard layers and 220°C for the first layer to maximize bed adhesion without inducing stringing."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Extruder clogging or heat creep",
+      "rootCause": "Chamber air temperature exceeds 35-40°C during extended PLA+ prints with the door and top lid fully sealed.",
+      "exactFix": "Crack open the front glass door or prop open the top glass cover by 5-10 mm using a printable riser to ensure ambient air exchange."
+    },
+    {
+      "issue": "Corner lifting or warping on large prints",
+      "rootCause": "Uneven bed cooling or finger oils on the build plate preventing adequate adhesion at 60°C.",
+      "exactFix": "Wash the Textured PEI plate thoroughly with dish soap and warm water, and bump the initial bed temperature to 65°C with a 5mm brim."
+    },
+    {
+      "issue": "Fine wispy stringing on travel moves",
+      "rootCause": "Nozzle temperature exceeding optimal polymer melt zone thresholds combined with disabled wipe moves.",
+      "exactFix": "Reduce nozzle temperature from 225°C to 215°C, verify retraction is 0.8 mm at 35 mm/s, and enable 'Wipe while retracting' (2 mm)."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Do I need to leave the Bambu Lab X1C door open when printing eSUN PLA+?",
+      "answer": "Yes, leaving the front door cracked open or propping the top glass lid is strongly recommended to prevent chamber temperatures exceeding 35°C, which causes PLA+ to soften prematurely in the extruder."
+    },
+    {
+      "question": "Does eSUN PLA+ require a hardened steel nozzle on the X1C?",
+      "answer": "No, eSUN PLA+ is non-abrasive and will not degrade standard stainless or brass nozzles, though the X1C stock hardened steel nozzle handles it effortlessly."
+    },
+    {
+      "question": "What is the optimal maximum volumetric speed to configure in OrcaSlicer for this filament?",
+      "answer": "Set the maximum volumetric flow rate to 22 mm³/s, allowing the printer to reach safe peak speeds of around 262 mm/s at 0.2mm layer height."
+    },
+    {
+      "question": "Do I need glue stick on the Bambu Textured PEI plate for eSUN PLA+?",
+      "answer": "No glue stick is necessary for eSUN PLA+ on Textured PEI; simply ensure the plate is clean and free of oils for direct adhesion and easy release once cooled."
+    }
+  ]
+}

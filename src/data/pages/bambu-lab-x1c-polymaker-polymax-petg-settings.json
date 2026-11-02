@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-x1c-polymaker-polymax-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab X1C",
+    "slug": "bambu-lab-x1c",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 110,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 26
+  },
+  "filament": {
+    "name": "Polymaker PolyMax PETG",
+    "slug": "polymaker-polymax-petg",
+    "brand": "Polymaker",
+    "materialType": "PETG",
+    "minNozzleTempC": 235,
+    "maxNozzleTempC": 250,
+    "minBedTempC": 70,
+    "maxBedTempC": 80,
+    "volumetricFlowLimitMm3s": 14,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 243,
+    "recommendedBedTempC": 75,
+    "effectiveVolumetricFlowMm3s": 14,
+    "calculatedMaxPrintSpeedMmS": 167,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-02T15:48:30.056Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab X1C is an optimal match for Polymaker PolyMax PETG, reliably reaching printing speeds up to 167 mm/s constrained by a 14 mm³/s maximum volumetric flow rate. The printer's stock direct drive extruder and hardened steel nozzle process this modified copolymer smoothly without requiring hardware upgrades.",
+  "retractionDistanceMm": 0.6,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 60,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate (or Smooth PEI Plate with liquid glue/glue stick as a release agent)",
+  "slicerTweaks": [
+    "Set filament Max Volumetric Speed to 14 mm³/s in OrcaSlicer to prevent high-speed under-extrusion and matte surface banding.",
+    "Calibrate Pressure Advance to approximately 0.034 s using the OrcaSlicer PA line or pattern method to eliminate corner bulging and seam blobs.",
+    "Enable 'Wipe while retracting' with a 2 mm wipe distance and activate 'Wipe on loops' to mitigate PETG nozzle buildup.",
+    "Vent the build chamber by leaving the front door slightly ajar or propping the top glass panel to prevent heat creep during prolonged prints."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Bed Surface Tearing or Excessive Adhesion",
+      "rootCause": "PolyMax PETG molecularly bonds to smooth PEI coatings, ripping the coating off upon part removal.",
+      "exactFix": "Apply a uniform layer of PVP glue stick as a sacrificial release agent or switch to a Textured PEI plate, allowing the bed to cool below 35°C before part removal."
+    },
+    {
+      "issue": "Ooze-Induced Fine Stringing and Hairy Artifacts",
+      "rootCause": "PolyMax PETG is hygroscopic and hydroscopic boiling occurs at 243°C nozzle temperatures, lowering melt strength.",
+      "exactFix": "Dry the spool in a filament dryer at 65°C for 6 to 8 hours before printing, and increase travel speed to 400 mm/s with 0.6 mm retraction."
+    },
+    {
+      "issue": "Extruder Clicking and Heat Creep Jam",
+      "rootCause": "A fully enclosed chamber retains excess heat from the 75°C bed, softening PETG inside the cold break before it reaches the melt zone.",
+      "exactFix": "Prop open the top glass cover or leave the front door cracked open, and verify the cold end heatsink fan is operating at 100%."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Do I need to dry Polymaker PolyMax PETG before running it on the X1C?",
+      "answer": "Yes, PolyMax PETG is hygroscopic; even fresh vacuum-sealed spools often retain moisture causing stringing, micro-voids, and seam pops. Dry at 65°C for 6 hours."
+    },
+    {
+      "question": "Should the Bambu Lab X1C door remain closed or open when printing PolyMax PETG?",
+      "answer": "Keep the door cracked or top glass vented. PolyMax PETG has a lower heat deflection temperature than engineering filaments, making it prone to heat creep in an airtight enclosure."
+    },
+    {
+      "question": "Can Polymaker PolyMax PETG run through the Bambu AMS?",
+      "answer": "Yes, PolyMax PETG feeds through the AMS without feedpath damage, though cardboard spool versions require plastic rim adapters to ensure smooth roller rotation."
+    },
+    {
+      "question": "What bed temperature provides the best adhesion without causing base warping?",
+      "answer": "Set the bed temperature to 75°C for the first layer and maintain 70°C to 75°C for the remainder on the Textured PEI plate."
+    }
+  ]
+}

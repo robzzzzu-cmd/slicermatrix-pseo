@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-x1c-siraya-tech-abs-gf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab X1C",
+    "slug": "bambu-lab-x1c",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 110,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 26
+  },
+  "filament": {
+    "name": "Siraya Tech ABS-GF",
+    "slug": "siraya-tech-abs-gf",
+    "brand": "Siraya Tech",
+    "materialType": "ABS-GF",
+    "minNozzleTempC": 250,
+    "maxNozzleTempC": 270,
+    "minBedTempC": 95,
+    "maxBedTempC": 110,
+    "volumetricFlowLimitMm3s": 15,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 260,
+    "recommendedBedTempC": 103,
+    "effectiveVolumetricFlowMm3s": 15,
+    "calculatedMaxPrintSpeedMmS": 179,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-02T15:38:56.859Z",
+  "compatibilityVerdict": "Advanced Setup",
+  "heroSummary": "The Bambu Lab X1C handles Siraya Tech ABS-GF effectively out of the box due to its factory-installed hardened steel nozzle and enclosed build chamber. You can reliably achieve print speeds up to 179 mm/s while strictly adhering to the 15 mm³/s maximum volumetric flow rate.",
+  "retractionDistanceMm": 0.6,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 20,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate with Bambu Liquid Glue or PVP glue stick as a release agent",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 15 mm³/s in the Filament Settings to automatically throttle line speeds within the safe 179 mm/s limit.",
+    "Completely disable the Auxiliary Part Cooling Fan (0%) and keep the Chamber Fan below 30% to avoid premature shrinkage and warping.",
+    "Calibrate Pressure Advance (PA) to approximately 0.028 to 0.034 to prevent corner bulging caused by the stiffness of glass fibers.",
+    "Set Nozzle Temperature to 260°C for all layers, and set the Heated Bed to 103°C to maintain strong layer adhesion and high bed retention."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Corner lifting and warping from build plate",
+      "rootCause": "Cold chamber environment or drafts from the auxiliary fan inducing differential thermal contraction.",
+      "exactFix": "Preheat the bed at 105°C for 15 minutes to bring the enclosed chamber above 45°C, disable the auxiliary fan entirely, and use a glue stick release agent on Textured PEI."
+    },
+    {
+      "issue": "Poor interlayer bonding and brittle Z-axis breaks",
+      "rootCause": "Extruder running too cold or excessive part cooling fan blowing directly on the extrudate.",
+      "exactFix": "Raise nozzle printing temperature to 265°C, reduce Part Cooling Fan to a 0% minimum and 15% maximum, and ensure volumetric flow does not exceed 15 mm³/s."
+    },
+    {
+      "issue": "Filament snapping or feeding errors in the PTFE pathway",
+      "rootCause": "Moisture absorption combined with glass-fiber rigidity causing brittleness along the tight bends of the feed tubes.",
+      "exactFix": "Dry the filament spool in a dedicated dryer at 80°C for 6 to 8 hours before use, and run the spool directly from an external roller or drybox to reduce bending strain."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I feed Siraya Tech ABS-GF through the Bambu Lab AMS?",
+      "answer": "While it can feed through the AMS, the abrasive glass fibers will rapidly wear the stock plastic feeder funnels and internal PTFE lines; running directly from an external spool holder or drybox is recommended for high-volume use."
+    },
+    {
+      "question": "Does Siraya Tech ABS-GF require drying before printing on the X1C?",
+      "answer": "Yes, ABS is hygroscopic and moisture exacerbates brittleness and voids in fiber-filled polymers; dry at 75°C to 80°C for at least 6 hours prior to printing."
+    },
+    {
+      "question": "Will Siraya Tech ABS-GF wear out the Bambu X1C stock nozzle?",
+      "answer": "No, the Bambu Lab X1C comes standard with a hardened steel nozzle and hardened steel extruder gears, making it fully rated for abrasive glass-fiber filaments."
+    },
+    {
+      "question": "Should I keep the front glass door and top lid closed when printing this filament?",
+      "answer": "Yes, keep the X1C completely closed to retain ambient chamber heat and prevent drafts, which are critical to preventing ABS-GF from warping or delaminating."
+    }
+  ]
+}
