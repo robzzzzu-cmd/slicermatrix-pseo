@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-x1c-esun-abs-plus-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab X1C",
+    "slug": "bambu-lab-x1c",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 110,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 26
+  },
+  "filament": {
+    "name": "eSUN ABS+",
+    "slug": "esun-abs-plus",
+    "brand": "eSUN",
+    "materialType": "ABS+",
+    "minNozzleTempC": 240,
+    "maxNozzleTempC": 260,
+    "minBedTempC": 90,
+    "maxBedTempC": 105,
+    "volumetricFlowLimitMm3s": 18,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 250,
+    "recommendedBedTempC": 98,
+    "effectiveVolumetricFlowMm3s": 18,
+    "calculatedMaxPrintSpeedMmS": 214,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-04T14:06:59.681Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab X1C is an optimal match out of the box for eSUN ABS+, utilizing its fully enclosed chamber and hardened steel direct drive toolhead to comfortably achieve print speeds up to 214 mm/s at an 18 mm³/s volumetric flow limit. Thanks to the integrated chamber temperature management, you achieve strong interlayer bonding and zero warping without requiring hardware modifications.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 10,
+  "coolingFanMaxPct": 25,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate or Engineering Plate + PVP Glue Stick (acts as interface/release agent)",
+  "slicerTweaks": [
+    "Cap Maximum Volumetric Speed at 18 mm³/s under Filament Settings to prevent underextrusion at high speeds.",
+    "Set Chamber Temperature regulation target to passive soak by keeping the door and top lid fully closed; disable auxiliary part cooling fan (0%) to eliminate layer separation.",
+    "Configure first layer nozzle temperature to 255°C and bed to 100°C, stepping down to 250°C and 95°C for other layers to maximize initial bed adhesion.",
+    "Enable Pressure Advance calibration with an initial manual value around 0.025 to keep sharp corners crisp without bulging at high acceleration."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Corner Lifting and Warping",
+      "rootCause": "Chamber air temperature too cold at start of print, or draft induced by the auxiliary fan.",
+      "exactFix": "Preheat the bed to 100°C for 15 minutes before printing to heat-soak the chamber to >40°C, turn off the aux fan completely, and add a 5mm outer brim."
+    },
+    {
+      "issue": "Interlayer Delamination (Cracking)",
+      "rootCause": "Excessive part cooling airflow quenching extruded filament before adequate polymer chain diffusion occurs.",
+      "exactFix": "Lower maximum cooling fan speed to 20-25% and increase printing temperature from 245°C to 255°C."
+    },
+    {
+      "issue": "Surface Pockmarks and Stringing",
+      "rootCause": "Filament moisture absorption causing steam expansion at the 250°C nozzle exit.",
+      "exactFix": "Dry the eSUN ABS+ spool in an active filament dryer or on the X1C heatbed at 70°C for 6 to 8 hours before loading into the AMS."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print eSUN ABS+ with the Bambu Lab X1C door or top glass open?",
+      "answer": "No. ABS+ requires an enclosed, elevated thermal environment to prevent differential thermal contraction, which causes delamination and bed peeling; keep the chamber fully sealed."
+    },
+    {
+      "question": "Do I need to run the Auxiliary Cooling Fan for eSUN ABS+ on the X1C?",
+      "answer": "No, set the Aux Part Cooling Fan to 0%. Strong localized airflow onto ABS induces localized shrinkage and severe layer separation."
+    },
+    {
+      "question": "Is glue stick necessary on the Textured PEI plate for ABS+?",
+      "answer": "While ABS sticks well to clean textured PEI, a thin layer of glue stick is recommended primarily as a release agent to prevent high-adhesion ABS+ from tearing the PEI coating upon removal."
+    },
+    {
+      "question": "How do I reach the 214 mm/s max safe speed without quality loss?",
+      "answer": "Ensure the Max Volumetric Speed is set to 18 mm³/s in OrcaSlicer, maintain a steady 250°C nozzle temperature, and ensure your chamber is preheated above 40°C."
+    }
+  ]
+}
