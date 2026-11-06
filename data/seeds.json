@@ -3155,7 +3155,7 @@
   },
   {
     "slug": "bambu-lab-x1c-bambu-pla-cf-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab X1C",
       "slug": "bambu-lab-x1c",

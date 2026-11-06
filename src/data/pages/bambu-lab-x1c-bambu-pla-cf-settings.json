@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-x1c-bambu-pla-cf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab X1C",
+    "slug": "bambu-lab-x1c",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 110,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 26
+  },
+  "filament": {
+    "name": "Bambu PLA-CF",
+    "slug": "bambu-pla-cf",
+    "brand": "Bambu Lab",
+    "materialType": "PLA-CF",
+    "minNozzleTempC": 210,
+    "maxNozzleTempC": 240,
+    "minBedTempC": 45,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 16,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 225,
+    "recommendedBedTempC": 55,
+    "effectiveVolumetricFlowMm3s": 16,
+    "calculatedMaxPrintSpeedMmS": 190,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-06T14:10:06.473Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab X1C is factory-equipped with a hardened steel nozzle and extruder gears, allowing it to print Bambu PLA-CF natively at speeds up to 190 mm/s capped at a 16 mm³/s volumetric flow limit. While fully compatible out of the box, keeping the top glass vented or front door ajar is recommended during extended runs to prevent heat creep in the enclosed chamber.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 60,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate without glue or Smooth PEI / High Temp Plate with Liquid Glue",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 16 mm³/s in the filament settings to eliminate high-speed underextrusion.",
+    "Enable Wipe While Retracting (2 mm distance) to prevent nozzle ooze and carbon-fiber whisker stringing across travel moves.",
+    "Lower outer wall acceleration to 3000 mm/s² and outer wall speed to 120 mm/s to ensure a uniform, premium matte surface finish.",
+    "Set Slow Down for Overhangs with threshold speeds stepping down to 20 mm/s for 75%+ angles to prevent curling of fiber-loaded edges."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Extruder clicking and subsequent under-extrusion mid-print",
+      "rootCause": "Chamber heat creep softening the PLA filament core inside the cold side of the hotend due to printing fully enclosed.",
+      "exactFix": "Crack open the front glass door or prop open the top glass cover by 5-10 mm, and verify chamber fan is operating at minimum 60%."
+    },
+    {
+      "issue": "Brittle inter-layer bonding or easy delamination along the Z-axis",
+      "rootCause": "Carbon fiber particles reduce polymer chain entanglement when cooled too aggressively or printed too cold.",
+      "exactFix": "Increase nozzle printing temperature to 230-235°C and reduce part cooling fan threshold to 60-70% for standard layers."
+    },
+    {
+      "issue": "Severe stringing and stiff, fuzzy hairs across open travels",
+      "rootCause": "Moisture absorption within the nylon/resin carrier of the filament acting as a conduit for micro-boiling.",
+      "exactFix": "Dry the spool at 55°C for 8 hours in an active filament dryer or on the heated bed before printing, and verify retraction distance is 0.8 mm."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I use the stock 0.4mm nozzle with Bambu PLA-CF on the X1C?",
+      "answer": "Yes, the X1C comes standard with a hardened steel 0.4mm nozzle that handles PLA-CF without rapid wear or clogging, provided the filament is clean and dry."
+    },
+    {
+      "question": "Do I need to leave the X1C chamber door open for Bambu PLA-CF?",
+      "answer": "Yes, propping the top glass or front door slightly open prevents the internal chamber from exceeding 35-40°C, guarding against PLA-induced heat creep jams."
+    },
+    {
+      "question": "Is Bambu PLA-CF safe to use in the AMS (Automatic Material System)?",
+      "answer": "Yes, Bambu PLA-CF is explicitly certified for standard AMS use, though continuous friction can accelerate wear on PTFE tubes and AMS funnels over long durations."
+    },
+    {
+      "question": "Why does my print finish look glossy in some spots and matte in others?",
+      "answer": "Variations in printing speed alter melt residence time; lock inner and outer wall speeds to similar values (e.g., 120-140 mm/s) to maintain a consistent matte appearance."
+    }
+  ]
+}
