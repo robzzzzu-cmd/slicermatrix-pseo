@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-x1c-overture-pla-professional-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab X1C",
+    "slug": "bambu-lab-x1c",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 110,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 26
+  },
+  "filament": {
+    "name": "Overture PLA Professional",
+    "slug": "overture-pla-professional",
+    "brand": "Overture",
+    "materialType": "PLA+",
+    "minNozzleTempC": 200,
+    "maxNozzleTempC": 220,
+    "minBedTempC": 50,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 21,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 210,
+    "recommendedBedTempC": 58,
+    "effectiveVolumetricFlowMm3s": 21,
+    "calculatedMaxPrintSpeedMmS": 250,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-07T12:48:48.069Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab X1C handles Overture PLA Professional effortlessly right out of the box, sustaining top-tier layer bonding up to 250 mm/s capped at a 21 mm³/s volumetric flow limit. While the stock hardened steel nozzle performs exceptionally, keep the top glass cracked or the front door vented during extended high-speed runs to prevent heat creep in the enclosed chamber.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 40,
+  "bedSurfaceRecommendation": "Textured PEI Plate clean with isopropyl alcohol (no adhesive required)",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 21 mm³/s in the filament settings to automatically throttle print speeds during dense infill moves.",
+    "Configure Pressure Advance to 0.024 via manual calibration or enable Bambu automatic dynamic flow calibration before the print.",
+    "Enable Auxiliary Part Cooling Fan at 60-70% for steep overhangs and short layer times exceeding 200 mm/s.",
+    "Set Nozzle Temperature to 215°C for initial and subsequent layers to account for rapid heat transfer requirements at high speeds with a hardened steel nozzle."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Extruder clicking and under-extrusion 45 minutes into long prints",
+      "rootCause": "Chamber heat buildup softening PLA above its 55°C glass transition point prior to the melt zone (heat creep).",
+      "exactFix": "Crack the top glass cover or prop open the front door, and reduce bed temperature from 65°C down to 55°C."
+    },
+    {
+      "issue": "Corner lifting and warping on large footprint parts",
+      "rootCause": "Auxiliary cooling fan blowing intensely on low layers or residual oils on the PEI surface.",
+      "exactFix": "Wash the build plate with warm dish soap and water, and set Aux Fan threshold to turn on only after layer 4."
+    },
+    {
+      "issue": "Matte finish or micro-tearing on high-speed outer perimeters",
+      "rootCause": "Extruder flow starvation caused by printing at outer perimeter speeds exceeding the volumetric melting capacity at lower temperatures.",
+      "exactFix": "Increase nozzle temperature by 5°C (up to 220°C) or cap outer wall speed to 180 mm/s in OrcaSlicer speed settings."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I use Overture cardboard spools directly in the Bambu Lab AMS with the X1C?",
+      "answer": "Yes, but it is strongly advised to print reusable rim protectors (spool adapters) or transfer the filament to a Bambu reusable spool to avoid cardboard dust degrading the AMS feeder rollers."
+    },
+    {
+      "question": "Does the stock hardened steel nozzle cause lower layer adhesion with PLA Professional?",
+      "answer": "Hardened steel conducts heat slightly slower than brass; running the nozzle at 215°C instead of 205°C fully compensates for this thermal differential at high speeds."
+    },
+    {
+      "question": "Should I print Overture PLA Professional with the chamber fully closed on the X1C?",
+      "answer": "No, printing low glass transition temperature materials like PLA in a fully enclosed chamber can cause clogging due to heat creep; ventilate the door or lift the top glass."
+    },
+    {
+      "question": "How does Overture PLA Professional differ from standard PLA in OrcaSlicer?",
+      "answer": "PLA Professional contains impact modifiers requiring slightly higher flow limits (up to 21 mm³/s) and higher toughness settings, tolerating faster accelerations without brittle failure."
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-x1c-overture-rock-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab X1C",
+    "slug": "bambu-lab-x1c",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 110,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 26
+  },
+  "filament": {
+    "name": "Overture Rock PLA",
+    "slug": "overture-rock-pla",
+    "brand": "Overture",
+    "materialType": "Matte PLA",
+    "minNozzleTempC": 195,
+    "maxNozzleTempC": 220,
+    "minBedTempC": 50,
+    "maxBedTempC": 60,
+    "volumetricFlowLimitMm3s": 16,
+    "isAbrasive": true,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 208,
+    "recommendedBedTempC": 55,
+    "effectiveVolumetricFlowMm3s": 16,
+    "calculatedMaxPrintSpeedMmS": 190,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-07T12:49:50.487Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab X1C handles Overture Rock PLA flawlessly out of the box thanks to its standard factory hardened steel nozzle and precise direct drive system. You can reliably achieve print speeds up to 190 mm/s capped at a safe maximum volumetric flow rate of 16 mm³/s without abrasive degradation.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate (no adhesive required; IPA cleaned)",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 16 mm³/s under Filament Settings > Basic Information to prevent underextrusion at high speeds.",
+    "Set Printing Temperature to 208°C for all layers and Initial/Other Layer Bed Temperature to 55°C.",
+    "Enable Door/Top Glass cracked open or keep top lid vented during long runs to prevent heat creep in the fully enclosed chamber.",
+    "Adjust Outer Wall Speed to 120 mm/s and Inner Wall Speed to 190 mm/s to balance matte visual surface consistency and flow capacity."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Rough or inconsistent matte surface finish with intermittent gloss banding",
+      "rootCause": "Fluctuating print speeds causing localized cooling and melt pool temperature differences across wide layers.",
+      "exactFix": "Lock outer wall print speed to 100-120 mm/s and ensure cooling fan remains steadily at 100% to normalize thermal history."
+    },
+    {
+      "issue": "Extruder clicking and hotend clogging mid-print (heat creep)",
+      "rootCause": "Enclosed chamber air temperature rising above 35°C during prolonged PLA prints, softening the filament prematurely in the heatbreak.",
+      "exactFix": "Crack the top glass cover plate open or prop the front door ajar using a printed riser to vent chamber heat."
+    },
+    {
+      "issue": "First layer corners warping or lifting off the build plate",
+      "rootCause": "Bed temperature set too low or poor mechanical adhesion on a contaminated PEI surface.",
+      "exactFix": "Wash the Textured PEI Plate with warm water and dawn dish soap, then maintain bed temperature at 55°C with first layer print speed capped at 35 mm/s."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Does Overture Rock PLA wear down the Bambu Lab X1C nozzle?",
+      "answer": "No, because the Bambu Lab X1C comes standard with a hardened steel nozzle and drive gears, which readily withstand the mineral composite fillers present in Overture Rock PLA."
+    },
+    {
+      "question": "Can I print Overture Rock PLA with the X1C chamber fully closed?",
+      "answer": "It is recommended to vent the top glass or front door because the PLA glass transition temperature is low (~55-60°C), and an enclosed chamber can trigger heat creep clogs."
+    },
+    {
+      "question": "Is an AMS unit compatible with Overture Rock PLA spools?",
+      "answer": "Yes, but if using cardboard spools, use printable plastic spool edge rings or transfer to a Bambu reusable spool to prevent paper dust slippage inside the AMS feeder modules."
+    },
+    {
+      "question": "Why cap the maximum volumetric flow rate to 16 mm³/s?",
+      "answer": "The mineral particles that create the rock/matte aesthetic reduce thermal conductivity and increase melt viscosity compared to standard PLA, risking severe underextrusion above 16 mm³/s."
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-x1c-sunlu-asa-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab X1C",
+    "slug": "bambu-lab-x1c",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 110,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 26
+  },
+  "filament": {
+    "name": "Sunlu ASA",
+    "slug": "sunlu-asa",
+    "brand": "Sunlu",
+    "materialType": "ASA",
+    "minNozzleTempC": 245,
+    "maxNozzleTempC": 265,
+    "minBedTempC": 90,
+    "maxBedTempC": 105,
+    "volumetricFlowLimitMm3s": 17,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 255,
+    "recommendedBedTempC": 98,
+    "effectiveVolumetricFlowMm3s": 17,
+    "calculatedMaxPrintSpeedMmS": 202,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-07T12:59:06.995Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab X1C handles Sunlu ASA seamlessly out of the box, reaching safe print speeds up to 202 mm/s bounded by a 17 mm³/s maximum volumetric flow rate. Its sealed factory enclosure and hardened toolhead provide the ideal thermal stability required to prevent warping without requiring hardware modifications.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 10,
+  "coolingFanMaxPct": 25,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate with a thin layer of Bambu Liquid Glue or PVP glue stick as a release agent",
+  "slicerTweaks": [
+    "Cap Max Volumetric Speed at 17 mm³/s in the filament profile to prevent high-speed under-extrusion.",
+    "Set the Auxiliary Part Cooling Fan speed to 0% to eliminate asymmetric thermal shock and corner lifting.",
+    "Tune Pressure Advance (PA) to approximately 0.028 in OrcaSlicer to ensure sharp, non-blooming corners.",
+    "Enable a 5mm outer brim with a 0.1mm brim-object gap for large footprint models to mitigate edge detachment."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Layer Delamination or Splitting",
+      "rootCause": "Excessive part cooling fan speeds combined with low internal chamber temperature causing rapid thermal contraction.",
+      "exactFix": "Preheat the chamber by setting the bed to 100°C for 15 minutes before printing and cap the maximum cooling fan at 20%."
+    },
+    {
+      "issue": "Corner Lifting and Warping",
+      "rootCause": "Localized drafts or insufficient first layer adhesion on a bare or contaminated build plate.",
+      "exactFix": "Clean the Textured PEI sheet with dish soap, apply PVP glue stick, set the first layer bed temp to 100°C, and keep the glass door and top lid sealed."
+    },
+    {
+      "issue": "Fine Stringing and Oozing",
+      "rootCause": "Filament has absorbed ambient atmospheric moisture, reducing melt tension.",
+      "exactFix": "Dry the Sunlu ASA spool in a dedicated filament dryer at 70°C for 6 to 8 hours before printing, then feed directly from an enclosed dry box or AMS with desiccant."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can Sunlu ASA be fed reliably through the Bambu Lab AMS?",
+      "answer": "Yes, standard Sunlu ASA spools fit and feed cleanly through the AMS, provided the spool edges are smooth and desiccant packs inside the AMS maintain humidity below 20%."
+    },
+    {
+      "question": "Why must the auxiliary side cooling fan be completely disabled?",
+      "answer": "The auxiliary fan directs cold air across one side of the print bed, creating a severe thermal gradient that instantly induces warping and layer separation in styrene-based polymers like ASA."
+    },
+    {
+      "question": "Does printing ASA require carbon exhaust filtration on the X1C?",
+      "answer": "Yes, ASA releases styrene vapors and ultrafine particles during extrusion; ensure the internal activated carbon filter is fresh and vent the room or exhaust port outdoors if printing continuously."
+    },
+    {
+      "question": "What is the recommended preheating routine for optimal layer adhesion?",
+      "answer": "Set the heatbed to 100°C, home the toolhead in the center, turn off all fans, and wait 15 to 20 minutes until the internal chamber sensor reads at least 45°C before starting the job."
+    }
+  ]
+}

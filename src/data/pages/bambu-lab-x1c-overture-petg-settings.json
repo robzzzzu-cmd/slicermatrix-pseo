@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-x1c-overture-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab X1C",
+    "slug": "bambu-lab-x1c",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 110,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 26
+  },
+  "filament": {
+    "name": "Overture PETG",
+    "slug": "overture-petg",
+    "brand": "Overture",
+    "materialType": "PETG",
+    "minNozzleTempC": 230,
+    "maxNozzleTempC": 250,
+    "minBedTempC": 75,
+    "maxBedTempC": 85,
+    "volumetricFlowLimitMm3s": 14,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 240,
+    "recommendedBedTempC": 80,
+    "effectiveVolumetricFlowMm3s": 14,
+    "calculatedMaxPrintSpeedMmS": 167,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-07T12:49:03.636Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab X1C handles Overture PETG straight out of the box with its stock hardened steel nozzle, achieving reliable print speeds up to 167 mm/s based on a conservative 14 mm³/s volumetric flow limit. While the printer is fully enclosed, opening the top glass or front door is recommended to avoid heat creep during prolonged runs.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 50,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate with thin layer of glue stick or liquid release agent",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 14 mm³/s in the filament profile to prevent under-extrusion at high Bambu speeds.",
+    "Calibrate Pressure Advance (PA) in OrcaSlicer, setting the starting K-value around 0.035 to 0.042 for direct drive PETG.",
+    "Disable nozzle clumping detection or lift the top glass slightly to prevent chamber temperatures exceeding 40°C during long prints.",
+    "Enable Z-hop on retraction (0.2 mm spiral or auto) and set travel speed to 400 mm/s to minimize filament stringing across open cavities."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Fine stringing and cobwebbing across travel paths",
+      "rootCause": "Overture PETG is hygroscopic and tends to ooze when saturated with atmospheric moisture, aggravated by excess travel heat.",
+      "exactFix": "Dry filament in a dehydrator or X1C bed at 65°C for 6 to 8 hours, and increase retraction distance to 0.8 mm at 35 mm/s."
+    },
+    {
+      "issue": "First layer tearing or permanently bonding to smooth bed",
+      "rootCause": "PETG chemically bonds aggressively to smooth PEI coatings, ripping the coating off upon part removal.",
+      "exactFix": "Switch to the Bambu Textured PEI plate and apply a thin layer of PVA glue stick or Bambu Liquid Glue as a sacrificial release layer."
+    },
+    {
+      "issue": "Surface blobbing and nozzle accumulation",
+      "rootCause": "Over-extrusion at the nozzle tip during wall transitions combined with high printing temperature causing material dragging.",
+      "exactFix": "Reduce Flow Ratio in OrcaSlicer by 2-3% (typically around 0.94-0.96) and lower nozzle temperature to 238°C."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Should I print Overture PETG with the Bambu Lab X1C door closed?",
+      "answer": "It is best to leave the door cracked or the top glass vented. An enclosed chamber can exceed the glass transition temperature of PETG (approx. 70°C bed heat soaking the chamber), causing softening in the extruder and heat creep clogs."
+    },
+    {
+      "question": "What volumetric flow limit should I configure in OrcaSlicer for this filament?",
+      "answer": "Set your Max Volumetric Speed to 14 mm³/s. Pushing standard Overture PETG beyond 14 mm³/s in a standard 0.4mm nozzle will cause severe under-extrusion and dull matte surface banding."
+    },
+    {
+      "question": "Do I need to dry Overture PETG brand new out of the vacuum bag?",
+      "answer": "Yes. Even factory-sealed spools of Overture PETG frequently contain ambient moisture from the manufacturing water-cooling bath; drying at 65°C for 6 hours eliminates foaming and stringing."
+    },
+    {
+      "question": "Can I use the Bambu High Temp Plate or Cool Plate for PETG?",
+      "answer": "You can use the High Temp Plate only if you apply a dedicated glue stick barrier to prevent fusing. Never print PETG directly on the Cool Plate as it will tear the sticker."
+    }
+  ]
+}

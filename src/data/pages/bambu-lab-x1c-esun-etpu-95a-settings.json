@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-x1c-esun-etpu-95a-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab X1C",
+    "slug": "bambu-lab-x1c",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 110,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 26
+  },
+  "filament": {
+    "name": "eSUN eTPU-95A",
+    "slug": "esun-etpu-95a",
+    "brand": "eSUN",
+    "materialType": "TPU",
+    "minNozzleTempC": 210,
+    "maxNozzleTempC": 230,
+    "minBedTempC": 45,
+    "maxBedTempC": 60,
+    "volumetricFlowLimitMm3s": 4.5,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 220,
+    "recommendedBedTempC": 53,
+    "effectiveVolumetricFlowMm3s": 4.5,
+    "calculatedMaxPrintSpeedMmS": 54,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-07T12:48:35.864Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab X1C handles eSUN eTPU-95A exceptionally well out of the box using its direct drive extruder, capping at a safe maximum print speed of 54 mm/s based on an effective volumetric flow rate of 4.5 mm³/s. You do not need hardware upgrades, but you must bypass the AMS and feed directly from an external spool holder or dry box.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 40,
+  "coolingFanMaxPct": 80,
+  "firstLayerSpeedMmS": 25,
+  "bedSurfaceRecommendation": "Textured PEI Plate + Glue Stick or PVA release agent",
+  "slicerTweaks": [
+    "Cap Maximum Volumetric Speed strictly at 4.5 mm³/s in Filament Settings to prevent extruder gear jamming and filament buckling.",
+    "Enable Avoid Crossing Walls and set Max Detour Length to reduce visible surface stringing across perimeter perimeters.",
+    "Disable Retract on Layer Change and set Z-hop type to Normal with 0.4 mm height to minimize nozzle dragging on flexible perimeters.",
+    "Set Pressure Advance (PA) to approximately 0.045 to 0.055 via manual calibration to prevent over-extrusion at line terminations."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Filament wrapping around extruder gear or buckling in cold zone",
+      "rootCause": "Excessive volumetric flow rate, printing too fast, or high backpressure in the toolhead path.",
+      "exactFix": "Reduce Maximum Volumetric Speed to 4.0-4.5 mm³/s, ensure speeds do not exceed 54 mm/s, and reduce retraction speed to 25-30 mm/s."
+    },
+    {
+      "issue": "Extreme stringing, webbing, and oozing across print features",
+      "rootCause": "Moisture absorption in hygroscopic TPU filament or insufficient cooling on rapid short layers.",
+      "exactFix": "Dry the spool at 65°C for at least 8 hours in an active filament dryer, and increase part cooling fan to 80% for layer times under 10 seconds."
+    },
+    {
+      "issue": "Permanent fusion to PEI sheet or surface tearing during removal",
+      "rootCause": "Direct bonding of molten TPU to clean PEI coating due to extreme molecular adhesion.",
+      "exactFix": "Apply a uniform layer of liquid glue or standard glue stick across the build plate to act as an essential sacrificial release agent before starting."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I feed eSUN eTPU-95A through the Bambu Lab AMS?",
+      "answer": "No, flexible filaments like eTPU-95A will bind, stretch, and get stuck inside the internal AMS feed funnels and PTFE tubing. Always load TPU directly from the rear spool holder or an external dry box into the toolhead."
+    },
+    {
+      "question": "Why is the print speed limited to 54 mm/s on a high-speed printer like the X1C?",
+      "answer": "TPU has a high melt viscosity and elastic compressibility, constraining its volumetric flow to around 4.5 mm³/s; pushing beyond 54 mm/s causes backpressure that leads to gear slipping and filament buckling inside the extruder."
+    },
+    {
+      "question": "Should the X1C glass lid and front door be kept open or closed for TPU?",
+      "answer": "Keep the top glass lid propped or front door slightly ajar to keep chamber temperatures cool and prevent heat creep, which softens the flexible filament before it reaches the melt zone."
+    },
+    {
+      "question": "Do I need to run automatic Flow Dynamics (LIDAR) calibration for eTPU-95A?",
+      "answer": "It is recommended to disable automatic lidar calibration for flexible filaments, as TPU flexes unpredictably during standard lidar purge sweeps. Instead, manually calibrate Flow Dynamics (Pressure Advance) using the lines or tower method in OrcaSlicer."
+    }
+  ]
+}

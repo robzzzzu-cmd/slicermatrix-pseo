@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-x1c-sunlu-high-speed-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab X1C",
+    "slug": "bambu-lab-x1c",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 110,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 26
+  },
+  "filament": {
+    "name": "Sunlu High Speed PLA",
+    "slug": "sunlu-high-speed-pla",
+    "brand": "Sunlu",
+    "materialType": "HS-PLA",
+    "minNozzleTempC": 210,
+    "maxNozzleTempC": 235,
+    "minBedTempC": 55,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 26,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 223,
+    "recommendedBedTempC": 60,
+    "effectiveVolumetricFlowMm3s": 26,
+    "calculatedMaxPrintSpeedMmS": 310,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-07T12:57:57.169Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab X1C is an optimal out-of-the-box match for Sunlu High Speed PLA, achieving reliable line speeds up to 310 mm/s backed by a 26 mm³/s maximum volumetric flow rate. The stock direct-drive extruder and hardened steel hotend handle this high-throughput material seamlessly without hardware modifications.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 40,
+  "bedSurfaceRecommendation": "Textured PEI Plate without adhesive (clean with dish soap and warm water)",
+  "slicerTweaks": [
+    "Set Filament Max Volumetric Speed to 26 mm³/s to fully unlock high-speed extrusion without triggering under-extrusion limits.",
+    "Calibrate Pressure Advance (PA) to approximately 0.022 in OrcaSlicer to prevent bulging corners at 310 mm/s.",
+    "Enable Auxiliary Part Cooling Fan at 50% to prevent corner lifting on high-velocity outer perimeters.",
+    "Set Nozzle Temperature to 223°C for standard layers and 225°C for the first layer to balance melt rate with surface sheen."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Matte finish and localized under-extrusion on long straight perimeters",
+      "rootCause": "Hotend heater cartridge struggling to keep melt core fluid at maximum 310 mm/s feed rates.",
+      "exactFix": "Increase printing temperature by 5°C (to 228°C-230°C) or cap outer wall speed to 250 mm/s in OrcaSlicer speed settings."
+    },
+    {
+      "issue": "Stringing and whisker formation across open travel paths",
+      "rootCause": "Elevated printing temperature and low melt viscosity of high-speed PLA formulation.",
+      "exactFix": "Increase retraction speed to 40 mm/s and enable 'Wipe while retracting' with a 2 mm wipe distance in OrcaSlicer."
+    },
+    {
+      "issue": "Extruder clicking and heat creep jamming during lengthy prints",
+      "rootCause": "Heat buildup inside the fully enclosed X1C chamber causing PLA filament softening before the melt zone.",
+      "exactFix": "Crack open the top glass cover or front door during long jobs and set the chamber exhaust fan duty cycle to 70%."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Do I need to leave the Bambu Lab X1C glass door open when printing Sunlu HS-PLA?",
+      "answer": "Yes, propping the top glass lid or cracking the front door is recommended during multi-hour prints to prevent enclosure heat buildup from causing PLA heat creep and cold-side extruder jams."
+    },
+    {
+      "question": "What Max Volumetric Speed should I assign to Sunlu High Speed PLA in OrcaSlicer?",
+      "answer": "Set the Max Volumetric Speed cap to 26 mm³/s, which matches the flow characteristics of Sunlu HS-PLA and prevents the slicer from commanding speeds that outrun the hotend melt capacity."
+    },
+    {
+      "question": "Can I print Sunlu HS-PLA using the default Bambu PLA Basic profile?",
+      "answer": "Yes, but the default Bambu PLA Basic profile restricts flow to around 21-22 mm³/s; tuning it to 26 mm³/s and setting the nozzle to 223°C is required to hit genuine 310 mm/s print speeds."
+    },
+    {
+      "question": "Does Sunlu High Speed PLA wear down the stock X1C hardened steel nozzle?",
+      "answer": "No, Sunlu HS-PLA contains no abrasive fiber or glow-in-the-dark additives, meaning zero accelerated wear on the factory hardened steel nozzle or drive gears."
+    }
+  ]
+}

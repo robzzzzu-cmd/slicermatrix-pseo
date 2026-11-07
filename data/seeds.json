@@ -3839,7 +3839,7 @@
   },
   {
     "slug": "bambu-lab-x1c-esun-epa-cf-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab X1C",
       "slug": "bambu-lab-x1c",
@@ -3877,7 +3877,7 @@
   },
   {
     "slug": "bambu-lab-x1c-esun-etpu-95a-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab X1C",
       "slug": "bambu-lab-x1c",
@@ -3915,7 +3915,7 @@
   },
   {
     "slug": "bambu-lab-x1c-overture-pla-professional-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab X1C",
       "slug": "bambu-lab-x1c",
@@ -3953,7 +3953,7 @@
   },
   {
     "slug": "bambu-lab-x1c-overture-petg-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab X1C",
       "slug": "bambu-lab-x1c",
@@ -3991,7 +3991,7 @@
   },
   {
     "slug": "bambu-lab-x1c-overture-rock-pla-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab X1C",
       "slug": "bambu-lab-x1c",
@@ -4067,7 +4067,7 @@
   },
   {
     "slug": "bambu-lab-x1c-sunlu-high-speed-pla-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab X1C",
       "slug": "bambu-lab-x1c",
@@ -4105,7 +4105,7 @@
   },
   {
     "slug": "bambu-lab-x1c-sunlu-asa-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab X1C",
       "slug": "bambu-lab-x1c",
