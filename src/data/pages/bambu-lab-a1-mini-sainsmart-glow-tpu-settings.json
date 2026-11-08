@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-mini-sainsmart-glow-tpu-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1 Mini",
+    "slug": "bambu-lab-a1-mini",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 80,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Sainsmart Glow TPU",
+    "slug": "sainsmart-glow-tpu",
+    "brand": "SainSmart",
+    "materialType": "Glow TPU",
+    "minNozzleTempC": 215,
+    "maxNozzleTempC": 230,
+    "minBedTempC": 45,
+    "maxBedTempC": 60,
+    "volumetricFlowLimitMm3s": 4,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 223,
+    "recommendedBedTempC": 53,
+    "effectiveVolumetricFlowMm3s": 4,
+    "calculatedMaxPrintSpeedMmS": 48,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-08T14:07:40.741Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab A1 Mini handles Sainsmart Glow TPU reliably at an optimal max print speed of 48 mm/s capped by a 4 mm³/s volumetric flow limit. However, you must upgrade the stock stainless steel hotend to a hardened steel nozzle because the phosphorescent glow particles are highly abrasive.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 30,
+  "coolingFanMaxPct": 70,
+  "firstLayerSpeedMmS": 20,
+  "bedSurfaceRecommendation": "Textured PEI Plate with PVP glue stick or liquid glue as a release agent",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 4.0 mm³/s in the filament profile to cap print speeds safely at approximately 48 mm/s.",
+    "Set Retraction Length to 0.8 mm and Retraction Speed to 30 mm/s to prevent TPU buckling in the direct drive extruder gears.",
+    "Enable 'Avoid Crossing Walls' and set Max Detour Length to 100% to minimize stringing artifacts over visible external surfaces.",
+    "Adjust Nozzle Temperature to 223°C and Bed Temperature to 53°C, keeping the auxiliary part cooling fan completely disabled."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Extruder clogs and filament wraps around drive gears",
+      "rootCause": "Excessive volumetric speed, backpressure, or over-aggressive retraction forcing flexible TPU off the gear track.",
+      "exactFix": "Limit Max Volumetric Speed to 4 mm³/s, reduce retraction distance to 0.8 mm at 30 mm/s, and print hotend at 223°C."
+    },
+    {
+      "issue": "Severe stringing, oozing, and surface bubbling",
+      "rootCause": "Moisture absorption in the hygroscopic TPU causing steam release during extrusion.",
+      "exactFix": "Dry the filament in a dedicated filament dryer at 55°C for 6 to 8 hours prior to printing, and print directly from a drybox."
+    },
+    {
+      "issue": "Build plate surface tear-out during part removal",
+      "rootCause": "Extremely high adhesion bonding between molten TPU and bare PEI coating.",
+      "exactFix": "Apply a uniform layer of PVP glue stick to serve as a sacrificial release interface, and let the bed cool fully below 30°C before flexing."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Sainsmart Glow TPU using the AMS lite on the A1 Mini?",
+      "answer": "No, flexible filaments like TPU cannot be fed reliably through the AMS lite motorized pathways and Bowden tubes; feed it directly from an external spool holder or drybox."
+    },
+    {
+      "question": "Why is a hardened steel nozzle required for Glow TPU?",
+      "answer": "Phosphorescent additives (such as strontium aluminate) are ceramic minerals that rapidly erode stock stainless steel nozzles, causing bore enlargement and print defects within a few hundred grams."
+    },
+    {
+      "question": "Will an enclosure improve print quality for this filament on the A1 Mini?",
+      "answer": "No, an enclosure is not recommended because TPU prints best at room temperature, and trapped chamber heat can lead to heat creep and extruder gear jams."
+    },
+    {
+      "question": "What is the consequence of exceeding the 4 mm³/s volumetric flow limit?",
+      "answer": "Exceeding 4 mm³/s causes backpressure in the meltzone, leading to under-extrusion, motor skipping, and severe filament buckling within the direct drive housing."
+    }
+  ]
+}

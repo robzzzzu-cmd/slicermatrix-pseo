@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-x1c-amolen-glow-in-the-dark-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab X1C",
+    "slug": "bambu-lab-x1c",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 110,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 26
+  },
+  "filament": {
+    "name": "Amolen Glow in the Dark PLA",
+    "slug": "amolen-glow-in-the-dark-pla",
+    "brand": "Amolen",
+    "materialType": "Glow PLA",
+    "minNozzleTempC": 205,
+    "maxNozzleTempC": 225,
+    "minBedTempC": 55,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 14,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 215,
+    "recommendedBedTempC": 60,
+    "effectiveVolumetricFlowMm3s": 14,
+    "calculatedMaxPrintSpeedMmS": 167,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-08T13:53:37.178Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab X1C handles Amolen Glow in the Dark PLA natively thanks to its stock hardened steel nozzle and extruder gears, achieving a reliable maximum printing speed of 167 mm/s at a 14 mm³/s volumetric flow limit. Keep the front door or top glass propped open during prolonged runs to prevent heat creep with this PLA-based material.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate (clean with warm water and dish soap, no adhesive required)",
+  "slicerTweaks": [
+    "Cap the Max Volumetric Speed at 14 mm³/s in the filament profile to prevent severe under-extrusion from phosphorescent particulate restriction.",
+    "Set the Part Cooling Fan to min 80% and max 100%, and set the Auxiliary Fan to 30% to prevent warping while avoiding uneven side-draft cooling.",
+    "Enable 'Wipe while retracting' set to 2 mm with a direct-drive retraction of 0.8 mm to mitigate stringing caused by luminous additives.",
+    "Set the First Layer Print Speed to 35 mm/s and First Layer Acceleration to 500 mm/s² to guarantee solid adhesion for abrasive micro-particles."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Intermittent extrusion or clicking from the extruder during dense infill",
+      "rootCause": "Volumetric speed exceeded past the flow limit of phosphorescent particles or minor chamber heat creep softening PLA.",
+      "exactFix": "Lower Max Volumetric Speed to 12-14 mm³/s in OrcaSlicer and unseat the top glass lid slightly to lower internal chamber temperature."
+    },
+    {
+      "issue": "Severe stringing and rough surface pimples on outer perimeters",
+      "rootCause": "Amolen Glow PLA is hygroscopic; ambient moisture trapped in phosphorescent powder vaporizes at the nozzle.",
+      "exactFix": "Dry the filament spool in a dedicated dryer at 50°C for 6 hours before printing, and enable 'Avoid Crossing Walls' in OrcaSlicer."
+    },
+    {
+      "issue": "First layer peeling or dragging off the build plate",
+      "rootCause": "Contamination on the PEI plate or particulate additive reducing chemical bed grip at higher speeds.",
+      "exactFix": "Wash the Textured PEI sheet thoroughly with dish soap and warm water, boost initial layer bed temp to 65°C, and limit initial layer speed to 30-35 mm/s."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Amolen Glow PLA through the Bambu AMS system?",
+      "answer": "Yes, but with caution; phosphorescent particles are highly abrasive and will wear down internal AMS PTFE funnels and gears over prolonged use. Short prints are generally fine, but feeding from an external spool holder is recommended for large batches."
+    },
+    {
+      "question": "Do I need to upgrade the X1C nozzle to print this filament?",
+      "answer": "No. The Bambu Lab X1C comes standard with a hardened steel nozzle and hardened steel drive gears, which resist the high abrasiveness of Amolen's glow compounds out of the box."
+    },
+    {
+      "question": "Should the X1C enclosure door stay closed while printing this PLA?",
+      "answer": "No. PLA has a low glass transition temperature; keep the front glass door ajar or remove the top glass lid to avoid heat creep that causes extruder clogs."
+    },
+    {
+      "question": "Why is the calculated speed capped at 167 mm/s?",
+      "answer": "The glow-in-the-dark additive thickens the molten melt pool, restricting maximum volumetric flow safely to 14 mm³/s on a standard 0.4mm nozzle at 0.2mm layer height."
+    }
+  ]
+}

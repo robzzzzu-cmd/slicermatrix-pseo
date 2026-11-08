@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-x1c-proto-pasta-high-temp-carbon-fiber-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab X1C",
+    "slug": "bambu-lab-x1c",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 110,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 26
+  },
+  "filament": {
+    "name": "Proto-pasta High Temp Carbon Fiber PLA",
+    "slug": "proto-pasta-high-temp-carbon-fiber-pla",
+    "brand": "Proto-pasta",
+    "materialType": "PLA-CF",
+    "minNozzleTempC": 210,
+    "maxNozzleTempC": 230,
+    "minBedTempC": 55,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 13,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 220,
+    "recommendedBedTempC": 60,
+    "effectiveVolumetricFlowMm3s": 13,
+    "calculatedMaxPrintSpeedMmS": 155,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-08T13:53:51.983Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab X1C handles Proto-pasta High Temp Carbon Fiber PLA seamlessly out of the box thanks to its factory hardened steel nozzle and direct drive extruder. Tuned to a maximum volumetric flow rate of 13 mm³/s, the machine safely reaches top printing speeds of 155 mm/s without risking extrusion deficits or heat creep.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 40,
+  "coolingFanMaxPct": 80,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with liquid glue or thin PVP glue stick as an interface/release agent",
+  "slicerTweaks": [
+    "Cap Max Volumetric Speed at 13.0 mm³/s in the Filament Profile to prevent high-speed under-extrusion and fiber-drag clogging.",
+    "Set Retraction Length to 0.8 mm and Retraction Speed to 35 mm/s, enabling 'Wipe while retracting' (2 mm) to combat carbon fiber stringing.",
+    "Crack the top glass cover or front door open during extended printing to maintain chamber ambient temperatures below 35°C and prevent heat creep.",
+    "Increase Line Width slightly to 0.45 mm for inner/outer walls to improve carbon fiber interlayer bonding and hide layer lines with matte texture."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Mid-print extruder clicking and nozzle clogging",
+      "rootCause": "Heat creep softens the PLA matrix prematurely inside the cold end due to high enclosure temperature combined with milled fiber backpressure.",
+      "exactFix": "Vent the top glass lid or prop open the front door to keep chamber ambient temperatures low, and ensure volumetric flow does not exceed 13 mm³/s."
+    },
+    {
+      "issue": "Weak layer adhesion and brittle parts along Z-axis",
+      "rootCause": "Excessive part cooling fan speed or nozzle temperature below 215°C preventing polymer-fiber re-fusion between layers.",
+      "exactFix": "Increase nozzle temperature to 225°C-230°C and reduce maximum part cooling fan speed from 100% down to 60-70%."
+    },
+    {
+      "issue": "Hairy stringing and fuzzy outer surface blemishes",
+      "rootCause": "Moisture absorption by the PLA base polymer causing steam micro-explosions at the nozzle tip during retractions.",
+      "exactFix": "Dry the filament spool in a blast dryer or on the X1C heated bed (set to 55°C under an insulated cover) for 6-8 hours prior to printing."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I run Proto-pasta HT-CF PLA through the Bambu AMS unit?",
+      "answer": "Yes, but use caution with cardboard spools; fit a printed plastic spool ring adapter, and be aware that continuous cycling of brittle CF filament can accelerate wear on AMS funnels."
+    },
+    {
+      "question": "Does this filament require a 0.6mm nozzle to prevent clogs?",
+      "answer": "No, Proto-pasta uses short-milled carbon fibers that pass reliably through the X1C's stock 0.4mm hardened steel nozzle, provided print speeds stay within the 13 mm³/s volumetric limit."
+    },
+    {
+      "question": "How do I achieve the high-temperature resistance advertised by Proto-pasta?",
+      "answer": "Post-process your printed parts by annealing them in a convection oven at 110°C for 30-60 minutes; this crystallizes the PLA matrix to withstand temperatures up to 140°C."
+    },
+    {
+      "question": "Why should I keep the chamber door cracked open for PLA-CF on the X1C?",
+      "answer": "The X1C chamber retains heat quickly; keeping the door or lid cracked ensures chamber temperature stays well below the 45°C-50°C glass transition threshold of PLA, eliminating heat creep."
+    }
+  ]
+}

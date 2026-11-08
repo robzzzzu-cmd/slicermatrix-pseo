@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-x1c-esun-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab X1C",
+    "slug": "bambu-lab-x1c",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 110,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 26
+  },
+  "filament": {
+    "name": "eSUN PETG",
+    "slug": "esun-petg",
+    "brand": "eSUN",
+    "materialType": "PETG",
+    "minNozzleTempC": 230,
+    "maxNozzleTempC": 250,
+    "minBedTempC": 70,
+    "maxBedTempC": 85,
+    "volumetricFlowLimitMm3s": 14,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 240,
+    "recommendedBedTempC": 78,
+    "effectiveVolumetricFlowMm3s": 14,
+    "calculatedMaxPrintSpeedMmS": 167,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-08T13:06:37.997Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab X1C handles eSUN PETG exceptionally well out of the box with its direct-drive extruder and hardened steel nozzle. By capping the maximum volumetric speed to 14 mm³/s, the system achieves reliable print speeds of up to 167 mm/s without risking underextrusion.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 60,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with glue stick or liquid release agent to prevent permanent bonding",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 14 mm³/s in the filament settings to automatically cap linear flow at 167 mm/s for a 0.2mm layer height.",
+    "Enable 'Wipe while retracting' (2mm wipe distance) and set 'Retract on layer change' to minimize PETG nozzle buildup and stringing.",
+    "Configure Part Cooling Fan to 0% for the first 3 layers, ramping between 20% min and 60% max, with the auxiliary chamber fan turned completely off (0%).",
+    "Set the Pressure Advance (PA) value between 0.032 and 0.038 using OrcaSlicer line calibration to prevent corner bulging at high acceleration."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe stringing and fine whisker buildup on travel moves",
+      "rootCause": "PETG is hygroscopic and oozes readily due to residual moisture, combined with excessive print temperature or unoptimized wipe settings.",
+      "exactFix": "Dry the filament in a dedicated dryer at 65°C for 6-8 hours, drop nozzle temp to 240°C, and enable a 2mm wipe on travel moves in OrcaSlicer."
+    },
+    {
+      "issue": "Chunk of PEI coating torn off the build plate upon part removal",
+      "rootCause": "PETG exhibits excessive adhesion to smooth and semi-smooth PEI surfaces, causing molecular fusion when cooled.",
+      "exactFix": "Apply a thin, even coat of liquid glue or PVA glue stick to serve as a sacrificial release agent, and let the bed cool fully to 30°C before flexing."
+    },
+    {
+      "issue": "Intermittent underextrusion or matte-streaked outer perimeters",
+      "rootCause": "Exceeding the melt capacity of the hotend due to printing faster than the 14 mm³/s limit of eSUN PETG.",
+      "exactFix": "Enforce the 14 mm³/s Maximum Volumetric Speed clamp in the Filament Profile and decrease outer wall speed to 120 mm/s."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Should I keep the X1C chamber door and top glass closed when printing eSUN PETG?",
+      "answer": "It is recommended to crack the front door or prop open the top lid slightly to keep chamber temperatures below 40°C, preventing heat creep in the direct drive extruder while eliminating draft-induced warping."
+    },
+    {
+      "question": "Can I use the stock Bambu Generic PETG profile for eSUN PETG?",
+      "answer": "While the Generic PETG profile provides a baseline, it often runs the volumetric speed too high (up to 16 mm³/s) and the aux fan at 50%, causing layer adhesion loss; tuning volumetric flow to 14 mm³/s and disabling the aux fan yields significantly better results."
+    },
+    {
+      "question": "Why is eSUN PETG leaving small charred blobs on my prints?",
+      "answer": "PETG naturally accumulates on the nozzle tip during direction changes and burns before depositing onto walls; enable nozzle wiping, use a clean silicone sock, and reduce flow ratio slightly if overextruding."
+    },
+    {
+      "question": "What is the optimal bed temperature for eSUN PETG on the Bambu Textured PEI plate?",
+      "answer": "A target temperature of 75°C to 78°C provides optimal thermal bond without causing premature bottom-layer crystallization or foot warping."
+    }
+  ]
+}

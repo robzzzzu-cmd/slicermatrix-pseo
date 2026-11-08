@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-mini-polymaker-polylite-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1 Mini",
+    "slug": "bambu-lab-a1-mini",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 80,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Polymaker PolyLite PETG",
+    "slug": "polymaker-polylite-petg",
+    "brand": "Polymaker",
+    "materialType": "PETG",
+    "minNozzleTempC": 230,
+    "maxNozzleTempC": 250,
+    "minBedTempC": 70,
+    "maxBedTempC": 80,
+    "volumetricFlowLimitMm3s": 14,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 240,
+    "recommendedBedTempC": 75,
+    "effectiveVolumetricFlowMm3s": 14,
+    "calculatedMaxPrintSpeedMmS": 167,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-08T13:59:51.284Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab A1 Mini handles Polymaker PolyLite PETG reliably out of the box using its stock direct drive extruder and stainless steel nozzle without needing an enclosure. Print throughput caps safely at 167 mm/s based on the filament's 14 mm³/s maximum volumetric flow rate.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 50,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with liquid glue or glue stick release agent to prevent surface tearing",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 14 mm³/s in the filament settings to automatically cap linear extrusion speed around 167 mm/s.",
+    "Enable 'Wipe while retracting' with a Wipe Distance of 1.0 mm to reduce PETG nozzle buildup and stringing.",
+    "Configure Part Cooling Fan thresholds to Min 20% / Max 50% with Fan Speed Up Time set to 0.5s to preserve inter-layer bond strength.",
+    "Set the First Layer Bed Temperature to 75°C and ensure Pressure Advance is calibrated (typical starting K-factor 0.035 - 0.040 for stock direct drive)."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe fine stringing and web-like hairs across open travels",
+      "rootCause": "PolyLite PETG absorbs ambient moisture quickly, causing low melt viscosity and steam-induced nozzle oozing.",
+      "exactFix": "Dry the filament spool in a dedicated dryer at 65°C for 6 to 8 hours before printing, and increase retraction distance to 0.8 mm."
+    },
+    {
+      "issue": "First layer tearing the PEI coating upon removal",
+      "rootCause": "PETG exhibits aggressive chemical bonding with smooth and textured PEI surfaces when applied directly.",
+      "exactFix": "Apply a uniform thin layer of Bambu Liquid Glue or PVA glue stick to serve as a sacrificial release interface, and let the bed cool below 30°C before removal."
+    },
+    {
+      "issue": "Brittle parts and weak interlayer adhesion",
+      "rootCause": "Excessive part cooling fan speeds chilling the extruded PETG bead too quickly on the open-frame A1 Mini.",
+      "exactFix": "Lower maximum part cooling fan speed to 40-50%, raise nozzle temperature to 245°C, and disable the auxiliary fan completely."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Does printing PolyLite PETG on the A1 Mini require a hardened steel nozzle upgrade?",
+      "answer": "No, standard PolyLite PETG is non-abrasive, so the stock stainless steel nozzle on the A1 Mini will handle it without accelerated wear."
+    },
+    {
+      "question": "Can I print PolyLite PETG on the A1 Mini without an enclosure?",
+      "answer": "Yes, PETG prints exceptionally well in open-frame environments because it does not suffer from the severe thermal contraction and layer splitting seen in ABS or ASA."
+    },
+    {
+      "question": "Why shouldn't I run PolyLite PETG at the A1 Mini's default high speeds (300+ mm/s)?",
+      "answer": "Standard PETG has higher viscosity and a lower volumetric limit (14 mm³/s), meaning speeds above ~167 mm/s at 0.2mm layer height will cause under-extrusion and severe layer weakness."
+    },
+    {
+      "question": "Do I need to calibrate Pressure Advance specifically for this filament on the A1 Mini?",
+      "answer": "Yes, PETG is more elastic than PLA, requiring a dedicated dynamic flow calibration pass via Bambu Handy or OrcaSlicer to dial in the K-factor and prevent corner bulging."
+    }
+  ]
+}

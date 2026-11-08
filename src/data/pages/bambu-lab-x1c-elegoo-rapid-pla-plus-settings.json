@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-x1c-elegoo-rapid-pla-plus-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab X1C",
+    "slug": "bambu-lab-x1c",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 110,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 26
+  },
+  "filament": {
+    "name": "Elegoo Rapid PLA+",
+    "slug": "elegoo-rapid-pla-plus",
+    "brand": "Elegoo",
+    "materialType": "HS-PLA+",
+    "minNozzleTempC": 210,
+    "maxNozzleTempC": 230,
+    "minBedTempC": 55,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 25,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 220,
+    "recommendedBedTempC": 60,
+    "effectiveVolumetricFlowMm3s": 25,
+    "calculatedMaxPrintSpeedMmS": 298,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-08T13:41:08.661Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab X1C pairs natively with Elegoo Rapid PLA+, achieving high throughput speeds up to 298 mm/s backed by a 25 mm³/s maximum volumetric flow rate. Printing requires no nozzle hardware changes, though venting the top glass or front door is critical to eliminate chamber heat creep during prolonged high-speed cycles.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 40,
+  "bedSurfaceRecommendation": "Textured PEI Plate cleaned with IPA, no glue stick required",
+  "slicerTweaks": [
+    "Set Filament Max Volumetric Speed to 25 mm³/s to fully exploit high-speed melt flow without inducing severe extruder gear backpressure.",
+    "Configure Pressure Advance in OrcaSlicer to approximately 0.024 via the built-in calibration pattern to eradicate corner bulging at 298 mm/s.",
+    "Adjust Chamber Fan speed to 70% or crack the top glass cover to keep interior chamber temperature safely below 35°C.",
+    "Decouple Outer Wall speed to 160 mm/s while maintaining Inner Walls and Infill at 298 mm/s to ensure consistent surface gloss."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Extruder gear clicking and cold-end nozzle clogs during extended print runs",
+      "rootCause": "Chamber heat creep softening low-Tg PLA+ within the cold break before the melt zone due to a fully sealed enclosure",
+      "exactFix": "Prop open the X1C glass door or riser spacer, set bed temperature to 55°C, and ramp chamber exhaust fan to 80%."
+    },
+    {
+      "issue": "Severe ringing or ghosting on detailed exterior surfaces",
+      "rootCause": "Excessive directional acceleration combined with rapid toolhead deceleration on outer perimeters at max feed rates",
+      "exactFix": "Reduce Outer Wall acceleration in OrcaSlicer from 10000 mm/s² to 5000 mm/s² and re-run input shaping calibration."
+    },
+    {
+      "issue": "Inconsistent sheen and dull bands appearing across outer perimeters",
+      "rootCause": "Varying print speeds triggering differential melt temperatures between rapid acceleration sections and forced slow-down cooling layers",
+      "exactFix": "Enforce a fixed Outer Wall speed limit of 150 mm/s and uncheck dynamic layer time throttling in cooling settings."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Does Elegoo Rapid PLA+ print reliably with the Bambu X1C enclosure fully sealed?",
+      "answer": "No, printing PLA inside a fully sealed chamber causes ambient temps to exceed 38°C, leading to heat creep and extruder jams; prop the lid or open the front door."
+    },
+    {
+      "question": "Is the stock 0.4mm hardened steel nozzle fast enough to reach the 25 mm³/s flow limit?",
+      "answer": "Yes, bumping the nozzle temperature to 220°C-225°C delivers enough thermal energy through the stock hardened steel nozzle to sustain the 25 mm³/s flow ceiling."
+    },
+    {
+      "question": "Can Elegoo Rapid PLA+ spools run seamlessly in the Bambu AMS?",
+      "answer": "Yes, provided the spool is the plastic variant or fitted with an outer rim protector if cardboard, preventing slippage and cardboard dusting inside AMS feed rollers."
+    },
+    {
+      "question": "What is the primary difference in slicer profile between standard PLA and Rapid PLA+?",
+      "answer": "Rapid PLA+ features high-fluidity additives allowing an increase in maximum volumetric speed from 15 mm³/s to 25 mm³/s, permitting 298 mm/s linear velocity without underextrusion."
+    }
+  ]
+}

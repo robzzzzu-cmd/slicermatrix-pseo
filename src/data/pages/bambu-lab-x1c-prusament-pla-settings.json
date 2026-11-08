@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-x1c-prusament-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab X1C",
+    "slug": "bambu-lab-x1c",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 110,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 26
+  },
+  "filament": {
+    "name": "Prusament PLA",
+    "slug": "prusament-pla",
+    "brand": "Prusament",
+    "materialType": "PLA",
+    "minNozzleTempC": 205,
+    "maxNozzleTempC": 220,
+    "minBedTempC": 55,
+    "maxBedTempC": 60,
+    "volumetricFlowLimitMm3s": 20,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 213,
+    "recommendedBedTempC": 58,
+    "effectiveVolumetricFlowMm3s": 20,
+    "calculatedMaxPrintSpeedMmS": 238,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-08T13:14:52.500Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab X1C handles Prusament PLA effortlessly out of the box, reaching safe real-world speeds up to 238 mm/s backed by a 20 mm³/s volumetric flow limit. While the stock hardened steel nozzle easily processes this filament, keep the top glass propped or front door cracked to prevent chamber heat creep during long runs.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 100,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 50,
+  "bedSurfaceRecommendation": "Textured PEI Plate (cleaned with warm water and dish soap; no adhesive needed)",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 20 mm³/s in the Filament Settings to cap printing speed around 238 mm/s for 0.2mm layers.",
+    "Calibrate Pressure Advance using OrcaSlicer line or pattern method, typically landing between 0.018 and 0.024 for Prusament PLA on the stock direct drive extruder.",
+    "Limit the Auxiliary Part Cooling Fan to 50-70% to avoid localized warping on the left side of the build plate during large flat prints.",
+    "Adjust nozzle printing temperature to 213°C and bed temperature to 58°C across all layers for balanced gloss and dimensional accuracy."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Extruder gear clicking and cold-end clogging (Heat Creep)",
+      "rootCause": "Chamber ambient temperature exceeding 35°C due to fully sealed enclosure during continuous PLA printing.",
+      "exactFix": "Prop open the top glass cover or leave the front door ajar, and set chamber exhaust fan speed to 70% in OrcaSlicer filament cooling settings."
+    },
+    {
+      "issue": "Corner lifting or bottom edge warping",
+      "rootCause": "Aggressive draft from the auxiliary cooling fan cooling the lower layers unevenly, or light oil on PEI surface.",
+      "exactFix": "Wash the build plate thoroughly with Dawn dish soap, reduce Aux fan to 0% for the first 5 layers, and maintain bed temp at 58°C."
+    },
+    {
+      "issue": "Fine wispy stringing across travel moves",
+      "rootCause": "Nozzle temperature exceeding optimal viscosity window combined with unoptimized wipe parameters.",
+      "exactFix": "Lower nozzle temperature to 210°C, set retraction distance to 0.8 mm at 30 mm/s, and enable 'Wipe while retracting' set to 2 mm in extruder settings."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Do I need to leave the Bambu Lab X1C door open when printing Prusament PLA?",
+      "answer": "Yes, propping open the top glass lid or cracking the front door is strongly recommended to prevent heat creep and extruder clogs with PLA."
+    },
+    {
+      "question": "Can I use the Generic PLA profile for Prusament PLA?",
+      "answer": "While the Generic PLA profile works, tuning a dedicated profile to Prusament's 213°C nozzle target and 20 mm³/s volumetric speed provides superior surface quality and dimensional accuracy."
+    },
+    {
+      "question": "Does the stock hardened steel nozzle impact Prusament PLA print quality?",
+      "answer": "No, the hardened steel nozzle performs exceptionally well; running at 213°C fully compensates for the minor thermal conductivity difference compared to brass."
+    },
+    {
+      "question": "Is Prusament PLA spool geometry fully compatible with the Bambu AMS?",
+      "answer": "Yes, Prusament plastic spools fit the Bambu AMS directly without rub, but ensure the spool rim is free of burrs or use printable rim protectors if edge damage occurs."
+    }
+  ]
+}

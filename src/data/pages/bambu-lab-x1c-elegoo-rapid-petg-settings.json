@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-x1c-elegoo-rapid-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab X1C",
+    "slug": "bambu-lab-x1c",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 110,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 26
+  },
+  "filament": {
+    "name": "Elegoo Rapid PETG",
+    "slug": "elegoo-rapid-petg",
+    "brand": "Elegoo",
+    "materialType": "PETG",
+    "minNozzleTempC": 230,
+    "maxNozzleTempC": 255,
+    "minBedTempC": 70,
+    "maxBedTempC": 85,
+    "volumetricFlowLimitMm3s": 20,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 243,
+    "recommendedBedTempC": 78,
+    "effectiveVolumetricFlowMm3s": 20,
+    "calculatedMaxPrintSpeedMmS": 238,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-08T13:50:53.026Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab X1C handles Elegoo Rapid PETG right out of the box with exceptional precision, achieving safe print speeds up to 238 mm/s backed by a 20 mm³/s volumetric flow limit. Thanks to the stock direct drive extruder and hardened steel nozzle, no hardware upgrades are required, though door venting is recommended to avoid heat creep during long prints.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 60,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with liquid glue or glue stick as a release agent to prevent PEI tear-out",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 20 mm³/s in the filament profile to cap travel moves safely at 238 mm/s without under-extrusion.",
+    "Enable Wipe While Retracting (2 mm distance) and set Retraction Length to 0.8 mm to eliminate PETG ooze on rapid non-print travels.",
+    "Calibrate Pressure Advance (PA) using OrcaSlicer line method; typical value for Rapid PETG on the X1C is between 0.032 and 0.038.",
+    "Keep Part Cooling Fan between 20% and 60%, setting Layer Time thresholds to ramp up cooling only on layers shorter than 12 seconds."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe stringing and fine hair cobwebs",
+      "rootCause": "PETG is highly hygroscopic and absorbs ambient moisture rapidly, causing steam expansion and nozzle drool.",
+      "exactFix": "Dry the filament spool in a dedicated dryer or the X1C heatbed at 65°C for 6 to 8 hours before printing, and increase retraction speed to 35 mm/s."
+    },
+    {
+      "issue": "Build plate surface damage / PEI chunk tear-out",
+      "rootCause": "PETG chemically bonds too aggressively to bare PEI surfaces when printed at high bed temperatures (78°C).",
+      "exactFix": "Apply a uniform layer of Bambu Liquid Glue or PVP glue stick as an interface release agent before printing."
+    },
+    {
+      "issue": "Extruder clicking and clog during long duration prints",
+      "rootCause": "Chamber heat buildup inside the enclosed X1C softens Rapid PETG in the cold zone (heat creep).",
+      "exactFix": "Crack open the front glass door or prop open the top glass lid 5-10 mm during printing to maintain internal chamber temp below 40°C."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Should I print Elegoo Rapid PETG with the Bambu X1C enclosure door fully closed?",
+      "answer": "It is best practice to crack open the top glass lid or front door during extended prints, as chamber temperatures exceeding 40°C can soften Rapid PETG prematurely and cause extruder jams."
+    },
+    {
+      "question": "Why is glue stick necessary when using the Textured PEI Plate?",
+      "answer": "PETG exhibits high molecular adhesion to PEI; the glue stick does not serve as an adhesive, but rather as a sacrificial release agent to prevent the print from ripping off the PEI coating upon removal."
+    },
+    {
+      "question": "Can I hit the advertised 238 mm/s speed without losing layer adhesion?",
+      "answer": "Yes, Elegoo Rapid PETG features enhanced melt fluidity specifically tuned for high-flow rates up to 20 mm³/s, provided nozzle temperature is sustained at 243°C and cooling is kept under 60%."
+    },
+    {
+      "question": "Does Elegoo Rapid PETG require an AMS-compatible spool?",
+      "answer": "Yes, standard plastic Elegoo spools fit the Bambu AMS directly. If using cardboard spools, install a 3D-printed spool rim protector to prevent cardboard dust from entering the AMS feeder gears."
+    }
+  ]
+}

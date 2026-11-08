@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-x1c-bambu-asa-cf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab X1C",
+    "slug": "bambu-lab-x1c",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 110,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 26
+  },
+  "filament": {
+    "name": "Bambu ASA-CF",
+    "slug": "bambu-asa-cf",
+    "brand": "Bambu Lab",
+    "materialType": "ASA-CF",
+    "minNozzleTempC": 255,
+    "maxNozzleTempC": 280,
+    "minBedTempC": 90,
+    "maxBedTempC": 105,
+    "volumetricFlowLimitMm3s": 15,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 268,
+    "recommendedBedTempC": 98,
+    "effectiveVolumetricFlowMm3s": 15,
+    "calculatedMaxPrintSpeedMmS": 179,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-08T13:05:32.614Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab X1C handles Bambu ASA-CF out of the box with its stock hardened steel nozzle and fully enclosed chamber. Operating at a maximum volumetric flow rate of 15 mm³/s, the system achieves a reliable safe max print speed of 179 mm/s without compromising carbon fiber reinforcement or layer adhesion.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 10,
+  "coolingFanMaxPct": 25,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with thin layer of liquid glue or glue stick as a release agent",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed cap to 15 mm³/s in the filament profile to prevent extrusion starvation.",
+    "Preheat the bed to 100°C for 15-20 minutes with the door and top glass closed to elevate the passive chamber temperature to 45°C+ before printing.",
+    "Lower part cooling fan threshold: Min 10% / Max 25%, and keep the auxiliary part cooling fan completely turned off (0%) to eliminate delamination.",
+    "Set nozzle temperature to 268°C and bed temperature to 98°C, with a 5mm outer brim enabled for parts with sharp corners."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Corner lifting and bed warping",
+      "rootCause": "Thermal contraction of ASA matrix caused by drafty chamber or insufficient bed adhesion temperature.",
+      "exactFix": "Increase bed temp to 100°C, keep the enclosure fully sealed, apply glue stick as an interface layer, and add a 5-8mm brim."
+    },
+    {
+      "issue": "Interlayer splitting or weak structural strength",
+      "rootCause": "Auxiliary cooling fan blowing cold air on part layers or nozzle temperature too low for complete polymer fusion.",
+      "exactFix": "Disable the auxiliary chamber fan completely (0%) and raise hotend temperature to 270°C while capping print speed to 179 mm/s."
+    },
+    {
+      "issue": "Rough surface finish and severe stringing",
+      "rootCause": "Moisture absorption in the ASA-CF filament creating micro-boiling pockets during extrusion.",
+      "exactFix": "Dry the filament spool in an active blast oven or dry box at 75°C-80°C for at least 8 hours prior to feeding into the AMS."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Bambu ASA-CF using the Bambu AMS?",
+      "answer": "Yes, Bambu ASA-CF is specifically engineered with shortened carbon fibers to be AMS-compatible, provided the desiccant is dry and the spool spins smoothly."
+    },
+    {
+      "question": "Does the Bambu Lab X1C need an upgraded nozzle for ASA-CF?",
+      "answer": "No, the X1C comes standard with a 0.4mm Hardened Steel nozzle and hardened drive gears, which safely resist the abrasive wear of carbon fiber."
+    },
+    {
+      "question": "Should I keep the door or top glass lid open when printing ASA-CF?",
+      "answer": "Keep both the door and lid fully closed at all times to maintain a high internal chamber temperature and prevent warping from ambient thermal drafts."
+    },
+    {
+      "question": "Are VOC emissions a concern when printing Bambu ASA-CF on the X1C?",
+      "answer": "Yes, ASA emits styrene vapors; ensure the X1C internal activated carbon air filter is active and run the printer in a well-ventilated room or exhaust enclosure."
+    }
+  ]
+}

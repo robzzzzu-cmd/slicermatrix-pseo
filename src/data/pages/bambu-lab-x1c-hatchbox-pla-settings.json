@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-x1c-hatchbox-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab X1C",
+    "slug": "bambu-lab-x1c",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 110,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 26
+  },
+  "filament": {
+    "name": "Hatchbox PLA",
+    "slug": "hatchbox-pla",
+    "brand": "Hatchbox",
+    "materialType": "PLA",
+    "minNozzleTempC": 195,
+    "maxNozzleTempC": 215,
+    "minBedTempC": 50,
+    "maxBedTempC": 60,
+    "volumetricFlowLimitMm3s": 19,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 205,
+    "recommendedBedTempC": 55,
+    "effectiveVolumetricFlowMm3s": 19,
+    "calculatedMaxPrintSpeedMmS": 226,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-08T13:23:16.646Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab X1C handles Hatchbox PLA exceptionally well out of the box with its standard hardened steel direct-drive setup. Operating at a maximum volumetric flow rate of 19 mm³/s, the system achieves a reliable safe maximum print speed of 226 mm/s at standard layer heights without requiring any hardware modifications.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate or Cool Plate without glue (clean surface with isopropyl alcohol or warm soapy water)",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 19 mm³/s under the Filament > Advanced settings tab to cap continuous extrusion safely.",
+    "Keep the chamber door or top glass vented slightly during prolonged prints to prevent heat creep with low-Tg PLA.",
+    "Enable Pressure Advance calibration with an initial starting value of 0.020 for the Bambu direct-drive extruder.",
+    "Adjust part cooling fan settings to 100% layer fan and 70-80% auxiliary fan to maintain crisp overhangs at high print speeds."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Extruder clicking and heat creep clogging during long prints",
+      "rootCause": "Chamber temperature rising above Hatchbox PLA's low glass transition temperature (~55°C) inside the fully sealed enclosure.",
+      "exactFix": "Crack open the front glass door or prop open the top lid spacer to exhaust excess ambient heat."
+    },
+    {
+      "issue": "First layer adhesion failure or corner lifting",
+      "rootCause": "Bed surface contamination with finger oils or bed temperature set below the optimal 55°C target.",
+      "exactFix": "Wash the build plate with warm water and dish soap, and confirm bed temperature is locked at 55°C in OrcaSlicer."
+    },
+    {
+      "issue": "Fine stringing across open gaps",
+      "rootCause": "Nozzle running slightly hot for Hatchbox PLA formulation or insufficient retraction speed on travel moves.",
+      "exactFix": "Reduce nozzle printing temperature to 205°C and ensure retraction speed is set to 35 mm/s with 0.8 mm distance."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Hatchbox PLA with the X1C enclosure fully closed?",
+      "answer": "It is not recommended for prints longer than 30 minutes; venting the top glass or opening the front door prevents chamber heat creep that can clog the extruder."
+    },
+    {
+      "question": "Does Hatchbox PLA require a hardened steel nozzle on the X1C?",
+      "answer": "No, standard standard Hatchbox PLA is non-abrasive, though the X1C comes stock with a hardened steel nozzle which runs it without issue."
+    },
+    {
+      "question": "What is the limiting factor for print speed with this filament?",
+      "answer": "The maximum volumetric flow rate of 19 mm³/s caps the safe linear print speed to approximately 226 mm/s at 0.2mm layer height and 0.42mm line width."
+    },
+    {
+      "question": "Do I need to dry Hatchbox PLA before printing?",
+      "answer": "While PLA is generally non-hygroscopic, pre-drying at 45°C for 4 hours can eliminate surface stringing if the spool has been exposed to ambient humidity for extended periods."
+    }
+  ]
+}

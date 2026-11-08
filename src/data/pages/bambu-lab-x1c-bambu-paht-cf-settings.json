@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-x1c-bambu-paht-cf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab X1C",
+    "slug": "bambu-lab-x1c",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 110,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 26
+  },
+  "filament": {
+    "name": "Bambu PAHT-CF",
+    "slug": "bambu-paht-cf",
+    "brand": "Bambu Lab",
+    "materialType": "PAHT-CF",
+    "minNozzleTempC": 275,
+    "maxNozzleTempC": 295,
+    "minBedTempC": 90,
+    "maxBedTempC": 105,
+    "volumetricFlowLimitMm3s": 11,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 285,
+    "recommendedBedTempC": 98,
+    "effectiveVolumetricFlowMm3s": 11,
+    "calculatedMaxPrintSpeedMmS": 131,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-08T13:03:36.007Z",
+  "compatibilityVerdict": "Advanced Setup",
+  "heroSummary": "The Bambu Lab X1C handles Bambu PAHT-CF exceptionally well out of the box thanks to its factory hardened steel nozzle and heated chamber enclosure. With a maximum volumetric flow rate of 11 mm³/s, the safe operational print speed tops out at 131 mm/s for a standard 0.4mm nozzle profile.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 20,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate or High-Temp Plate with Bambu Liquid Glue / PVP Glue Stick as a release agent",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 11 mm³/s under Filament Settings to prevent extruder skipping and under-extrusion at speeds above 131 mm/s.",
+    "Disable the Auxiliary Part Cooling Fan completely (0%) to eliminate severe thermal shock and warping across high-temperature polyamide layers.",
+    "Configure Part Cooling Fan threshold to min 0% and max 20%, keeping it off for the first 3 layers to guarantee high layer bonding strength.",
+    "Set Line Width to 0.45mm on perimeters and enable an inner brim (5mm) with zero brim-object gap to mechanically stabilize sharp corners."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe stringing, surface pockmarks, and extrusion popping sounds",
+      "rootCause": "Excess moisture absorbed into the hygroscopic high-temperature nylon matrix vaporizing violently inside the 285°C hotend.",
+      "exactFix": "Dry the filament in a dedicated blast oven or print chamber at 80°C for 8 to 12 hours before printing, and feed directly from an active dry box or desiccated AMS."
+    },
+    {
+      "issue": "Corner lifting and print warping from build plate",
+      "rootCause": "Inadequate bed adhesion and excessive chamber heat loss or differential thermal contraction between nylon and the plate.",
+      "exactFix": "Raise bed temperature to 100°C, apply a uniform layer of liquid glue/glue stick release agent, keep the door and top glass shut, and allow chamber temperature to soak to 45°C+ before printing."
+    },
+    {
+      "issue": "Premature nozzle clogging during mid-print retractions",
+      "rootCause": "Heat creep exacerbated by prolonged exposure to high chamber temperatures, or carbon fiber aggregation in standard 0.4mm clearance.",
+      "exactFix": "Increase print temperature to 290°C to lower melt viscosity, avoid opening the top glass, verify cold-block fan functionality, and perform cold pulls with nylon cleaning filament."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I feed Bambu PAHT-CF through the standard Bambu AMS unit?",
+      "answer": "Yes, Bambu PAHT-CF is formulated to be sufficiently flexible and less brittle on spools than standard PA-CF, making it fully compatible with the AMS provided the desiccant is completely fresh."
+    },
+    {
+      "question": "Why is the print speed capped at 131 mm/s on the X1C?",
+      "answer": "The high viscosity and carbon fiber filler of PAHT-CF safely allow a maximum volumetric flow rate of 11 mm³/s; at a standard 0.2mm layer height and 0.42mm extrusion width, 131 mm/s reaches that volumetric ceiling."
+    },
+    {
+      "question": "Do I need to leave the X1C door or top glass open when printing PAHT-CF?",
+      "answer": "No, absolutely keep the door and top glass fully closed. Polyamide requires a warm, draft-free chamber environment (45°C-50°C) to prevent thermal stress, delamination, and warping."
+    },
+    {
+      "question": "Is a glue stick mandatory on the Textured PEI plate for PAHT-CF?",
+      "answer": "Yes, glue stick acts primarily as a release agent to prevent high-adhesion high-temperature nylon from tearing the PEI coating off the steel sheet upon cooling."
+    }
+  ]
+}

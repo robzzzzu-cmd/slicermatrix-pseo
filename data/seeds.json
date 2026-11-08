@@ -3687,7 +3687,7 @@
   },
   {
     "slug": "bambu-lab-x1c-bambu-paht-cf-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab X1C",
       "slug": "bambu-lab-x1c",
@@ -3725,7 +3725,7 @@
   },
   {
     "slug": "bambu-lab-x1c-bambu-asa-cf-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab X1C",
       "slug": "bambu-lab-x1c",
@@ -3763,7 +3763,7 @@
   },
   {
     "slug": "bambu-lab-x1c-esun-petg-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab X1C",
       "slug": "bambu-lab-x1c",
@@ -4029,7 +4029,7 @@
   },
   {
     "slug": "bambu-lab-x1c-sunlu-pla-plus-2-0-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab X1C",
       "slug": "bambu-lab-x1c",
@@ -4143,7 +4143,7 @@
   },
   {
     "slug": "bambu-lab-x1c-prusament-pla-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab X1C",
       "slug": "bambu-lab-x1c",
@@ -4181,7 +4181,7 @@
   },
   {
     "slug": "bambu-lab-x1c-prusament-petg-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab X1C",
       "slug": "bambu-lab-x1c",
@@ -4219,7 +4219,7 @@
   },
   {
     "slug": "bambu-lab-x1c-hatchbox-pla-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab X1C",
       "slug": "bambu-lab-x1c",
@@ -4257,7 +4257,7 @@
   },
   {
     "slug": "bambu-lab-x1c-hatchbox-petg-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab X1C",
       "slug": "bambu-lab-x1c",
@@ -4295,7 +4295,7 @@
   },
   {
     "slug": "bambu-lab-x1c-hatchbox-wood-pla-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab X1C",
       "slug": "bambu-lab-x1c",
@@ -4333,7 +4333,7 @@
   },
   {
     "slug": "bambu-lab-x1c-elegoo-rapid-pla-plus-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab X1C",
       "slug": "bambu-lab-x1c",
@@ -4371,7 +4371,7 @@
   },
   {
     "slug": "bambu-lab-x1c-elegoo-rapid-petg-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab X1C",
       "slug": "bambu-lab-x1c",
@@ -4409,7 +4409,7 @@
   },
   {
     "slug": "bambu-lab-x1c-amolen-glow-in-the-dark-pla-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab X1C",
       "slug": "bambu-lab-x1c",
@@ -4447,7 +4447,7 @@
   },
   {
     "slug": "bambu-lab-x1c-proto-pasta-high-temp-carbon-fiber-pla-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab X1C",
       "slug": "bambu-lab-x1c",
@@ -4561,7 +4561,7 @@
   },
   {
     "slug": "bambu-lab-a1-mini-polymaker-polylite-petg-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab A1 Mini",
       "slug": "bambu-lab-a1-mini",
@@ -4903,7 +4903,7 @@
   },
   {
     "slug": "bambu-lab-a1-mini-sainsmart-glow-tpu-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab A1 Mini",
       "slug": "bambu-lab-a1-mini",

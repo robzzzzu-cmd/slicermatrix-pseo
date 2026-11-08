@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-x1c-prusament-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab X1C",
+    "slug": "bambu-lab-x1c",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 110,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 26
+  },
+  "filament": {
+    "name": "Prusament PETG",
+    "slug": "prusament-petg",
+    "brand": "Prusament",
+    "materialType": "PETG",
+    "minNozzleTempC": 240,
+    "maxNozzleTempC": 255,
+    "minBedTempC": 75,
+    "maxBedTempC": 90,
+    "volumetricFlowLimitMm3s": 15,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 248,
+    "recommendedBedTempC": 83,
+    "effectiveVolumetricFlowMm3s": 15,
+    "calculatedMaxPrintSpeedMmS": 179,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-08T13:18:30.854Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab X1C handles Prusament PETG effortlessly out of the box with its direct-drive extruder and hardened steel nozzle, achieving reliable print speeds up to 179 mm/s at a maximum volumetric flow rate of 15 mm³/s. Printing requires no structural hardware modifications, though keeping the top glass vented prevents chamber heat creep during extended jobs.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 50,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with liquid glue or glue stick as a release agent",
+  "slicerTweaks": [
+    "Cap the Max Volumetric Speed at 15 mm³/s in the filament settings to eliminate under-extrusion and matte finish banding.",
+    "Enable 'Wipe while retracting' set to 2 mm with a Retract Amount Before Wipe of 70% to suppress PETG oozing and stringing.",
+    "Set the Pressure Advance (PA) value to 0.034 s (or run dynamic calibration) to maintain uniform extrusion widths through sharp corners.",
+    "Lower the Part Cooling Fan to a 20-50% range with the auxiliary fan turned completely off to avoid layer delamination and warping."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe fine wispy stringing across travel moves",
+      "rootCause": "Prusament PETG has absorbed ambient moisture, or retraction wiping distance is insufficient.",
+      "exactFix": "Dry the filament spool at 65°C for 6 hours in a dedicated dryer and increase Retraction Wipe Distance to 2 mm in OrcaSlicer."
+    },
+    {
+      "issue": "Excessive adhesion causing PEI coating tear-out",
+      "rootCause": "PETG creates molecular bonds with hot PEI surfaces when printed directly without a barrier interface.",
+      "exactFix": "Apply a uniform layer of Bambu Liquid Glue or standard glue stick to act as a release interface before printing."
+    },
+    {
+      "issue": "Weak interlayer bonding and brittle parts",
+      "rootCause": "Auxiliary cooling fan or excessive main part cooling chilling the molten bead prematurely.",
+      "exactFix": "Turn off the chamber auxiliary fan (0%) and restrict the main cooling fan to a ceiling of 50% for standard layers."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Should I print Prusament PETG with the Bambu Lab X1C door open or closed?",
+      "answer": "Keep the top glass propped open or front door cracked to prevent chamber temperatures exceeding 40°C, which avoids extruder heat creep and nozzle clogs."
+    },
+    {
+      "question": "Can I use the high-speed 0.02 Pressure Advance default profile for this material?",
+      "answer": "No, standard Bambu PETG profiles often under-compensate for Prusament's specific viscosity; manual calibration typically yields a higher PA around 0.032 to 0.038."
+    },
+    {
+      "question": "Is the Bambu AMS compatible with Prusament PETG spools?",
+      "answer": "Yes, standard plastic Prusament spools fit the AMS directly; ensure the spool rim is completely smooth and does not bind against the AMS lid."
+    },
+    {
+      "question": "Why is the top surface finish cloudy or uneven at high speeds?",
+      "answer": "PETG transitions from glossy to matte when extruded beyond its thermal limit; reduce outer wall and top surface speeds to 80-100 mm/s to retain a uniform glossy finish."
+    }
+  ]
+}

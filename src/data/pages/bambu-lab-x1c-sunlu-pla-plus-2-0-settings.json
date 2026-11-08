@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-x1c-sunlu-pla-plus-2-0-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab X1C",
+    "slug": "bambu-lab-x1c",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 110,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 26
+  },
+  "filament": {
+    "name": "Sunlu PLA+ 2.0",
+    "slug": "sunlu-pla-plus-2-0",
+    "brand": "Sunlu",
+    "materialType": "PLA+",
+    "minNozzleTempC": 205,
+    "maxNozzleTempC": 230,
+    "minBedTempC": 55,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 24,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 218,
+    "recommendedBedTempC": 60,
+    "effectiveVolumetricFlowMm3s": 24,
+    "calculatedMaxPrintSpeedMmS": 286,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-08T13:10:27.998Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab X1C handles Sunlu PLA+ 2.0 straight out of the box with exceptional reliability, pushing throughput to a safe maximum print speed of 286 mm/s at a 24 mm³/s volumetric flow limit. While the stock hardened steel nozzle easily processes this non-abrasive blend, keeping the top glass vented is essential during high-speed printing to prevent heat creep.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate (clean with IPA/dish soap, no adhesive required)",
+  "slicerTweaks": [
+    "Set Filament Max Volumetric Speed to 24 mm³/s in the filament profile to cap outer/inner feeds at the calculated 286 mm/s limit.",
+    "Fix printing temperature to 218°C across all layers to ensure consistent melt rheology at high print velocities.",
+    "Calibrate Flow Dynamics (Pressure Advance) using the Micro Lidar or manual line method, targeting a K-value between 0.020 and 0.026.",
+    "Set the Chamber Fan to 70% or activate 'Keep fan always on' with a 4-second minimum layer time to avoid thermal softening in delicate features."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Extruder clicking and mid-print clogging (Heat Creep)",
+      "rootCause": "Chamber ambient temperature rising above 40°C due to fully enclosed printing, causing PLA+ 2.0 to soften inside the cold zone.",
+      "exactFix": "Prop open the top glass cover using a printed riser or leave the front glass door cracked open during prints longer than 45 minutes."
+    },
+    {
+      "issue": "Gloss/matte surface banding on outer perimeters",
+      "rootCause": "Fluctuating flow velocity where the slicer throttles speed between fast infill and slow outer features, changing polymer crystallization.",
+      "exactFix": "Standardize Outer Wall Speed to 150-180 mm/s and ensure the inner-to-outer transition does not drop below 120 mm/s."
+    },
+    {
+      "issue": "Corner lifting on the side facing the auxiliary fan",
+      "rootCause": "Bambu auxiliary cooling fan blowing unilateral cold air across the build plate, causing uneven thermal contraction.",
+      "exactFix": "Reduce the auxiliary part cooling fan to 30% or turn it off completely in the filament cooling tab, maintaining 60°C on the bed."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Sunlu PLA+ 2.0 with the Bambu Lab X1C door and lid fully closed?",
+      "answer": "It is not recommended for prints lasting more than 30-45 minutes. The internal chamber temperature quickly reaches 40-45°C, softening PLA+ prematurely in the extruder gears and causing severe heat creep jams."
+    },
+    {
+      "question": "What is the recommended Pressure Advance (K-value) for Sunlu PLA+ 2.0 on the X1C?",
+      "answer": "Using the stock 0.4mm hardened steel nozzle, Sunlu PLA+ 2.0 typically tunes between 0.020 and 0.026. Running the X1C automatic Micro Lidar calibration produces reliable results."
+    },
+    {
+      "question": "Does Sunlu PLA+ 2.0 require drying before printing on the X1C?",
+      "answer": "PLA+ is not strongly hygroscopic, but fresh spools can retain surface moisture from water-cooling baths during manufacturing. Drying at 45-50°C for 4 hours will eliminate stringing and improve seam quality."
+    },
+    {
+      "question": "Why does Sunlu PLA+ 2.0 achieve higher volumetric flow than standard PLA?",
+      "answer": "The 'Plus' formulation includes impact modifiers and melt flow enhancers that lower viscosity under shear, permitting up to 24 mm³/s without skipping steps on the direct drive extruder."
+    }
+  ]
+}

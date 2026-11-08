@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-x1c-hatchbox-wood-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab X1C",
+    "slug": "bambu-lab-x1c",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 110,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 26
+  },
+  "filament": {
+    "name": "Hatchbox Wood PLA",
+    "slug": "hatchbox-wood-pla",
+    "brand": "Hatchbox",
+    "materialType": "Wood PLA",
+    "minNozzleTempC": 195,
+    "maxNozzleTempC": 220,
+    "minBedTempC": 50,
+    "maxBedTempC": 60,
+    "volumetricFlowLimitMm3s": 11,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 208,
+    "recommendedBedTempC": 55,
+    "effectiveVolumetricFlowMm3s": 11,
+    "calculatedMaxPrintSpeedMmS": 131,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-08T13:35:31.802Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab X1C handles Hatchbox Wood PLA natively with its factory-installed hardened steel nozzle, requiring no abrasive wear upgrades. Print speeds are capped at an effective safe max speed of 131 mm/s driven by the 11 mm³/s volumetric flow limit to prevent heat creep and nozzle clogging.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate (clean with IPA or warm soapy water, no glue required)",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 11 mm³/s in the filament profile to automatically constrain linear printing speeds within the safe 131 mm/s threshold.",
+    "Disable or limit Bambu micro-lidar flow calibration at print start to prevent wood fiber charring during extended nozzle dwell times.",
+    "Enable Wipe While Retracting (set to 1.5 mm) and enable Retract on Layer Change to minimize wood particle oozing across travel moves.",
+    "Uncheck 'Keep fan always on' delay and ensure chamber temperature does not exceed 35°C by venting the top glass or door to avoid PLA heat creep."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Nozzle Clogging / Extruder Clicking",
+      "rootCause": "Wood particulate accumulation or heat creep causing PLA binder to swell prematurely in the cold zone.",
+      "exactFix": "Keep front door or top glass propped open during printing, ensure printing temperature stays at 208°C, and use a cold pull or switch to a 0.6mm nozzle if persistent clogs occur."
+    },
+    {
+      "issue": "Excessive Stringing and Hairy Travel Paths",
+      "rootCause": "Hygroscopic moisture absorption in wood fibers causing steam-driven drool, combined with low melt viscosity.",
+      "exactFix": "Dry spool in a dedicated filament dryer at 50°C for 6 to 8 hours before printing, and increase retraction distance to 0.8 mm at 30 mm/s."
+    },
+    {
+      "issue": "Rough Surface Artifacts / Inconsistent Extrusion",
+      "rootCause": "Attempting to push volumetric flow past 11 mm³/s, leading to underextrusion and patchy layer binding.",
+      "exactFix": "Lower outer wall print speed to 80-100 mm/s and cap the filament max volumetric speed strictly at 11 mm³/s in OrcaSlicer."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I run Hatchbox Wood PLA through the Bambu AMS unit?",
+      "answer": "It is not recommended; wood PLA is brittle and abrasive, which can cause feed snap fractures inside PTFE tubes and prematurely wear AMS internal funnels. Feed directly from the rear spool holder."
+    },
+    {
+      "question": "Will Hatchbox Wood PLA wear down the stock X1C nozzle?",
+      "answer": "No, the X1C includes a stock hardened steel nozzle and extruder gears that easily resist the abrasive nature of organic wood fibers."
+    },
+    {
+      "question": "Should I print Hatchbox Wood PLA with the X1C door closed?",
+      "answer": "No, leave the front door ajar or tilt the top glass cover to maintain a chamber temperature below 35°C, preventing PLA heat creep clogs."
+    },
+    {
+      "question": "Can I stain or sand parts printed with Hatchbox Wood PLA?",
+      "answer": "Yes, parts printed with this filament contain real wood fibers and can be sanded down with 120-400 grit sandpaper and finished with oil- or water-based wood stains."
+    }
+  ]
+}

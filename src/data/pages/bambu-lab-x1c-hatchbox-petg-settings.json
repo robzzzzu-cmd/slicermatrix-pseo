@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-x1c-hatchbox-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab X1C",
+    "slug": "bambu-lab-x1c",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 110,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 26
+  },
+  "filament": {
+    "name": "Hatchbox PETG",
+    "slug": "hatchbox-petg",
+    "brand": "Hatchbox",
+    "materialType": "PETG",
+    "minNozzleTempC": 230,
+    "maxNozzleTempC": 245,
+    "minBedTempC": 70,
+    "maxBedTempC": 85,
+    "volumetricFlowLimitMm3s": 14,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 238,
+    "recommendedBedTempC": 78,
+    "effectiveVolumetricFlowMm3s": 14,
+    "calculatedMaxPrintSpeedMmS": 167,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-08T13:28:45.263Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab X1C handles Hatchbox PETG natively with exceptional reliability, sustaining print speeds up to 167 mm/s capped at a safe 14 mm³/s volumetric flow limit. Thanks to the stock direct drive extruder and hardened steel nozzle, no hardware upgrades are needed, though keeping the top glass vented prevents chamber heat creep during long runs.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 60,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with liquid glue or glue stick as a release interface",
+  "slicerTweaks": [
+    "Cap the Max Volumetric Speed to 14 mm³/s in the filament settings to eliminate under-extrusion and matte banding at higher carriage velocities.",
+    "Set the nozzle temperature to 238°C for all layers and the heated bed to 78°C on the Textured PEI profile.",
+    "Enable 'Wipe while retracting' set to 2 mm with a travel speed of 500 mm/s to minimize fine PETG stringing across open perimeters.",
+    "Lower the aux cooling fan to 0% and keep the chamber fan below 40% to prevent rapid differential cooling and edge warping."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe stringing and fine cobwebbing across travel moves",
+      "rootCause": "PETG is inherently hygroscopic and oozes easily when moisture boils inside the melt zone during non-print travels.",
+      "exactFix": "Dry the filament in a dedicated dryer at 65°C for 6 to 8 hours, enable 'Avoid Crossing Walls' in OrcaSlicer, and set Z-hop type to Normal with 0.2 mm lift."
+    },
+    {
+      "issue": "Excessive bed adhesion tearing chunks off the PEI sheet",
+      "rootCause": "PETG creates molecular fusion with smooth and textured PEI coatings if applied without a chemical separation boundary.",
+      "exactFix": "Apply a thin, uniform layer of Bambu Liquid Glue or PVP glue stick onto the build plate to serve as a sacrificial release agent before starting the print."
+    },
+    {
+      "issue": "Rough top surface texture and matte perimeter streaks",
+      "rootCause": "Extruder attempting to exceed the 14 mm³/s flow capability of Hatchbox PETG at high default Bambu speeds.",
+      "exactFix": "Clamp internal and external perimeter speeds to 160 mm/s, ensure Max Volumetric Speed is strictly 14 mm³/s, and increase nozzle temp to 242°C if sheen remains dull."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Should I print Hatchbox PETG with the X1C door closed or open?",
+      "answer": "It is best practice to keep the front glass door cracked or the top glass lid vented with risers to prevent chamber temperatures exceeding 40°C, which avoids extruder heat creep."
+    },
+    {
+      "question": "Can I use Hatchbox PETG in the Bambu AMS?",
+      "answer": "Yes, provided the spool is standard plastic and not warped; if using a cardboard spool variant, attach a printed spool ring to avoid dust and feeding friction inside the AMS drive gears."
+    },
+    {
+      "question": "What Pressure Advance (PA) value is ideal for Hatchbox PETG on the X1C?",
+      "answer": "While the X1C micro-lidar automatically calibrates flow dynamics, manually calibrated Pressure Advance for Hatchbox PETG typically stabilizes between 0.032 and 0.040."
+    },
+    {
+      "question": "Why are my PETG layers separating on mechanical parts?",
+      "answer": "Layer separation indicates over-cooling; reduce the maximum part cooling fan from default high presets down to 40-50% and disable the auxiliary side fan completely."
+    }
+  ]
+}
