@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-mini-eryone-silk-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1 Mini",
+    "slug": "bambu-lab-a1-mini",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 80,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Eryone Silk PLA",
+    "slug": "eryone-silk-pla",
+    "brand": "Eryone",
+    "materialType": "Silk PLA",
+    "minNozzleTempC": 205,
+    "maxNozzleTempC": 225,
+    "minBedTempC": 55,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 12,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 215,
+    "recommendedBedTempC": 60,
+    "effectiveVolumetricFlowMm3s": 12,
+    "calculatedMaxPrintSpeedMmS": 143,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-09T16:40:24.020Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab A1 Mini handles Eryone Silk PLA out of the box with exceptional precision, requiring no enclosure or nozzle upgrades. Safe volumetric flow tops out at 12 mm³/s, equating to a reliable maximum print speed of 143 mm/s at standard 0.2mm layer heights while maintaining a brilliant sheen.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate (no adhesive required; ensure surface is clean and degreased with IPA or warm dish soap water)",
+  "slicerTweaks": [
+    "Cap the Max Volumetric Speed at 12 mm³/s in the filament settings to eliminate matte banding and ensure consistent silky gloss across variable wall speeds.",
+    "Set outer wall speed to a uniform 60-80 mm/s to prevent uneven luster transitions between fast infill and outer perimeters.",
+    "Enable 'Wipe while retracting' with a 2 mm wipe distance in the printer extruder settings to minimize silk ooze and fine surface zits.",
+    "Increase nozzle printing temperature by 5°C (to 220°C) when printing at upper volumetric limits to maintain high interlayer bonding strength."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Dull or Matte Finish on Outer Walls",
+      "rootCause": "Extruding too cold or printing beyond the volumetric melt capacity creates surface micro-roughness that scatters light instead of reflecting it.",
+      "exactFix": "Lower outer wall print speed to 60 mm/s and increase nozzle temperature by 5-10°C (up to 225°C) to allow the elastomer additives to fully melt and align."
+    },
+    {
+      "issue": "Interlayer Splitting / Poor Layer Adhesion",
+      "rootCause": "Silk PLAs contain impact modifiers and elastomeric polymers that reduce intrinsic tensile adhesion compared to standard PLA.",
+      "exactFix": "Increase nozzle temperature to 220°C-225°C, lower part cooling fan to 60-70% for mid-layers, and reduce printing speed by 20% to allow thermal fusion between layers."
+    },
+    {
+      "issue": "Stringing and Wispy Cobwebs",
+      "rootCause": "Silk PLA exhibits high melt fluidity and slight thermal swelling when exiting the hotend nozzle orifice.",
+      "exactFix": "Set direct drive retraction to 0.8mm at 30 mm/s, enable z-hop only over printed surfaces (0.2mm normal z-hop), and ensure filament has not absorbed ambient moisture."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Eryone Silk PLA at standard Bambu high-speed presets (over 200 mm/s)?",
+      "answer": "No. Pushing Eryone Silk PLA above 143 mm/s (exceeding 12 mm³/s volumetric flow) will starve the melt pool, causing matte banding, extreme layer weakness, and nozzle clogs."
+    },
+    {
+      "question": "Does Eryone Silk PLA require a hardened steel nozzle on the A1 Mini?",
+      "answer": "No. Eryone Silk PLA uses non-abrasive organic/elastomeric gloss additives; the stock stainless steel nozzle on the A1 Mini is fully capable and will not wear prematurely."
+    },
+    {
+      "question": "Why does the surface gloss look inconsistent across different heights of my print?",
+      "answer": "OrcaSlicer dynamically modulates speed based on layer times. Uneven speeds produce different cooling rates and sheen; enforce a constant outer wall speed (e.g., 60 mm/s) to ensure uniform gloss."
+    },
+    {
+      "question": "Is an enclosure needed to print Silk PLA on the Bambu A1 Mini?",
+      "answer": "No. Printing PLA inside an enclosed chamber can cause heat creep leading to extruder jamming. The open-frame design of the A1 Mini provides the ideal thermal environment for cooling Silk PLA."
+    }
+  ]
+}

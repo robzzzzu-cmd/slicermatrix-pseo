@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-mini-polymaker-polylite-asa-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1 Mini",
+    "slug": "bambu-lab-a1-mini",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 80,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Polymaker PolyLite ASA",
+    "slug": "polymaker-polylite-asa",
+    "brand": "Polymaker",
+    "materialType": "ASA",
+    "minNozzleTempC": 240,
+    "maxNozzleTempC": 260,
+    "minBedTempC": 90,
+    "maxBedTempC": 105,
+    "volumetricFlowLimitMm3s": 17,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 250,
+    "recommendedBedTempC": 80,
+    "effectiveVolumetricFlowMm3s": 17,
+    "calculatedMaxPrintSpeedMmS": 202,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": true
+  },
+  "generatedAt": "2026-11-09T17:09:31.671Z",
+  "compatibilityVerdict": "Advanced Setup",
+  "heroSummary": "The Bambu Lab A1 Mini can push Polymaker PolyLite ASA up to 202 mm/s at its 17 mm³/s volumetric limit, but its open-frame design makes warpage a major challenge. Because the bed caps at 80°C and the printer lacks an enclosure, successful prints are restricted to small parts printed with draft shields or external heat-retention measures.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 20,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate with PVP glue stick or liquid adhesive barrier",
+  "slicerTweaks": [
+    "Cap the Max Volumetric Speed at 17 mm³/s in the filament profile and lock the bed temperature to the printer hardware maximum of 80°C.",
+    "Enable a multi-layer Draft Shield in the Others tab with a 2-3 mm offset to retain radiant heat around the print envelope.",
+    "Reduce part cooling drastically: set Min Fan Speed to 0% and Max Fan Speed to 15-20%, activating only for overhangs and layer times under 15 seconds.",
+    "Increase Brim Width to at least 10 mm with a 0.0 mm Brim-object gap to maximize mechanical adhesion on the 80°C bed."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe corner lifting and bed separation",
+      "rootCause": "The A1 Mini bed is capped at 80°C, which is below PolyLite ASA's optimal 90-105°C glass transition threshold, compounded by open-air convective cooling.",
+      "exactFix": "Apply a PVA/PVP glue stick layer to the Textured PEI plate, activate a 10 mm mouse-ear or outer brim, and print inside a draft-free enclosure or pop-up tent."
+    },
+    {
+      "issue": "Interlayer cracking and delamination (splitting along Z-axis)",
+      "rootCause": "Excessive part cooling fan speed or ambient room cross-drafts preventing molten polymer chain diffusion across layer boundaries.",
+      "exactFix": "Set part cooling fan to 0% for standard layers, enable the Draft Shield feature in OrcaSlicer, and ensure room ambient temp is at least 22°C without active drafts."
+    },
+    {
+      "issue": "Stringing, oozing, and surface blobs",
+      "rootCause": "ASA absorbs atmospheric moisture rapidly, causing hydro-expansion and vapor venting in the hotend melt zone.",
+      "exactFix": "Dry the filament spool in an active filament dryer at 70°C for at least 6 to 8 hours before printing, then tune direct drive retraction to 0.8 mm at 30 mm/s."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print large ASA parts on the Bambu Lab A1 Mini?",
+      "answer": "No, large ASA prints are not recommended on the open-frame A1 Mini due to severe thermal shrinkage stresses and an 80°C bed temperature ceiling. Stick to footprints under 80x80 mm or place the printer in a dedicated draft tent."
+    },
+    {
+      "question": "Do I need a hardened steel nozzle to print Polymaker PolyLite ASA?",
+      "answer": "No, standard PolyLite ASA is non-abrasive, so the stock stainless steel nozzle on the A1 Mini will handle it without accelerated wear."
+    },
+    {
+      "question": "Is it safe to place the Bambu A1 Mini inside a fully sealed heated enclosure?",
+      "answer": "Caution is required. The A1 Mini has mainboard electronics and passive cooling integrated directly into its base; unventilated ambient enclosure temperatures above 40°C can cause electronic faults, driver overheating, or extruder heat creep."
+    },
+    {
+      "question": "Are toxic fumes emitted when printing PolyLite ASA?",
+      "answer": "Yes, ASA emits styrene vapors and ultrafine particles during extrusion. You should operate the printer in a well-ventilated room or use a dedicated filtration system equipped with HEPA and active carbon filters."
+    }
+  ]
+}

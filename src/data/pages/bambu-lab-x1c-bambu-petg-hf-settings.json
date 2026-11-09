@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-x1c-bambu-petg-hf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab X1C",
+    "slug": "bambu-lab-x1c",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 110,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 26
+  },
+  "filament": {
+    "name": "Bambu PETG HF",
+    "slug": "bambu-petg-hf",
+    "brand": "Bambu Lab",
+    "materialType": "PETG",
+    "minNozzleTempC": 230,
+    "maxNozzleTempC": 260,
+    "minBedTempC": 65,
+    "maxBedTempC": 75,
+    "volumetricFlowLimitMm3s": 21,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 245,
+    "recommendedBedTempC": 70,
+    "effectiveVolumetricFlowMm3s": 21,
+    "calculatedMaxPrintSpeedMmS": 250,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-09T15:54:26.234Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab X1C is fully optimized out of the box to run Bambu PETG HF at high speeds up to 250 mm/s supported by an effective volumetric flow rate of 21 mm³/s. Its stock hardened steel nozzle and direct-drive extruder handle this high-flow formulation effortlessly without requiring any hardware upgrades.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 60,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with no adhesive, or Smooth PEI Plate with liquid glue/glue stick applied as a release agent to prevent surface tear-out.",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 21 mm³/s in the filament profile to prevent extrusion bottlenecks during high-speed runs.",
+    "Enable Wipe While Retracting (2 mm distance) and set Retraction Length to 0.8 mm at 35 mm/s to eliminate PETG ooze on rapid travels.",
+    "Set Part Cooling Fan to 20% minimum and 60% maximum with Keep Fan Always On enabled, keeping auxiliary fan speed capped below 30% to preserve interlayer adhesion.",
+    "Adjust Pressure Advance to roughly 0.035-0.040 via dynamic extrusion calibration to eliminate corner bulging at 250 mm/s print speeds."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe stringing and fine cobwebbing across travel paths",
+      "rootCause": "Bambu PETG HF is hygroscopic and retains ambient moisture, which vaporizes inside the 245°C hotend and forces molten plastic out during non-print moves.",
+      "exactFix": "Dry the filament spool in a dedicated dryer or the X1C chamber at 65°C for at least 8 hours prior to printing, and set travel retraction to 0.8 mm with wipe enabled."
+    },
+    {
+      "issue": "First layer tearing or build plate coating delaminating on removal",
+      "rootCause": "PETG has an aggressive chemical affinity for smooth PEI surfaces, causing fusion without an interface barrier, or over-squishing into the plate.",
+      "exactFix": "Apply a thin, uniform layer of liquid glue or glue stick as a sacrificial release agent on Smooth PEI, or switch to the Bambu Textured PEI Plate with the bed set to 70°C."
+    },
+    {
+      "issue": "Brittle layer bonding or horizontal micro-cracks along z-seams",
+      "rootCause": "Excessive cooling from the auxiliary chamber fan or main part cooling fan freezing the extruded bead before molecular chain interdiffusion occurs.",
+      "exactFix": "Turn off or limit the Auxiliary Cooling Fan to 0-20% and cap the Part Cooling Fan at 60%, maintaining nozzle temperature at 245-250°C for optimal layer fusion."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Should I print Bambu PETG HF with the X1C front glass door open or closed?",
+      "answer": "Print with the door closed or slightly vented if ambient room temperatures exceed 30°C. PETG HF tolerates enclosed printing well, but keeping internal chamber temperatures under 45°C prevents heat creep in the direct drive extruder."
+    },
+    {
+      "question": "Why is Bambu PETG HF capable of printing at 250 mm/s compared to standard PETG?",
+      "answer": "PETG HF contains rheology modifiers that lower melt viscosity and accelerate thermal transfer, permitting a 21 mm³/s volumetric flow rate without requiring excessive hotend temperatures."
+    },
+    {
+      "question": "Is a hardened steel nozzle strictly required for printing Bambu PETG HF?",
+      "answer": "No, standard Bambu PETG HF is non-abrasive and can safely run on stainless steel or brass nozzles, though the stock X1C hardened steel nozzle performs exceptionally well without wear."
+    },
+    {
+      "question": "Can I feed Bambu PETG HF directly through the Bambu AMS system?",
+      "answer": "Yes, standard Bambu PETG HF spools are fully compatible with the AMS; ensure the filament is thoroughly dried and the desiccant inside the AMS remains fresh."
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-mini-esun-pla-plus-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1 Mini",
+    "slug": "bambu-lab-a1-mini",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 80,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "eSUN PLA+",
+    "slug": "esun-pla-plus",
+    "brand": "eSUN",
+    "materialType": "PLA+",
+    "minNozzleTempC": 205,
+    "maxNozzleTempC": 225,
+    "minBedTempC": 55,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 22,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 215,
+    "recommendedBedTempC": 60,
+    "effectiveVolumetricFlowMm3s": 22,
+    "calculatedMaxPrintSpeedMmS": 262,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-09T16:18:16.852Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab A1 Mini handles eSUN PLA+ exceptionally well out of the box with its stock stainless steel nozzle and open-bed architecture. Given its 22 mm³/s volumetric flow limit, it reliably sustains print speeds up to 262 mm/s at standard 0.2mm layer heights without requiring any hardware upgrades.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate (clean with warm water and dish soap, no adhesive required)",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 22 mm³/s in the filament profile to cap print speed automatically at 262 mm/s on standard layer geometry.",
+    "Tune Pressure Advance (PA) in OrcaSlicer to approximately 0.024–0.028 to eliminate corner swelling at high travel accelerations.",
+    "Configure nozzle temperature to 215°C for normal layers and 220°C for the initial layer to maximize early bed adhesion.",
+    "Enable 'Wipe while retracting' with a 1.0mm wipe distance to mitigate fine stringing characteristic of modified PLA impact additives."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Stringing and fine wisps across open travel moves",
+      "rootCause": "PLA+ modifiers increase melt elasticity, combined with excessive nozzle temperature or disabled retraction z-hop.",
+      "exactFix": "Reduce nozzle temperature from 220°C to 210°C and ensure retraction distance is set to 0.8mm with spiral z-hop enabled."
+    },
+    {
+      "issue": "Under-extrusion or matte banding on high-speed infill",
+      "rootCause": "Volumetric flow rate exceeding the melt capacity of the stock stainless steel hotend past 22 mm³/s.",
+      "exactFix": "Hard cap Max Volumetric Speed at 20–22 mm³/s in OrcaSlicer filament settings to prevent flow starvation."
+    },
+    {
+      "issue": "First layer edge peeling or corner warping",
+      "rootCause": "PEI plate contaminated with skin oils or bed temperature set too low for eSUN PLA+.",
+      "exactFix": "Scrub the textured PEI sheet with dish soap and set heated bed temperature to 60°C."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Does eSUN PLA+ require a hardened steel nozzle on the A1 Mini?",
+      "answer": "No, eSUN PLA+ is a non-abrasive modified PLA, meaning the stock 0.4mm stainless steel nozzle handles it without premature wear."
+    },
+    {
+      "question": "Can I print eSUN PLA+ inside an enclosure on the Bambu A1 Mini?",
+      "answer": "No, printing PLA+ inside an enclosure often leads to heat creep and cold-end clogging due to low glass transition temperatures; the open-frame A1 Mini is ideal."
+    },
+    {
+      "question": "Why is eSUN PLA+ printed hotter than standard PLA?",
+      "answer": "PLA+ incorporates impact modifiers and elastomeric tougheners that increase melt viscosity, requiring 210°C–220°C for optimal layer bonding and high-speed flow."
+    },
+    {
+      "question": "Do I need to dry eSUN PLA+ before printing on the A1 Mini?",
+      "answer": "While standard PLA is minimally hygroscopic, wet PLA+ can cause stringing and popping; if unsealed for weeks, dry at 45°C for 4–6 hours."
+    }
+  ]
+}

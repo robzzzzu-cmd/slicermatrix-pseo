@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-mini-overture-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1 Mini",
+    "slug": "bambu-lab-a1-mini",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 80,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Overture PETG",
+    "slug": "overture-petg",
+    "brand": "Overture",
+    "materialType": "PETG",
+    "minNozzleTempC": 230,
+    "maxNozzleTempC": 250,
+    "minBedTempC": 75,
+    "maxBedTempC": 85,
+    "volumetricFlowLimitMm3s": 14,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 240,
+    "recommendedBedTempC": 80,
+    "effectiveVolumetricFlowMm3s": 14,
+    "calculatedMaxPrintSpeedMmS": 167,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-09T17:24:18.197Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab A1 Mini handles Overture PETG straight out of the box with its stock direct drive extruder and stainless steel nozzle, achieving a safe maximum print speed of 167 mm/s based on a 14 mm³/s volumetric flow limit. Because PETG requires no enclosed chamber and is non-abrasive, the open-frame setup paired with the 80°C bed limit provides reliable, clean results.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 50,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with glue stick or liquid release agent",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 14 mm³/s in the filament profile to prevent underextrusion during high-speed segments.",
+    "Enable 'Avoid Crossing Walls' (Max Detour Length: 150 mm) to reduce visible stringing and travel wiping across outer perimeters.",
+    "Lower outer wall acceleration to 3000 mm/s² and outer wall speed to 100 mm/s to eliminate surface ringing and gloss inconsistency.",
+    "Set Z Hop type to 'Spiral' or 'Normal' with a height of 0.4 mm to prevent nozzle collision with curling PETG perimeters."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe Stringing and Blobbing",
+      "rootCause": "PETG is hygroscopic and draws atmospheric moisture quickly, causing steam expulsion, oozing, and fine spiderweb stringing.",
+      "exactFix": "Dry the spool at 65°C for 6 to 8 hours in an active filament dryer, and increase retraction distance to 0.8 mm with 35 mm/s speed in OrcaSlicer."
+    },
+    {
+      "issue": "First Layer PEI Coating Delamination / Over-adhesion",
+      "rootCause": "PETG bonds aggressively to raw PEI sheets via molecular adhesion, causing plate coating tear-out upon part removal.",
+      "exactFix": "Apply a thin, even coat of PVP glue stick or liquid Bambu liquid glue as an interface release agent before printing, and wait for the bed to fully cool before releasing."
+    },
+    {
+      "issue": "Poor Layer Adhesion / Part Brittleness",
+      "rootCause": "Excessive part cooling fan speeds chilling the extruded track below thermal bonding temperature.",
+      "exactFix": "Cap the part cooling fan maximum to 50% in OrcaSlicer filament cooling settings, disable auxiliary fan, and raise nozzle printing temperature to 245°C."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can the Bambu Lab A1 Mini's 80°C bed temperature adequately adhere Overture PETG?",
+      "answer": "Yes, running the heatbed at its maximum 80°C target provides sufficient glass transition thermal energy for Overture PETG adhesion on the textured PEI plate."
+    },
+    {
+      "question": "Does Overture PETG require a hardened steel nozzle on the A1 Mini?",
+      "answer": "No, standard Overture PETG is non-abrasive and can be run indefinitely through the stock stainless steel nozzle without premature orifice wear."
+    },
+    {
+      "question": "Why is a release agent necessary on the textured PEI plate for PETG?",
+      "answer": "PETG chemically fuses to bare PEI surfaces; using a thin coat of glue stick acts as a release barrier to prevent tearing chunks of PEI coating off the plate during part removal."
+    },
+    {
+      "question": "What is the recommended flow ratio and pressure advance calibration value?",
+      "answer": "Start with a flow ratio of 0.95 to 0.97 in OrcaSlicer, with typical Pressure Advance (PA) calibrated around 0.035 to 0.045 s for direct drive extrusion with this material."
+    }
+  ]
+}

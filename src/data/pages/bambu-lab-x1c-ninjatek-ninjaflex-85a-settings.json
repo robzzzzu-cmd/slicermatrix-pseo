@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-x1c-ninjatek-ninjaflex-85a-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab X1C",
+    "slug": "bambu-lab-x1c",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 110,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 26
+  },
+  "filament": {
+    "name": "NinjaTek NinjaFlex 85A",
+    "slug": "ninjatek-ninjaflex-85a",
+    "brand": "NinjaTek",
+    "materialType": "TPU 85A",
+    "minNozzleTempC": 225,
+    "maxNozzleTempC": 240,
+    "minBedTempC": 40,
+    "maxBedTempC": 55,
+    "volumetricFlowLimitMm3s": 2.8,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 233,
+    "recommendedBedTempC": 48,
+    "effectiveVolumetricFlowMm3s": 2.8,
+    "calculatedMaxPrintSpeedMmS": 33,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-09T16:09:24.816Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab X1C handles flexible NinjaTek NinjaFlex 85A out of the box using its direct drive extruder, provided the volumetric flow is restricted to 2.8 mm³/s for a safe max print speed of 33 mm/s. No hardware upgrades are required, but filament must be fed directly via the rear spool holder rather than the AMS.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 25,
+  "coolingFanMinPct": 40,
+  "coolingFanMaxPct": 80,
+  "firstLayerSpeedMmS": 15,
+  "bedSurfaceRecommendation": "Textured PEI Plate + Glue Stick release agent (mandatory to prevent permanent bed bonding)",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 2.8 mm³/s in the filament profile to prevent extruder jamming and filament bucking.",
+    "Bypass the AMS completely; configure the rear spool holder or external drybox feed path.",
+    "Lower Retraction Length to 0.8 mm and Retraction Speed to 25 mm/s to reduce the risk of soft filament wrapping around drive gears.",
+    "Disable 'Reduce infill retraction' and enable 'Avoid crossing walls' to minimize stringing and surface scarring on flexible perimeters."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Filament wrapping around the extruder gears or jamming before the hotend",
+      "rootCause": "Volumetric flow rate or print speed is too high, causing backpressure that buckles the soft 85A filament inside the extruder.",
+      "exactFix": "Enforce a Maximum Volumetric Speed cap of 2.8 mm³/s in OrcaSlicer and keep max printing speeds below 33 mm/s."
+    },
+    {
+      "issue": "Excessive fine stringing, oozing, and branch-like whiskers",
+      "rootCause": "Moisture absorption due to highly hygroscopic TPU chemistry combined with excessive travel moves.",
+      "exactFix": "Dry filament at 50°C-55°C for at least 8 hours prior to printing, and enable 'Avoid crossing walls' with a max detour distance in OrcaSlicer."
+    },
+    {
+      "issue": "PEI coating tearing off or parts permanently fused to the build plate",
+      "rootCause": "Extremely high chemical adhesion between molten TPU and PEI surfaces upon cooling.",
+      "exactFix": "Apply a uniform layer of PVA glue stick or liquid bed adhesive to act as a sacrificial release agent before starting the print."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I feed NinjaTek NinjaFlex 85A through the Bambu AMS?",
+      "answer": "No, flexible filaments softer than 95A will buckle and jam in the internal AMS drive funnels and long PTFE tubing; feed directly from the external spool holder."
+    },
+    {
+      "question": "Why is the print speed capped at only 33 mm/s on a high-speed printer like the X1C?",
+      "answer": "The highly compliant 85A shore hardness cannot support high extrusion pressures without buckling in the extruder gears, limiting volumetric throughput to 2.8 mm³/s."
+    },
+    {
+      "question": "Should the Bambu Lab X1C chamber door be open or closed when printing NinjaFlex 85A?",
+      "answer": "Keep the top glass vented or front door propped slightly open if ambient temperature exceeds 25°C to avoid heat creep inside the direct drive assembly."
+    },
+    {
+      "question": "Is a glue stick really necessary on a textured PEI plate for TPU?",
+      "answer": "Yes, TPU bonds aggressively to PEI surfaces; the glue stick functions as a vital separation release agent to prevent permanently damaging the build plate surface."
+    }
+  ]
+}

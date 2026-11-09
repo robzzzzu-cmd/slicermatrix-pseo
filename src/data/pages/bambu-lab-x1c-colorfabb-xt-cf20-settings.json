@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-x1c-colorfabb-xt-cf20-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab X1C",
+    "slug": "bambu-lab-x1c",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 110,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 26
+  },
+  "filament": {
+    "name": "ColorFabb XT-CF20",
+    "slug": "colorfabb-xt-cf20",
+    "brand": "ColorFabb",
+    "materialType": "PETG-CF",
+    "minNozzleTempC": 245,
+    "maxNozzleTempC": 265,
+    "minBedTempC": 70,
+    "maxBedTempC": 80,
+    "volumetricFlowLimitMm3s": 12,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 255,
+    "recommendedBedTempC": 75,
+    "effectiveVolumetricFlowMm3s": 12,
+    "calculatedMaxPrintSpeedMmS": 143,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-09T16:04:38.014Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab X1C handles ColorFabb XT-CF20 natively out of the box thanks to its standard hardened steel nozzle and drive gears, reaching speeds up to 143 mm/s at a maximum volumetric flow rate of 12 mm³/s. While chamber heating is unnecessary for this copolyester-CF blend, thorough filament drying is critical to eliminate oozing and preserve inter-layer adhesion.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 50,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with PVP Glue Stick (mandatory release agent to prevent permanent surface bonding)",
+  "slicerTweaks": [
+    "Cap Maximum Volumetric Speed at 12 mm³/s in the Filament Profile to prevent high-speed under-extrusion and fiber clumping.",
+    "Increase default nozzle temperature to 255°C (260°C for the first layer) to account for carbon fiber thermal drag and maintain layer bonding.",
+    "Enable Wipe While Retracting (2 mm distance) and Retract on Layer Change to curb surface blobs caused by carbon fiber melt stiffness.",
+    "Set Aux Chamber Fan to 0% and keep Part Cooling Fan between 20-50% to prevent rapid cooling embrittlement and preserve mechanical strength."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Intermittent extrusion or complete nozzle clogging mid-print",
+      "rootCause": "Agglomeration of 20% micro-carbon fibers accumulating in a worn or narrow melt zone, exacerbated by volumetric over-driving.",
+      "exactFix": "Ensure maximum volumetric speed is locked to 12 mm³/s, bump print temperature to 255°C, or swap to a 0.6mm hardened steel nozzle if using heavy infills."
+    },
+    {
+      "issue": "Severe stringing, whiskers, and fuzzy perimeter artifacts",
+      "rootCause": "Moisture absorption in the Amphora copolyester base polymer causing steam micro-explosions during extrusion.",
+      "exactFix": "Dry the filament spool in a dedicated active dryer at 70°C for at least 6-8 hours before printing, and print directly from a sealed dry box or desiccant-loaded chamber."
+    },
+    {
+      "issue": "Tearing of the PEI build plate coating upon print removal",
+      "rootCause": "Extremely high chemical affinity between copolyester (PETG/Amphora) and PEI surfaces causing permanent fused adhesion.",
+      "exactFix": "Apply a uniform layer of PVP glue stick or liquid adhesive barrier onto the Textured PEI plate prior to heating to act as a sacrificial release agent."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I feed ColorFabb XT-CF20 through the Bambu AMS system?",
+      "answer": "Yes, but with caution; while the filament is stiff, high-duty cycles of abrasive carbon fiber will accelerate wear on stock plastic AMS funnels and internal PTFE feeder guides. For prolonged production runs, external spool feeding or hardened AMS feeder funnels are recommended."
+    },
+    {
+      "question": "Should I print with the X1C glass door and top lid closed or open?",
+      "answer": "Keep the door closed or slightly cracked; ColorFabb XT-CF20 does not require high chamber temperatures, but drafting must be avoided. The 75°C bed does not heat the chamber enough to cause heat creep, provided the aux fan remains off."
+    },
+    {
+      "question": "Is a 0.4mm nozzle safe, or is a 0.6mm nozzle required for XT-CF20?",
+      "answer": "A 0.4mm hardened steel nozzle works reliably because ColorFabb uses finely milled carbon fibers, but you must avoid printing below 0.15mm layer heights to prevent clogging."
+    },
+    {
+      "question": "Why is my part finish matte and rough rather than glossy?",
+      "answer": "The 20% carbon fiber load inherently diffuses light and produces a micro-textured matte finish. If the surface is excessively chalky or brittle, increase nozzle temperature to 260°C and drop part cooling fan speeds."
+    }
+  ]
+}

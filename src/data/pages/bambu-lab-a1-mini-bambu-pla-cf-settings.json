@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-mini-bambu-pla-cf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1 Mini",
+    "slug": "bambu-lab-a1-mini",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 80,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Bambu PLA-CF",
+    "slug": "bambu-pla-cf",
+    "brand": "Bambu Lab",
+    "materialType": "PLA-CF",
+    "minNozzleTempC": 210,
+    "maxNozzleTempC": 240,
+    "minBedTempC": 45,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 16,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 225,
+    "recommendedBedTempC": 55,
+    "effectiveVolumetricFlowMm3s": 16,
+    "calculatedMaxPrintSpeedMmS": 190,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-09T16:25:03.180Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab A1 Mini easily runs Bambu PLA-CF at safe printing speeds up to 190 mm/s based on its 16 mm³/s volumetric limit, but it requires upgrading from the stock stainless steel hotend to a hardened steel hotend to prevent rapid abrasive wear. Once upgraded, its direct drive extruder handles the carbon-fiber composite reliably without needing an enclosure.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 40,
+  "coolingFanMaxPct": 90,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with clean surface (IPA wipe) or thin liquid glue barrier.",
+  "slicerTweaks": [
+    "Cap Max Volumetric Speed at 16 mm³/s under the Filament > Advanced tab to avoid under-extrusion at high feeds.",
+    "Increase default nozzle temperature to 225°C and bed to 55°C to offset the lower thermal conductivity of hardened steel.",
+    "Set outer wall speed to 120 mm/s and inner walls to 180 mm/s to preserve surface finish and maximize layer bonding with carbon fibers.",
+    "Reduce retraction distance slightly to 0.8 mm at 30 mm/s to prevent fiber jamming inside the heatbreak during frequent retractions."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe nozzle bore wear leading to inconsistent extrusion widths and poor layer consistency",
+      "rootCause": "Printing carbon fiber reinforced filament through the factory-installed 0.4mm stainless steel hotend",
+      "exactFix": "Install the official Bambu Lab 0.4mm or 0.6mm Hardened Steel Quick-Swap Hotend assembly."
+    },
+    {
+      "issue": "Intermittent clogs and extruder gear grinding during complex retractions",
+      "rootCause": "Carbon fiber chopped strands bridging in the 0.4mm nozzle orifice or heat creep softening the PLA core",
+      "exactFix": "Ensure print temperature is maintained at 225°C, lower retraction to 0.8mm, or upgrade to a 0.6mm hardened nozzle for high reliability."
+    },
+    {
+      "issue": "Brittle layer adhesion and surface stringing",
+      "rootCause": "Moisture absorption by the PLA-CF matrix and excessive part cooling fan speed",
+      "exactFix": "Dry the filament spool at 55°C for 8 hours before printing and reduce the maximum cooling fan speed from 100% to 80%."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Bambu PLA-CF using the stock A1 Mini hotend?",
+      "answer": "No, the stock hotend uses a stainless steel nozzle which will wear out within a few hundred grams of PLA-CF, enlarging the orifice and ruining print tolerances. You must swap to a hardened steel hotend."
+    },
+    {
+      "question": "Do I need an enclosure to print Bambu PLA-CF on the A1 Mini?",
+      "answer": "No, PLA-CF does not require an enclosure and prints best on open-frame machines like the A1 Mini with ambient airflow to prevent heat creep."
+    },
+    {
+      "question": "Can I use the standard 0.2mm or 0.4mm nozzle sizes?",
+      "answer": "A 0.4mm hardened steel nozzle is standard and works well, but a 0.6mm hardened steel nozzle drastically reduces the risk of fiber clogs while maintaining strength."
+    },
+    {
+      "question": "Can I feed Bambu PLA-CF through the AMS Lite on the A1 Mini?",
+      "answer": "Yes, Bambu PLA-CF is fully compatible with the AMS Lite, though extended use of abrasive materials will gradually wear the PTFE tubes and funnel guides over time."
+    }
+  ]
+}

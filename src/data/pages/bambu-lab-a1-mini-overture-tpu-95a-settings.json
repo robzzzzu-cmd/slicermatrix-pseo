@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-mini-overture-tpu-95a-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1 Mini",
+    "slug": "bambu-lab-a1-mini",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 80,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Overture TPU 95A",
+    "slug": "overture-tpu-95a",
+    "brand": "Overture",
+    "materialType": "TPU",
+    "minNozzleTempC": 215,
+    "maxNozzleTempC": 235,
+    "minBedTempC": 40,
+    "maxBedTempC": 60,
+    "volumetricFlowLimitMm3s": 4.5,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 225,
+    "recommendedBedTempC": 50,
+    "effectiveVolumetricFlowMm3s": 4.5,
+    "calculatedMaxPrintSpeedMmS": 54,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-09T16:30:41.983Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab A1 Mini handles Overture TPU 95A out of the box using its responsive direct drive extruder without needing nozzle or enclosure upgrades. Printing is capped at a calculated safe max speed of 54 mm/s to strictly honor the 4.5 mm³/s volumetric flow limit and prevent filament buckling.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 40,
+  "coolingFanMaxPct": 80,
+  "firstLayerSpeedMmS": 25,
+  "bedSurfaceRecommendation": "Textured PEI Plate with PVP Glue Stick as a release agent",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 4.5 mm³/s in the Filament settings to prevent extruder gear jamming.",
+    "Enable Avoid Crossing Walls in Quality settings to minimize stringing and oozing across travel paths.",
+    "Disable Retraction Wipe or set it to 0 mm to avoid grinding the flexible filament against the drive gears.",
+    "Set First Layer Speed to 25 mm/s and Outer Wall Speed to 40 mm/s for optimal surface quality and layer adhesion."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Extruder clogs and filament loops out of the drive gears",
+      "rootCause": "Volumetric speed exceeding 4.5 mm³/s or excessively rapid retractions pushing the flexible filament out of the constrained path.",
+      "exactFix": "Clamp Max Volumetric Speed to 4.5 mm³/s in OrcaSlicer and lower Retraction Speed to 30 mm/s."
+    },
+    {
+      "issue": "Severe fine stringing and surface bubbling across perimeters",
+      "rootCause": "TPU is highly hygroscopic and has absorbed ambient moisture, generating steam in the hotend.",
+      "exactFix": "Dry the filament in a dedicated dryer at 55°C for 6 to 8 hours before printing directly from a drybox."
+    },
+    {
+      "issue": "Print fuses permanently to the build plate and tears PEI coating",
+      "rootCause": "Direct adhesion of molten TPU to PEI creates an excessively strong chemical and mechanical bond.",
+      "exactFix": "Apply an even layer of liquid glue or standard glue stick across the Textured PEI Plate to act as a sacrificial release interface."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I feed Overture TPU 95A through the Bambu Lab AMS Lite?",
+      "answer": "No, flexible filaments like TPU 95A will bind and tangle inside the AMS Lite feeder mechanisms; load it using an external spool holder mounted directly to the toolhead."
+    },
+    {
+      "question": "Why is print speed restricted to 54 mm/s on a high-speed machine?",
+      "answer": "Flexible filaments experience severe backpressure and buckle if forced through the hotend faster than their 4.5 mm³/s melt rate allows."
+    },
+    {
+      "question": "Does Overture TPU 95A require a hardened steel nozzle on the A1 Mini?",
+      "answer": "No, standard TPU 95A is non-abrasive, so the stock stainless steel nozzle operates reliably without abnormal wear."
+    },
+    {
+      "question": "Why is glue stick necessary if the bed is textured PEI?",
+      "answer": "On PEI surfaces, TPU bonds so strongly that it can delaminate the PEI coating during removal; the glue stick functions as a release barrier rather than an adhesive."
+    }
+  ]
+}
