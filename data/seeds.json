@@ -5663,7 +5663,7 @@
   },
   {
     "slug": "bambu-lab-a1-mini-prusament-pla-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab A1 Mini",
       "slug": "bambu-lab-a1-mini",

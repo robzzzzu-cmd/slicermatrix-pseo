@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-mini-prusament-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1 Mini",
+    "slug": "bambu-lab-a1-mini",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 80,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Prusament PLA",
+    "slug": "prusament-pla",
+    "brand": "Prusament",
+    "materialType": "PLA",
+    "minNozzleTempC": 205,
+    "maxNozzleTempC": 220,
+    "minBedTempC": 55,
+    "maxBedTempC": 60,
+    "volumetricFlowLimitMm3s": 20,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 213,
+    "recommendedBedTempC": 58,
+    "effectiveVolumetricFlowMm3s": 20,
+    "calculatedMaxPrintSpeedMmS": 238,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-10T15:02:49.706Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab A1 Mini handles Prusament PLA effortlessly straight out of the box with its stock stainless steel nozzle and open-frame design. Leveraging an effective volumetric flow rate of 20 mm³/s, the machine safely achieves print speeds up to 238 mm/s without requiring hardware modifications.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 100,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate (no adhesive required)",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 20 mm³/s in the Filament Settings to cap high-speed moves within the hotend melt zone limit.",
+    "Adjust Nozzle Temperature to 215°C for initial and other layers to account for the slightly lower thermal conductivity of the stock stainless steel nozzle at speed.",
+    "Enable Pressure Advance (K-factor) calibration, setting a baseline value around 0.022 for sharp corners without bulging.",
+    "Set outer wall speed to 150 mm/s and inner wall speed to 238 mm/s in Process settings for a balance between surface finish and speed."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Under-extrusion or matte banding during high-speed infill moves",
+      "rootCause": "Volumetric flow bottleneck caused by the stainless steel nozzle's thermal lag at speeds approaching 238 mm/s.",
+      "exactFix": "Increase nozzle temperature to 220°C or reduce Max Volumetric Speed in OrcaSlicer to 17 mm³/s."
+    },
+    {
+      "issue": "Corner lifting or warping on wide flat parts",
+      "rootCause": "Drafts from the open-frame design cooling the edges too quickly, or finger grease on the PEI surface.",
+      "exactFix": "Wash the Textured PEI plate with warm water and dish soap, and bump the bed temperature to 60°C with auxiliary fan disabled."
+    },
+    {
+      "issue": "Stringing and whisker formation on travel moves",
+      "rootCause": "Retraction distance insufficient or hotend temperature idling too high for Prusament PLA's tight viscosity profile.",
+      "exactFix": "Increase retraction distance from 0.8mm to 1.0mm, enable 'Wipe while retracting' (2mm), and lower nozzle temperature by 5°C."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Do I need a hardened steel nozzle to print Prusament PLA on the A1 Mini?",
+      "answer": "No, standard Prusament PLA is non-abrasive, making the stock stainless steel nozzle perfectly suitable for continuous printing."
+    },
+    {
+      "question": "Can I print Prusament PLA at the A1 Mini's advertised 500 mm/s top speed?",
+      "answer": "No, standard Prusament PLA is limited by a volumetric flow cap of 20 mm³/s, which restricts standard extrusion (0.2mm layer, 0.42mm width) to a safe ceiling of 238 mm/s."
+    },
+    {
+      "question": "Does Prusament PLA require an enclosure on the Bambu Lab A1 Mini?",
+      "answer": "No, PLA prints best in an open-air environment with maximum cooling; an enclosure can cause heat creep and clogging."
+    },
+    {
+      "question": "Should I use glue stick on the Bambu Textured PEI plate for Prusament PLA?",
+      "answer": "No glue stick is needed; clean the textured PEI sheet thoroughly with dish soap and water, and Prusament PLA will release naturally upon cooling."
+    }
+  ]
+}
