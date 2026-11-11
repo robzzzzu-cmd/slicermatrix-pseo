@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-mini-siraya-tech-abs-gf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1 Mini",
+    "slug": "bambu-lab-a1-mini",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 80,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Siraya Tech ABS-GF",
+    "slug": "siraya-tech-abs-gf",
+    "brand": "Siraya Tech",
+    "materialType": "ABS-GF",
+    "minNozzleTempC": 250,
+    "maxNozzleTempC": 270,
+    "minBedTempC": 95,
+    "maxBedTempC": 110,
+    "volumetricFlowLimitMm3s": 15,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 260,
+    "recommendedBedTempC": 80,
+    "effectiveVolumetricFlowMm3s": 15,
+    "calculatedMaxPrintSpeedMmS": 179,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": true
+  },
+  "generatedAt": "2026-11-11T14:18:15.502Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab A1 Mini can process Siraya Tech ABS-GF up to 179 mm/s at a 15 mm³/s volumetric flow limit, but strictly requires upgrading the stock stainless steel nozzle to a hardened steel assembly. Due to the printer's 80°C bed temperature ceiling and open-frame design, parts are susceptible to warping unless a draft shield or external enclosure is utilized.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 20,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate with PVP glue stick or Magigoo liquid adhesive",
+  "slicerTweaks": [
+    "Cap the filament profile Maximum Volumetric Speed strictly at 15 mm³/s to prevent hotend under-extrusion at speed.",
+    "Set the build plate temperature to 80°C for both first layer and other layers, representing the absolute maximum of the A1 Mini.",
+    "Enable a multi-layer Draft Shield and an outer brim of at least 8 mm with 0 mm brim-object gap to compensate for the open-frame heat loss.",
+    "Restrict Part Cooling Fan to 0% minimum and 20% maximum, keeping the fan entirely off for the first 4 layers to maximize layer adhesion."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe bed warping or print detachment",
+      "rootCause": "The A1 Mini maximum bed temperature of 80°C is below the filament recommended 95-110°C glass transition threshold, combined with open-air ambient drafts.",
+      "exactFix": "Apply a uniform layer of PVP glue stick onto the Textured PEI plate, add a 10 mm brim with 0 mm offset, and enable a draft shield in OrcaSlicer."
+    },
+    {
+      "issue": "Interlayer splitting and delamination",
+      "rootCause": "Excessive convective cooling from the open-frame bed flinger motion and premature auxiliary/part cooling.",
+      "exactFix": "Turn off the part cooling fan entirely (0% fan speed), increase nozzle temperature to 265°C, and position the printer in a draft-free room."
+    },
+    {
+      "issue": "Extrusion inconsistency and loss of dimensional accuracy over time",
+      "rootCause": "Glass fibers in the filament rapidly abrading the stock stainless steel nozzle orifice.",
+      "exactFix": "Install the official Bambu Lab 0.4mm or 0.6mm Hardened Steel Hotend assembly prior to printing."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Siraya Tech ABS-GF with the stock A1 Mini stainless steel nozzle?",
+      "answer": "No. Glass fibers are highly abrasive and will erode the stock stainless steel nozzle within a few hundred grams of printing, leading to blown-out bore diameter and severe print defects. Install a Bambu Lab hardened steel hotend first."
+    },
+    {
+      "question": "How do I overcome the 80°C bed limit when Siraya Tech specifies 95-110°C?",
+      "answer": "Because the A1 Mini firmware hard-caps the heatbed at 80°C, you must rely on chemical adhesion promoters (such as Magigoo or PVP glue stick), wide brims, and draft shields to eliminate perimeter peel."
+    },
+    {
+      "question": "Can I put the A1 Mini inside a sealed enclosure for ABS-GF printing?",
+      "answer": "Proceed with caution. While an enclosure prevents ABS warping, the A1 Mini base houses the motherboard and power supply without dedicated external cooling ducts; enclosure ambient temperatures should not exceed 40-45°C to avoid overheating mainboard electronics."
+    },
+    {
+      "question": "Does Siraya Tech ABS-GF need to be dried before printing?",
+      "answer": "Yes. ABS is hygroscopic and moisture trapped around glass fibers causes internal steam voids, stringing, and severe layer weakness. Dehydrate the spool in a filament dryer at 70°C for at least 6 to 8 hours prior to use."
+    }
+  ]
+}

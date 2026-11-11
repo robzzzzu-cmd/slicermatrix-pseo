@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-mini-polymaker-fiberon-pa612-cf15-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1 Mini",
+    "slug": "bambu-lab-a1-mini",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 80,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Polymaker Fiberon PA612-CF15",
+    "slug": "polymaker-fiberon-pa612-cf15",
+    "brand": "Polymaker",
+    "materialType": "PA612-CF",
+    "minNozzleTempC": 275,
+    "maxNozzleTempC": 295,
+    "minBedTempC": 45,
+    "maxBedTempC": 55,
+    "volumetricFlowLimitMm3s": 12,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 285,
+    "recommendedBedTempC": 50,
+    "effectiveVolumetricFlowMm3s": 12,
+    "calculatedMaxPrintSpeedMmS": 143,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": true
+  },
+  "generatedAt": "2026-11-11T14:38:48.038Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab A1 Mini can successfully run Polymaker Fiberon PA612-CF15 up to a calculated safe print speed of 143 mm/s (12 mm³/s volumetric flow limit), but requires a hardened steel hotend swap to prevent immediate nozzle destruction. While PA612 exhibits lower warp tendencies than standard PA6, drafts on this open-frame printer necessitate printing inside a draft-free room or tent alongside an active dry box.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 25,
+  "firstLayerSpeedMmS": 25,
+  "bedSurfaceRecommendation": "Textured PEI Plate with PVP-based glue stick or dedicated nylon bed adhesive (e.g., Magigoo PA)",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 12 mm³/s in the filament profile to cap print speeds safely at 143 mm/s.",
+    "Enable Wipe While Retracting (2 mm distance) and activate retract on layer change to mitigate carbon fiber oozing.",
+    "Configure Part Cooling Fan threshold: Keep cooling at 0% for layers 1-3, ramping up to a maximum of 25% only for overhangs and short layer times under 15 seconds.",
+    "Set Wall Generator to Arachne with an outer wall speed of 80 mm/s and inner wall speed of 120 mm/s to optimize dimensional accuracy."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe stringing and rough, porous surface finish",
+      "rootCause": "Wet filament; PA612-CF is hygroscopic and rapidly absorbs ambient moisture even during a few hours of open-air printing.",
+      "exactFix": "Dry the filament in an active blast oven at 80°C for 8-12 hours and print directly from a heated dry box using PTFE tubing directly to the toolhead."
+    },
+    {
+      "issue": "Corner lifting and print warping on parts larger than 50mm",
+      "rootCause": "Differential thermal contraction accelerated by ambient drafts on the open-frame A1 Mini chassis.",
+      "exactFix": "Apply a generous 5-8 mm outer brim with a 0.1 mm brim-object gap, place a draft shield around the printer, and keep part cooling off (0%)."
+    },
+    {
+      "issue": "Extruder clicking, under-extrusion, or rapid bore enlargement",
+      "rootCause": "Printing abrasive carbon fiber composite through the stock stainless steel nozzle or exceeding the 12 mm³/s flow capability.",
+      "exactFix": "Install an official Bambu Lab 0.4mm or 0.6mm Hardened Steel Hotend assembly and confirm volumetric flow rate is clamped at or below 12 mm³/s."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Fiberon PA612-CF15 on the A1 Mini with the stock nozzle?",
+      "answer": "No. The stock A1 Mini hotend uses a stainless steel nozzle which will wear out and widen within a few hundred grams of CF filament; you must upgrade to the Bambu hardened steel hotend."
+    },
+    {
+      "question": "Does the A1 Mini need a full enclosure to print PA612-CF15?",
+      "answer": "Not necessarily for small-to-medium parts, as PA612 has significantly lower shrinkage than PA6, but you must prevent drafts and avoid high part cooling fan speeds."
+    },
+    {
+      "question": "Can I feed this filament directly from the Bambu AMS Lite?",
+      "answer": "No. Carbon fiber filaments are abrasive and can groove AMS Lite plastic funnels, and unsealed open spools will absorb ambient moisture rapidly; feed directly from an active dry box."
+    },
+    {
+      "question": "What nozzle temperature should I set in OrcaSlicer for this material?",
+      "answer": "Set the nozzle temperature to 285°C for all layers (within the 275°C-295°C range), pairing it with a 50°C bed temperature to guarantee proper fusion and flow."
+    }
+  ]
+}

@@ -4827,7 +4827,7 @@
   },
   {
     "slug": "bambu-lab-a1-mini-polymaker-pa6-cf-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab A1 Mini",
       "slug": "bambu-lab-a1-mini",
@@ -4865,7 +4865,7 @@
   },
   {
     "slug": "bambu-lab-a1-mini-prusament-pc-blend-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab A1 Mini",
       "slug": "bambu-lab-a1-mini",
@@ -4941,7 +4941,7 @@
   },
   {
     "slug": "bambu-lab-a1-mini-siraya-tech-abs-gf-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab A1 Mini",
       "slug": "bambu-lab-a1-mini",
@@ -5017,7 +5017,7 @@
   },
   {
     "slug": "bambu-lab-a1-mini-polymaker-polylite-abs-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab A1 Mini",
       "slug": "bambu-lab-a1-mini",
@@ -5055,7 +5055,7 @@
   },
   {
     "slug": "bambu-lab-a1-mini-polymaker-polymax-petg-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab A1 Mini",
       "slug": "bambu-lab-a1-mini",
@@ -5093,7 +5093,7 @@
   },
   {
     "slug": "bambu-lab-a1-mini-polymaker-fiberon-pa612-cf15-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab A1 Mini",
       "slug": "bambu-lab-a1-mini",
@@ -5131,7 +5131,7 @@
   },
   {
     "slug": "bambu-lab-a1-mini-bambu-petg-hf-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab A1 Mini",
       "slug": "bambu-lab-a1-mini",
@@ -5169,7 +5169,7 @@
   },
   {
     "slug": "bambu-lab-a1-mini-bambu-petg-cf-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab A1 Mini",
       "slug": "bambu-lab-a1-mini",
@@ -5207,7 +5207,7 @@
   },
   {
     "slug": "bambu-lab-a1-mini-bambu-paht-cf-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab A1 Mini",
       "slug": "bambu-lab-a1-mini",
@@ -5321,7 +5321,7 @@
   },
   {
     "slug": "bambu-lab-a1-mini-esun-abs-plus-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab A1 Mini",
       "slug": "bambu-lab-a1-mini",
@@ -5625,7 +5625,7 @@
   },
   {
     "slug": "bambu-lab-a1-mini-sunlu-asa-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab A1 Mini",
       "slug": "bambu-lab-a1-mini",

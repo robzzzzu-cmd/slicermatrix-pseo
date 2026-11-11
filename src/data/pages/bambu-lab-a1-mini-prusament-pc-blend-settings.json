@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-mini-prusament-pc-blend-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1 Mini",
+    "slug": "bambu-lab-a1-mini",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 80,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Prusament PC Blend",
+    "slug": "prusament-pc-blend",
+    "brand": "Prusament",
+    "materialType": "PC",
+    "minNozzleTempC": 265,
+    "maxNozzleTempC": 285,
+    "minBedTempC": 105,
+    "maxBedTempC": 115,
+    "volumetricFlowLimitMm3s": 12,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 275,
+    "recommendedBedTempC": 80,
+    "effectiveVolumetricFlowMm3s": 12,
+    "calculatedMaxPrintSpeedMmS": 143,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": true
+  },
+  "generatedAt": "2026-11-11T14:11:06.637Z",
+  "compatibilityVerdict": "Advanced Setup",
+  "heroSummary": "The Bambu Lab A1 Mini can extrude Prusament PC Blend up to a safe maximum print speed of 143 mm/s (12 mm³/s volumetric flow) via its direct drive hotend capable of 300°C. However, printing is strictly constrained to small parts due to the 80°C maximum bed limit and open-frame architecture which cause severe warping without a draft shield or makeshift enclosure.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 15,
+  "firstLayerSpeedMmS": 25,
+  "bedSurfaceRecommendation": "Textured PEI Plate with a generous layer of PVP glue stick as an essential release and adhesion interface.",
+  "slicerTweaks": [
+    "Cap Maximum Volumetric Speed to 12 mm³/s in the filament profile and keep outer wall speeds below 100 mm/s.",
+    "Enable a multi-layer Draft Shield with 2 loops and a distance of 3 mm to trap heat and prevent ambient drafts from delaminating layers.",
+    "Set the heatbed temperature to the maximum hardware limit of 80°C for all layers and add a 5-8 mm outer brim with 0 mm brim-to-object gap.",
+    "Disable the auxiliary part cooling fan completely and limit normal part cooling fan to 0% for standard layers, ramping up to a maximum of 15% only for overhangs over 50%."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Corner lifting and print detaching from bed",
+      "rootCause": "Bed temperature is capped at 80°C, which is significantly below Prusament PC's recommended 105-115°C glass transition range.",
+      "exactFix": "Apply a fresh, uniform layer of PVP glue stick on the textured PEI plate, add a 10 mm mouse-ear or wide brim, and enable a draft shield in OrcaSlicer to retain local bed heat."
+    },
+    {
+      "issue": "Severe layer separation and cracking (delamination)",
+      "rootCause": "Excessive cooling and high thermal gradients caused by the open-frame bed slinger design and ambient room drafts.",
+      "exactFix": "Set part cooling fan threshold to 0% min / 15% max, disable aux cooling entirely, increase nozzle temperature to 280°C to promote interlayer fusion, and shield the printer from drafts."
+    },
+    {
+      "issue": "Extruder clicking, stringing, and rough surface bubbling",
+      "rootCause": "Polycarbonate is highly hygroscopic and absorbs ambient moisture rapidly, causing vapor expansion in the melt zone.",
+      "exactFix": "Dehydrate the filament in an active filament dryer at 75-80°C for at least 8 to 12 hours prior to printing and print directly from a sealed dry box."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print large structural parts in Prusament PC Blend on the A1 Mini?",
+      "answer": "No. Because the A1 Mini lacks an enclosure and its bed caps out at 80°C (well below PC's 105-115°C requirement), large footprint or tall parts will inevitably warp or crack; keep prints small and compact."
+    },
+    {
+      "question": "Does Prusament PC Blend require a hardened steel nozzle on the A1 Mini?",
+      "answer": "Standard Prusament PC Blend is an unfilled polycarbonate and is not abrasive, so it does not require a hardened steel nozzle; the stock stainless steel nozzle is sufficient."
+    },
+    {
+      "question": "Why is glue stick required on a textured PEI sheet for PC Blend?",
+      "answer": "Polycarbonate can bond too aggressively to clean PEI coatings and tear pieces of the bed coating off during removal; glue stick acts primarily as a sacrificial release interface while assisting adhesion at 80°C."
+    },
+    {
+      "question": "Can I fully enclose the Bambu Lab A1 Mini to improve PC printing performance?",
+      "answer": "Enclosing the A1 Mini is not officially supported and should be avoided or done with extreme caution, as the mainboard, power supply, and stepper motors rely on open ambient air for cooling."
+    }
+  ]
+}

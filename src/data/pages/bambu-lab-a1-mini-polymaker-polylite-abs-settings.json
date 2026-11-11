@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-mini-polymaker-polylite-abs-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1 Mini",
+    "slug": "bambu-lab-a1-mini",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 80,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Polymaker PolyLite ABS",
+    "slug": "polymaker-polylite-abs",
+    "brand": "Polymaker",
+    "materialType": "ABS",
+    "minNozzleTempC": 245,
+    "maxNozzleTempC": 265,
+    "minBedTempC": 90,
+    "maxBedTempC": 105,
+    "volumetricFlowLimitMm3s": 18,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 255,
+    "recommendedBedTempC": 80,
+    "effectiveVolumetricFlowMm3s": 18,
+    "calculatedMaxPrintSpeedMmS": 214,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": true
+  },
+  "generatedAt": "2026-11-11T14:23:13.024Z",
+  "compatibilityVerdict": "Advanced Setup",
+  "heroSummary": "The Bambu Lab A1 Mini can extrude Polymaker PolyLite ABS at speeds up to 214 mm/s backed by an 18 mm³/s volumetric flow limit, but its open-frame design severely restricts print size due to thermal warping. Successful prints require setting the bed to its hardware maximum of 80°C alongside a dedicated draft shield or tent enclosure.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 15,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate with Liquid Glue / PVP Glue Stick as an adhesion promoter and release agent",
+  "slicerTweaks": [
+    "Cap Maximum Volumetric Speed to 18 mm³/s under the Filament > Advanced tab to avoid extruder skipping at 255°C.",
+    "Enable a Draft Shield (Auto or Full Height) under Others > Draft Shield to trap heat on the open bed.",
+    "Set Bed Temperature to the hardware ceiling of 80°C for all layers and lower Part Cooling Fan to 0% for standard layers (max 15% for bridges/overhangs).",
+    "Configure a 5-8mm Outer Brim with a 0.0mm Brim-object gap to counteract extreme corner lifting on the 80°C bed."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe bed warping and corner lifting",
+      "rootCause": "The A1 Mini bed maxes out at 80°C, which is below PolyLite ABS's glass transition temperature (Tg ~100°C), exacerbated by open-air ambient drafts.",
+      "exactFix": "Apply PVP glue stick to the Textured PEI plate, add an 8mm mouse-ear or full brim with 0.0mm gap, and cover the printer with a passive draft enclosure."
+    },
+    {
+      "issue": "Inter-layer cracking and delamination (Z-splitting)",
+      "rootCause": "Excessive cooling from ambient air currents and part cooling fan freezing extruded layers before molecular bonding occurs.",
+      "exactFix": "Set part cooling fan threshold to 0% minimum and 15% maximum, increase nozzle temperature to 260°C, and enable an OrcaSlicer draft shield."
+    },
+    {
+      "issue": "Extruder clicking and under-extrusion at high speeds",
+      "rootCause": "Exceeding the melt capacity of the stock stainless steel hotend when attempting to print beyond 18 mm³/s.",
+      "exactFix": "Clamp maximum volumetric flow rate to 18 mm³/s in OrcaSlicer and ensure print speeds do not surpass 214 mm/s for 0.2mm layer heights."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can the Bambu Lab A1 Mini print large ABS parts reliably?",
+      "answer": "No. Due to the bed temperature limit of 80°C and lack of a heated chamber, prints with footprints larger than 50-70mm will inevitably warp or crack without a draft-free enclosure."
+    },
+    {
+      "question": "Do I need to upgrade to a hardened steel nozzle for PolyLite ABS?",
+      "answer": "No. Standard PolyLite ABS is non-abrasive, meaning the stock stainless steel nozzle on the A1 Mini is fully compatible and will not suffer premature wear."
+    },
+    {
+      "question": "Can I put the A1 Mini inside a sealed thermal enclosure?",
+      "answer": "Caution is required. The A1 Mini has motherboard and power supply electronics mounted directly on the frame; ambient enclosure temps should not exceed 45°C to avoid thermal runaway or electronics failure."
+    },
+    {
+      "question": "Does Polymaker PolyLite ABS need drying before printing?",
+      "answer": "Yes. ABS is hygroscopic and absorbs ambient moisture, resulting in stringing, popping at the nozzle, and reduced layer strength. Dry at 65-70°C for at least 6 hours prior to printing."
+    }
+  ]
+}

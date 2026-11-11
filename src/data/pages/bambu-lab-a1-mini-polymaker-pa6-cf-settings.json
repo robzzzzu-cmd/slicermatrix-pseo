@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-mini-polymaker-pa6-cf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1 Mini",
+    "slug": "bambu-lab-a1-mini",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 80,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Polymaker PA6-CF",
+    "slug": "polymaker-pa6-cf",
+    "brand": "Polymaker",
+    "materialType": "PA6-CF",
+    "minNozzleTempC": 280,
+    "maxNozzleTempC": 300,
+    "minBedTempC": 40,
+    "maxBedTempC": 50,
+    "volumetricFlowLimitMm3s": 11,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 290,
+    "recommendedBedTempC": 45,
+    "effectiveVolumetricFlowMm3s": 11,
+    "calculatedMaxPrintSpeedMmS": 131,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": true
+  },
+  "generatedAt": "2026-11-11T14:05:16.417Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab A1 Mini can process Polymaker PA6-CF at speeds up to 131 mm/s governed by an 11 mm³/s volumetric limit, but it requires upgrading from the stock stainless steel nozzle to a hardened steel hotend assembly. Because the printer has an open bed design, drafts must be shielded and the abrasive, highly hygroscopic filament must be fed directly from an active dry box.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 20,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate with PVP glue stick or Magigoo PA as a bonding and release agent",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 11 mm³/s under the Filament profile to prevent underextrusion during high-speed moves.",
+    "Lower part cooling to 0% min and 20% max with a 30-second minimum layer time threshold to maximize layer adhesion and prevent warping.",
+    "Enable a 5mm outer brim with a 0.1mm brim-object gap to counteract thermal contraction on open-bed prints.",
+    "Set the Pressure Advance value to 0.035 to eliminate corner bulging and seam blobbing characteristic of carbon fiber filled nylon."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Extruder clicking, severe underextrusion, and rapid nozzle wear",
+      "rootCause": "Using the stock Bambu stainless steel nozzle which erodes rapidly from abrasive carbon fibers, or running volumetric speed beyond 11 mm³/s.",
+      "exactFix": "Install an official Bambu Lab hardened steel 0.4mm or 0.6mm hotend and cap max volumetric speed at 11 mm³/s in OrcaSlicer."
+    },
+    {
+      "issue": "Severe part warping, corner lifting, and plate detachment",
+      "rootCause": "Open-frame draft exposure and poor bed adhesion of PA6 onto raw PEI at standard nylon temperatures.",
+      "exactFix": "Apply a dedicated nylon adhesive like Magigoo PA on the Textured PEI plate, run bed temp at 50°C, and shield the printer from ambient air drafts."
+    },
+    {
+      "issue": "Excessive stringing, surface popping noises, and weak interlayer bonding",
+      "rootCause": "Moisture absorption in the nylon filament prior to or during the print cycle.",
+      "exactFix": "Dry the filament in a dedicated convection dryer at 80°C-100°C for 8-12 hours and print directly from an airtight dry box using PTFE routing."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Polymaker PA6-CF with the stock A1 Mini nozzle?",
+      "answer": "No. The stock nozzle is stainless steel, which will quickly bore out and degrade from the chopped carbon fibers. You must install the Bambu Lab Hardened Steel hotend assembly."
+    },
+    {
+      "question": "Is an enclosure required to print PA6-CF on the A1 Mini?",
+      "answer": "While small-to-medium parts can succeed on the open frame due to carbon fiber reducing thermal shrinkage, you must shield the printer from ambient drafts and avoid enclosing the A1 Mini's mainboard directly."
+    },
+    {
+      "question": "Can I feed Polymaker PA6-CF directly from the AMS Lite?",
+      "answer": "It is not recommended because the AMS Lite is open-air and PA6 absorbs atmospheric moisture within hours. Use an active heated dry box feeding directly into the toolhead."
+    },
+    {
+      "question": "What is the calculated maximum printing speed for this setup?",
+      "answer": "With an 11 mm³/s volumetric limit, a 0.4mm nozzle, and a 0.2mm layer height (0.42mm line width), your safe maximum speed is 131 mm/s."
+    }
+  ]
+}

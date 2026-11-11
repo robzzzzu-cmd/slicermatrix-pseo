@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-mini-bambu-petg-cf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1 Mini",
+    "slug": "bambu-lab-a1-mini",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 80,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Bambu PETG-CF",
+    "slug": "bambu-petg-cf",
+    "brand": "Bambu Lab",
+    "materialType": "PETG-CF",
+    "minNozzleTempC": 240,
+    "maxNozzleTempC": 270,
+    "minBedTempC": 65,
+    "maxBedTempC": 80,
+    "volumetricFlowLimitMm3s": 15,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 255,
+    "recommendedBedTempC": 73,
+    "effectiveVolumetricFlowMm3s": 15,
+    "calculatedMaxPrintSpeedMmS": 179,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-11T14:52:53.113Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab A1 Mini can reliably print Bambu PETG-CF at up to 179 mm/s based on a 15 mm³/s volumetric flow limit, but you must replace the stock stainless steel nozzle with a hardened steel hotend assembly to prevent rapid abrasive wear. The open-frame architecture handles PETG-CF cleanly without an enclosure, provided the filament is thoroughly dried prior to printing.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 50,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with a thin PVP glue stick or liquid glue release layer",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 15 mm³/s in the filament profile to cap travel speed safely around 179 mm/s.",
+    "Enable Avoid Crossing Walls with a Max Detour Distance of 0 mm to minimize carbon fiber stringing across outer shells.",
+    "Calibrate Pressure Advance to approximately 0.038 - 0.044 to prevent seam bulging and corner over-extrusion.",
+    "Set Z-hop type to Spiral with a 0.4 mm height to prevent abrasive nozzle drag across dense infill patterns."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Fine fuzzy stringing and surface whisker defects",
+      "rootCause": "Filament is saturated with ambient moisture and oozing under hotend thermal pressure.",
+      "exactFix": "Dry the filament spool in a dedicated dryer at 65°C for 8 hours before printing, and reduce printing temperature to 250°C."
+    },
+    {
+      "issue": "Mid-print under-extrusion and rapid bore degradation",
+      "rootCause": "Stock stainless steel nozzle orifice has eroded or clogged from abrasive micro-carbon fibers.",
+      "exactFix": "Upgrade to the Bambu 0.4mm Hardened Steel Hotend for A1 series and perform a cold pull at 140°C to clear debris."
+    },
+    {
+      "issue": "Bed surface damage or plate coating tear-out upon part removal",
+      "rootCause": "PETG forms an aggressive chemical bond directly with the PEI surface at elevated bed temperatures.",
+      "exactFix": "Apply Bambu Liquid Glue or a standard glue stick as a sacrificial release agent before preheating the bed to 73°C."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Bambu PETG-CF with the stock A1 Mini nozzle?",
+      "answer": "No. The stock A1 Mini includes a stainless steel nozzle that will quickly erode from the abrasive carbon fibers, destroying dimensional accuracy. You must install the Bambu Hardened Steel Hotend upgrade."
+    },
+    {
+      "question": "Does the A1 Mini require an enclosure to print PETG-CF?",
+      "answer": "No. Carbon fiber reinforcement substantially reduces thermal shrinkage and warping, making PETG-CF fully printable on an open-frame bed slinger with a 70–75°C bed."
+    },
+    {
+      "question": "Can Bambu PETG-CF be used reliably with the AMS Lite?",
+      "answer": "Yes, Bambu PETG-CF feeds cleanly through the AMS Lite, but continuous abrasive feeding will slowly wear down PTFE tube linings and funnel guides over extended use."
+    },
+    {
+      "question": "Why should cooling fan speeds be kept between 20% and 50%?",
+      "answer": "Carbon fibers reduce natural polymer layer fusion. Restricting fan speed to a moderate range preserves layer-to-layer weld strength while maintaining sufficient bridge and overhang cooling."
+    }
+  ]
+}

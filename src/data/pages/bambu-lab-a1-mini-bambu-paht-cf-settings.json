@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-mini-bambu-paht-cf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1 Mini",
+    "slug": "bambu-lab-a1-mini",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 80,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Bambu PAHT-CF",
+    "slug": "bambu-paht-cf",
+    "brand": "Bambu Lab",
+    "materialType": "PAHT-CF",
+    "minNozzleTempC": 275,
+    "maxNozzleTempC": 295,
+    "minBedTempC": 90,
+    "maxBedTempC": 105,
+    "volumetricFlowLimitMm3s": 11,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 285,
+    "recommendedBedTempC": 80,
+    "effectiveVolumetricFlowMm3s": 11,
+    "calculatedMaxPrintSpeedMmS": 131,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": true
+  },
+  "generatedAt": "2026-11-11T14:58:25.250Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab A1 Mini requires a hardened steel nozzle upgrade to resist the abrasiveness of Bambu PAHT-CF, which can be safely printed up to 131 mm/s capped by an 11 mm³/s volumetric flow limit. Due to the printer's open-frame architecture and an 80°C bed temperature ceiling, printing is strictly limited to smaller footprint components to avoid severe thermal warping.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 20,
+  "firstLayerSpeedMmS": 25,
+  "bedSurfaceRecommendation": "Textured PEI Plate + PVP Glue Stick or Liquid Magigoo PA release agent",
+  "slicerTweaks": [
+    "Cap Max Volumetric Speed at 11 mm³/s in the filament profile to prevent severe under-extrusion and hotend clogging.",
+    "Set Bed Temperature to 80°C (printer hardware ceiling) for all layers and disable auxiliary/part cooling fans for the first 3 layers.",
+    "Enable a 5mm outer brim with a 0.0mm brim-object gap to maximize mechanical bed adhesion against nylon shrink forces.",
+    "Lower internal and external perimeter acceleration to 2500 mm/s² to minimize corner lifting and maintain layer bonding on small open-bed parts."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Corner warping and premature print detachment",
+      "rootCause": "The A1 Mini bed caps at 80°C while PAHT-CF requires 90-105°C, exacerbated by open-bed ambient drafts causing thermal contraction.",
+      "exactFix": "Apply liquid PA glue stick, enable an 8mm outer brim with zero clearance, keep ambient room warm with zero drafts, and restrict prints to small z-height geometry."
+    },
+    {
+      "issue": "Rough outer surface finish, stringing, and popping sounds during extrusion",
+      "rootCause": "PAHT-CF is extremely hygroscopic and rapidly absorbs moisture from the air within hours of exposure.",
+      "exactFix": "Dry the spool in an active filament dryer at 80°C for 8-12 hours before printing, and feed directly from an active drying drybox during the print."
+    },
+    {
+      "issue": "Rapid nozzle wear causing inconsistent extrusion and line width widening",
+      "rootCause": "Carbon fiber chopped strands quickly bore out the stock stainless steel nozzle of the A1 Mini.",
+      "exactFix": "Swap the stock stainless steel hotend assembly for an official Bambu Lab 0.4mm or 0.6mm Hardened Steel hotend prior to loading PAHT-CF."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Bambu PAHT-CF on the A1 Mini with the stock stainless steel nozzle?",
+      "answer": "No. The carbon fiber fill will abrade the stock stainless steel nozzle orifice within a few hundred grams of printing, leading to dimensional inaccuracies and clogs. You must install a hardened steel hotend."
+    },
+    {
+      "question": "Why is the bed temperature limited to 80°C when PAHT-CF recommends 90-105°C?",
+      "answer": "The A1 Mini hardware firmware restricts the heated bed to 80°C for thermal management. Because this is below PAHT-CF's glass transition target, use dedicated PA adhesives and avoid large, tall prints that exert high warping leverage."
+    },
+    {
+      "question": "Can I print PAHT-CF out of the AMS Lite?",
+      "answer": "Bambu Lab does not recommend printing abrasive filaments like PAHT-CF through the AMS Lite due to rapid wear on plastic feed funnels and PTFE tubes. It is recommended to mount the spool on an external dry box or external spool holder."
+    },
+    {
+      "question": "Can I put an enclosure tent around my A1 Mini to keep heat in for PAHT-CF?",
+      "answer": "Caution is advised. Bambu Lab explicitly advises against enclosing the A1 Mini because the mainboard and power supply electronics are integrated into the base and rely on open-air passive cooling, risking mainboard overheating."
+    }
+  ]
+}

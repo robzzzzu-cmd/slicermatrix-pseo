@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-mini-polymaker-polymax-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1 Mini",
+    "slug": "bambu-lab-a1-mini",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 80,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Polymaker PolyMax PETG",
+    "slug": "polymaker-polymax-petg",
+    "brand": "Polymaker",
+    "materialType": "PETG",
+    "minNozzleTempC": 235,
+    "maxNozzleTempC": 250,
+    "minBedTempC": 70,
+    "maxBedTempC": 80,
+    "volumetricFlowLimitMm3s": 14,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 243,
+    "recommendedBedTempC": 75,
+    "effectiveVolumetricFlowMm3s": 14,
+    "calculatedMaxPrintSpeedMmS": 167,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-11T14:33:20.214Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab A1 Mini prints Polymaker PolyMax PETG out of the box with exceptional layer bonding up to 167 mm/s based on a 14 mm³/s volumetric flow limit. Thanks to the stock stainless steel nozzle and an open-frame bed capable of reaching the required 75°C, no hardware upgrades or heated enclosure are necessary.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 50,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate with liquid glue or glue stick as a release agent",
+  "slicerTweaks": [
+    "Cap Maximum Volumetric Speed to 14 mm³/s under the Filament > Advanced settings tab.",
+    "Set Pressure Advance to 0.038 and calibrate dynamically via the A1 Mini automatic flow calibration before the print.",
+    "Enable 'Avoid Crossing Walls' with a Max Detour Length of 150 mm to eliminate external whisker stringing.",
+    "Set the Part Cooling Fan to 0% for the first 3 layers, then scale between 20% min and 50% max to preserve PolyMax impact resistance."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe stringing and fine hair buildup on nozzle",
+      "rootCause": "PolyMax PETG is hygroscopic and absorbed ambient moisture, causing micro-drool and steam bursts in the melt zone.",
+      "exactFix": "Dry the filament spool in a dedicated dryer at 65°C for 6 to 8 hours before printing, and increase retraction distance to 0.8 mm."
+    },
+    {
+      "issue": "Bed surface tear-out or permanent bonding to PEI",
+      "rootCause": "PETG chemically fuses directly to hot smooth or bare textured PEI coatings due to excessive thermal affinity.",
+      "exactFix": "Apply a thin, even layer of PVP glue stick or Bambu Liquid Glue onto the textured PEI plate to act as an essential sacrificial release interface."
+    },
+    {
+      "issue": "Brittle layer adhesion or part fracturing under drop tests",
+      "rootCause": "Excessive cooling fan speeds (above 50%) cooling the extruded bead too quickly, preventing inter-layer chain fusion.",
+      "exactFix": "Lower cooling fan limits to 20% minimum and 50% maximum, and ensure the nozzle temperature stays pinned at 243°C."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Does printing PolyMax PETG on the A1 Mini require a hardened steel nozzle?",
+      "answer": "No. PolyMax PETG is an unreinforced, non-abrasive copolymer, meaning the stock stainless steel nozzle on the A1 Mini will not experience premature wear."
+    },
+    {
+      "question": "Can I reach the 75°C bed temperature safely on the Bambu Lab A1 Mini?",
+      "answer": "Yes. The A1 Mini heatbed is rated up to 80°C, providing sufficient thermal energy for the target 75°C bed profile needed for PolyMax PETG."
+    },
+    {
+      "question": "Why shouldn't I run 100% part cooling fan on PolyMax PETG?",
+      "answer": "High cooling rates compromise molecular cross-linking between layers in PETG, drastically weakening the impact resistance that PolyMax is specifically formulated to provide."
+    },
+    {
+      "question": "Why is the top print speed limited to 167 mm/s?",
+      "answer": "At standard 0.2 mm layer height and 0.42 mm line width, 167 mm/s saturates the 14 mm³/s maximum volumetric melt flow of PolyMax PETG in the A1 Mini hotend."
+    }
+  ]
+}

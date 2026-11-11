@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-mini-esun-abs-plus-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1 Mini",
+    "slug": "bambu-lab-a1-mini",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 80,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "eSUN ABS+",
+    "slug": "esun-abs-plus",
+    "brand": "eSUN",
+    "materialType": "ABS+",
+    "minNozzleTempC": 240,
+    "maxNozzleTempC": 260,
+    "minBedTempC": 90,
+    "maxBedTempC": 105,
+    "volumetricFlowLimitMm3s": 18,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 250,
+    "recommendedBedTempC": 80,
+    "effectiveVolumetricFlowMm3s": 18,
+    "calculatedMaxPrintSpeedMmS": 214,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": true
+  },
+  "generatedAt": "2026-11-11T15:14:57.866Z",
+  "compatibilityVerdict": "Advanced Setup",
+  "heroSummary": "The Bambu Lab A1 Mini can push eSUN ABS+ up to 214 mm/s at an 18 mm³/s volumetric limit, but its open-frame design and 80°C bed cap make it prone to severe warping without external mitigation. Reliable printing requires a draft shield or makeshift enclosure alongside high-adhesion bed prep to overcome thermal contraction on this bed-slinger.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 15,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate + PVP Glue Stick or Bambu Liquid Glue",
+  "slicerTweaks": [
+    "Cap Maximum Volumetric Speed at 18 mm³/s and set Nozzle Temperature to 250°C with Bed Temperature pinned to 80°C maximum.",
+    "Enable Draft Shield with height set to 100% or add an exterior Brim of at least 8-10 mm with 0 mm brim-object gap.",
+    "Lower Part Cooling Fan thresholds to 0% min and 15% max, disabling fan completely for the first 4 layers to prevent delamination.",
+    "Set First Layer Speed to 30 mm/s and First Layer Line Width to 0.5 mm to enhance base squish and bed adhesion."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Corner Lifting and Bed Detachment",
+      "rootCause": "The A1 Mini bed maxes out at 80°C, which is below ABS+ ideal glass transition heating, combined with open-air convective cooling.",
+      "exactFix": "Apply a generous coat of liquid glue or glue stick, use a 10 mm brim with zero offset, and block ambient room drafts with a cardboard partition or tent enclosure."
+    },
+    {
+      "issue": "Interlayer Cracking and Split Walls",
+      "rootCause": "Excessive cooling fan speed and cold air currents striking the part during rapid bed translation on the Y-axis.",
+      "exactFix": "Set cooling fan to 0% for standard printing (max 15% on short layers) and enable the OrcaSlicer Draft Shield feature."
+    },
+    {
+      "issue": "Extruder Clicking and Underextrusion on Top Layers",
+      "rootCause": "Moisture absorption causing filament boiling/steam expansion in the meltzone, or printing beyond volumetric flow limit.",
+      "exactFix": "Dry eSUN ABS+ spool at 70°C for 6 to 8 hours before printing and ensure Maximum Volumetric Speed does not exceed 18 mm³/s."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I safely print eSUN ABS+ on an open-frame A1 Mini?",
+      "answer": "Yes for small to medium parts, but you must prevent drafts using a draft shield or tent, as ambient airflow will cause warping and cracking."
+    },
+    {
+      "question": "Why is the bed set to 80°C when eSUN recommends 90°C-105°C?",
+      "answer": "The Bambu Lab A1 Mini has a firmware and hardware safety limit of 80°C on the heated bed, requiring strong bed adhesives like PVA/PVP glue to compensate."
+    },
+    {
+      "question": "Do I need to swap to a hardened steel nozzle for eSUN ABS+?",
+      "answer": "No, eSUN ABS+ is an unfilled modified polymer and is non-abrasive, making the stock stainless steel nozzle completely suitable."
+    },
+    {
+      "question": "Does eSUN ABS+ emit toxic VOC fumes during printing?",
+      "answer": "Yes, ABS+ emits styrene and ultrafine particles; ensure the printer is located in a well-ventilated space or paired with an active carbon air purifier."
+    }
+  ]
+}

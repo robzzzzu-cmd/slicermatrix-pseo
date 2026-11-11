@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-mini-bambu-petg-hf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1 Mini",
+    "slug": "bambu-lab-a1-mini",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 80,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Bambu PETG HF",
+    "slug": "bambu-petg-hf",
+    "brand": "Bambu Lab",
+    "materialType": "PETG",
+    "minNozzleTempC": 230,
+    "maxNozzleTempC": 260,
+    "minBedTempC": 65,
+    "maxBedTempC": 75,
+    "volumetricFlowLimitMm3s": 21,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 245,
+    "recommendedBedTempC": 70,
+    "effectiveVolumetricFlowMm3s": 21,
+    "calculatedMaxPrintSpeedMmS": 250,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-11T14:44:22.047Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab A1 Mini handles Bambu PETG HF natively out of the box with stock stainless steel hardware and requires no enclosure. With an optimized volumetric limit of 21 mm³/s, the system reliably sustains rapid print speeds up to 250 mm/s while maintaining mechanical integrity.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 30,
+  "coolingFanMaxPct": 70,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate (no adhesive needed; clean with dish soap and water)",
+  "slicerTweaks": [
+    "Cap Maximum Volumetric Speed at 21 mm³/s in the filament settings to match the hotend melt zone throughput.",
+    "Switch sparse infill pattern to Gyroid or Cross Hatch to prevent nozzle scraping and material accumulation.",
+    "Set Pressure Advance (Flow Dynamics) to 0.035 to prevent corner swelling during high-acceleration travel moves.",
+    "Set Retraction Distance to 0.8 mm with 2 mm Wipe on Retract enabled to eliminate fine stringing on direct drive."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Fine stringing and branch-like whiskers",
+      "rootCause": "Moisture absorption in PETG polymer chains or excessive nozzle idle temperature",
+      "exactFix": "Dry filament spool at 65°C for 8 hours in a filament dryer and reduce nozzle printing temperature to 240°C."
+    },
+    {
+      "issue": "First layer tearing or nozzle drag buildup",
+      "rootCause": "Excessive first-layer speed or low initial Z clearance causing PETG to curl onto the nozzle tip",
+      "exactFix": "Lower first layer speed to 30 mm/s and clean the nozzle with a brass brush while heated to 250°C."
+    },
+    {
+      "issue": "Corner lifting or edge warping on large parts",
+      "rootCause": "Bed temperature set too low or localized room drafts cooling bottom layers prematurely",
+      "exactFix": "Raise bed temperature to 75°C, add a 5 mm outer brim, and shield the open-frame A1 Mini from room drafts."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Do I need to upgrade to a hardened steel nozzle to print Bambu PETG HF on the A1 Mini?",
+      "answer": "No. Bambu PETG HF contains no abrasive fibers and runs safely on the stock stainless steel nozzle without causing premature wear."
+    },
+    {
+      "question": "Is an enclosure required to print Bambu PETG HF successfully?",
+      "answer": "No. Bambu PETG HF has minimal shrinkage compared to ABS or ASA and prints reliably in the open-air design of the A1 Mini."
+    },
+    {
+      "question": "Why does PETG HF stick too strongly to the build plate?",
+      "answer": "PETG forms an aggressive bond with smooth PEI; always use the Textured PEI Plate or apply glue stick as a release agent on smooth sheets."
+    },
+    {
+      "question": "What drying settings should I use for Bambu PETG HF?",
+      "answer": "Dry the spool at 65°C for 6 to 8 hours in a blast filament dryer before printing to prevent popping, stringing, and weak layer adhesion."
+    }
+  ]
+}

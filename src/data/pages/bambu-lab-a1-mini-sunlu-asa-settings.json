@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-mini-sunlu-asa-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1 Mini",
+    "slug": "bambu-lab-a1-mini",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 80,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Sunlu ASA",
+    "slug": "sunlu-asa",
+    "brand": "Sunlu",
+    "materialType": "ASA",
+    "minNozzleTempC": 245,
+    "maxNozzleTempC": 265,
+    "minBedTempC": 90,
+    "maxBedTempC": 105,
+    "volumetricFlowLimitMm3s": 17,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 255,
+    "recommendedBedTempC": 80,
+    "effectiveVolumetricFlowMm3s": 17,
+    "calculatedMaxPrintSpeedMmS": 202,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": true
+  },
+  "generatedAt": "2026-11-11T15:25:38.973Z",
+  "compatibilityVerdict": "Advanced Setup",
+  "heroSummary": "While the Bambu Lab A1 Mini can achieve printing speeds up to 202 mm/s at a 17 mm³/s volumetric flow limit, printing Sunlu ASA requires an advanced setup due to the printer's 80°C maximum bed temperature and open-frame design. Achieving reliable adhesion without delamination necessitates using an external draft shield or enclosure cover and strong bed adhesives.",
+  "retractionDistanceMm": 0.6,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 20,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate with Magigoo or PVP Glue Stick",
+  "slicerTweaks": [
+    "Cap Maximum Volumetric Speed at 17 mm³/s in the filament profile to match the flow limit and prevent under-extrusion at high speeds.",
+    "Set Bed Temperature to the maximum 80°C for all layers and increase First Layer Extrusion Width to 0.5 mm for enhanced mechanical bed grip.",
+    "Enable an OrcaSlicer Draft Shield around the model to trap convective heat and block open-frame room airflow.",
+    "Set part cooling fan between 0% and 20% max, keeping the fan entirely off for the first 4 layers to maximize layer bond strength."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe Corner Lifting and Bed Detachment",
+      "rootCause": "Bed temperature capped at 80°C (below ASA ideal of 90-105°C) combined with open-air ambient convective drafts.",
+      "exactFix": "Apply PVP glue stick or specialized adhesive on Textured PEI, add an 8-10 mm outer brim with 0 mm brim-object gap, and enable a tall draft shield."
+    },
+    {
+      "issue": "Interlayer Delamination and Cracking",
+      "rootCause": "Excessive auxiliary/part cooling airflow and low ambient printing chamber temperature inducing thermal shrinkage stress.",
+      "exactFix": "Disable auxiliary cooling fans, cap part cooling fan at 15-20% only for extreme overhangs, and raise nozzle temperature to 260°C."
+    },
+    {
+      "issue": "Ooze, Stringing, and Rough Surface Blobs",
+      "rootCause": "Moisture absorbed by hygroscopic ASA filament leading to steam expansion inside the hotend melt zone.",
+      "exactFix": "Dry the Sunlu ASA spool in an active filament dryer at 70°C for 6 to 8 hours prior to printing and verify retraction is set to 0.6 mm."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I place an enclosure over the Bambu Lab A1 Mini for printing ASA?",
+      "answer": "Yes, a lightweight thermal tent helps retain heat, but keep internal ambient temperatures below 45°C to prevent motherboard and power supply electronics from overheating."
+    },
+    {
+      "question": "Is the 80°C bed temperature sufficient for large Sunlu ASA prints?",
+      "answer": "The 80°C bed is marginal for ASA; large footprint prints will inevitably lift at the corners unless kept to small dimensions or securely brimmed in a draft-free environment."
+    },
+    {
+      "question": "Do I need a hardened steel nozzle to print Sunlu ASA on the A1 Mini?",
+      "answer": "No, standard Sunlu ASA is non-abrasive, so the stock stainless steel nozzle installed on the A1 Mini will handle this material without accelerated wear."
+    },
+    {
+      "question": "Is it safe to print Sunlu ASA in an unventilated indoor room?",
+      "answer": "No, ASA releases styrene fumes and ultrafine particles during printing, requiring either an outdoor exhaust duct, an active carbon filter, or dedicated workshop ventilation."
+    }
+  ]
+}
