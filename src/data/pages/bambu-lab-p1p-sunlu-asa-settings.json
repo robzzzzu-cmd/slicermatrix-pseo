@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1p-sunlu-asa-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1P",
+    "slug": "bambu-lab-p1p",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Sunlu ASA",
+    "slug": "sunlu-asa",
+    "brand": "Sunlu",
+    "materialType": "ASA",
+    "minNozzleTempC": 245,
+    "maxNozzleTempC": 265,
+    "minBedTempC": 90,
+    "maxBedTempC": 105,
+    "volumetricFlowLimitMm3s": 17,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 255,
+    "recommendedBedTempC": 98,
+    "effectiveVolumetricFlowMm3s": 17,
+    "calculatedMaxPrintSpeedMmS": 202,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": true
+  },
+  "generatedAt": "2026-11-12T16:49:30.670Z",
+  "compatibilityVerdict": "Advanced Setup",
+  "heroSummary": "The Bambu Lab P1P can print Sunlu ASA up to a calculated safe speed of 202 mm/s at 17 mm³/s volumetric flow, though its stock stainless steel nozzle requires no replacement for this non-abrasive material. However, because the P1P features an open-frame design, reliable warp-free printing of ASA requires an external enclosure or draft shield to maintain elevated ambient temperatures.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 20,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate with liquid glue or PVP glue stick as an interface/release agent",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 17 mm³/s under the Filament Profile to safely prevent underextrusion at high speeds up to 202 mm/s.",
+    "Disable the Auxiliary Part Cooling Fan completely (0%) and cap Part Cooling Fan between 0% (min) and 20% (max) to prevent thermal shock and severe delamination.",
+    "Enable a 5mm to 8mm outer brim with a 0.0mm brim-object gap to anchor sharp corners on high-aspect-ratio prints without an enclosure.",
+    "Set Bed Temperature to 98°C for all layers, operating near the P1P's 100°C limit to maximize bed heat transfer into the low-lying boundary layer."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Corner Lifting and Warping off Bed",
+      "rootCause": "Severe thermal gradient and ambient airflow cooling the higher layers faster than lower layers, shrinking the ASA and peeling it from the plate.",
+      "exactFix": "Increase bed temperature to 98°C, add a 10mm Mouse-Ear or Outer Brim with 0.0mm gap, and cover the open frame of the P1P with a temporary draft tent or enclosure."
+    },
+    {
+      "issue": "Interlayer Separation and Cracking (Delamination)",
+      "rootCause": "Excessive part cooling or cold cross-drafts preventing molten polymer chain entanglement across successive layers.",
+      "exactFix": "Turn off the auxiliary side fan completely in the cooling tab, lower maximum part cooling fan to 15-20%, and increase nozzle temperature to 260°C."
+    },
+    {
+      "issue": "Rough Surface Finish and Wet Popping Sounds",
+      "rootCause": "Hygroscopic moisture absorption converting to steam within the melt zone, causing voids and uneven extrusion.",
+      "exactFix": "Dry the Sunlu ASA spool in a dedicated filament dryer at 70°C for at least 6 to 8 hours before printing, and feed directly from a dry box."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Sunlu ASA on a stock P1P without an enclosure?",
+      "answer": "Small parts under 50mm can succeed if placed in a draft-free room with high bed temps (98°C) and zero cooling fans, but larger prints will inevitably warp or split without an enclosure."
+    },
+    {
+      "question": "Does Sunlu ASA require upgrading to a hardened steel nozzle on the P1P?",
+      "answer": "No. Sunlu ASA is an unfilled polymer and is not abrasive, so the stock stainless steel nozzle and extruder gears on the P1P are completely safe from premature wear."
+    },
+    {
+      "question": "Why is the print speed capped at 202 mm/s in this profile?",
+      "answer": "With a 0.4mm nozzle running standard 0.2mm layer height and 0.42mm line width, the maximum volumetric flow rate of 17 mm³/s equates mathematically to an upper safe velocity ceiling of 202 mm/s."
+    },
+    {
+      "question": "Are the fumes from Sunlu ASA toxic while printing on an open P1P?",
+      "answer": "ASA releases Styrene and volatile organic compounds (VOCs) during extrusion; because the P1P is open, it must be operated in a well-ventilated room or an enclosed workstation with HEPA/activated carbon filtration."
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-mini-proto-pasta-high-temp-carbon-fiber-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1 Mini",
+    "slug": "bambu-lab-a1-mini",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 80,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Proto-pasta High Temp Carbon Fiber PLA",
+    "slug": "proto-pasta-high-temp-carbon-fiber-pla",
+    "brand": "Proto-pasta",
+    "materialType": "PLA-CF",
+    "minNozzleTempC": 210,
+    "maxNozzleTempC": 230,
+    "minBedTempC": 55,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 13,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 220,
+    "recommendedBedTempC": 60,
+    "effectiveVolumetricFlowMm3s": 13,
+    "calculatedMaxPrintSpeedMmS": 155,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-12T16:25:29.598Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab A1 Mini can successfully run Proto-pasta High Temp Carbon Fiber PLA up to a safe print speed of 155 mm/s (limited by a 13 mm³/s volumetric flow limit), but requires an upgrade to a hardened steel hotend assembly to prevent rapid abrasive erosion of the stock stainless steel nozzle. Additionally, feeding this brittle composite filament through an external spool holder rather than the AMS Lite is strongly advised to prevent filament snapping.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 40,
+  "coolingFanMaxPct": 80,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate cleaned with dish soap and warm water; glue stick optional for delicate geometry release.",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 13 mm³/s in the filament settings to eliminate under-extrusion at high travel velocities.",
+    "Increase default Line Width from 0.42 mm to 0.45 mm for perimeters and infill to minimize micro-clogging from suspended milled carbon fibers.",
+    "Set Retraction Distance to 0.8 mm with Retraction Speed at 30 mm/s to reduce fiber shearing and internal heatbreak clogging.",
+    "Adjust Part Cooling Fan threshold to 40% minimum and 80% maximum, keeping the auxiliary fan disabled to prevent brittle inter-layer bonding."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Intermittent nozzle clogging and extrusion clicking mid-print",
+      "rootCause": "Milled carbon fiber clustering inside a standard 0.4mm stainless nozzle or excessive retraction distance pulling solid fibers past the thermal break.",
+      "exactFix": "Install a 0.4mm or 0.6mm Bambu Hardened Steel hotend and reduce retraction distance to 0.8 mm or below with retraction speed capped at 30 mm/s."
+    },
+    {
+      "issue": "Rough, matte surface with micro-voids and heavy stringing",
+      "rootCause": "Moisture absorption in the hygroscopic PLA matrix causing explosive steam expansion at the 220°C melt zone.",
+      "exactFix": "Dry the filament spool in a dedicated filament dryer at 50°C for 6 to 8 hours before printing, and store with active desiccant."
+    },
+    {
+      "issue": "Brittle filament snapping inside the Bowden guide tubes",
+      "rootCause": "High bending stress on brittle CF-filled filament traversing the sharp bend angles of the AMS Lite feeding system.",
+      "exactFix": "Bypass the AMS Lite and feed the spool directly from the stock A1 Mini external spool holder using a gentler PTFE routing arc."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Proto-pasta CF-PLA with the stock Bambu A1 Mini nozzle?",
+      "answer": "No. The stock nozzle is stainless steel, which will quickly bore out and degrade within a single spool of abrasive carbon fiber filament. You must install the official Bambu Lab hardened steel hotend assembly."
+    },
+    {
+      "question": "Can I use the AMS Lite with Proto-pasta High Temp CF-PLA?",
+      "answer": "It is not recommended. Carbon fiber PLA is inherently stiff and brittle; the tight bending radii and motorized retracting gears of the AMS Lite can snap the filament or cause excessive mechanical wear. Use the external spool mount instead."
+    },
+    {
+      "question": "What is the true maximum print speed for this filament on the A1 Mini?",
+      "answer": "Given the safe volumetric flow ceiling of 13 mm³/s, the calculated maximum print speed is 155 mm/s when printing standard 0.2mm layers at a 0.42mm extrusion line width."
+    },
+    {
+      "question": "How do I achieve the high-temperature resistance of this Proto-pasta filament?",
+      "answer": "To unlock the high-temperature properties (up to 110°C+ heat deflection), the printed part must be post-annealed in an oven at 95°C to 110°C for roughly 30 minutes, allowing for minor dimensional shrinkage in your slicer scaling."
+    }
+  ]
+}
