@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1p-polymaker-fiberon-pa612-cf15-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1P",
+    "slug": "bambu-lab-p1p",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Polymaker Fiberon PA612-CF15",
+    "slug": "polymaker-fiberon-pa612-cf15",
+    "brand": "Polymaker",
+    "materialType": "PA612-CF",
+    "minNozzleTempC": 275,
+    "maxNozzleTempC": 295,
+    "minBedTempC": 45,
+    "maxBedTempC": 55,
+    "volumetricFlowLimitMm3s": 12,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 285,
+    "recommendedBedTempC": 50,
+    "effectiveVolumetricFlowMm3s": 12,
+    "calculatedMaxPrintSpeedMmS": 143,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": true
+  },
+  "generatedAt": "2026-11-13T15:05:15.873Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab P1P requires upgrading to a hardened steel nozzle and hardened extruder gears before running abrasive Polymaker Fiberon PA612-CF15 safely. Once upgraded, the material prints reliably within an open frame at a maximum volumetric flow rate of 12 mm³/s, achieving a safe maximum print speed of 143 mm/s.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 10,
+  "coolingFanMaxPct": 25,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate with PVP glue stick or Magigoo PA adhesive",
+  "slicerTweaks": [
+    "Cap Max Volumetric Speed at 12 mm³/s in the Filament settings to prevent under-extrusion at high print speeds.",
+    "Configure part cooling fan to 10% min and 25% max with a 30-second layer time threshold to optimize layer bonding.",
+    "Set brim width to 6-8 mm and enable an OrcaSlicer Draft Shield to protect prints from ambient drafts in the open-frame P1P.",
+    "Tune retraction to 0.8 mm at 30 mm/s with 1.5 mm wipe distance and 0.2 mm spiral Z-hop to prevent oozing and fiber dragging."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Extruder gear slipping and rapid nozzle bore erosion",
+      "rootCause": "Abrasive carbon fibers grinding against the P1P stock stainless steel nozzle and extruder drive gears",
+      "exactFix": "Install the Bambu Lab hardened steel hotend (0.4mm or 0.6mm) and hardened steel extruder gear assembly."
+    },
+    {
+      "issue": "Rough fuzzy perimeter texture and severe filament oozing/stringing",
+      "rootCause": "Moisture absorption in the nylon base polymer converting to steam micro-explosions during extrusion",
+      "exactFix": "Bake the filament in a dedicated convection dryer at 80°C for 8 to 12 hours and feed directly from a dry box."
+    },
+    {
+      "issue": "Base corners lifting from the build plate on larger prints",
+      "rootCause": "Thermal contraction triggered by cool airflow circulating around the open-frame P1P bed",
+      "exactFix": "Increase bed temperature to 55°C, apply a thin coat of Magigoo PA, and enable a multi-layer Draft Shield in OrcaSlicer."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Polymaker PA612-CF15 with the stock P1P hotend?",
+      "answer": "No. The stock P1P includes a stainless steel nozzle and unhardened gears. The 15% carbon fiber loading will bore out the nozzle orifice and groove the extruder gears within a few hundred grams of filament."
+    },
+    {
+      "question": "Does Fiberon PA612-CF require an enclosed chamber on the P1P?",
+      "answer": "Not strictly for small to medium models. PA612 chemistry exhibits far lower shrinkage and moisture absorption than standard PA6, making it uniquely viable on the open-frame P1P when using a brim and draft shield."
+    },
+    {
+      "question": "Is Polymaker Fiberon PA612-CF15 compatible with the Bambu AMS?",
+      "answer": "Polymaker Fiberon cardboard spools require printed plastic adapter rings to avoid AMS motor stalls, and the abrasive fiber will gradually wear standard AMS PTFE feeder funnels. Direct rear spool feeding is recommended."
+    },
+    {
+      "question": "What is the recommended drying protocol for PA612-CF15?",
+      "answer": "Dry the spool at 80°C to 90°C for at least 8 to 12 hours in a high-temperature filament dryer or ventilated oven prior to use, as even low-moisture PA612 will string if ambient humidity exceeds 20%."
+    }
+  ]
+}

@@ -6613,7 +6613,7 @@
   },
   {
     "slug": "bambu-lab-p1p-polymaker-fiberon-pa612-cf15-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1P",
       "slug": "bambu-lab-p1p",
