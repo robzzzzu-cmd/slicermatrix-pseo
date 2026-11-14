@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-mini-sunlu-pla-plus-2-0-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1 Mini",
+    "slug": "bambu-lab-a1-mini",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 80,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Sunlu PLA+ 2.0",
+    "slug": "sunlu-pla-plus-2-0",
+    "brand": "Sunlu",
+    "materialType": "PLA+",
+    "minNozzleTempC": 205,
+    "maxNozzleTempC": 230,
+    "minBedTempC": 55,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 24,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 218,
+    "recommendedBedTempC": 60,
+    "effectiveVolumetricFlowMm3s": 24,
+    "calculatedMaxPrintSpeedMmS": 286,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-14T14:38:33.948Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab A1 Mini processes Sunlu PLA+ 2.0 effortlessly out of the box, reaching safe print speeds up to 286 mm/s backed by a 24 mm³/s volumetric flow limit. The stock stainless steel direct drive toolhead and open frame design are ideally suited for this non-abrasive, low-warp material without requiring hardware modifications.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 40,
+  "bedSurfaceRecommendation": "Textured PEI Plate (clean with Isopropyl Alcohol or warm soapy water, no adhesive required)",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 24 mm³/s in the filament profile to prevent underextrusion during high-speed moves.",
+    "Configure printing temperature to 220°C for standard speeds, increasing to 225°C if pushing layer speeds near 286 mm/s.",
+    "Calibrate Pressure Advance (PA) in OrcaSlicer, setting a baseline value around 0.024 for the direct drive extruder.",
+    "Enable Wipe on Retraction with a distance of 1.0 mm to minimize stringing and nozzle buildup during rapid non-print travels."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Stringing and fine wisps across open travel moves",
+      "rootCause": "Slight over-temperature combined with ambient humidity or insufficient retraction wipe distance.",
+      "exactFix": "Reduce nozzle temperature by 5°C (to 215°C) and ensure 'Wipe While Retracting' is enabled with 1.0 mm distance in OrcaSlicer."
+    },
+    {
+      "issue": "First layer peeling or corner lifting",
+      "rootCause": "Fingerprint oil contamination on the textured PEI plate or insufficient first layer bed temperature.",
+      "exactFix": "Wash the PEI sheet with dish soap and warm water, and bump the initial layer bed temperature to 62°C."
+    },
+    {
+      "issue": "Matte finish and weak layer bonding at high speeds",
+      "rootCause": "Extruder exceeding filament thermal capacity when approaching 286 mm/s volumetric throughput.",
+      "exactFix": "Raise printing temperature to 228°C or cap the Max Volumetric Speed to 20 mm³/s in OrcaSlicer to extend melt residence time."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I use the stock stainless steel nozzle on the A1 Mini with Sunlu PLA+ 2.0?",
+      "answer": "Yes, Sunlu PLA+ 2.0 is non-abrasive and fully compatible with the stock 0.4mm stainless steel nozzle without causing premature wear."
+    },
+    {
+      "question": "Does the open-frame nature of the A1 Mini cause warping with PLA+?",
+      "answer": "No, PLA+ 2.0 performs best in an open-air environment with ample cooling; enclosing it can increase the risk of heat creep."
+    },
+    {
+      "question": "What is the recommended maximum volumetric speed in OrcaSlicer for this setup?",
+      "answer": "Set the Max Volumetric Speed to 24 mm³/s, which supports reliable extrusion up to the calculated 286 mm/s limit for standard layer lines."
+    },
+    {
+      "question": "Do I need to dry Sunlu PLA+ 2.0 before printing on the A1 Mini?",
+      "answer": "PLA+ 2.0 has low hygroscopicity and typically prints cleanly straight from the vacuum-sealed spool, though drying at 45°C for 4 hours resolves stringing in humid climates."
+    }
+  ]
+}

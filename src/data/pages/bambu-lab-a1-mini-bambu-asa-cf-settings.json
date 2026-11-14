@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-mini-bambu-asa-cf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1 Mini",
+    "slug": "bambu-lab-a1-mini",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 80,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Bambu ASA-CF",
+    "slug": "bambu-asa-cf",
+    "brand": "Bambu Lab",
+    "materialType": "ASA-CF",
+    "minNozzleTempC": 255,
+    "maxNozzleTempC": 280,
+    "minBedTempC": 90,
+    "maxBedTempC": 105,
+    "volumetricFlowLimitMm3s": 15,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 268,
+    "recommendedBedTempC": 80,
+    "effectiveVolumetricFlowMm3s": 15,
+    "calculatedMaxPrintSpeedMmS": 179,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": true
+  },
+  "generatedAt": "2026-11-14T13:26:09.194Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab A1 Mini can achieve up to 179 mm/s (15 mm³/s volumetric flow limit) with Bambu ASA-CF, but it strictly requires swapping to a hardened steel nozzle to prevent rapid wear. Additionally, because the A1 Mini is an open-frame bed slinger with an 80°C bed cap, printing large parts without ambient drafts or an enclosure risks severe warping and layer separation.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 20,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate with Bambu Liquid Glue or PVP Glue Stick release agent",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 15 mm³/s under the filament profile to cap extruder throughput safely.",
+    "Set Bed Temperature to the maximum 80°C for all layers and disable auxiliary cooling fans entirely.",
+    "Enable Draft Shield (Height: 100%) or add a 5-10mm brim with 0mm Brim-object gap to contain radiant heat and prevent corner lifting.",
+    "Reduce Part Cooling Fan to 0% minimum and 20% maximum with layer time thresholds pushed to 30-60 seconds to maximize inter-layer adhesion."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Corner Warping and Bed Detachment",
+      "rootCause": "The bed temperature maxes out at 80°C (below ASA's recommended 90-100°C) combined with open-air drafts causing thermal contraction.",
+      "exactFix": "Apply Bambu liquid glue to a clean Textured PEI plate, enable a mouse-ear brim, and place a cardboard or pop-up draft shield around the printer."
+    },
+    {
+      "issue": "Layer Delamination / Splitting",
+      "rootCause": "Excessive part cooling or low ambient temperature leading to inadequate polymer fusion between successive layers.",
+      "exactFix": "Set part cooling fan threshold to 0% for standard layers, cap bridging fan at 25%, and increase nozzle printing temperature to 275°C."
+    },
+    {
+      "issue": "Under-extrusion and Nozzle Bore Degradation",
+      "rootCause": "Abrasive carbon fibers rapidly erode the stock stainless steel nozzle, enlarging the orifice and causing backpressure loss.",
+      "exactFix": "Upgrade the A1 Mini toolhead with an official Bambu Lab 0.4mm Hardened Steel hotend assembly before printing ASA-CF."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I safely print Bambu ASA-CF on the A1 Mini with the stock stainless steel nozzle?",
+      "answer": "No, the carbon fibers embedded in ASA-CF will permanently erode and degrade a stainless steel nozzle within a fraction of a single spool; install the 0.4mm hardened steel hotend first."
+    },
+    {
+      "question": "How can I prevent ASA-CF from warping when the A1 Mini bed tops out at 80°C?",
+      "answer": "Keep prints compact and centered, apply liquid adhesive to a textured PEI plate, enable an OrcaSlicer draft shield, and eliminate room drafts completely."
+    },
+    {
+      "question": "Does Bambu ASA-CF emit hazardous fumes when printing on an open-frame printer?",
+      "answer": "Yes, ASA releases styrene emissions during printing; always operate the open-frame A1 Mini in a well-ventilated space, ideally near open windows or an active exhaust system."
+    },
+    {
+      "question": "Do I need to dry Bambu ASA-CF before running it on the A1 Mini?",
+      "answer": "Yes, ASA-CF is hygroscopic and absorbed moisture causes stringing, surface voids, and brittle layers; dry the spool at 75-80°C for at least 8 hours prior to printing."
+    }
+  ]
+}

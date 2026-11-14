@@ -5245,7 +5245,7 @@
   },
   {
     "slug": "bambu-lab-a1-mini-bambu-asa-cf-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab A1 Mini",
       "slug": "bambu-lab-a1-mini",
@@ -5283,7 +5283,7 @@
   },
   {
     "slug": "bambu-lab-a1-mini-esun-petg-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab A1 Mini",
       "slug": "bambu-lab-a1-mini",
@@ -5359,7 +5359,7 @@
   },
   {
     "slug": "bambu-lab-a1-mini-esun-epa-cf-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab A1 Mini",
       "slug": "bambu-lab-a1-mini",
@@ -5435,7 +5435,7 @@
   },
   {
     "slug": "bambu-lab-a1-mini-overture-pla-professional-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab A1 Mini",
       "slug": "bambu-lab-a1-mini",
@@ -5511,7 +5511,7 @@
   },
   {
     "slug": "bambu-lab-a1-mini-overture-rock-pla-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab A1 Mini",
       "slug": "bambu-lab-a1-mini",
@@ -5549,7 +5549,7 @@
   },
   {
     "slug": "bambu-lab-a1-mini-sunlu-pla-plus-2-0-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab A1 Mini",
       "slug": "bambu-lab-a1-mini",
@@ -5587,7 +5587,7 @@
   },
   {
     "slug": "bambu-lab-a1-mini-sunlu-high-speed-pla-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab A1 Mini",
       "slug": "bambu-lab-a1-mini",

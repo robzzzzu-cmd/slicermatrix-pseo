@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-mini-sunlu-high-speed-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1 Mini",
+    "slug": "bambu-lab-a1-mini",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 80,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Sunlu High Speed PLA",
+    "slug": "sunlu-high-speed-pla",
+    "brand": "Sunlu",
+    "materialType": "HS-PLA",
+    "minNozzleTempC": 210,
+    "maxNozzleTempC": 235,
+    "minBedTempC": 55,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 26,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 223,
+    "recommendedBedTempC": 60,
+    "effectiveVolumetricFlowMm3s": 24,
+    "calculatedMaxPrintSpeedMmS": 286,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-14T14:56:32.129Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab A1 Mini handles Sunlu High Speed PLA flawlessly out of the box with its stock direct drive extruder and stainless steel nozzle. Operating at a maximum volumetric flow of 24 mm³/s, you can safely sustain print speeds up to 286 mm/s without requiring an enclosure or hardware upgrades.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 40,
+  "bedSurfaceRecommendation": "Textured PEI Plate (no adhesive required; ensure surface is clean and degreased with warm water and dish soap)",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 24 mm³/s in the filament settings to automatically cap linear moves safely at 286 mm/s for 0.2mm layers.",
+    "Configure Printing Temperature to 223°C target (225°C first layer, 220°C other layers) to ensure rapid, uniform melt flow at high speeds.",
+    "Set Pressure Advance to 0.024 (perform OrcaSlicer line calibration to fine-tune for your specific batch).",
+    "Enable 'Slow down for overhangs' and keep auxiliary/part fan thresholds high (100% at layer times under 6 seconds) to prevent thermal slumping on fast passes."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Under-extrusion or matte banding during high-speed infill",
+      "rootCause": "Volumetric flow rate exceeding hotend melt capacity, cooling the melt zone below target temperature during prolonged high-speed moves.",
+      "exactFix": "Increase nozzle temperature by 5°C (up to 230°C) or lower the Max Volumetric Flow limit in OrcaSlicer from 24 mm³/s to 21 mm³/s."
+    },
+    {
+      "issue": "Corner ringing or ghosting on sharp directional transitions",
+      "rootCause": "High print acceleration exceeding the stock A1 Mini frame damping limits on rapid directional shifts.",
+      "exactFix": "Run the A1 Mini automatic resonance calibration routine and cap Outer Wall acceleration to 4000 mm/s² in OrcaSlicer."
+    },
+    {
+      "issue": "Stringing and fine wisps across open travel paths",
+      "rootCause": "High-melt-flow additives in HS-PLA induce dripping if retraction or nozzle temperature is marginally too high.",
+      "exactFix": "Enable OrcaSlicer wipe on retract (1-2 mm), set retraction distance to 0.8 mm at 35 mm/s, and drop nozzle temperature by 5°C."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can the stock stainless steel nozzle on the A1 Mini handle Sunlu HS-PLA?",
+      "answer": "Yes. Sunlu High Speed PLA is non-abrasive, so the stock 0.4mm stainless steel hotend is completely safe and requires no hardened steel upgrade."
+    },
+    {
+      "question": "Do I need an enclosure to print Sunlu High Speed PLA on the A1 Mini?",
+      "answer": "No. PLA requires active ambient cooling to solidify quickly, making the open-frame design of the A1 Mini ideal."
+    },
+    {
+      "question": "What is the primary OrcaSlicer limit I should set to reach 286 mm/s safely?",
+      "answer": "Set the 'Max Volumetric Speed' to 24 mm³/s under the Filament profile; the slicer will dynamically govern your print head speeds up to 286 mm/s on 0.2mm layer heights."
+    },
+    {
+      "question": "Should I use glue stick on the Bambu Textured PEI plate for HS-PLA?",
+      "answer": "No adhesive or glue stick is necessary; simply wash the textured PEI plate with dish soap and warm water, then run a bed temperature of 60°C."
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-mini-overture-rock-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1 Mini",
+    "slug": "bambu-lab-a1-mini",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 80,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Overture Rock PLA",
+    "slug": "overture-rock-pla",
+    "brand": "Overture",
+    "materialType": "Matte PLA",
+    "minNozzleTempC": 195,
+    "maxNozzleTempC": 220,
+    "minBedTempC": 50,
+    "maxBedTempC": 60,
+    "volumetricFlowLimitMm3s": 16,
+    "isAbrasive": true,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 208,
+    "recommendedBedTempC": 55,
+    "effectiveVolumetricFlowMm3s": 16,
+    "calculatedMaxPrintSpeedMmS": 190,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-14T14:29:45.125Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab A1 Mini easily runs Overture Rock PLA at speeds up to 190 mm/s capped by a 16 mm³/s maximum volumetric flow rate. However, you must upgrade the stock stainless steel hotend to a Bambu hardened steel nozzle assembly to prevent rapid bore wear from the abrasive rock speckle particulates.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate cleaned with dish soap and warm water (no adhesive required)",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 16 mm³/s in the filament settings to maintain consistent matte finish and avoid under-extrusion at high speeds.",
+    "Lower Outer Wall Speed to 100-120 mm/s to ensure consistent surface texture and hide layer lines uniformly with the matte stone particles.",
+    "Increase Default Printing Temperature to 210°C-215°C when using a hardened steel nozzle to compensate for its lower thermal conductivity compared to brass or stainless steel.",
+    "Set Pressure Advance to 0.024-0.028 s via OrcaSlicer dynamic calibration to eliminate corner bulging caused by particulate drag in the melt zone."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Premature Nozzle Wear and Inconsistent Extrusion",
+      "rootCause": "The rock composite micro-particles rapidly erode the stock 0.4mm stainless steel nozzle orifice, altering diameter and backpressure.",
+      "exactFix": "Install the official Bambu Lab 0.4mm Hardened Steel Hotend assembly and select Hardened Steel Nozzle in the printer device settings."
+    },
+    {
+      "issue": "Intermittent Clogging or Heat Creep in Extruder",
+      "rootCause": "Aggressive retract-on-layer-change cycles pull particulate-laden semi-molten PLA past the heat break inside the compact direct-drive extruder.",
+      "exactFix": "Limit retraction distance to 0.8 mm max, disable 'Retract on layer change', and verify the extruder cold block cooling fan is operating at 100%."
+    },
+    {
+      "issue": "Weak Layer Adhesion or Chalky Brittle Breaks",
+      "rootCause": "Printing near the bottom of the recommended temperature range (below 205°C) with full part cooling reduces polymer chain entanglement around the mineral fillers.",
+      "exactFix": "Raise printing temperature to 215°C and reduce Part Cooling Fan to 70% min / 85% max in OrcaSlicer filament cooling settings."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Overture Rock PLA with the stock stainless steel nozzle that came with the A1 Mini?",
+      "answer": "Technically it will feed, but it will quickly enlarge the nozzle bore and ruin dimensional accuracy within 200-500 grams of printing. A Bambu hardened steel hotend upgrade is strongly recommended."
+    },
+    {
+      "question": "Does Overture Rock PLA work reliably in the Bambu AMS Lite?",
+      "answer": "Yes, standard 1kg plastic spools of Overture Rock PLA fit and feed reliably on the AMS Lite rotary spindles, though cardboard spool versions require an adapter ring to avoid slipping."
+    },
+    {
+      "question": "Why does the surface look glossy in some areas and matte in others?",
+      "answer": "Variable printing speeds cause melt temperature variations; slower sections look glossier while faster sections appear matte. Enforcing an outer wall speed limit of 100-120 mm/s locks in a uniform matte finish."
+    },
+    {
+      "question": "Does Overture Rock PLA require drying before printing?",
+      "answer": "Standard PLA is not strongly hygroscopic and usually prints well out of the sealed pouch, but drying at 45°C-50°C for 4 hours will eliminate micro-stringing caused by moisture absorbed by the mineral additives."
+    }
+  ]
+}

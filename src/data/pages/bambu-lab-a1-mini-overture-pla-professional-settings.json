@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-mini-overture-pla-professional-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1 Mini",
+    "slug": "bambu-lab-a1-mini",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 80,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Overture PLA Professional",
+    "slug": "overture-pla-professional",
+    "brand": "Overture",
+    "materialType": "PLA+",
+    "minNozzleTempC": 200,
+    "maxNozzleTempC": 220,
+    "minBedTempC": 50,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 21,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 210,
+    "recommendedBedTempC": 58,
+    "effectiveVolumetricFlowMm3s": 21,
+    "calculatedMaxPrintSpeedMmS": 250,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-14T14:27:10.171Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab A1 Mini prints Overture PLA Professional seamlessly out of the box with its stock stainless steel nozzle and open-frame design. Leveraging a maximum volumetric flow rate of 21 mm³/s, it reliably achieves printing speeds up to 250 mm/s at standard 0.2mm layer heights.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 40,
+  "bedSurfaceRecommendation": "Textured PEI Plate (clean with warm water and dish soap, no adhesive required)",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 21 mm³/s in the Filament Settings to unlock print speeds up to 250 mm/s safely.",
+    "Calibrate Pressure Advance (Flow Dynamics) in OrcaSlicer to approximately 0.024 to eliminate corner bulging at high acceleration.",
+    "Configure Nozzle Temperature to 215°C for high-speed infill/inner walls and 205°C for outer walls to maintain high layer bonding while optimizing surface finish.",
+    "Set Auxiliary Part Cooling Fan to 60-70% on rapid layers with print times under 15 seconds to ensure adequate crystallization of PLA+ modifiers."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Corner ringing or ghosting on rapid directional changes",
+      "rootCause": "High acceleration on the cantilever Y-axis bed assembly without optimal input shaping compensation.",
+      "exactFix": "Rerun the A1 Mini vibration calibration and reduce Outer Wall Acceleration in OrcaSlicer to 3000 mm/s²."
+    },
+    {
+      "issue": "Stringing and light whisps across travel movements",
+      "rootCause": "Slight over-temperature combined with moisture absorption in the impact-modifying additives of PLA+.",
+      "exactFix": "Lower nozzle temperature by 5°C (to 205°C) and enable 'Wipe while Retracting' with a 1.0mm wipe distance."
+    },
+    {
+      "issue": "Poor first layer adhesion or edge lifting on long parts",
+      "rootCause": "Fingerprint oil contamination on the textured PEI sheet or insufficient bed temperature for modified PLA.",
+      "exactFix": "Scrub the build plate with Dawn dish soap and water, and set First Layer Bed Temperature to 62°C (subsequent layers 58°C)."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Does Overture PLA Professional require a hardened steel nozzle upgrade on the A1 Mini?",
+      "answer": "No, Overture PLA Professional does not contain abrasive fibers like carbon or glass, making it fully safe to run indefinitely through the stock stainless steel nozzle."
+    },
+    {
+      "question": "Can I print Overture PLA Professional without an enclosure?",
+      "answer": "Yes, an enclosure is not required and is actually discouraged for PLA+; the open frame of the A1 Mini provides optimal ambient cooling to prevent heat creep."
+    },
+    {
+      "question": "Why is my surface finish matte at higher speeds compared to standard PLA?",
+      "answer": "PLA+ modifiers diffuse light differently when extruded at high speeds due to melt shear; printing outer perimeters at 120-150 mm/s will restore a consistent semi-gloss sheen."
+    },
+    {
+      "question": "What flow ratio should I use in OrcaSlicer for Overture PLA Professional?",
+      "answer": "Start with a Flow Ratio of 0.98. Run the built-in OrcaSlicer Flow Calibration (Pass 1 and 2) to fine-tune dimensional accuracy for your specific spool batch."
+    }
+  ]
+}

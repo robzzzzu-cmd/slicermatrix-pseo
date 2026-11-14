@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-mini-esun-epa-cf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1 Mini",
+    "slug": "bambu-lab-a1-mini",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 80,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "eSUN ePA-CF",
+    "slug": "esun-epa-cf",
+    "brand": "eSUN",
+    "materialType": "PA-CF",
+    "minNozzleTempC": 265,
+    "maxNozzleTempC": 285,
+    "minBedTempC": 75,
+    "maxBedTempC": 90,
+    "volumetricFlowLimitMm3s": 11,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 275,
+    "recommendedBedTempC": 80,
+    "effectiveVolumetricFlowMm3s": 11,
+    "calculatedMaxPrintSpeedMmS": 131,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": true
+  },
+  "generatedAt": "2026-11-14T13:54:45.758Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab A1 Mini requires a hardened steel nozzle upgrade to resist the abrasiveness of eSUN ePA-CF and must run with ambient draft protection given its open frame. With volumetric flow capped at 11 mm³/s, the safe operational print speed tops out at 131 mm/s for standard layer geometries.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 20,
+  "firstLayerSpeedMmS": 25,
+  "bedSurfaceRecommendation": "Textured PEI Plate with PVP glue stick or Magigoo PA release agent",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 11 mm³/s in the filament profile to prevent underextrusion at high feedrates.",
+    "Limit Part Cooling Fan to 0% threshold for normal layers and a maximum of 20% on short layer times (<15s) to preserve inter-layer adhesion.",
+    "Enable a 5mm outer brim with a 0.1mm brim-object gap to combat corner lifting on the 80°C open bed.",
+    "Activate Wipe on Loops (1.0 mm) and Retract on Layer Change to suppress nylon oozing and stringing artifacts."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Corner warping and bed detachment",
+      "rootCause": "Thermal contraction of the semi-crystalline nylon matrix caused by open-air drafts and the A1 Mini bed temp capping at 80°C.",
+      "exactFix": "Apply Magigoo PA or PVP glue stick, add an enclosure shield or draft shield via OrcaSlicer, and increase brim width to 6-8mm."
+    },
+    {
+      "issue": "Rough surface finish, severe stringing, and extruder clicking",
+      "rootCause": "Moisture absorption within the polyamide base material causing steam micro-explosions in the melt zone.",
+      "exactFix": "Bake filament spool in a dedicated dryer at 70°C for 8 to 12 hours and feed directly from an active dry box."
+    },
+    {
+      "issue": "Rapid nozzle bore enlargement and under-extrusion over time",
+      "rootCause": "Extruding chopped carbon fibers through the stock stainless steel nozzle quickly erodes the orifice.",
+      "exactFix": "Install the Bambu Lab 0.4mm or 0.6mm Hardened Steel Hotend assembly prior to running abrasive composites."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print eSUN ePA-CF on the A1 Mini with the stock stainless steel nozzle?",
+      "answer": "No, the carbon fiber fill will quickly wear out the stock stainless steel nozzle, resulting in poor print quality and bore degradation within a single spool. Upgrade to Bambu's hardened steel hotend first."
+    },
+    {
+      "question": "Why is the bed temperature limited to 80°C when ePA-CF specifies up to 90°C?",
+      "answer": "The Bambu Lab A1 Mini hardware has a maximum bed temperature limit of 80°C. Using a specialty PA adhesive like Magigoo PA or PVP glue stick compensates for the lower bed temperature."
+    },
+    {
+      "question": "Do I need an enclosure to print eSUN ePA-CF on an A1 Mini?",
+      "answer": "While an enclosure is not strictly required for small models, nylon warps aggressively in open-air drafts. Use OrcaSlicer's draft shield function or keep the printer shielded from ambient air currents."
+    },
+    {
+      "question": "Can I use the Bambu 4-in-1 AMS Lite with eSUN ePA-CF?",
+      "answer": "It is not recommended. Carbon fiber filaments are brittle and abrasive, causing premature wear on the AMS Lite feeder funnels, PTFE tubes, and potential snapping inside internal paths."
+    }
+  ]
+}
