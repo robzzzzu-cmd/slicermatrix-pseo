@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-mini-hatchbox-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1 Mini",
+    "slug": "bambu-lab-a1-mini",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 80,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Hatchbox PETG",
+    "slug": "hatchbox-petg",
+    "brand": "Hatchbox",
+    "materialType": "PETG",
+    "minNozzleTempC": 230,
+    "maxNozzleTempC": 245,
+    "minBedTempC": 70,
+    "maxBedTempC": 85,
+    "volumetricFlowLimitMm3s": 14,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 238,
+    "recommendedBedTempC": 78,
+    "effectiveVolumetricFlowMm3s": 14,
+    "calculatedMaxPrintSpeedMmS": 167,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-15T14:05:58.721Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab A1 Mini prints Hatchbox PETG natively out of the box with exceptional consistency, reaching real-world speeds of up to 167 mm/s capped by its 14 mm³/s volumetric flow limit. No hardened nozzle or heated enclosure is needed, but precise first-layer calibration and active filament drying are essential for flawless surface quality.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 50,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with liquid glue or glue stick as a release agent",
+  "slicerTweaks": [
+    "Cap Maximum Volumetric Speed to 14 mm³/s in the Filament Settings tab to prevent under-extrusion at high print velocities.",
+    "Set Hotend Temperature to 240°C for the initial layer and 238°C for subsequent layers to compensate for the stainless steel nozzle's thermal conductivity.",
+    "Lower Part Cooling Fan thresholds to Min 20% and Max 50% with Fan Speedup Time set to 0 to prevent layer delamination.",
+    "Enable 'Avoid Crossing Walls' with a Max Detour Distance of 0 mm in Quality settings to minimize visible PETG oozing and stringing artifacts."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe stringing and fine hair-like wisps across open travels",
+      "rootCause": "PETG is hygroscopic and absorbed ambient moisture, lowering melt tension and inducing steam-driven oozing.",
+      "exactFix": "Dry the filament spool in a dedicated dryer at 65°C for 6 to 8 hours before printing, and verify retraction is set to 0.8 mm at 30 mm/s."
+    },
+    {
+      "issue": "Build surface tear-out or permanent fusion to the PEI sheet",
+      "rootCause": "PETG chemically cross-bonds with clean PEI coatings under print temperatures.",
+      "exactFix": "Apply a uniform layer of PVA glue stick or Bambu Liquid Glue on the Textured PEI plate to function strictly as a sacrificial release barrier."
+    },
+    {
+      "issue": "Weak layer-to-layer adhesion resulting in brittle or easily split parts",
+      "rootCause": "Excessive auxiliary cooling or high part cooling fan speeds chilling the extrudate before molecular bonding occurs.",
+      "exactFix": "Disable the auxiliary part fan completely and cap the toolhead part cooling fan to 40% maximum for structural walls."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Does Hatchbox PETG require a hardened steel nozzle upgrade on the Bambu A1 Mini?",
+      "answer": "No. Hatchbox standard PETG is non-abrasive, meaning the stock stainless steel nozzle installed on the A1 Mini will handle it without premature bore wear."
+    },
+    {
+      "question": "Can I reach the A1 Mini's advertised 500 mm/s speed with Hatchbox PETG?",
+      "answer": "No, hotend melting capacity limits Hatchbox PETG to roughly 14 mm³/s volumetric flow, which limits standard 0.2mm layer prints to approximately 167 mm/s."
+    },
+    {
+      "question": "What bed temperature should I use given the A1 Mini's 80°C hardware ceiling?",
+      "answer": "Set the bed to 75°C-78°C; this sits right at the optimal glass transition adhesion range for Hatchbox PETG while staying safely within the printer's 80°C hardware limit."
+    },
+    {
+      "question": "Why is glue stick recommended if PETG adheres well to the Textured PEI Plate?",
+      "answer": "Glue stick is used as a release agent rather than an adhesive; bare PETG adheres so aggressively to PEI that it can strip the coating off the sheet upon removal."
+    }
+  ]
+}

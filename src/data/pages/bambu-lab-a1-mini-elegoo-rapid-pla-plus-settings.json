@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-mini-elegoo-rapid-pla-plus-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1 Mini",
+    "slug": "bambu-lab-a1-mini",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 80,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Elegoo Rapid PLA+",
+    "slug": "elegoo-rapid-pla-plus",
+    "brand": "Elegoo",
+    "materialType": "HS-PLA+",
+    "minNozzleTempC": 210,
+    "maxNozzleTempC": 230,
+    "minBedTempC": 55,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 25,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 220,
+    "recommendedBedTempC": 60,
+    "effectiveVolumetricFlowMm3s": 24,
+    "calculatedMaxPrintSpeedMmS": 286,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-15T14:13:11.771Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab A1 Mini seamlessly handles Elegoo Rapid PLA+ right out of the box, utilizing its direct drive extruder to reach safe print speeds up to 286 mm/s at a high volumetric flow rate of 24 mm³/s. Operating without an enclosure and using the stock stainless steel nozzle, this pairing delivers exceptional high-speed throughput and surface finish with zero hardware modifications.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 40,
+  "bedSurfaceRecommendation": "Textured PEI Plate cleaned thoroughly with warm water and dish soap (no adhesive required)",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 24 mm³/s under the Filament Settings to fully capitalize on Elegoo Rapid PLA+'s high-melt flow index.",
+    "Enable Pressure Advance with an initial K-value of 0.022 to prevent blobbing at outer-wall directional corners during high-acceleration moves.",
+    "Configure Part Cooling Fan threshold to maintain 100% cooling on layers under 8 seconds to prevent overhang droop caused by rapid extrusion.",
+    "Set Outer Wall Speed to 200 mm/s and Inner Walls to 280 mm/s to balance structural throughput with high-gloss surface consistency."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Matte bands or gloss inconsistency across layer transitions",
+      "rootCause": "Fluctuations in actual extrusion speed causing localized melt temperature differences within the hotend.",
+      "exactFix": "Standardize Inner/Outer Wall print speeds within a narrower delta (e.g., 200 mm/s outer, 240 mm/s inner) or raise nozzle temperature to 225°C."
+    },
+    {
+      "issue": "Fine wispy stringing on open travel paths",
+      "rootCause": "High filament fluidity at 220°C combined with unoptimized travel z-hop causing nozzle oozing.",
+      "exactFix": "Increase retraction speed to 40 mm/s, ensure retraction distance is set to 0.8 mm, and enable 'Wipe while retracting' over 2 mm."
+    },
+    {
+      "issue": "First layer corner peeling or warping",
+      "rootCause": "Oily finger residue on the Textured PEI Plate or insufficient initial layer bed temperature.",
+      "exactFix": "Wash the build plate with warm water and Dawn dish soap, dry thoroughly, and set the first layer bed temperature to 62°C."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Does printing Elegoo Rapid PLA+ at 286 mm/s require a hardened steel nozzle on the A1 Mini?",
+      "answer": "No. Elegoo Rapid PLA+ is non-abrasive, meaning the stock stainless steel nozzle installed on the A1 Mini will handle high speeds without premature wear."
+    },
+    {
+      "question": "Can I leave the top and sides open while printing Rapid PLA+ on the A1 Mini?",
+      "answer": "Yes. PLA+ requires maximum ambient heat dissipation and part cooling; an open-frame design prevents heat creep and preserves overhang definition."
+    },
+    {
+      "question": "Why is the calculated max print speed capped at 286 mm/s?",
+      "answer": "At a standard 0.2 mm layer height and 0.42 mm line width, an extrusion speed of 286 mm/s reaches the 24 mm³/s volumetric flow limit of the hotend assembly."
+    },
+    {
+      "question": "Do I need to dry Elegoo Rapid PLA+ straight out of the vacuum seal?",
+      "answer": "PLA+ is minimally hygroscopic and typically prints well out of the box, though drying at 45°C for 4 hours is recommended if stringing or popping sounds occur."
+    }
+  ]
+}

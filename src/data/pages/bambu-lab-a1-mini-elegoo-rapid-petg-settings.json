@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-mini-elegoo-rapid-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1 Mini",
+    "slug": "bambu-lab-a1-mini",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 80,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Elegoo Rapid PETG",
+    "slug": "elegoo-rapid-petg",
+    "brand": "Elegoo",
+    "materialType": "PETG",
+    "minNozzleTempC": 230,
+    "maxNozzleTempC": 255,
+    "minBedTempC": 70,
+    "maxBedTempC": 85,
+    "volumetricFlowLimitMm3s": 20,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 243,
+    "recommendedBedTempC": 78,
+    "effectiveVolumetricFlowMm3s": 20,
+    "calculatedMaxPrintSpeedMmS": 238,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-15T14:15:00.686Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab A1 Mini handles Elegoo Rapid PETG right out of the box without an enclosure, delivering reliable prints at speeds up to 238 mm/s based on a 20 mm³/s volumetric flow limit. Its direct drive extruder and 300°C-capable hotend easily melt and control this high-flow filament on the stock stainless steel nozzle.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 30,
+  "coolingFanMaxPct": 60,
+  "firstLayerSpeedMmS": 40,
+  "bedSurfaceRecommendation": "Textured PEI Plate with liquid glue or glue stick as a release agent",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 20 mm³/s in the filament settings to exploit Elegoo Rapid PETG high-melt characteristics safely.",
+    "Enable 'Wipe while retracting' (2 mm distance) and 'Retract on layer change' to eliminate fine stringing inherent to low-viscosity PETG.",
+    "Configure Part Cooling Fan to 30% min and 60% max with a 12-second layer threshold to balance rapid cooling against strong layer adhesion.",
+    "Adjust Pressure Advance (Linear Advance) factor to roughly 0.038–0.042 s to maintain crisp corner geometry at 238 mm/s speeds."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe PETG adhesion bonding leading to PEI coating tear-out",
+      "rootCause": "PETG creates an overly aggressive chemical bond directly onto smooth or warm PEI sheets upon cooling.",
+      "exactFix": "Apply a thin, uniform layer of glue stick or Bambu liquid glue to act as an interfacial release barrier, and allow the bed to cool below 35°C before removing parts."
+    },
+    {
+      "issue": "Fine wispy stringing and nozzle accumulation during rapid travels",
+      "rootCause": "Ambient moisture absorbed by the hygroscopic filament combined with excessive travel nozzle oozing.",
+      "exactFix": "Dry the filament spool at 65°C for 6 hours; set Z-hop type to 'Auto' or 'Normal' (0.2 mm) and enable travel moves to avoid crossing perimeters."
+    },
+    {
+      "issue": "Matte finish or layer splitting on thin vertical walls",
+      "rootCause": "Part cooling fan running at excessive speeds (above 70%), freezing the rapid PETG melt pool before molecular fusion occurs.",
+      "exactFix": "Cap the maximum fan cooling threshold at 60% and ensure the printing nozzle temperature is maintained at 243°C."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can the A1 Mini reach the full 238 mm/s print speed without hotend upgrades?",
+      "answer": "Yes, with Elegoo Rapid PETG's high melt flow formulation and the stock 0.4mm nozzle running at 243°C, the A1 Mini reliably sustains the 20 mm³/s volumetric limit which yields 238 mm/s at 0.2mm layer height."
+    },
+    {
+      "question": "Does printing Elegoo Rapid PETG require an enclosure on the A1 Mini?",
+      "answer": "No, PETG does not suffer from extreme thermal contraction like ABS or ASA, so it prints reliably in open-air ambient environments without an enclosure."
+    },
+    {
+      "question": "Is the stock stainless steel nozzle durable enough for Elegoo Rapid PETG?",
+      "answer": "Yes, standard Elegoo Rapid PETG is non-abrasive and completely safe to run continuously through the stock stainless steel nozzle without premature bore wear."
+    },
+    {
+      "question": "Why is glue stick recommended if the A1 Mini comes with a textured PEI plate?",
+      "answer": "PETG adheres exceptionally well to PEI; using a thin layer of glue acts as a release barrier rather than an adhesive, preventing damage to the textured PEI coating during part removal."
+    }
+  ]
+}

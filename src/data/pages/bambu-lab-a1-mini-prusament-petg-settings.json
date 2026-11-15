@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-mini-prusament-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1 Mini",
+    "slug": "bambu-lab-a1-mini",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 80,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Prusament PETG",
+    "slug": "prusament-petg",
+    "brand": "Prusament",
+    "materialType": "PETG",
+    "minNozzleTempC": 240,
+    "maxNozzleTempC": 255,
+    "minBedTempC": 75,
+    "maxBedTempC": 90,
+    "volumetricFlowLimitMm3s": 15,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 248,
+    "recommendedBedTempC": 80,
+    "effectiveVolumetricFlowMm3s": 15,
+    "calculatedMaxPrintSpeedMmS": 179,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-15T13:56:20.183Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab A1 Mini prints Prusament PETG exceptionally well straight out of the box, reaching safe speeds up to 179 mm/s constrained by a 15 mm³/s volumetric flow limit. It requires no enclosure or hardened nozzle upgrades, though keeping the heated bed at its maximum 80°C is critical for proper adhesion.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 50,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate with thin PVP glue stick or liquid release agent",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 15 mm³/s in the filament profile to prevent extrusion grinding during high-speed moves.",
+    "Limit maximum part cooling fan speed to 50% with layer time threshold between 30s and 12s to preserve layer adhesion.",
+    "Increase first layer bed temperature to 80°C and set nozzle temperature to 250°C for the initial layer, dropping to 248°C thereafter.",
+    "Enable 1.5mm retraction wipe and set Z-hop type to Spiral Z-hop to minimize nozzle stringing and blob deposition on perimeters."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe stringing and fine hair buildup",
+      "rootCause": "Prusament PETG is highly hygroscopic and oozes readily when ambient moisture is absorbed, exacerbated by excessive nozzle temperature.",
+      "exactFix": "Dry the filament spool at 65°C for 6 hours in a dedicated filament dryer and reduce nozzle printing temperature by 5°C."
+    },
+    {
+      "issue": "PEI surface damage or violent over-adhesion",
+      "rootCause": "PETG chemically bonds directly to smooth and textured PEI coatings, risking coating tear-out upon part removal.",
+      "exactFix": "Apply a thin layer of liquid glue or PVP glue stick as an interfacial release agent before starting the print."
+    },
+    {
+      "issue": "Corner warping and base detachment",
+      "rootCause": "Bed temperature dropping below the material's glass transition threshold due to room draft exposure on the open-frame A1 Mini.",
+      "exactFix": "Lock bed temperature at 80°C, turn auxiliary cooling fans completely OFF, and apply a 5mm outer brim."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can the A1 Mini reach the recommended bed temperature for Prusament PETG?",
+      "answer": "Yes, Prusament recommends 75°C to 90°C. Setting the A1 Mini heated bed to its hardware limit of 80°C is sufficient for strong adhesion without thermal runaway."
+    },
+    {
+      "question": "Do I need a hardened steel nozzle to print Prusament PETG on the A1 Mini?",
+      "answer": "No, standard Prusament PETG is non-abrasive, so the stock stainless steel nozzle on the A1 Mini handles it without premature wear."
+    },
+    {
+      "question": "Why does Prusament PETG print slower than Bambu PETG Basic on the A1 Mini?",
+      "answer": "Prusament PETG possesses a higher molecular weight and melt viscosity, restricting safe volumetric flow to 15 mm³/s compared to high-flow variants."
+    },
+    {
+      "question": "Can I leave Prusament PETG mounted on the A1 Mini spool holder between prints?",
+      "answer": "No, PETG absorbs ambient moisture within 24 to 48 hours, causing foaming, stringing, and brittle parts; store it in a sealed desiccant drybox when idle."
+    }
+  ]
+}

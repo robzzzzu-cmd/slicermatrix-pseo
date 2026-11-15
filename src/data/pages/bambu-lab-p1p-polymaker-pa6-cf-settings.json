@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1p-polymaker-pa6-cf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1P",
+    "slug": "bambu-lab-p1p",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Polymaker PA6-CF",
+    "slug": "polymaker-pa6-cf",
+    "brand": "Polymaker",
+    "materialType": "PA6-CF",
+    "minNozzleTempC": 280,
+    "maxNozzleTempC": 300,
+    "minBedTempC": 40,
+    "maxBedTempC": 50,
+    "volumetricFlowLimitMm3s": 11,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 290,
+    "recommendedBedTempC": 45,
+    "effectiveVolumetricFlowMm3s": 11,
+    "calculatedMaxPrintSpeedMmS": 131,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": true
+  },
+  "generatedAt": "2026-11-15T14:34:25.912Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab P1P requires an upgrade to a hardened steel nozzle and extruder gears before safely processing abrasive Polymaker PA6-CF, which is speed-capped at 131 mm/s due to an 11 mm³/s volumetric flow limit. While small functional parts can be printed without an enclosure at a 45°C bed temp, larger structural prints necessitate an enclosure or draft shield to mitigate severe warping.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 20,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate or Engineering Plate with Magigoo PA or PVA glue stick release agent",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 11 mm³/s in the filament profile to cap print speed automatically at 131 mm/s for a 0.2mm layer height and 0.42mm line width.",
+    "Disable the auxiliary part cooling fan completely and set the part cooling fan threshold to 0% min and 20% max to preserve layer adhesion and prevent warping on the open-frame P1P.",
+    "Enable a 5mm outer brim with a 0.0mm brim-object gap to aggressively anchor corner edges to the build plate during cool-down.",
+    "Set the nozzle temperature to 290°C and bed temperature to 45°C, ensuring the 'Keep fan always on' checkbox is unchecked."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe corner lifting and delamination from build plate",
+      "rootCause": "Ambient drafts cooling the nylon unevenly on the open-frame P1P, combined with high thermal contraction of PA6.",
+      "exactFix": "Apply Magigoo PA on the build plate, add an external draft shield or enclosure cover, and increase brim width to 8mm with zero offset."
+    },
+    {
+      "issue": "Rough, matte surface with popping sounds and severe stringing",
+      "rootCause": "Moisture absorption; PA6 is intensely hygroscopic and saturates within hours of exposure to ambient air.",
+      "exactFix": "Dry the filament in a dedicated convection dryer at 80-100°C for 8 to 12 hours and print directly from an active dry box."
+    },
+    {
+      "issue": "Rapid nozzle orifice expansion and extrusion inconsistency",
+      "rootCause": "Using the stock P1P stainless steel nozzle, which is rapidly eroded by the abrasive chopped carbon fibers.",
+      "exactFix": "Swap the stock hotend assembly for an official Bambu Lab 0.4mm or 0.6mm Hardened Steel Hotend and hardened steel extruder gear assembly."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Polymaker PA6-CF on a stock P1P without modifications?",
+      "answer": "No. The stock P1P uses a stainless steel nozzle and unhardened extruder gears which will rapidly wear out from the abrasive carbon fibers; you must upgrade both to hardened steel components."
+    },
+    {
+      "question": "Does the open-frame P1P require an enclosure to print this filament?",
+      "answer": "Polymaker PA6-CF prints at a low bed temperature of 40-50°C to minimize crystallization shrinkage, allowing small parts to print openly; however, medium-to-large prints will warp significantly without an enclosure or draft protection."
+    },
+    {
+      "question": "Can I use the Bambu AMS to feed Polymaker PA6-CF?",
+      "answer": "Yes, but prolonged use of abrasive CF filament through the plastic AMS funnels will cause grooving; installing hardened PTFE funnel guides or printing directly from an external dry box is recommended."
+    },
+    {
+      "question": "Why is the recommended bed temperature only 45°C for a high-temp nylon?",
+      "answer": "Polymaker formulates their PA6-CF with specialized crystallization kinetics where lower bed temperatures (40-50°C) prevent premature stress buildup and warping that typically occur at higher bed temps."
+    }
+  ]
+}

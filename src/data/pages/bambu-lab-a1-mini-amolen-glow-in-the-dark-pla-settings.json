@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-mini-amolen-glow-in-the-dark-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1 Mini",
+    "slug": "bambu-lab-a1-mini",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 80,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Amolen Glow in the Dark PLA",
+    "slug": "amolen-glow-in-the-dark-pla",
+    "brand": "Amolen",
+    "materialType": "Glow PLA",
+    "minNozzleTempC": 205,
+    "maxNozzleTempC": 225,
+    "minBedTempC": 55,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 14,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 215,
+    "recommendedBedTempC": 60,
+    "effectiveVolumetricFlowMm3s": 14,
+    "calculatedMaxPrintSpeedMmS": 167,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-15T14:19:05.105Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab A1 Mini easily runs Amolen Glow PLA up to a safe maximum speed of 167 mm/s at 14 mm³/s volumetric flow, but you must replace the stock stainless steel hotend with a hardened steel assembly to prevent severe abrasive wear. Once upgraded, the direct drive system delivers dependable flow and reliable adhesion on the standard textured PEI plate.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate cleaned thoroughly with isopropyl alcohol (no adhesive required)",
+  "slicerTweaks": [
+    "Cap Max Volumetric Speed at 14 mm³/s in the filament profile to prevent under-extrusion at standard Bambu travel rates.",
+    "Increase Wall Loops to 3 or 4 to build thicker outer boundaries, enhancing phosphorescent light-storage and glow intensity.",
+    "Enable 'Wipe while Retracting' with a 2 mm wipe distance to control stringing caused by heavy phosphorescent particulate loading.",
+    "Set Outer Wall Speed to 100 mm/s and Inner Wall Speed to 160 mm/s to ensure optical surface uniformity without exceeding the flow limit."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Rapid nozzle bore enlargement and inconsistent extrusion lines",
+      "rootCause": "The abrasive strontium aluminate glow particles rapidly eroded the stock stainless steel nozzle tip.",
+      "exactFix": "Install an official Bambu Lab 0.4mm Hardened Steel Hotend assembly before printing abrasive composite filaments."
+    },
+    {
+      "issue": "Stringing and rough, fuzzy surface artifacts",
+      "rootCause": "Moisture absorption by the PLA base polymer combined with heat-trapping phosphorescent additives.",
+      "exactFix": "Dry the filament spool in a dedicated dryer at 45°C for 6 hours before printing, and keep retraction speed at 30 mm/s."
+    },
+    {
+      "issue": "Intermittent hotend clogging during high-speed infill",
+      "rootCause": "Attempting to exceed the 14 mm³/s volumetric limit, causing particulate clumping and backpressure in the melt zone.",
+      "exactFix": "Set print temperature to 215°C and ensure OrcaSlicer max volumetric speed is clamped strictly to 14 mm³/s."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Amolen Glow PLA on the stock A1 Mini out of the box?",
+      "answer": "No, the stock hotend has a stainless steel nozzle that will rapidly degrade from the abrasive phosphorescent particles, causing flow defects within a few hundred grams. You must first install the Bambu Lab hardened steel hotend."
+    },
+    {
+      "question": "Does Amolen Glow PLA work with the Bambu Lab AMS Lite?",
+      "answer": "Yes, it fits and feeds through the AMS Lite, but the abrasive filler will accelerate wear on the plastic funnel guides and PTFE tubing over prolonged use."
+    },
+    {
+      "question": "How do I make the printed parts glow brighter?",
+      "answer": "Increase the number of wall loops to at least 4 and infill to 25% or higher, as more physical mass of strontium aluminate compound stores and radiates more light."
+    },
+    {
+      "question": "Do I need an enclosure to print this filament on the A1 Mini?",
+      "answer": "No, Amolen Glow PLA is a modified PLA base that prints ideally in an open-air environment with standard 60°C bed temperatures and active part cooling."
+    }
+  ]
+}

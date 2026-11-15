@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-mini-sunlu-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1 Mini",
+    "slug": "bambu-lab-a1-mini",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 80,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Sunlu PETG",
+    "slug": "sunlu-petg",
+    "brand": "Sunlu",
+    "materialType": "PETG",
+    "minNozzleTempC": 230,
+    "maxNozzleTempC": 250,
+    "minBedTempC": 70,
+    "maxBedTempC": 85,
+    "volumetricFlowLimitMm3s": 15,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 240,
+    "recommendedBedTempC": 78,
+    "effectiveVolumetricFlowMm3s": 15,
+    "calculatedMaxPrintSpeedMmS": 179,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-15T13:47:16.117Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab A1 Mini handles Sunlu PETG effortlessly out of the box with its stock stainless steel nozzle and open-frame architecture. By capping the maximum volumetric flow rate to 15 mm³/s, the machine safely sustains peak print speeds of up to 179 mm/s with exceptional layer bonding.",
+  "retractionDistanceMm": 0.6,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 50,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with glue stick or liquid glue applied as a release agent to prevent bed surface damage",
+  "slicerTweaks": [
+    "Set 'Max volumetric speed' to 15 mm³/s in the filament profile to prevent underextrusion at high feedrates.",
+    "Enable 'Wipe while retracting' with a 1.5 mm wipe distance to eliminate stringing and nozzle buildup inherent to sticky PETG.",
+    "Disable part cooling for the first 3 layers, and maintain fan speeds between 20% and 50% for structural integrity.",
+    "Set Pressure Advance (PA / Flow Dynamics) to approximately 0.036 via calibration to avoid corner bulging and seam blobbing."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Fine stringing and branching across open travel paths",
+      "rootCause": "Sunlu PETG is highly hygroscopic and tends to ooze when saturated with atmospheric moisture, aggravated by excess nozzle heat.",
+      "exactFix": "Dry the filament in a dedicated dryer at 65°C for 6 hours and reduce printing temperature from 245°C to 238°C in OrcaSlicer."
+    },
+    {
+      "issue": "First layer tearing or permanent fusion to the build surface",
+      "rootCause": "PETG creates an aggressive chemical bond with smooth PEI surfaces, causing plate damage during removal.",
+      "exactFix": "Print exclusively on the Bambu Textured PEI plate and apply a thin layer of PVA glue stick to serve as a sacrificial release interface."
+    },
+    {
+      "issue": "Weak layer adhesion and brittle parts along the Z-axis",
+      "rootCause": "Excessive part cooling fan speeds exceeding 60% cause premature crystallization and rapid layer chilling.",
+      "exactFix": "Lower 'Part Cooling Fan' maximum limit to 40% in the filament cooling settings and verify nozzle temperature is at least 240°C."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Does Sunlu PETG require an enclosure on the Bambu Lab A1 Mini?",
+      "answer": "No, PETG does not suffer from extreme shrinkage like ABS or ASA and prints reliably in open-air environments without draft-related delamination."
+    },
+    {
+      "question": "Can the A1 Mini bed reach the required temperature for Sunlu PETG?",
+      "answer": "Yes, Sunlu PETG performs reliably at 70°C to 78°C, which falls cleanly within the A1 Mini hardware limit of 80°C."
+    },
+    {
+      "question": "Do I need to upgrade to a hardened steel nozzle for Sunlu PETG?",
+      "answer": "No, standard Sunlu PETG is non-abrasive, making the stock stainless steel nozzle completely suitable and wear-resistant for this material."
+    },
+    {
+      "question": "Why is glue stick required on the Textured PEI plate for PETG?",
+      "answer": "PETG adheres aggressively to PEI coatings; the glue stick acts as a release barrier rather than an adhesive, preventing the filament from ripping chunks out of the plate surface."
+    }
+  ]
+}

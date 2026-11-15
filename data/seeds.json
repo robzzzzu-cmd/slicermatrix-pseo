@@ -4751,7 +4751,7 @@
   },
   {
     "slug": "bambu-lab-a1-mini-sunlu-petg-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab A1 Mini",
       "slug": "bambu-lab-a1-mini",
@@ -5397,7 +5397,7 @@
   },
   {
     "slug": "bambu-lab-a1-mini-esun-etpu-95a-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab A1 Mini",
       "slug": "bambu-lab-a1-mini",
@@ -5701,7 +5701,7 @@
   },
   {
     "slug": "bambu-lab-a1-mini-prusament-petg-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab A1 Mini",
       "slug": "bambu-lab-a1-mini",
@@ -5739,7 +5739,7 @@
   },
   {
     "slug": "bambu-lab-a1-mini-hatchbox-pla-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab A1 Mini",
       "slug": "bambu-lab-a1-mini",
@@ -5777,7 +5777,7 @@
   },
   {
     "slug": "bambu-lab-a1-mini-hatchbox-petg-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab A1 Mini",
       "slug": "bambu-lab-a1-mini",
@@ -5815,7 +5815,7 @@
   },
   {
     "slug": "bambu-lab-a1-mini-hatchbox-wood-pla-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab A1 Mini",
       "slug": "bambu-lab-a1-mini",
@@ -5853,7 +5853,7 @@
   },
   {
     "slug": "bambu-lab-a1-mini-elegoo-rapid-pla-plus-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab A1 Mini",
       "slug": "bambu-lab-a1-mini",
@@ -5891,7 +5891,7 @@
   },
   {
     "slug": "bambu-lab-a1-mini-elegoo-rapid-petg-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab A1 Mini",
       "slug": "bambu-lab-a1-mini",
@@ -5929,7 +5929,7 @@
   },
   {
     "slug": "bambu-lab-a1-mini-amolen-glow-in-the-dark-pla-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab A1 Mini",
       "slug": "bambu-lab-a1-mini",
@@ -6005,7 +6005,7 @@
   },
   {
     "slug": "bambu-lab-a1-mini-colorfabb-xt-cf20-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab A1 Mini",
       "slug": "bambu-lab-a1-mini",
@@ -6081,7 +6081,7 @@
   },
   {
     "slug": "bambu-lab-p1p-polymaker-polylite-petg-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1P",
       "slug": "bambu-lab-p1p",
@@ -6119,7 +6119,7 @@
   },
   {
     "slug": "bambu-lab-p1p-polymaker-polyterra-pla-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1P",
       "slug": "bambu-lab-p1p",
@@ -6347,7 +6347,7 @@
   },
   {
     "slug": "bambu-lab-p1p-polymaker-pa6-cf-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1P",
       "slug": "bambu-lab-p1p",

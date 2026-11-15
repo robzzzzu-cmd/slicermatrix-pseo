@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1p-polymaker-polyterra-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1P",
+    "slug": "bambu-lab-p1p",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Polymaker PolyTerra PLA",
+    "slug": "polymaker-polyterra-pla",
+    "brand": "Polymaker",
+    "materialType": "PLA",
+    "minNozzleTempC": 195,
+    "maxNozzleTempC": 225,
+    "minBedTempC": 50,
+    "maxBedTempC": 60,
+    "volumetricFlowLimitMm3s": 21,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 210,
+    "recommendedBedTempC": 55,
+    "effectiveVolumetricFlowMm3s": 21,
+    "calculatedMaxPrintSpeedMmS": 250,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-15T14:26:58.641Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1P effortlessly prints Polymaker PolyTerra PLA straight out of the box with no enclosure or hardened nozzle upgrades required. With a volumetric flow limit of 21 mm³/s, you can reliably run standard outer and inner walls at speeds up to 250 mm/s.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 40,
+  "bedSurfaceRecommendation": "Textured PEI Plate (no adhesive required; ensure surface is clean and degreased with IPA or warm dish soap water)",
+  "slicerTweaks": [
+    "Set 'Max volumetric speed' to 21 mm³/s under the Filament > Flow ratio tab to fully saturate the hotend without under-extrusion at high speeds.",
+    "Tune Pressure Advance (Linear Advance) to approximately 0.022 in OrcaSlicer calibration to account for PolyTerra's slightly softer, matte mineral filler composition.",
+    "Lower outer wall acceleration to 5000 mm/s² and outer wall speed to 150-180 mm/s to ensure the characteristic uniform matte sheen of PolyTerra without glossy speed streaks.",
+    "Set nozzle temperature to 210°C for normal print moves and keep the textured PEI bed at a stable 55°C across all layers."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Visible gloss banding and non-uniform surface sheen",
+      "rootCause": "PolyTerra PLA changes sheen depending on melt temperature and layer speed; high speeds cause matte finish while slower features (like top layers or overhangs) melt hotter and turn glossy.",
+      "exactFix": "Enforce a uniform outer wall print speed (e.g., 150 mm/s) and disable variable overhang speeds for visible outer perimeters in the Speed settings."
+    },
+    {
+      "issue": "Stringing and fine wisps across open travels",
+      "rootCause": "PolyTerra contains organic/mineral fillers that reduce melt strength and increase nozzle drool if retraction or temperature is too high.",
+      "exactFix": "Reduce nozzle temperature by 5-10°C (down to 200-205°C) and enable 'Wipe while retracting' with a 2mm wipe distance in OrcaSlicer Extruder settings."
+    },
+    {
+      "issue": "First layer adhesion failure or edge curling on small contact geometries",
+      "rootCause": "Fingerprint oils on the Textured PEI sheet or excessive initial print cooling fan speed causing differential shrinkage on fine details.",
+      "exactFix": "Wash the Textured PEI plate with hot water and unscented dish soap, and verify 'No cooling for the first X layers' is set to 2 layers in filament cooling settings."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Does Polymaker PolyTerra PLA require a hardened steel nozzle upgrade on the P1P?",
+      "answer": "No. Despite its matte finish and mineral composition, PolyTerra PLA is non-abrasive and runs safely on the P1P's stock stainless steel nozzle without causing premature wear."
+    },
+    {
+      "question": "Can I print PolyTerra PLA inside an enclosed P1P?",
+      "answer": "The P1P is an open-frame printer, which is ideal for PolyTerra PLA. If you have installed aftermarket enclosure panels, you must keep the top glass lid propped open or front door open to prevent heat creep clogs."
+    },
+    {
+      "question": "Can PolyTerra PLA reach the maximum 500 mm/s acceleration and speed of the Bambu P1P?",
+      "answer": "While the motion system supports 500 mm/s, PolyTerra's effective volumetric limit of 21 mm³/s caps safe printing speed at roughly 250 mm/s for a 0.2mm layer height and 0.42mm extrusion width to prevent severe under-extrusion."
+    },
+    {
+      "question": "Why does PolyTerra feel more brittle or have lower layer adhesion than standard PLA?",
+      "answer": "PolyTerra incorporates eco-friendly mineral fillers designed for effortless support removal and a matte finish, which slightly trades off impact strength; bumping print temperature to 215-220°C can increase layer bonding if extra strength is required."
+    }
+  ]
+}

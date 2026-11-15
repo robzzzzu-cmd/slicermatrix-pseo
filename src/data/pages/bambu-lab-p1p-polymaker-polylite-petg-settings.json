@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1p-polymaker-polylite-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1P",
+    "slug": "bambu-lab-p1p",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Polymaker PolyLite PETG",
+    "slug": "polymaker-polylite-petg",
+    "brand": "Polymaker",
+    "materialType": "PETG",
+    "minNozzleTempC": 230,
+    "maxNozzleTempC": 250,
+    "minBedTempC": 70,
+    "maxBedTempC": 80,
+    "volumetricFlowLimitMm3s": 14,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 240,
+    "recommendedBedTempC": 75,
+    "effectiveVolumetricFlowMm3s": 14,
+    "calculatedMaxPrintSpeedMmS": 167,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-15T14:25:27.187Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1P handles Polymaker PolyLite PETG reliably out of the box on its open-frame architecture with the stock stainless steel nozzle. By capping the maximum volumetric flow rate to 14 mm³/s in OrcaSlicer, the system reaches a safe maximum print speed of 167 mm/s while maintaining excellent layer adhesion and minimal stringing.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 50,
+  "firstLayerSpeedMmS": 40,
+  "bedSurfaceRecommendation": "Textured PEI Plate with liquid glue or glue stick release agent",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 14 mm³/s under Filament Settings > Advanced to enforce the 167 mm/s speed ceiling for consistent melt flow.",
+    "Enable Wipe While Retracting with a 2 mm wipe distance to prevent filament accumulation on the stock stainless steel nozzle tip.",
+    "Lower Part Cooling Fan settings to 20% minimum and 50% maximum, keeping auxiliary cooling off to maximize inter-layer adhesion.",
+    "Set the Pressure Advance value to roughly 0.038 (calibrated via OrcaSlicer line/pattern test) to eliminate seam oozing and corner bulge."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe stringing and fine hair-like wisps between travels",
+      "rootCause": "PETG is hygroscopic and absorbed ambient moisture, paired with excessive nozzle temperature or travel unretracted.",
+      "exactFix": "Dry the spool at 65°C for 6 hours; in OrcaSlicer, enable 'Avoid Crossing Walls' and set retraction to 0.8 mm at 35 mm/s."
+    },
+    {
+      "issue": "Build plate surface damage or chunks torn out of PEI sheet",
+      "rootCause": "PETG chemically bonds too aggressively to smooth or unconditioned PEI surfaces upon cooling.",
+      "exactFix": "Apply a uniform layer of PVP glue stick or liquid glue as a sacrificial release agent before starting the print."
+    },
+    {
+      "issue": "Delamination or brittle layer separation under mechanical load",
+      "rootCause": "Excessive part cooling fan speeds chilling the extruded bead before molecular fusion occurs.",
+      "exactFix": "Reduce cooling fan speeds to a 20-40% operational window and increase nozzle printing temperature to 245°C."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Polymaker PolyLite PETG on the P1P without an enclosure?",
+      "answer": "Yes, PETG prints exceptionally well in open-frame environments because it does not suffer from aggressive thermal shrinkage like ABS or ASA."
+    },
+    {
+      "question": "Do I need to upgrade to a hardened steel nozzle to print PolyLite PETG?",
+      "answer": "No, standard PolyLite PETG is non-abrasive, making the stock stainless steel nozzle on the P1P completely sufficient for long-term printing."
+    },
+    {
+      "question": "Why is the print speed capped at 167 mm/s?",
+      "answer": "The maximum volumetric flow rate of PolyLite PETG in the stock P1P hotend is 14 mm³/s, which mathematically limits safe line extrusion to 167 mm/s at standard 0.2mm layer heights."
+    },
+    {
+      "question": "Is drying PolyLite PETG mandatory before feeding it into the P1P?",
+      "answer": "Yes, PETG absorbs moisture rapidly, leading to bubbling, degraded structural strength, and heavy stringing if not dried at 65°C before use."
+    }
+  ]
+}

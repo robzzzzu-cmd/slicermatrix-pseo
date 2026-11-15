@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-mini-esun-etpu-95a-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1 Mini",
+    "slug": "bambu-lab-a1-mini",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 80,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "eSUN eTPU-95A",
+    "slug": "esun-etpu-95a",
+    "brand": "eSUN",
+    "materialType": "TPU",
+    "minNozzleTempC": 210,
+    "maxNozzleTempC": 230,
+    "minBedTempC": 45,
+    "maxBedTempC": 60,
+    "volumetricFlowLimitMm3s": 4.5,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 220,
+    "recommendedBedTempC": 53,
+    "effectiveVolumetricFlowMm3s": 4.5,
+    "calculatedMaxPrintSpeedMmS": 54,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-15T13:52:05.754Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab A1 Mini prints eSUN eTPU-95A straight out of the box using its direct drive extruder, capping safe print speeds at 54 mm/s to match the 4.5 mm³/s volumetric flow limit. No hardware upgrades or enclosures are required, though using the external spool holder bypasses AMS incompatibility.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 40,
+  "coolingFanMaxPct": 80,
+  "firstLayerSpeedMmS": 25,
+  "bedSurfaceRecommendation": "Textured PEI Plate with PVP glue stick or liquid glue as a release agent",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 4.5 mm³/s in the Filament Profile to automatically limit speed to around 54 mm/s.",
+    "Enable 'Avoid Crossing Walls' with a Max Detour Distance of 0 to eliminate oozing and exterior perimeter stringing.",
+    "Reduce Retraction Distance to 0.8 mm and Retraction Speed to 30 mm/s to avoid filament buckling inside the drive gears.",
+    "Set Pressure Advance (PA) to 0.045 to compensate for elasticity without causing extruder motor grinding."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Extruder gear clicking and filament binding/buckling in extruder",
+      "rootCause": "Printing too fast or exceeding the 4.5 mm³/s volumetric limit creates excessive backpressure, buckling flexible filament.",
+      "exactFix": "Cap the Max Volumetric Flow to 4.5 mm³/s and lower print speed across all features to ≤50 mm/s."
+    },
+    {
+      "issue": "Excessive stringing and wisps across travel paths",
+      "rootCause": "TPU absorbs ambient moisture rapidly and tends to ooze due to stored elastic energy in the melt zone.",
+      "exactFix": "Dry filament at 55°C for 6-8 hours and enable 'Avoid Crossing Walls' with Z-hop disabled or set to 0 mm."
+    },
+    {
+      "issue": "Over-adhesion resulting in PEI surface tear-out",
+      "rootCause": "Polyurethane chemically bonds aggressively to bare textured PEI coatings during cooling.",
+      "exactFix": "Apply a generous, uniform layer of glue stick or liquid glue to act as an intentional sacrificial release barrier."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I feed eSUN eTPU-95A through the Bambu Lab AMS Lite?",
+      "answer": "No, flexible filaments will jam and wrap around the feeder rollers in the AMS Lite; feed directly from the external spool holder via the single PTFE tube."
+    },
+    {
+      "question": "Why is the maximum print speed restricted to around 54 mm/s?",
+      "answer": "At standard 0.2mm layer height and 0.42mm line width, 54 mm/s matches the 4.5 mm³/s safe volumetric flow rate of TPU to avoid backpressure jams."
+    },
+    {
+      "question": "Do I need an enclosure or hardened steel nozzle on the A1 Mini for this filament?",
+      "answer": "No, eSUN eTPU-95A is non-abrasive and prints reliably on an open-frame printer using the stock stainless steel nozzle and a 53°C bed."
+    },
+    {
+      "question": "How should I dry and store eSUN eTPU-95A?",
+      "answer": "Dry in an active filament dryer at 55°C for 6 to 8 hours prior to printing, and print directly from a sealed dry box to prevent hydroscopic oozing."
+    }
+  ]
+}

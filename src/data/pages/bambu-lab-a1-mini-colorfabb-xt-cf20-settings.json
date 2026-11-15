@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-mini-colorfabb-xt-cf20-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1 Mini",
+    "slug": "bambu-lab-a1-mini",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 80,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "ColorFabb XT-CF20",
+    "slug": "colorfabb-xt-cf20",
+    "brand": "ColorFabb",
+    "materialType": "PETG-CF",
+    "minNozzleTempC": 245,
+    "maxNozzleTempC": 265,
+    "minBedTempC": 70,
+    "maxBedTempC": 80,
+    "volumetricFlowLimitMm3s": 12,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 255,
+    "recommendedBedTempC": 75,
+    "effectiveVolumetricFlowMm3s": 12,
+    "calculatedMaxPrintSpeedMmS": 143,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-15T14:21:53.664Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab A1 Mini can successfully run ColorFabb XT-CF20 up to a safe print speed of 143 mm/s capped by a 12 mm³/s maximum volumetric speed limit. However, you must install Bambu Lab's hardened steel hotend assembly prior to printing, as the 20% carbon fiber fill will quickly destroy the stock stainless steel nozzle.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 15,
+  "coolingFanMaxPct": 35,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate + PVP Glue Stick or Liquid Glue release agent",
+  "slicerTweaks": [
+    "Cap 'Max volumetric speed' under Filament Settings -> Advanced to 12 mm³/s to prevent severe under-extrusion at high linear speeds.",
+    "Set Hotend Temperature to 255°C for all layers and Bed Temperature to 75°C to stay within the A1 Mini's 80°C physical thermal limit.",
+    "Enable 'Wipe while retracting' (1.5mm) and set 'Retract amount before wipe' to 70% to eliminate abrasive PETG-CF stringing and nozzle buildup.",
+    "Adjust part cooling fan profile to 0% for the first 3 layers, then a low 15% min to 35% max threshold to ensure superior layer adhesion without thermal shock."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Rapid nozzle wear and severe bore expansion",
+      "rootCause": "ColorFabb XT-CF20 contains 20% high-modulus abrasive micro-carbon fibers that erode the stock stainless steel nozzle in under 200g of printing.",
+      "exactFix": "Replace the stock A1 Mini hotend with the official Bambu Lab 0.4mm or 0.6mm Hardened Steel Hotend assembly and select the hardened nozzle profile in device settings."
+    },
+    {
+      "issue": "Extruder clogs and intermittent clicking during infill",
+      "rootCause": "Linear speeds demanding flow rates exceeding 12 mm³/s, or micro-carbon fiber accumulation in narrow nozzle orifices at low extrusion temperatures.",
+      "exactFix": "Ensure print temperature is at least 255°C, verify Max Volumetric Speed is locked at 12 mm³/s, and prefer a 0.6mm hardened nozzle if printing layers above 0.24mm."
+    },
+    {
+      "issue": "Bed surface tear-out or permanent fusion to the PEI sheet",
+      "rootCause": "The modified copolyester (Amphora/PETG) matrix binds chemically to clean PEI at 75°C, creating excessive adhesion upon cooling.",
+      "exactFix": "Apply a thin, uniform coating of Bambu Liquid Glue or PVP glue stick onto the Textured PEI Plate to serve as an interface release agent."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print ColorFabb XT-CF20 with the stock Bambu A1 Mini nozzle?",
+      "answer": "No. The stock hotend uses a stainless steel nozzle that will rapidly degrade from the 20% carbon fiber load, causing blown-out tolerances, severe under-extrusion, and ruined prints. You must install the Hardened Steel hotend upgrade."
+    },
+    {
+      "question": "Does the A1 Mini need an enclosure to print ColorFabb XT-CF20 reliably?",
+      "answer": "No. ColorFabb XT-CF20 is formulated on Eastman Amphora copolyester, which exhibits exceptionally low shrinkage and warp resistance compared to standard PETG or ABS, allowing clean printing in open-air environments at 75°C bed temp."
+    },
+    {
+      "question": "What is the recommended drying procedure for XT-CF20?",
+      "answer": "Dry the spool in a filament dryer at 65°C to 70°C for 6 to 8 hours before printing. Wet XT-CF20 causes hydrolytic degradation in the hotend, leading to foaming, brittle layer bonds, and rough surface artifacts."
+    },
+    {
+      "question": "Can I use the Bambu Lab AMS Lite to feed ColorFabb XT-CF20?",
+      "answer": "Yes, but prolonged use will wear the standard plastic funnel inlets and internal PTFE tubes due to the abrasive carbon fibers. Inspect your AMS Lite feeders regularly and consider feeding directly from an external drybox for long production runs."
+    }
+  ]
+}

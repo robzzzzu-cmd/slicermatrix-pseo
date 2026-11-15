@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-mini-hatchbox-wood-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1 Mini",
+    "slug": "bambu-lab-a1-mini",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 80,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Hatchbox Wood PLA",
+    "slug": "hatchbox-wood-pla",
+    "brand": "Hatchbox",
+    "materialType": "Wood PLA",
+    "minNozzleTempC": 195,
+    "maxNozzleTempC": 220,
+    "minBedTempC": 50,
+    "maxBedTempC": 60,
+    "volumetricFlowLimitMm3s": 11,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 208,
+    "recommendedBedTempC": 55,
+    "effectiveVolumetricFlowMm3s": 11,
+    "calculatedMaxPrintSpeedMmS": 131,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-15T14:09:22.483Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab A1 Mini can successfully run Hatchbox Wood PLA at speeds up to 131 mm/s capped by an 11 mm³/s volumetric flow limit. However, the stock stainless steel nozzle must be swapped for a hardened steel hotend assembly (preferably 0.4mm or 0.6mm) to resist rapid wear and clogging from embedded wood fibers.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 60,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate clean with dish soap and water (no adhesive required)",
+  "slicerTweaks": [
+    "Cap 'Max volumetric speed' at 11 mm³/s in the filament profile to prevent under-extrusion and fiber-jamming during high-speed segments.",
+    "Enable 'Wipe while retracting' set to 2 mm with a retraction distance of 0.8 mm to mitigate stringing without grinding the brittle wood composite filament.",
+    "Increase 'Line width' for outer walls to 0.45 mm and lower outer wall speed to 80 mm/s to ensure consistent wood fiber distribution and a matte finish.",
+    "Lower nozzle printing temperature to 205-208°C to prevent thermal degradation of organic wood fibers during slow toolhead movements."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Nozzle clogging and extruder clicking mid-print",
+      "rootCause": "Wood particles accumulating at the nozzle orifice due to low extrusion temperature or nozzle wear on the stock stainless steel tip.",
+      "exactFix": "Install a Bambu Lab hardened steel 0.4mm or 0.6mm hotend, bump printing temperature to 212°C, and reduce volumetric flow to 10 mm³/s."
+    },
+    {
+      "issue": "Excessive stringing and oozing between travels",
+      "rootCause": "High moisture absorption by the wood particles within the PLA matrix causing steam-driven drool.",
+      "exactFix": "Dry the filament spool in a dedicated dryer at 50°C for 6 to 8 hours before printing, and enable z-hop type 'Spiral' at 0.4 mm."
+    },
+    {
+      "issue": "Rough, uneven layer lines and poor inter-layer adhesion",
+      "rootCause": "Printing too fast relative to the lower melt rate of particle-filled PLA, leading to micro-voids.",
+      "exactFix": "Set inner/outer wall speeds to a consistent 100 mm/s or lower and decrease cooling fan speed to 60% for regular layers."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Hatchbox Wood PLA with the stock A1 Mini stainless steel nozzle?",
+      "answer": "You can print short test pieces, but the wood fibers are mildly abrasive and will quickly erode stainless steel, leading to bore expansion, stringing, and clogs. Installing a hardened steel hotend is strongly recommended."
+    },
+    {
+      "question": "Does Hatchbox Wood PLA require a 0.6mm nozzle on the Bambu A1 Mini?",
+      "answer": "A 0.4mm hardened nozzle works reliably if speeds remain under 131 mm/s and flow under 11 mm³/s, but stepping up to a 0.6mm hardened nozzle significantly reduces the risk of fiber-clumping clogs."
+    },
+    {
+      "question": "Can I feed Hatchbox Wood PLA through the Bambu 4-spool AMS Lite?",
+      "answer": "Yes, but with caution; wood filaments are brittle and can snap inside the PTFE guide tubes during rapid retractions or sharp turns, so direct feeding via an external spool holder is often safer."
+    },
+    {
+      "question": "How can I produce variable wood grain coloring on my prints?",
+      "answer": "You can modify layer temperatures across height ranges in OrcaSlicer (between 195°C for light tones and 220°C for darker, toasted tones) using modifier blocks or height-based temperature scripts."
+    }
+  ]
+}
