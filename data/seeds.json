@@ -6043,7 +6043,7 @@
   },
   {
     "slug": "bambu-lab-a1-mini-ninjatek-ninjaflex-85a-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab A1 Mini",
       "slug": "bambu-lab-a1-mini",
@@ -6157,7 +6157,7 @@
   },
   {
     "slug": "bambu-lab-p1p-esun-pla-plus-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1P",
       "slug": "bambu-lab-p1p",

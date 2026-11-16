@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1p-esun-pla-plus-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1P",
+    "slug": "bambu-lab-p1p",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "eSUN PLA+",
+    "slug": "esun-pla-plus",
+    "brand": "eSUN",
+    "materialType": "PLA+",
+    "minNozzleTempC": 205,
+    "maxNozzleTempC": 225,
+    "minBedTempC": 55,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 22,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 215,
+    "recommendedBedTempC": 60,
+    "effectiveVolumetricFlowMm3s": 22,
+    "calculatedMaxPrintSpeedMmS": 262,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-16T15:40:21.218Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1P handles eSUN PLA+ exceptionally well out of the box with its open frame and stock stainless steel nozzle. Leveraging a maximum volumetric flow rate of 22 mm³/s, it reliably reaches print speeds up to 262 mm/s without requiring hardware upgrades.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate (clean with warm water and dish soap, no adhesive required)",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 22 mm³/s in the filament settings to automatically cap linear speeds at 262 mm/s on 0.2mm standard profiles.",
+    "Enable Pressure Advance and calibrate K-factor (typical value 0.020 - 0.026 for eSUN PLA+ on the stock direct drive extruder).",
+    "Set Nozzle Temperature to 220°C for high-speed infill/inner walls and 215°C for outer perimeters to maximize layer adhesion while maintaining surface finish.",
+    "Adjust Auxiliary Fan speed to 0-30% or disable it completely to prevent differential cooling warping on long prints in the open-frame P1P."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Corner lifting or edge warping on large flat prints",
+      "rootCause": "Localized drafts on the open-frame P1P or excessive auxiliary part cooling blowing unevenly across the build plate.",
+      "exactFix": "Turn off the auxiliary cooling fan in the cooling tab and increase the bed temperature from 60°C to 65°C for the first 3 layers."
+    },
+    {
+      "issue": "Matte finish and weak layer bonding at high speeds",
+      "rootCause": "Extrusion temperature dropping below optimal melting zone temperature when exceeding 200 mm/s.",
+      "exactFix": "Increase nozzle temperature by 5-10°C (up to 225°C) and reduce outer wall speed to 150 mm/s for a glossy, uniform finish."
+    },
+    {
+      "issue": "Fine stringing across open travel moves",
+      "rootCause": "Slight filament moisture uptake or sub-optimal wipe distance on low-viscosity PLA+.",
+      "exactFix": "Set Retraction Distance to 0.8 mm, enable 'Wipe while retracting' with a 1.5 mm wipe distance, and dry spool at 45°C for 4 hours if stringing persists."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Do I need to enclose the Bambu Lab P1P to print eSUN PLA+ reliably?",
+      "answer": "No, an enclosure is not required and can actually cause heat creep with PLA+. The P1P's open-frame architecture provides optimal ambient ventilation for rapid cooling."
+    },
+    {
+      "question": "Does eSUN PLA+ require a hardened steel nozzle upgrade on the P1P?",
+      "answer": "No, eSUN PLA+ is a non-abrasive polymer blend that runs completely safely on the P1P's stock stainless steel nozzle without causing premature wear."
+    },
+    {
+      "question": "Why does my print look duller when printed at maximum speed compared to standard PLA?",
+      "answer": "High-speed extrusion reduces the filament's melt residence time, scattering light differently. Increasing the hotend temperature to 220-225°C restores gloss and maximizes layer adhesion."
+    },
+    {
+      "question": "Should I use glue stick on the Bambu Textured PEI plate for eSUN PLA+?",
+      "answer": "No, glue stick is unnecessary. Clean the Textured PEI plate with hot water and plain dish soap; PLA+ will adhere firmly at 60°C and pop off effortlessly when cooled below 35°C."
+    }
+  ]
+}

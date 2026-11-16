@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-a1-mini-ninjatek-ninjaflex-85a-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab A1 Mini",
+    "slug": "bambu-lab-a1-mini",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 80,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "NinjaTek NinjaFlex 85A",
+    "slug": "ninjatek-ninjaflex-85a",
+    "brand": "NinjaTek",
+    "materialType": "TPU 85A",
+    "minNozzleTempC": 225,
+    "maxNozzleTempC": 240,
+    "minBedTempC": 40,
+    "maxBedTempC": 55,
+    "volumetricFlowLimitMm3s": 2.8,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 233,
+    "recommendedBedTempC": 48,
+    "effectiveVolumetricFlowMm3s": 2.8,
+    "calculatedMaxPrintSpeedMmS": 33,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-16T15:23:19.750Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab A1 Mini handles ultra-flexible NinjaTek NinjaFlex 85A directly out of the box using its direct drive extruder, provided print speed is capped at 33 mm/s to honor the 2.8 mm³/s volumetric flow limit. No heated enclosure or hardened nozzle upgrades are required, but filament must be fed from an external dry spool holder rather than the AMS Lite.",
+  "retractionDistanceMm": 0.6,
+  "retractionSpeedMmS": 25,
+  "coolingFanMinPct": 40,
+  "coolingFanMaxPct": 80,
+  "firstLayerSpeedMmS": 20,
+  "bedSurfaceRecommendation": "Textured PEI Plate + Glue Stick release agent",
+  "slicerTweaks": [
+    "Cap Maximum Volumetric Speed strictly at 2.8 mm³/s within the filament settings to eliminate extruder gear buckling.",
+    "Set direct drive retraction distance to 0.6 mm and retraction speed to 25 mm/s, while disabling 'Retract on layer change'.",
+    "Enable 'Avoid crossing perimeters' (Avoid crossing walls) to route non-print travels inside the model and reduce visible stringing.",
+    "Set printing temperatures precisely to 233°C for the nozzle and 48°C for the heatbed, keeping print acceleration under 1500 mm/s²."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Filament jamming or wrapping around extruder drive gears",
+      "rootCause": "Excessive feed rate or aggressive retraction causing the flexible 85A strand to bend and buckle past the drive gears.",
+      "exactFix": "Lower volumetric speed cap to 2.5 mm³/s, reduce retraction speed to 20 mm/s, and reduce print speed to 30 mm/s or below."
+    },
+    {
+      "issue": "Build plate surface damage or permanent adhesion",
+      "rootCause": "Direct molecular bonding between polyurethane (TPU) and bare PEI coating without a sacrificial barrier layer.",
+      "exactFix": "Apply an even layer of PVP glue stick or liquid release agent across the Textured PEI Plate before printing."
+    },
+    {
+      "issue": "Heavy stringing and branch-like oozing across open spans",
+      "rootCause": "NinjaFlex absorbs ambient moisture rapidly, which boils and causes pressure-driven drooling at 233°C.",
+      "exactFix": "Dry filament in a convective filament dryer at 65°C for at least 8 hours and print directly from a sealed dry box."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I feed NinjaFlex 85A through the Bambu Lab AMS Lite?",
+      "answer": "No, the high elasticity and 85A Shore hardness will cause the filament to bind, stretch, and jam inside the AMS Lite motor feeders and Bowden tubes; feed it directly from an external spool holder."
+    },
+    {
+      "question": "Why is the print speed capped at 33 mm/s on the A1 Mini?",
+      "answer": "At a 0.2 mm layer height and 0.42 mm line width, 33 mm/s reaches the safe 2.8 mm³/s volumetric limit of 85A TPU before backpressure induces filament wrapping inside the extruder."
+    },
+    {
+      "question": "Does printing NinjaTek NinjaFlex require a hardened steel nozzle upgrade?",
+      "answer": "No, NinjaTek NinjaFlex 85A is a non-abrasive elastomer and will not wear down the stock stainless steel nozzle of the A1 Mini."
+    },
+    {
+      "question": "How can I ensure clean first layer adhesion without warping?",
+      "answer": "Clean the Textured PEI plate with dish soap and warm water, coat lightly with glue stick as a release aid, and maintain a bed temperature of 48°C with zero cooling fan for the first two layers."
+    }
+  ]
+}
