@@ -6917,7 +6917,7 @@
   },
   {
     "slug": "bambu-lab-p1p-esun-etpu-95a-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1P",
       "slug": "bambu-lab-p1p",

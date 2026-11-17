@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1p-esun-etpu-95a-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1P",
+    "slug": "bambu-lab-p1p",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "eSUN eTPU-95A",
+    "slug": "esun-etpu-95a",
+    "brand": "eSUN",
+    "materialType": "TPU",
+    "minNozzleTempC": 210,
+    "maxNozzleTempC": 230,
+    "minBedTempC": 45,
+    "maxBedTempC": 60,
+    "volumetricFlowLimitMm3s": 4.5,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 220,
+    "recommendedBedTempC": 53,
+    "effectiveVolumetricFlowMm3s": 4.5,
+    "calculatedMaxPrintSpeedMmS": 54,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-17T15:59:26.743Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1P effortlessly prints eSUN eTPU-95A out of the box using its stock direct drive extruder and stainless steel nozzle without requiring an enclosure. By constraining the volumetric flow rate to 4.5 mm³/s, the machine achieves reliable, jam-free results at a maximum safe print speed of 54 mm/s.",
+  "retractionDistanceMm": 0.6,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 50,
+  "coolingFanMaxPct": 80,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate with glue stick or liquid release agent",
+  "slicerTweaks": [
+    "Set Filament Max Volumetric Speed to 4.5 mm³/s to automatically clamp flow rate across all print moves.",
+    "Tune retraction to 0.6 mm distance at 30 mm/s retraction speed with Z-hop disabled to minimize stringing without risking filament jamming.",
+    "Enable 'Avoid Crossing Walls' (Max detour length: 0) to keep nozzle travel moves contained within infill boundaries.",
+    "Set outer wall speed to 40 mm/s and inner wall speed to 50 mm/s with line width locked to 0.42 mm for consistent wall pressure."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Filament wrapping or buckling around extruder gears",
+      "rootCause": "Backpressure caused by excessive print speeds exceeding the 4.5 mm³/s volumetric flow threshold.",
+      "exactFix": "Cap print speed to 54 mm/s, set max volumetric speed to 4.5 mm³/s, and ensure nozzle temperature is at least 220°C."
+    },
+    {
+      "issue": "Excessive stringing and surface bubbling/pitting",
+      "rootCause": "High moisture content within the hygroscopic TPU matrix boiling off during extrusion.",
+      "exactFix": "Dry the spool in a filament dryer at 55°C for 6 to 8 hours and print directly from a sealed drybox."
+    },
+    {
+      "issue": "Print permanently fused to the build plate",
+      "rootCause": "Direct chemical bonding of molten TPU to clean PEI coating without a barrier interface.",
+      "exactFix": "Apply a uniform layer of PVP glue stick as a sacrificial release agent, and wait until the bed cools to room temperature before removal."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I feed eSUN eTPU-95A through the Bambu Lab AMS?",
+      "answer": "No, flexible filaments like eTPU-95A will jam within the AMS feeder funnels and internal tubing; mount the spool on the rear external spool holder."
+    },
+    {
+      "question": "Does printing eSUN eTPU-95A on the P1P require an enclosure?",
+      "answer": "No, an enclosure is not required and is actually discouraged for TPU, as elevated chamber temperatures can cause premature filament softening and heat creep."
+    },
+    {
+      "question": "Do I need to upgrade to a hardened steel nozzle for eSUN eTPU-95A?",
+      "answer": "No, eSUN eTPU-95A is completely non-abrasive, making the stock stainless steel nozzle on the P1P fully durable and suitable."
+    },
+    {
+      "question": "What is the recommended method to load TPU into the P1P toolhead?",
+      "answer": "Preheat the nozzle to 220°C, cut the tip at a 45-degree angle, push it smoothly into the top toolhead inlet until it engages the gears, and tap the display's extrude button while maintaining gentle manual pressure."
+    }
+  ]
+}
