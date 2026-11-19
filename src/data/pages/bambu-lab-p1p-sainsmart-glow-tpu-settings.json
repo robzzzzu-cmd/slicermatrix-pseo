@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1p-sainsmart-glow-tpu-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1P",
+    "slug": "bambu-lab-p1p",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Sainsmart Glow TPU",
+    "slug": "sainsmart-glow-tpu",
+    "brand": "SainSmart",
+    "materialType": "Glow TPU",
+    "minNozzleTempC": 215,
+    "maxNozzleTempC": 230,
+    "minBedTempC": 45,
+    "maxBedTempC": 60,
+    "volumetricFlowLimitMm3s": 4,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 223,
+    "recommendedBedTempC": 53,
+    "effectiveVolumetricFlowMm3s": 4,
+    "calculatedMaxPrintSpeedMmS": 48,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-19T15:50:46.861Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab P1P handles Sainsmart Glow TPU effectively at a safe maximum print speed of 48 mm/s capped by a 4 mm³/s volumetric flow limit. However, printing requires upgrading the stock stainless steel nozzle to a hardened steel assembly to prevent rapid abrasion from the phosphorescent glow particles.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 60,
+  "firstLayerSpeedMmS": 25,
+  "bedSurfaceRecommendation": "Textured PEI Plate with PVP glue stick applied as a sacrificial release agent",
+  "slicerTweaks": [
+    "Cap the Maximum Volumetric Speed to 4.0 mm³/s under the Filament profile to prevent extruder skipping and backpressure clogs.",
+    "Bypass the Bambu AMS system completely and feed directly from an external spool holder or active dry box through the rear PTFE port.",
+    "Set the First Layer Print Speed to 25 mm/s and Outer/Inner Wall Speeds to 40 mm/s to ensure consistent bead placement with flexible filament.",
+    "Enable 'Avoid Crossing Walls' and set Max Detour Distance to avoid nozzle travel across external perimeters, mitigating stringing."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Extruder gear slipping, filament buckling, or under-extrusion mid-print",
+      "rootCause": "Volumetric flow rate set above 4 mm³/s, forcing viscous flexible TPU faster than the 0.4mm nozzle orifice can melt.",
+      "exactFix": "Strictly enforce a 4.0 mm³/s Max Volumetric Speed limit in OrcaSlicer and lower overall print speeds below 48 mm/s."
+    },
+    {
+      "issue": "Permanent bonding and torn PEI coating upon print removal",
+      "rootCause": "TPU forms an excessively strong molecular bond with bare heated PEI sheets.",
+      "exactFix": "Apply a uniform layer of PVP glue stick or liquid release agent before heating the bed to 53°C to serve as a separation layer."
+    },
+    {
+      "issue": "Rapid nozzle wear causing irregular flow and severe dimensional inaccuracies",
+      "rootCause": "Phosphorescent additives (strontium aluminate) in Glow TPU severely abrade the stock P1P stainless steel nozzle.",
+      "exactFix": "Upgrade the hotend assembly to an authentic Bambu Hardened Steel 0.4mm nozzle before running this material."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I feed Sainsmart Glow TPU through the Bambu Lab AMS?",
+      "answer": "No, flexible TPU will bind, buckle, and get stuck within the AMS drive paths and internal funnels. Feed it directly using an external spool mount or active drying box straight into the toolhead."
+    },
+    {
+      "question": "Why is a hardened steel nozzle upgrade mandatory for this filament on the P1P?",
+      "answer": "Sainsmart Glow TPU contains strontium aluminate particles that act like industrial abrasives, which quickly erode the stock stainless steel nozzle orifice within a few hundred grams of printing."
+    },
+    {
+      "question": "Does Sainsmart Glow TPU need to be dried before printing on the P1P?",
+      "answer": "Yes, TPU is highly hygroscopic; moisture absorption creates violent steam popping, stringing, and weak layer adhesion. Dry the spool in a filament dryer at 50°C–55°C for 6 to 8 hours prior to printing."
+    },
+    {
+      "question": "Why is the print speed limited to 48 mm/s on a high-speed printer like the P1P?",
+      "answer": "Due to TPU's elasticity, rapid feed rates cause filament buckling in the extruder gears and melt zone bottlenecks, requiring a conservative 4 mm³/s volumetric limit that translates to 48 mm/s at 0.2mm layer height."
+    }
+  ]
+}

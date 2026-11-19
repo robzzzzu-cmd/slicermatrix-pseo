@@ -6195,7 +6195,7 @@
   },
   {
     "slug": "bambu-lab-p1p-bambu-pla-cf-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1P",
       "slug": "bambu-lab-p1p",
@@ -6271,7 +6271,7 @@
   },
   {
     "slug": "bambu-lab-p1p-sunlu-petg-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1P",
       "slug": "bambu-lab-p1p",
@@ -6309,7 +6309,7 @@
   },
   {
     "slug": "bambu-lab-p1p-eryone-silk-pla-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1P",
       "slug": "bambu-lab-p1p",
@@ -6385,7 +6385,7 @@
   },
   {
     "slug": "bambu-lab-p1p-prusament-pc-blend-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1P",
       "slug": "bambu-lab-p1p",
@@ -6423,7 +6423,7 @@
   },
   {
     "slug": "bambu-lab-p1p-sainsmart-glow-tpu-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1P",
       "slug": "bambu-lab-p1p",
@@ -6461,7 +6461,7 @@
   },
   {
     "slug": "bambu-lab-p1p-siraya-tech-abs-gf-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1P",
       "slug": "bambu-lab-p1p",
@@ -6499,7 +6499,7 @@
   },
   {
     "slug": "bambu-lab-p1p-polymaker-polylite-asa-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1P",
       "slug": "bambu-lab-p1p",
@@ -6537,7 +6537,7 @@
   },
   {
     "slug": "bambu-lab-p1p-polymaker-polylite-abs-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1P",
       "slug": "bambu-lab-p1p",
@@ -6575,7 +6575,7 @@
   },
   {
     "slug": "bambu-lab-p1p-polymaker-polymax-petg-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1P",
       "slug": "bambu-lab-p1p",
@@ -6879,7 +6879,7 @@
   },
   {
     "slug": "bambu-lab-p1p-esun-epa-cf-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1P",
       "slug": "bambu-lab-p1p",
@@ -7221,7 +7221,7 @@
   },
   {
     "slug": "bambu-lab-p1p-prusament-petg-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1P",
       "slug": "bambu-lab-p1p",
@@ -7259,7 +7259,7 @@
   },
   {
     "slug": "bambu-lab-p1p-hatchbox-pla-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1P",
       "slug": "bambu-lab-p1p",

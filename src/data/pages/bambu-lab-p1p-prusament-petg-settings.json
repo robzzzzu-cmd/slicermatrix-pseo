@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1p-prusament-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1P",
+    "slug": "bambu-lab-p1p",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Prusament PETG",
+    "slug": "prusament-petg",
+    "brand": "Prusament",
+    "materialType": "PETG",
+    "minNozzleTempC": 240,
+    "maxNozzleTempC": 255,
+    "minBedTempC": 75,
+    "maxBedTempC": 90,
+    "volumetricFlowLimitMm3s": 15,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 248,
+    "recommendedBedTempC": 83,
+    "effectiveVolumetricFlowMm3s": 15,
+    "calculatedMaxPrintSpeedMmS": 179,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-19T16:54:48.190Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1P handles Prusament PETG exceptionally well out of the box, utilizing its direct drive extruder to achieve reliable speeds up to 179 mm/s capped at a 15 mm³/s volumetric flow limit. Because PETG requires no chamber heating and Prusament PETG is non-abrasive, the stock stainless steel nozzle and open-frame design are fully production-ready without hardware modifications.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 50,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with a thin layer of glue stick or specialized release agent",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 15 mm³/s under the Filament > Advanced tab to prevent under-extrusion at high linear speeds.",
+    "Enable 'Avoid Crossing Walls' and set a max detour length to reduce fine stringing across exterior cosmetic surfaces.",
+    "Increase Pressure Advance to 0.036 (tune via OrcaSlicer PA tower calibration) to prevent corner bulging typical of viscous PETG.",
+    "Set the First Layer Height to 0.24mm and First Layer Flow Ratio to 0.98 to avoid PETG sticking to the nozzle tip and dragging."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe stringing and fine hair buildup on nozzle",
+      "rootCause": "Prusament PETG has absorbed ambient moisture, lowering melt viscosity and causing post-retraction ooze.",
+      "exactFix": "Dry the filament spool in a dedicated filament dryer at 65°C for 6 hours before printing, and increase retraction speed to 35 mm/s."
+    },
+    {
+      "issue": "Tearing of PEI coating on print removal",
+      "rootCause": "PETG bonds aggressively to smooth or unconditioned PEI surfaces via chemical cross-linking.",
+      "exactFix": "Always apply a thin interface layer of PVP glue stick or liquid adhesive on the Textured PEI Plate before printing, and let the bed cool below 35°C before removing parts."
+    },
+    {
+      "issue": "Interlayer splitting or weak layer adhesion",
+      "rootCause": "Excessive part cooling fan speeds chilling the extrusion before polymer chains can interlock.",
+      "exactFix": "Lower maximum part cooling fan speed to 40% and disable the auxiliary side fan completely in the cooling settings."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Does printing Prusament PETG on the P1P require an enclosure?",
+      "answer": "No, PETG does not require an enclosure and prints best in open-air setups where ambient temperatures remain moderate to prevent heat creep in the cold end."
+    },
+    {
+      "question": "Can the stock stainless steel nozzle handle Prusament PETG?",
+      "answer": "Yes, standard Prusament PETG is non-abrasive and will not cause premature wear on the stock 0.4mm stainless steel nozzle."
+    },
+    {
+      "question": "Why does PETG stick to the nozzle tip and ruin the first layer?",
+      "answer": "PETG has high affinity for metals; if squished too aggressively into the bed, excess molten plastic curls onto the nozzle. Raise Z-offset slightly or reduce first layer flow to 0.98."
+    },
+    {
+      "question": "What build plate temperature works best for Prusament PETG on the P1P?",
+      "answer": "Set the bed temperature to 80°C for the first layer and 83°C for subsequent layers on the Textured PEI plate to prevent warping while maintaining good adhesion."
+    }
+  ]
+}

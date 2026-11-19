@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1p-esun-epa-cf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1P",
+    "slug": "bambu-lab-p1p",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "eSUN ePA-CF",
+    "slug": "esun-epa-cf",
+    "brand": "eSUN",
+    "materialType": "PA-CF",
+    "minNozzleTempC": 265,
+    "maxNozzleTempC": 285,
+    "minBedTempC": 75,
+    "maxBedTempC": 90,
+    "volumetricFlowLimitMm3s": 11,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 275,
+    "recommendedBedTempC": 83,
+    "effectiveVolumetricFlowMm3s": 11,
+    "calculatedMaxPrintSpeedMmS": 131,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": true
+  },
+  "generatedAt": "2026-11-19T16:47:01.434Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab P1P requires a hardened steel nozzle and extruder gear upgrade alongside an enclosure to reliably print eSUN ePA-CF without rapid wear or severe warping. Operating within an 11 mm³/s volumetric flow limit restricts safe printing speeds to a maximum of 131 mm/s using standard layer heights.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 20,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate with PVP Glue Stick (or Magigoo PA) as a release agent and thermal barrier",
+  "slicerTweaks": [
+    "Cap Maximum Volumetric Speed to 11 mm³/s in the filament profile to prevent severe under-extrusion and extruder grinding.",
+    "Set the Part Cooling Fan to 0% for the first 5 layers and cap normal printing fan speed at 20% to prevent rapid cooling delamination.",
+    "Add a 10 mm brim with a 0.0 mm brim-to-object gap to combat corner lifting on the open-frame P1P chassis.",
+    "Lower Outer Wall and Inner Wall speeds to 100-120 mm/s to ensure structural layer adhesion and a uniform carbon fiber surface finish."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe warping and corner detachment from the build plate",
+      "rootCause": "Open-frame draft exposure and nylon crystalline shrinkage differential caused by excessive cooling",
+      "exactFix": "Install temporary enclosure panels or a pop-up tent on the P1P, apply Magigoo PA on the bed, and turn off the auxiliary fan entirely."
+    },
+    {
+      "issue": "Extruder clicking, nozzle clogging, and inconsistent extrusion width",
+      "rootCause": "Chopped carbon fiber particles eroding and clogging the stock stainless steel nozzle, or filament moisture expansion",
+      "exactFix": "Upgrade to a 0.4mm or 0.6mm Bambu Hardened Steel complete hotend assembly and dry the filament spool at 80°C for 8-12 hours."
+    },
+    {
+      "issue": "Weak interlayer bonding causing parts to snap cleanly along layer lines",
+      "rootCause": "Excessive part cooling fan speed or hotend temperature dropping below the nylon polymer fusion threshold",
+      "exactFix": "Raise hotend temperature to 280°C, set part cooling fan to a maximum of 10-15%, and disable the chamber exhaust/auxiliary fan."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print eSUN ePA-CF on the stock P1P stainless steel nozzle?",
+      "answer": "No, the carbon fiber fibers will rapidly abrade the stock stainless steel nozzle within a few hundred grams, enlarging the orifice and ruining dimensional accuracy. Upgrade to Bambu's Hardened Steel hotend and hardened extruder gears before printing."
+    },
+    {
+      "question": "Can the P1P handle nylon warp without a heated enclosure?",
+      "answer": "Small parts may succeed with a 100°C bed and thick brim, but medium to large components will warp severely due to ambient drafts. Adding an aftermarket enclosure or tent kit is strongly advised."
+    },
+    {
+      "question": "How should I dry and feed eSUN ePA-CF on the P1P?",
+      "answer": "Dry the spool in an active filament dryer at 80°C for at least 8 to 12 hours prior to printing, and print directly from a heated dry box to prevent ambient moisture uptake during printing."
+    },
+    {
+      "question": "Can I feed eSUN ePA-CF through the Bambu AMS?",
+      "answer": "While it can feed through the AMS, abrasive PA-CF prematurely wears down the standard plastic AMS funnels and internal PTFE tubing. If printing frequently, feed directly from an external dry box or upgrade to hardened AMS feeder funnels."
+    }
+  ]
+}

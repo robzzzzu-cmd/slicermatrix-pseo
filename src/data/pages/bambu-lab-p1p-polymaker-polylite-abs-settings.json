@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1p-polymaker-polylite-abs-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1P",
+    "slug": "bambu-lab-p1p",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Polymaker PolyLite ABS",
+    "slug": "polymaker-polylite-abs",
+    "brand": "Polymaker",
+    "materialType": "ABS",
+    "minNozzleTempC": 245,
+    "maxNozzleTempC": 265,
+    "minBedTempC": 90,
+    "maxBedTempC": 105,
+    "volumetricFlowLimitMm3s": 18,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 255,
+    "recommendedBedTempC": 98,
+    "effectiveVolumetricFlowMm3s": 18,
+    "calculatedMaxPrintSpeedMmS": 214,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": true
+  },
+  "generatedAt": "2026-11-19T16:07:28.537Z",
+  "compatibilityVerdict": "Advanced Setup",
+  "heroSummary": "The Bambu Lab P1P can push Polymaker PolyLite ABS up to 214 mm/s capped by its 18 mm³/s volumetric limit, but its open-frame design makes printing large ABS parts nearly impossible without severe warping. To succeed beyond tiny calibration parts, you must add an enclosure or draft shield and run the bed near its 100°C limit.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 15,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate + Liquid Glue or Magigoo release agent",
+  "slicerTweaks": [
+    "Set Bed Temperature to 98°C for all layers and disable the auxiliary chamber fan completely (0%) to prevent localized draft warping.",
+    "Enable a generous outer brim of at least 8-10 mm with a 0 mm brim-to-object gap to mechanically pin down corners against shrinkage.",
+    "Under Cooling, set Min Fan Speed to 0% and Max Fan Speed to 15% with a 35s layer time threshold to ensure maximum interlayer adhesion.",
+    "In filament overrides, restrict Max Volumetric Speed to 18 mm³/s to prevent underextrusion at high traversal speeds."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe edge lifting and corner warping from the build plate",
+      "rootCause": "Lack of a heated passive enclosure causes steep thermal gradients, inducing thermal contraction stresses.",
+      "exactFix": "Increase bed temp to 100°C, apply Magigoo/glue stick, add a draft shield in OrcaSlicer, or enclose the printer frame to keep ambient air warm."
+    },
+    {
+      "issue": "Interlayer splitting (delamination) along the Z-axis mid-print",
+      "rootCause": "Excessive cooling from the toolhead or open-air room drafts preventing adequate polymer chain diffusion between layers.",
+      "exactFix": "Reduce part cooling fan to 0-10%, turn off the aux fan, print with nozzle at 260°C, and eliminate external draft sources around the P1P."
+    },
+    {
+      "issue": "Rough surface finish, popping sounds, and stringing",
+      "rootCause": "PolyLite ABS has absorbed ambient moisture, forming high-pressure steam bubbles in the hotend.",
+      "exactFix": "Dry the filament in a dedicated filament dryer at 70°C for at least 6 to 8 hours before printing, and print directly from a sealed drybox."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print PolyLite ABS on the P1P without enclosing it?",
+      "answer": "You can print very small parts (under 40-50mm across) without an enclosure using a wide brim and zero cooling, but medium to large functional parts will warp and delaminate due to the open frame."
+    },
+    {
+      "question": "Do I need to upgrade to a hardened steel nozzle for PolyLite ABS?",
+      "answer": "No, standard PolyLite ABS is non-abrasive, so the stock stainless steel nozzle on the P1P is entirely adequate."
+    },
+    {
+      "question": "Will running the bed at 98-100°C continuously damage the P1P?",
+      "answer": "No, the P1P bed is engineered to operate up to 100°C safely, though it may take 10-15 minutes to reach temperature from a cold start."
+    },
+    {
+      "question": "Why does OrcaSlicer default to running the auxiliary fan, and should I turn it off?",
+      "answer": "OrcaSlicer profiles often inherit auxiliary cooling for high-speed PLA, but for ABS, the auxiliary fan will blow room-temperature air directly across the print and cause instant failure; it must be disabled."
+    }
+  ]
+}

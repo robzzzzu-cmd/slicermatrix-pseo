@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1p-polymaker-polylite-asa-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1P",
+    "slug": "bambu-lab-p1p",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Polymaker PolyLite ASA",
+    "slug": "polymaker-polylite-asa",
+    "brand": "Polymaker",
+    "materialType": "ASA",
+    "minNozzleTempC": 240,
+    "maxNozzleTempC": 260,
+    "minBedTempC": 90,
+    "maxBedTempC": 105,
+    "volumetricFlowLimitMm3s": 17,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 250,
+    "recommendedBedTempC": 98,
+    "effectiveVolumetricFlowMm3s": 17,
+    "calculatedMaxPrintSpeedMmS": 202,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": true
+  },
+  "generatedAt": "2026-11-19T16:05:22.557Z",
+  "compatibilityVerdict": "Advanced Setup",
+  "heroSummary": "The Bambu Lab P1P can print Polymaker PolyLite ASA at up to 202 mm/s based on a 17 mm³/s volumetric flow limit, but its open-frame design makes parts prone to severe warping and layer separation. Adding an enclosure or printing strictly small parts with a draft shield is essential to combat temperature-induced shrinkage.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 20,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate + Liquid Glue or PVP Glue Stick release agent",
+  "slicerTweaks": [
+    "Set Bed Temperature to 98°C for all layers and increase First Layer Height to 0.24mm to maximize mechanical bed adhesion.",
+    "Cap Part Cooling Fan to 0% base and 15-20% maximum for overhangs, ensuring the aux fan is set to 0% to avoid premature layer delamination.",
+    "Enable a Draft Shield (Auto or Tall) in the Others tab with 2 loops to insulate open-frame ambient airflow from the part.",
+    "Clamp Max Volumetric Speed to 17 mm³/s in the filament settings and calibrate Pressure Advance to approximately 0.038."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Corner lifting and print warping off the bed",
+      "rootCause": "High thermal shrinkage coefficient of ASA interacting with ambient room drafts on the open-frame P1P chassis.",
+      "exactFix": "Apply PVP glue stick to a cleaned textured PEI plate, raise bed temperature to 98°C, add a 5mm outer brim, and activate a draft shield."
+    },
+    {
+      "issue": "Interlayer splitting and delamination along Z-axis",
+      "rootCause": "Overcooling from chamber draft or excessive cooling fan speed causing incomplete polymer cross-fusion between layers.",
+      "exactFix": "Disable the auxiliary part cooling fan completely, limit main part cooling fan to a 0-15% threshold, and increase nozzle temperature to 255°C."
+    },
+    {
+      "issue": "Surface popping, roughness, and stringing across travels",
+      "rootCause": "Moisture absorption by the hygroscopic ASA polymer during storage or extended printing.",
+      "exactFix": "Dry the filament in a dedicated blast or desiccant dryer at 70°C for at least 6 hours prior to printing and lower nozzle temp to 250°C."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print large ASA parts on an unmodified P1P?",
+      "answer": "No, printing large footprint or tall ASA parts on a stock P1P usually fails due to rapid thermal contraction and splitting without an enclosure."
+    },
+    {
+      "question": "Do I need to upgrade to a hardened steel nozzle for PolyLite ASA?",
+      "answer": "No, unmodified PolyLite ASA is non-abrasive, so the stock P1P stainless steel nozzle and extruder gears are fully adequate."
+    },
+    {
+      "question": "Are the fumes from printing ASA dangerous without an enclosure?",
+      "answer": "Yes, ASA releases styrene gas and ultra-fine particles; print only in a well-ventilated room, next to a window exhaust, or inside an enclosed, filtered printer."
+    },
+    {
+      "question": "Why does OrcaSlicer cap my print speeds below the P1P maximum limits?",
+      "answer": "The filament profile restricts volumetric flow to 17 mm³/s, which caps actual linear speeds at 202 mm/s for a 0.4mm nozzle at 0.2mm layer height to ensure consistent extrusion."
+    }
+  ]
+}

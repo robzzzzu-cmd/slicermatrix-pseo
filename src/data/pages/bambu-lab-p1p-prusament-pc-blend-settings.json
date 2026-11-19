@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1p-prusament-pc-blend-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1P",
+    "slug": "bambu-lab-p1p",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Prusament PC Blend",
+    "slug": "prusament-pc-blend",
+    "brand": "Prusament",
+    "materialType": "PC",
+    "minNozzleTempC": 265,
+    "maxNozzleTempC": 285,
+    "minBedTempC": 105,
+    "maxBedTempC": 115,
+    "volumetricFlowLimitMm3s": 12,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 275,
+    "recommendedBedTempC": 100,
+    "effectiveVolumetricFlowMm3s": 12,
+    "calculatedMaxPrintSpeedMmS": 143,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": true
+  },
+  "generatedAt": "2026-11-19T15:49:07.482Z",
+  "compatibilityVerdict": "Advanced Setup",
+  "heroSummary": "The Bambu Lab P1P can print Prusament PC Blend at speeds up to 143 mm/s capped by a 12 mm³/s volumetric flow limit, but printing large parts reliably requires a dedicated enclosure due to the open-frame design. Additionally, the bed must be run at its absolute maximum of 100°C to mitigate warping, alongside a PVP glue stick barrier on the build plate.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 15,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate with PVP Glue Stick (mandatory release agent)",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 12 mm³/s in the filament profile to cap travel and extrusion speeds safely at or below 143 mm/s.",
+    "Set Bed Temperature to 100°C for all layers (hardware ceiling) and turn off the auxiliary chassis fan entirely to prevent severe thermal draft warping.",
+    "Configure a 6-8 mm outer brim with a 0.0 mm brim-object gap to mechanically anchor outer perimeters to the build sheet.",
+    "Limit Part Cooling Fan to 0% minimum and 15% maximum, keeping cooling completely disabled for the first 4 layers to maximize interlayer bonding."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe Corner Lifting and Plate Detachment",
+      "rootCause": "Thermal contraction caused by draft exposure from the open P1P frame combined with bed temps limited to 100°C.",
+      "exactFix": "Install an enclosure or draft shield around the P1P, apply a fresh layer of PVP glue stick, and set a mouse-ear or 8mm brim with 0mm gap in OrcaSlicer."
+    },
+    {
+      "issue": "Layer Separation and Z-Axis Splitting",
+      "rootCause": "Excessive part cooling fan speed or open-air drafts preventing polymer chains from fusing at the layer boundary.",
+      "exactFix": "Turn off the auxiliary chamber fan completely, reduce part cooling fan to 0-10%, and raise nozzle temperature to 280°C."
+    },
+    {
+      "issue": "Extruder Clicking and Surface Voids",
+      "rootCause": "Exceeding the 12 mm³/s volumetric capacity of the stock stainless hotend or unbaked moisture in the filament.",
+      "exactFix": "Dry the filament spool at 75-80°C for 8 hours and verify that maximum volumetric speed in OrcaSlicer does not exceed 12 mm³/s."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Prusament PC Blend on an un-enclosed Bambu Lab P1P?",
+      "answer": "Small models under 50mm can be printed successfully, but larger technical components will rapidly warp and delaminate without an enclosure to trap ambient heat."
+    },
+    {
+      "question": "Why is the bed temperature limited to 100°C when Prusament recommends 105-115°C?",
+      "answer": "The P1P hardware power supply and heated bed controller are firmware-locked to a maximum of 100°C, requiring pristine bed cleanliness, glue stick, and zero drafts to compensate."
+    },
+    {
+      "question": "Does Prusament PC Blend require a hardened steel nozzle upgrade?",
+      "answer": "No, standard Prusament PC Blend is an unfilled polycarbonate alloy and is non-abrasive, making it completely safe for the stock stainless steel nozzle."
+    },
+    {
+      "question": "Why is a glue stick strictly required when using a Textured PEI Plate?",
+      "answer": "Polycarbonate bonds aggressively to PEI coatings; the glue stick functions as a sacrificial release agent to prevent tearing the PEI sheet during part removal."
+    }
+  ]
+}

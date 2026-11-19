@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1p-sunlu-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1P",
+    "slug": "bambu-lab-p1p",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Sunlu PETG",
+    "slug": "sunlu-petg",
+    "brand": "Sunlu",
+    "materialType": "PETG",
+    "minNozzleTempC": 230,
+    "maxNozzleTempC": 250,
+    "minBedTempC": 70,
+    "maxBedTempC": 85,
+    "volumetricFlowLimitMm3s": 15,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 240,
+    "recommendedBedTempC": 78,
+    "effectiveVolumetricFlowMm3s": 15,
+    "calculatedMaxPrintSpeedMmS": 179,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-19T15:39:23.651Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1P handles Sunlu PETG exceptionally well right out of the box using its stock stainless steel nozzle and open-frame design. Based on Sunlu PETG's 15 mm³/s volumetric flow limit, the machine achieves a safe maximum print speed of 179 mm/s at standard 0.2mm layer heights.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 50,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with liquid glue or glue stick as a necessary release agent",
+  "slicerTweaks": [
+    "Cap Maximum Volumetric Speed at 15 mm³/s under Filament Settings > Basic Information to prevent under-extrusion at high print speeds.",
+    "Enable 'Wipe while retracting' set to 2 mm with a 0.8 mm retraction distance to minimize PETG nozzle oozing and fine stringing.",
+    "Adjust Part Cooling Fan speeds to Min 20% and Max 50%, with Fan Speed Threshold layer times set to 30s to maximize layer adhesion without causing overhang sagging.",
+    "Set First Layer Speed to 35 mm/s and First Layer Acceleration to 500 mm/s² to ensure proper laydown without dragging or tearing."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Stringing and Whisker Artifacts",
+      "rootCause": "Sunlu PETG is hygroscopic and exhibits higher melt viscosity than PLA, leading to oozing during travel moves.",
+      "exactFix": "Dry the filament in an active dryer at 65°C for 6 hours; in OrcaSlicer, increase retraction to 0.8mm at 35 mm/s and enable 'Avoid Crossing Walls'."
+    },
+    {
+      "issue": "First Layer Tearing or PEI Coating Damage",
+      "rootCause": "PETG bonds aggressively to smooth or bare PEI surfaces and can rip the coating, or adheres poorly if squished too aggressively.",
+      "exactFix": "Apply a thin layer of PVA glue stick or Bambu liquid glue as a sacrificial release agent, and set Z-hop to 0.4mm during travel moves."
+    },
+    {
+      "issue": "Weak Layer Bonding or Delamination",
+      "rootCause": "Excessive auxiliary cooling or print speeds exceeding the 15 mm³/s flow capability of the hotend.",
+      "exactFix": "Turn off the auxiliary chamber fan completely in the filament cooling tab and verify nozzle temperature is at 240°C to 245°C."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Sunlu PETG on the P1P without an enclosure?",
+      "answer": "Yes. PETG does not require an enclosed chamber and printing it in the P1P's open frame is optimal to prevent heat creep."
+    },
+    {
+      "question": "Do I need to upgrade to a hardened steel nozzle for Sunlu PETG?",
+      "answer": "No. Standard Sunlu PETG is non-abrasive, making the stock stainless steel nozzle on the P1P completely suitable."
+    },
+    {
+      "question": "Why does PETG stick too strongly to my build plate?",
+      "answer": "PETG has high molecular adhesion to PEI. Always apply a thin layer of glue stick or liquid glue as an interface release agent to prevent surface tear-out."
+    },
+    {
+      "question": "What is the maximum printing speed I can use for Sunlu PETG on the P1P?",
+      "answer": "Given the hotend's 15 mm³/s volumetric limit with standard PETG, the maximum safe linear speed at a 0.2mm layer height and 0.42mm line width is 179 mm/s."
+    }
+  ]
+}

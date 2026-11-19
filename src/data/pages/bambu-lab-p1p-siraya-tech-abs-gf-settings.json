@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1p-siraya-tech-abs-gf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1P",
+    "slug": "bambu-lab-p1p",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Siraya Tech ABS-GF",
+    "slug": "siraya-tech-abs-gf",
+    "brand": "Siraya Tech",
+    "materialType": "ABS-GF",
+    "minNozzleTempC": 250,
+    "maxNozzleTempC": 270,
+    "minBedTempC": 95,
+    "maxBedTempC": 110,
+    "volumetricFlowLimitMm3s": 15,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 260,
+    "recommendedBedTempC": 100,
+    "effectiveVolumetricFlowMm3s": 15,
+    "calculatedMaxPrintSpeedMmS": 179,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": true
+  },
+  "generatedAt": "2026-11-19T15:56:08.564Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab P1P requires an upgrade to a hardened steel nozzle and extruder gears, along with an enclosure, to safely handle Siraya Tech ABS-GF without extreme wear and warping. With these upgrades in place, it achieves clean functional prints at a safe max print speed of 179 mm/s capped by a 15 mm³/s volumetric flow limit.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 15,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate + PVP Glue Stick or Liquid Magigoo",
+  "slicerTweaks": [
+    "Cap 'Max volumetric speed' at 15 mm³/s in the Filament Settings to eliminate underextrusion at high feed rates.",
+    "Set the Part Cooling Fan to 0% min and 15% max, disabling the auxiliary part cooling fan entirely to prevent delamination.",
+    "Add an Outer Brim of 8-10 mm with a 0.0 mm brim-object gap to mechanically anchor sharp corners on the 100°C bed.",
+    "Enable 'Wipe while retracting' (2 mm) and set Retraction Length to 0.8 mm to counteract glass fiber oozing without grinding the filament."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe bed warping or corner lifting",
+      "rootCause": "Lack of a passive enclosure allows ambient room drafts to cool ABS quickly, inducing severe thermal contraction stress.",
+      "exactFix": "Install an enclosure around the P1P, preheat the bed to 100°C for 15 minutes before printing, and apply a thin coat of liquid adhesive to the textured PEI plate."
+    },
+    {
+      "issue": "Interlayer split and fragile Z-strength",
+      "rootCause": "Excessive part cooling fan or draft exposure prevents molten glass-reinforced ABS polymer chains from diffusing across layer boundaries.",
+      "exactFix": "Turn off the auxiliary side fan completely, limit part cooling to 0-10% only for overhangs shorter than 3 seconds, and raise nozzle temperature to 265°C."
+    },
+    {
+      "issue": "Extruder clicking, underextrusion, or rapid nozzle orifice enlargement",
+      "rootCause": "Stock stainless steel nozzle and extruder gears eroded rapidly by glass fibers, or abrasive grit choked the 0.4mm orifice.",
+      "exactFix": "Replace stock components with Bambu Hardened Steel Hotend (0.4mm or 0.6mm) and Hardened Steel Extruder Gears, and verify filament is dried at 80°C for 6 hours."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Siraya Tech ABS-GF on an un-enclosed stock Bambu P1P?",
+      "answer": "No; printing un-enclosed ABS-GF causes severe delamination and warping from room drafts, and the stock stainless steel nozzle will quickly wear out from glass fibers."
+    },
+    {
+      "question": "What hardware upgrades are strictly required before loading this filament?",
+      "answer": "You must install the official Bambu Lab Hardened Steel Hotend assembly and Hardened Steel Extruder Gears, along with an enclosure kit or tent."
+    },
+    {
+      "question": "Does Siraya Tech ABS-GF require filament drying before printing?",
+      "answer": "Yes, ABS-GF is moderately hygroscopic and glass fibers facilitate moisture ingress; dry the spool at 75-80°C for 6 to 8 hours before printing."
+    },
+    {
+      "question": "Why is the print speed capped at 179 mm/s?",
+      "answer": "At a standard 0.42 mm line width and 0.20 mm layer height, 179 mm/s directly maps to the maximum safe volumetric limit of 15 mm³/s to ensure reliable melting."
+    }
+  ]
+}

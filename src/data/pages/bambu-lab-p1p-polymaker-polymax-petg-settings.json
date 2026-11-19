@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1p-polymaker-polymax-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1P",
+    "slug": "bambu-lab-p1p",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Polymaker PolyMax PETG",
+    "slug": "polymaker-polymax-petg",
+    "brand": "Polymaker",
+    "materialType": "PETG",
+    "minNozzleTempC": 235,
+    "maxNozzleTempC": 250,
+    "minBedTempC": 70,
+    "maxBedTempC": 80,
+    "volumetricFlowLimitMm3s": 14,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 243,
+    "recommendedBedTempC": 75,
+    "effectiveVolumetricFlowMm3s": 14,
+    "calculatedMaxPrintSpeedMmS": 167,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-19T16:37:09.682Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1P handles Polymaker PolyMax PETG natively without hardware upgrades, achieving reliable production speeds up to 167 mm/s capped at a 14 mm³/s volumetric flow limit. Thanks to the open-frame design and stock stainless steel nozzle, thermal creep is minimized while maximizing interlayer toughness.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 50,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with a thin PVP glue stick layer as a release agent",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 14 mm³/s in the filament profile to cap continuous high-speed flow and prevent cold extrusion under-extrusion.",
+    "Enable Wipe While Retracting with a 1 mm wipe distance to minimize fine PETG stringing and nozzle accumulation during travel moves.",
+    "Adjust Pressure Advance (PA / Flow Dynamics) to approximately 0.038 s to sharpen corners without bulging or seam pockmarks.",
+    "Keep Part Cooling Fan between 20% min and 50% max, with Keep Fan Always On enabled to balance layer bonding strength against bridging performance."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Stringing and fine whisker buildup on the nozzle",
+      "rootCause": "PolyMax PETG is hygroscopic and prone to oozing at 243°C when slight ambient moisture is present, coupled with insufficient direct-drive retraction wiping.",
+      "exactFix": "Dry the filament spool at 65°C for 6 hours; in OrcaSlicer, enable Wipe on Loops and set retraction to 0.8 mm at 35 mm/s."
+    },
+    {
+      "issue": "PEI sheet damage or excessive bed adhesion tearing the coating",
+      "rootCause": "PolyMax PETG forms a chemical molecular bond with smooth or textured PEI surfaces when printed directly at 75°C without an interface layer.",
+      "exactFix": "Apply a uniform layer of liquid glue or PVP glue stick to act as an sacrificial release agent, and allow the bed to cool below 35°C before removing parts."
+    },
+    {
+      "issue": "Weak interlayer adhesion or brittle parts along the Z-axis",
+      "rootCause": "Over-cooling from the print head auxiliary fan or excessive primary part fan speed quenching extruded layers too quickly.",
+      "exactFix": "Turn off the auxiliary chamber fan completely and clamp maximum part cooling fan speed to 50%."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Polymaker PolyMax PETG with the P1P stock stainless steel nozzle?",
+      "answer": "Yes. PolyMax PETG is completely non-abrasive and prints reliably using the stock 0.4 mm stainless steel nozzle without causing premature wear."
+    },
+    {
+      "question": "Does printing PolyMax PETG on the P1P require an enclosure?",
+      "answer": "No, an enclosure is not required. In fact, printing PETG in an open-frame printer like the P1P is advantageous as it prevents excessive chamber heat from causing heat creep."
+    },
+    {
+      "question": "Why is my print speed capped at 167 mm/s?",
+      "answer": "The 167 mm/s limit is calculated from the filament's safe maximum volumetric flow rate of 14 mm³/s at standard 0.42 mm line width and 0.20 mm layer height to prevent nozzle starvation."
+    },
+    {
+      "question": "Do I need to dry Polymaker PolyMax PETG straight out of the vacuum-sealed bag?",
+      "answer": "Yes, PETG is inherently hygroscopic. Drying it at 65°C for 6 hours before printing significantly reduces stringing, improves surface finish, and eliminates popping sounds at the nozzle."
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1p-hatchbox-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1P",
+    "slug": "bambu-lab-p1p",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Hatchbox PLA",
+    "slug": "hatchbox-pla",
+    "brand": "Hatchbox",
+    "materialType": "PLA",
+    "minNozzleTempC": 195,
+    "maxNozzleTempC": 215,
+    "minBedTempC": 50,
+    "maxBedTempC": 60,
+    "volumetricFlowLimitMm3s": 19,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 205,
+    "recommendedBedTempC": 55,
+    "effectiveVolumetricFlowMm3s": 19,
+    "calculatedMaxPrintSpeedMmS": 226,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-19T16:59:09.381Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1P handles Hatchbox PLA out of the box with zero hardware upgrades needed, reaching a safe max speed of 226 mm/s backed by a 19 mm³/s volumetric flow limit. Its open-frame design and direct drive extruder provide optimal cooling and reliable feeding for this standard PLA.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 40,
+  "bedSurfaceRecommendation": "Textured PEI Plate clean with Isopropyl Alcohol (no adhesive needed)",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 19 mm³/s in the filament profile to prevent under-extrusion at high print velocities.",
+    "Configure Nozzle Temperature to 215°C for high-speed infill/inner walls and drop to 205°C for outer walls to balance flow and surface finish.",
+    "Calibrate Pressure Advance to roughly 0.022-0.026 via OrcaSlicer PA line or tower calibration for sharp corners on the P1P direct drive toolhead.",
+    "Ensure Aux Part Cooling Fan is disabled or kept below 30% if equipped, relying primarily on the toolhead fan at 100% to avoid localized warping."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Corner lifting / first layer warping",
+      "rootCause": "PEI bed surface contaminated with skin oils, drafts reaching the open P1P frame, or bed temperature set too low.",
+      "exactFix": "Wash the Textured PEI plate with warm water and dish soap (Dawn), wipe with 99% IPA, and raise the bed temperature to 60°C for the first layer."
+    },
+    {
+      "issue": "Matte finish streaks or inconsistent sheen across outer perimeters",
+      "rootCause": "Drastic speed variations causing fluctuating melt pool temperatures as speeds ramp up toward 226 mm/s.",
+      "exactFix": "Set Outer Wall speed to a constant 120-150 mm/s in OrcaSlicer to maintain uniform surface gloss and melt temperature."
+    },
+    {
+      "issue": "Extruder skipping or under-extrusion during rapid infill passes",
+      "rootCause": "Exceeding the 19 mm³/s volumetric melt capacity of the stock stainless steel hotend at high speeds.",
+      "exactFix": "Cap the Max Volumetric Speed at 19 mm³/s and raise nozzle print temperature to 215°C to lower melt viscosity."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Does Hatchbox PLA require a hardened steel nozzle on the P1P?",
+      "answer": "No. Standard Hatchbox PLA is non-abrasive and runs safely on the stock stainless steel nozzle installed on the Bambu Lab P1P."
+    },
+    {
+      "question": "Can I print Hatchbox PLA at the default Bambu Lab 0.20mm Standard profile speeds?",
+      "answer": "Yes, but ensure your maximum volumetric flow rate is set to 19 mm³/s; this caps outer walls and infill speeds around 226 mm/s to prevent under-extrusion."
+    },
+    {
+      "question": "Do I need to enclose the P1P for printing Hatchbox PLA?",
+      "answer": "No, an enclosure is not required and is actually discouraged for standard PLA, as open airflow helps prevent heat creep in the hotend and toolhead."
+    },
+    {
+      "question": "What is the best bed temperature for Hatchbox PLA on the P1P Textured PEI plate?",
+      "answer": "Set the bed temperature to 55°C (up to 60°C for the first layer) to ensure robust bed adhesion without inducing elephant's foot."
+    }
+  ]
+}

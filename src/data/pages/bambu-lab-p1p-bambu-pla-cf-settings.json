@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1p-bambu-pla-cf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1P",
+    "slug": "bambu-lab-p1p",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Bambu PLA-CF",
+    "slug": "bambu-pla-cf",
+    "brand": "Bambu Lab",
+    "materialType": "PLA-CF",
+    "minNozzleTempC": 210,
+    "maxNozzleTempC": 240,
+    "minBedTempC": 45,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 16,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 225,
+    "recommendedBedTempC": 55,
+    "effectiveVolumetricFlowMm3s": 16,
+    "calculatedMaxPrintSpeedMmS": 190,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-19T15:31:53.763Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab P1P requires upgrading to a hardened steel nozzle and extruder gears before printing Bambu PLA-CF to prevent rapid abrasive wear. Once upgraded, it achieves a calculated safe maximum print speed of 190 mm/s based on an effective volumetric flow cap of 16 mm³/s.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 50,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 40,
+  "bedSurfaceRecommendation": "Textured PEI Plate clean with isopropyl alcohol (no glue required)",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 16 mm³/s in the Filament Settings to prevent under-extrusion at high travel velocities.",
+    "Enable Wipe While Retracting (set wipe distance to 1.5 mm) to mitigate minor carbon fiber oozing and nozzle build-up.",
+    "Increase default infill overlap to 20% to compensate for reduced intra-layer cross-link flexibility typical of CF-filled PLA.",
+    "Configure first layer line width to 0.5 mm at 40 mm/s to ensure a solid foundation and prevent abrasive peel-up."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe nozzle bore expansion and inconsistent extrusion width over time",
+      "rootCause": "Chopped carbon fiber strands rapidly abrade the stock P1P stainless steel nozzle orifice.",
+      "exactFix": "Install an official Bambu Lab hardened steel hotend assembly and hardened steel extruder gear set."
+    },
+    {
+      "issue": "Intermittent nozzle clogs during low layer height printing",
+      "rootCause": "Micro-particle agglomeration of chopped carbon fibers when layer height is set below 0.12 mm on a 0.4 mm nozzle.",
+      "exactFix": "Maintain a minimum layer height of 0.16 mm or switch to a 0.6 mm hardened steel nozzle profile."
+    },
+    {
+      "issue": "Poor layer adhesion and brittle Z-axis fracture",
+      "rootCause": "Excessive cooling fan speed combined with slightly degraded, moisture-saturated PLA base resin.",
+      "exactFix": "Dry the filament spool at 55°C for 8 hours and reduce max part cooling fan to 70% for dense structural components."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Bambu PLA-CF with the stock P1P nozzle?",
+      "answer": "No, the stock stainless steel nozzle will quickly erode and enlarge within 200–500 grams of printing, ruining print accuracy. You must upgrade to a Bambu hardened steel nozzle and extruder gear."
+    },
+    {
+      "question": "Does Bambu PLA-CF require an enclosure on the P1P?",
+      "answer": "No, PLA-CF does not require an enclosed chamber and prints exceptionally well in the open-frame P1P environment without warping."
+    },
+    {
+      "question": "Why is the top speed capped at 190 mm/s on the P1P?",
+      "answer": "The filament's melt viscosity caps reliable flow at 16 mm³/s, which translates to a safe upper limit of 190 mm/s with standard 0.42 mm line width and 0.20 mm layer height."
+    },
+    {
+      "question": "Can I run Bambu PLA-CF through the AMS attached to my P1P?",
+      "answer": "Yes, Bambu PLA-CF is explicitly engineered with refined short-strand carbon fibers to be compatible with the Bambu AMS, unlike third-party abrasive composites."
+    }
+  ]
+}
