@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1p-overture-pla-professional-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1P",
+    "slug": "bambu-lab-p1p",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Overture PLA Professional",
+    "slug": "overture-pla-professional",
+    "brand": "Overture",
+    "materialType": "PLA+",
+    "minNozzleTempC": 200,
+    "maxNozzleTempC": 220,
+    "minBedTempC": 50,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 21,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 210,
+    "recommendedBedTempC": 58,
+    "effectiveVolumetricFlowMm3s": 21,
+    "calculatedMaxPrintSpeedMmS": 250,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-20T15:25:16.352Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1P handles Overture PLA Professional seamlessly out of the box on its stock stainless steel nozzle without needing an enclosure. Running at a volumetric flow limit of 21 mm³/s allows reliable speeds up to 250 mm/s with exceptional layer adhesion.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate (clean with Isopropyl Alcohol or warm soapy water, no glue required)",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 21 mm³/s in the filament profile to prevent under-extrusion at high feedrates.",
+    "Tune Pressure Advance (PA) / K-factor to approximately 0.024 via OrcaSlicer dynamic calibration for clean corners.",
+    "Configure nozzle temperature to 210°C for general layers and 215°C for the first layer to improve initial bed grab.",
+    "Enable Scarf Joint Seams under Quality settings to eliminate vertical surface zits at layer transitions."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Corner lifting or warping on large prints",
+      "rootCause": "PEI bed surface contaminated with oils or ambient room draft affecting the open-frame P1P chassis.",
+      "exactFix": "Wash the textured PEI sheet with warm water and dish soap, increase bed temperature to 62°C, and shield the printer from direct HVAC drafts."
+    },
+    {
+      "issue": "Fine wispy stringing during non-print travel moves",
+      "rootCause": "Overture PLA+ has higher impact modifiers causing lower melt viscosity at prolonged travel delays.",
+      "exactFix": "Enable 'Wipe while retracting' (2mm) in OrcaSlicer and ensure travel speed is set to 400 mm/s or higher."
+    },
+    {
+      "issue": "Matte finish and weak layer bonding at maximum print speed",
+      "rootCause": "Hotend heater unable to fully melt the core of the filament bead at sustained 21 mm³/s flow rates.",
+      "exactFix": "Increase nozzle temperature by 5-10°C (up to 220°C) or reduce the max volumetric flow limit to 18 mm³/s."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Does Overture PLA Professional require a hardened steel nozzle on the P1P?",
+      "answer": "No, Overture PLA Professional contains impact-modifying polymers rather than abrasive fibers, making the stock stainless steel nozzle completely suitable."
+    },
+    {
+      "question": "Can I print Overture PLA Professional inside an enclosed P1P or should the chamber stay open?",
+      "answer": "Keep the chamber ventilated or top open if you have enclosed your P1P, as PLA Professional has a low glass transition temperature (~55°C) and can suffer heat creep."
+    },
+    {
+      "question": "Do I need to dry Overture PLA Professional before printing?",
+      "answer": "While standard PLA+ is mildly hygroscopic, new vacuum-sealed spools print fine out of the box; dry at 45°C for 6 hours only if popping noises or excessive stringing occur."
+    },
+    {
+      "question": "What is the recommended auxiliary part cooling fan setting on the P1P for this material?",
+      "answer": "Keep the auxiliary fan set between 40% and 70% to prevent uneven cooling shrinkage on the left side of the build plate."
+    }
+  ]
+}

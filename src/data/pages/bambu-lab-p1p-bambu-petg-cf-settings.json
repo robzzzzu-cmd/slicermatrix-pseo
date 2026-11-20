@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1p-bambu-petg-cf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1P",
+    "slug": "bambu-lab-p1p",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Bambu PETG-CF",
+    "slug": "bambu-petg-cf",
+    "brand": "Bambu Lab",
+    "materialType": "PETG-CF",
+    "minNozzleTempC": 240,
+    "maxNozzleTempC": 270,
+    "minBedTempC": 65,
+    "maxBedTempC": 80,
+    "volumetricFlowLimitMm3s": 15,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 255,
+    "recommendedBedTempC": 73,
+    "effectiveVolumetricFlowMm3s": 15,
+    "calculatedMaxPrintSpeedMmS": 179,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-20T15:14:50.369Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab P1P achieves reliable structural prints with Bambu PETG-CF at speeds up to 179 mm/s backed by a 15 mm³/s max volumetric speed limit. However, the stock stainless steel nozzle and extruder gears will rapidly abrade, necessitating an upgrade to Bambu hardened steel components prior to printing.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 50,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with a thin layer of PVP glue stick or liquid glue as a release agent",
+  "slicerTweaks": [
+    "Cap 'Max volumetric speed' at 15 mm³/s in the Filament settings to prevent under-extrusion at high motion rates.",
+    "Lower part cooling fan thresholds to Min 20% / Max 50% with fan disable for the first 3 layers to maximize interlayer bonding.",
+    "Enable 'Wipe while retracting' set to 2 mm and configure 'Retraction distance' to 0.8 mm to suppress carbon-fiber nozzle drool.",
+    "Set 'Pressure Advance' to approximately 0.038 s (calibrated) and increase nozzle temperature to 255°C on a hardened steel hotend."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Extruder gear slipping or rapid bore widening after a few prints",
+      "rootCause": "Abrasive carbon fibers grinding against stock P1P stainless steel nozzle and drive gears.",
+      "exactFix": "Install the Bambu Lab Hardened Steel Hotend (0.4mm or 0.6mm) and Hardened Steel Extruder Gear Assembly."
+    },
+    {
+      "issue": "Severe stringing, rough surface finish, and brittle layer adhesion",
+      "rootCause": "Moisture absorption by the hygroscopic PETG matrix inducing boiling and hydrolysis in the melt zone.",
+      "exactFix": "Dry the filament spool in a forced-air blast oven or active filament dryer at 65°C for at least 8 hours before printing."
+    },
+    {
+      "issue": "PEI coating tear-out or permanent bonding to the build plate",
+      "rootCause": "PETG-CF molecularly bonding too aggressively to bare PEI surfaces without a separation barrier.",
+      "exactFix": "Apply Bambu Liquid Glue or standard PVP glue stick to the Textured PEI Plate to serve as a sacrificial release interface."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Bambu PETG-CF with the factory-installed P1P nozzle?",
+      "answer": "No; the stock P1P nozzle is stainless steel, which will degrade and widen within 200–500 grams of carbon-fiber filament. You must install a hardened steel nozzle and hardened extruder gears."
+    },
+    {
+      "question": "Does the open-frame Bambu P1P require an enclosure for PETG-CF?",
+      "answer": "No, PETG-CF does not require an enclosure and typically prints best in open, well-ventilated chambers to prevent heat creep and excessive chamber heat buildup."
+    },
+    {
+      "question": "Can I use the Bambu 0.2mm nozzle for high-detail PETG-CF prints?",
+      "answer": "No, chopped carbon fiber strands will bridge across a 0.2mm orifice and cause immediate clogging. Use a 0.4mm or preferably 0.6mm hardened nozzle."
+    },
+    {
+      "question": "Is Bambu PETG-CF compatible with the AMS on the P1P?",
+      "answer": "Yes, Bambu PETG-CF is formulated and wound on reusable spools to be AMS-compatible, but ensure the filament is thoroughly dried so it does not snap inside the feed paths."
+    }
+  ]
+}

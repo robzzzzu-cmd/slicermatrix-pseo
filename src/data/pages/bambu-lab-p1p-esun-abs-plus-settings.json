@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1p-esun-abs-plus-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1P",
+    "slug": "bambu-lab-p1p",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "eSUN ABS+",
+    "slug": "esun-abs-plus",
+    "brand": "eSUN",
+    "materialType": "ABS+",
+    "minNozzleTempC": 240,
+    "maxNozzleTempC": 260,
+    "minBedTempC": 90,
+    "maxBedTempC": 105,
+    "volumetricFlowLimitMm3s": 18,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 250,
+    "recommendedBedTempC": 98,
+    "effectiveVolumetricFlowMm3s": 18,
+    "calculatedMaxPrintSpeedMmS": 214,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": true
+  },
+  "generatedAt": "2026-11-20T15:22:47.657Z",
+  "compatibilityVerdict": "Advanced Setup",
+  "heroSummary": "The Bambu Lab P1P achieves a reliable maximum speed of 214 mm/s at an 18 mm³/s volumetric limit with eSUN ABS+, but its open-frame design makes an aftermarket enclosure or draft shield essential to prevent severe warping. While the stock stainless steel nozzle handles this non-abrasive blend easily, thermal management around the print bed is the primary engineering bottleneck.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 10,
+  "coolingFanMaxPct": 25,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate + PVP Glue Stick or Liquid Bed Adhesive (98°C)",
+  "slicerTweaks": [
+    "Cap Max Volumetric Speed at 18 mm³/s in the filament profile and lower outer wall speed to 120 mm/s to preserve layer adhesion and surface finish.",
+    "Set Bed Temperature to 98°C (near the 100°C hardware ceiling) and disable the auxiliary cooling fan entirely to prevent localized thermal shock.",
+    "Enable a 5mm outer brim with 0.0mm brim-object gap to mechanically resist corner lifting on larger functional parts.",
+    "Adjust Part Cooling Fan settings to min 10% and max 25%, with fan disabled for the first 4 layers and activated only on overhangs exceeding 50%."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Corner lifting and bed detachment (thermal warping)",
+      "rootCause": "The open-frame P1P allows cool room drafts to induce rapid thermal contraction across the ABS part geometry.",
+      "exactFix": "Install an enclosure or temporary draft shield, heat the bed to 98°C, apply liquid glue, and enable an 8mm outer brim."
+    },
+    {
+      "issue": "Interlayer splitting / delamination under mechanical stress",
+      "rootCause": "Excessive part cooling or excessive print speed causing the extruded bead to chill before cross-linking polymer chains.",
+      "exactFix": "Increase nozzle temperature to 255°C, turn off the auxiliary fan completely, and limit part cooling fan to a 15% ceiling."
+    },
+    {
+      "issue": "Rough extrusion surface and micro-popping (moisture contamination)",
+      "rootCause": "eSUN ABS+ is hygroscopic and absorbed ambient moisture, flashing into micro-steam bubbles inside the 250°C hotend melt zone.",
+      "exactFix": "Dry the spool in a dedicated filament dryer at 65°C to 70°C for 6 to 8 hours before printing, then feed from a sealed dry box."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print eSUN ABS+ on a stock Bambu Lab P1P without an enclosure?",
+      "answer": "Small parts under 40mm can print successfully using a draft shield and brim, but larger parts will warp or delaminate without a full enclosure."
+    },
+    {
+      "question": "Do I need to upgrade to a hardened steel nozzle for eSUN ABS+?",
+      "answer": "No, eSUN ABS+ contains no abrasive fibers or particles, so the P1P's stock stainless steel nozzle is completely safe to use."
+    },
+    {
+      "question": "Why is the print speed limited to 214 mm/s when the P1P can hit 500 mm/s?",
+      "answer": "At standard 0.2mm layer height and 0.42mm line width, 214 mm/s reaches the maximum safe 18 mm³/s flow threshold of the hotend to prevent underextrusion."
+    },
+    {
+      "question": "What is the optimal bed temperature considering the P1P's 100°C hardware limit?",
+      "answer": "Set the bed temperature to 98°C, which delivers sufficient thermal energy to stay near the glass transition point of ABS+ without triggering thermal runaway protection."
+    }
+  ]
+}

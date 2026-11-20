@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1p-bambu-asa-cf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1P",
+    "slug": "bambu-lab-p1p",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Bambu ASA-CF",
+    "slug": "bambu-asa-cf",
+    "brand": "Bambu Lab",
+    "materialType": "ASA-CF",
+    "minNozzleTempC": 255,
+    "maxNozzleTempC": 280,
+    "minBedTempC": 90,
+    "maxBedTempC": 105,
+    "volumetricFlowLimitMm3s": 15,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 268,
+    "recommendedBedTempC": 98,
+    "effectiveVolumetricFlowMm3s": 15,
+    "calculatedMaxPrintSpeedMmS": 179,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": true
+  },
+  "generatedAt": "2026-11-20T15:17:46.513Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab P1P requires a hardened steel nozzle and extruder gear upgrade alongside a draft enclosure to handle Bambu ASA-CF safely and prevent severe warping. Once upgraded, it reliably achieves print speeds up to 179 mm/s constrained by a safe 15 mm³/s volumetric flow limit at 268°C.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 20,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate with liquid glue or glue stick as a protective release agent",
+  "slicerTweaks": [
+    "Cap Maximum Volumetric Speed to 15 mm³/s in the filament profile to prevent under-extrusion at high print velocities.",
+    "Set Part Cooling Fan to 0% min and 20% max with 80% exhaust chamber/aux fan disabled to prevent thermal shock and catastrophic layer delamination.",
+    "Configure a 5mm outer brim with a 0.1mm brim-object gap to stabilize sharp corners against draft-induced bed lifting on the open-frame P1P.",
+    "Enable Scarf Joint Seams under Quality settings to conceal carbon fiber seam bulging and reduce stringing zits during layer transitions."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe corner lifting and bed detachment",
+      "rootCause": "The open-frame architecture of the P1P allows convective drafts that rapidly cool the high-shrinkage ASA matrix.",
+      "exactFix": "Install an enclosure or cardboard draft shield, set the bed temperature to 98°C, disable auxiliary/part cooling fans, and add an 8mm outer brim."
+    },
+    {
+      "issue": "Extruder clicking and progressive under-extrusion mid-print",
+      "rootCause": "Abrasive carbon fibers have worn or clogged the stock P1P stainless steel nozzle, or filament softened in the cold zone due to heat creep.",
+      "exactFix": "Swap to a Bambu Hardened Steel 0.4mm hotend assembly and hardened extruder gear kit, and confirm hotend cooling fan is running at 100%."
+    },
+    {
+      "issue": "Brittle parts and poor Z-axis layer bonding",
+      "rootCause": "Excessive cooling fan speed or printing below the optimal polymer melting threshold of 265°C.",
+      "exactFix": "Increase nozzle temperature to 270°C, disable the auxiliary cooling fan entirely, and restrict maximum part cooling fan to 15%."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Bambu ASA-CF on a stock P1P without upgrading the nozzle?",
+      "answer": "No. The stock P1P comes with a stainless steel nozzle and unhardened gears, which will rapidly erode within a single spool of carbon fiber filament; you must upgrade to a hardened steel hotend and hardened extruder gears."
+    },
+    {
+      "question": "Is an enclosure strictly necessary for printing ASA-CF on the P1P?",
+      "answer": "While small, low-profile parts may succeed without an enclosure if ambient air is warm and draft-free, structural or tall parts will almost certainly warp or delaminate without a draft shield or full enclosure."
+    },
+    {
+      "question": "Does Bambu ASA-CF need to be dried before printing?",
+      "answer": "Yes. Even though ASA absorbs less water than nylon, moisture in ASA-CF causes rough surface finish, nozzle foaming, and layer embrittlement; dry it in a filament dryer at 80°C for 8 hours prior to printing."
+    },
+    {
+      "question": "Why use glue stick on a textured PEI plate with ASA-CF?",
+      "answer": "ASA can chemically bond too aggressively to PEI surfaces at 95-100°C; the glue stick acts as an essential release interface to prevent tearing off the PEI coating when removing parts."
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1p-esun-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1P",
+    "slug": "bambu-lab-p1p",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "eSUN PETG",
+    "slug": "esun-petg",
+    "brand": "eSUN",
+    "materialType": "PETG",
+    "minNozzleTempC": 230,
+    "maxNozzleTempC": 250,
+    "minBedTempC": 70,
+    "maxBedTempC": 85,
+    "volumetricFlowLimitMm3s": 14,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 240,
+    "recommendedBedTempC": 78,
+    "effectiveVolumetricFlowMm3s": 14,
+    "calculatedMaxPrintSpeedMmS": 167,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-20T15:19:49.437Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1P handles eSUN PETG exceptionally well out of the box with its stock stainless steel nozzle and open-frame design. Running at an effective volumetric flow cap of 14 mm³/s, the machine achieves reliable, defect-free prints up to a calculated safe speed of 167 mm/s.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 50,
+  "firstLayerSpeedMmS": 40,
+  "bedSurfaceRecommendation": "Textured PEI Plate (Wipe clean with Isopropyl Alcohol; use glue stick as a release agent if printing on smooth PEI to avoid tear-out)",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 14 mm³/s in the filament profile to cap print speeds safely near 167 mm/s.",
+    "Enable 'Wipe while retracting' (set to 2 mm) and select 'Retract on layer change' to minimize PETG nozzle oozing and stringing.",
+    "Configure Part Cooling Fan thresholds: 20% minimum fan speed, 50% maximum fan speed, and set 'Keep fan always on' to maintain layer bond strength without curling.",
+    "Adjust Pressure Advance (Linear Advance) to approximately 0.038 s to sharpen corners and prevent material bulges."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe stringing and fine filament webbing across travel paths",
+      "rootCause": "PETG is hygroscopic and absorbed ambient moisture, lowering melt viscosity, or retraction/travel settings are not aggressive enough.",
+      "exactFix": "Dry the spool at 65°C for 6 to 8 hours before printing, increase travel speed to 400 mm/s, and increase retraction distance to 0.8 mm at 35 mm/s."
+    },
+    {
+      "issue": "Excessive bed adhesion tearing PEI coating upon part removal",
+      "rootCause": "PETG bonds molecularly to smooth PEI surfaces under high bed temperatures.",
+      "exactFix": "Switch to the Bambu Textured PEI plate or apply a thin, uniform layer of PVP glue stick / liquid release agent on smooth surfaces, and allow the plate to cool below 35°C before removing."
+    },
+    {
+      "issue": "Brittle layer bonding or parts delaminating along layer lines",
+      "rootCause": "Excessive part cooling fan speeds chilling the extruded PETG bead too quickly, preventing adequate molecular cross-linking.",
+      "exactFix": "Reduce cooling fan speed to 20-30% nominal, limit maximum fan speed to 50%, and raise nozzle temperature to 245°C."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print eSUN PETG on the P1P without an enclosure?",
+      "answer": "Yes. PETG does not require a heated chamber and prints best in open-frame environments like the P1P because excessive ambient heat can cause heat creep or reduce cooling efficiency."
+    },
+    {
+      "question": "Do I need to upgrade to a hardened steel nozzle for eSUN PETG?",
+      "answer": "No. Standard eSUN PETG is non-abrasive, making the stock stainless steel nozzle on the P1P completely safe to use without accelerated wear."
+    },
+    {
+      "question": "Why is my maximum print speed capped at 167 mm/s?",
+      "answer": "Given eSUN PETG's melt behavior, the reliable volumetric flow limit is 14 mm³/s. With standard 0.4 mm line widths and 0.2 mm layer heights, 167 mm/s represents the theoretical volumetric ceiling before underextrusion occurs."
+    },
+    {
+      "question": "What is the recommended drying procedure for eSUN PETG?",
+      "answer": "Dry the filament in a dedicated filament dryer or convection oven at 65°C for 6 to 8 hours. Store below 20% relative humidity to avoid popping, stringing, and degraded mechanical properties."
+    }
+  ]
+}

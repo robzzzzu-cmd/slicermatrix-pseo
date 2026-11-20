@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1p-bambu-petg-hf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1P",
+    "slug": "bambu-lab-p1p",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Bambu PETG HF",
+    "slug": "bambu-petg-hf",
+    "brand": "Bambu Lab",
+    "materialType": "PETG",
+    "minNozzleTempC": 230,
+    "maxNozzleTempC": 260,
+    "minBedTempC": 65,
+    "maxBedTempC": 75,
+    "volumetricFlowLimitMm3s": 21,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 245,
+    "recommendedBedTempC": 70,
+    "effectiveVolumetricFlowMm3s": 21,
+    "calculatedMaxPrintSpeedMmS": 250,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-20T15:10:53.156Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1P handles Bambu PETG HF exceptionally well right out of the box, reaching printing speeds up to 250 mm/s supported by an effective volumetric flow rate of 21 mm³/s. Because PETG HF is non-abrasive and performs reliably in an open-frame printer, no enclosure or nozzle upgrades are required.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 60,
+  "firstLayerSpeedMmS": 40,
+  "bedSurfaceRecommendation": "Textured PEI Plate with liquid glue or glue stick as a release agent",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 21 mm³/s in the filament profile to prevent underextrusion at high feedrates.",
+    "Enable Wipe While Retracting with a 2 mm wipe distance to minimize fine PETG stringing and nozzle buildup.",
+    "Configure Nozzle Temperature to 245°C for all layers and Bed Temperature to 70°C to maximize inter-layer adhesion without sagging.",
+    "Set First Layer Speed to 40 mm/s and First Layer Infill to 50 mm/s to ensure consistent bed adhesion without ripping delicate lines."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe stringing and fine hair buildup on nozzle",
+      "rootCause": "PETG HF is highly hygroscopic and absorbs ambient moisture quickly, causing steam micro-explosions and nozzle ooze.",
+      "exactFix": "Dry the filament spool in a dedicated dryer at 65°C for 6 to 8 hours before printing, and increase retraction distance to 0.8 mm."
+    },
+    {
+      "issue": "PETG tearing chunks out of the build plate during part removal",
+      "rootCause": "Direct bonding of PETG to clean smooth or textured PEI can exceed the mechanical strength of the PEI coating.",
+      "exactFix": "Apply a uniform layer of liquid glue or glue stick as an interfacial release agent, and let the bed cool down below 35°C before removing parts."
+    },
+    {
+      "issue": "Matte finish and weak layer bonding on high-speed outer perimeters",
+      "rootCause": "Printing outer walls beyond the thermal melting capacity of the hotend at high acceleration, causing poor plasticization.",
+      "exactFix": "Limit outer wall speed to 150-180 mm/s or raise nozzle temperature to 255°C within the allowable 230°C-260°C range."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Do I need to enclose my Bambu P1P to print Bambu PETG HF?",
+      "answer": "No, Bambu PETG HF does not require an enclosed chamber. The open-frame design of the P1P works well because PETG benefits from moderate cooling and lacks the extreme thermal contraction tendencies of ABS or PC."
+    },
+    {
+      "question": "Can I use the stock stainless steel nozzle on the P1P for PETG HF?",
+      "answer": "Yes, PETG HF is completely non-abrasive and does not contain carbon or glass fibers, so the standard stock stainless steel nozzle will not experience premature wear."
+    },
+    {
+      "question": "Why is glue stick recommended if I am using a Textured PEI Plate?",
+      "answer": "On PEI surfaces, PETG forms an extremely aggressive chemical bond. A thin layer of glue acts as a sacrificial release agent rather than an adhesive, preventing the plastic from peeling away the PEI coating when removing the print."
+    },
+    {
+      "question": "What is the recommended drying procedure for Bambu PETG HF?",
+      "answer": "Dry the spool at 65°C for 6 to 8 hours in an active filament dryer or oven. PETG absorbs moisture rapidly, which results in oozing, stringing, and reduced mechanical strength if left exposed to ambient air."
+    }
+  ]
+}
