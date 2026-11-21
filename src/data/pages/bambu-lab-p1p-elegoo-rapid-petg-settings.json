@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1p-elegoo-rapid-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1P",
+    "slug": "bambu-lab-p1p",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Elegoo Rapid PETG",
+    "slug": "elegoo-rapid-petg",
+    "brand": "Elegoo",
+    "materialType": "PETG",
+    "minNozzleTempC": 230,
+    "maxNozzleTempC": 255,
+    "minBedTempC": 70,
+    "maxBedTempC": 85,
+    "volumetricFlowLimitMm3s": 20,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 243,
+    "recommendedBedTempC": 78,
+    "effectiveVolumetricFlowMm3s": 20,
+    "calculatedMaxPrintSpeedMmS": 238,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-21T15:05:44.919Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1P handles Elegoo Rapid PETG out of the box with exceptional reliability, requiring no enclosure or hardened nozzle upgrades. Operating within its 20 mm³/s volumetric flow limit, you can safely achieve sustained print speeds up to 238 mm/s without experiencing under-extrusion.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 60,
+  "firstLayerSpeedMmS": 40,
+  "bedSurfaceRecommendation": "Textured PEI Plate with liquid glue or glue stick as a release agent",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 20 mm³/s in the filament profile to cap print speed near 238 mm/s for 0.2mm layers.",
+    "Enable Wipe While Retracting with a 1.5mm distance to prevent PETG nozzle buildup and travel oozing.",
+    "Set Pressure Advance (PA) to 0.038 s for the direct drive extruder to eliminate corner bulging at high speeds.",
+    "Lower auxiliary part cooling fan to 0% and keep main part cooling between 20-60% to maintain high interlayer bonding strength."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Stringing and fine whisker buildup during travel moves",
+      "rootCause": "PETG absorbs ambient moisture quickly, decreasing viscosity and increasing drool during rapid traverses.",
+      "exactFix": "Dry filament at 65°C for 6 hours, then in OrcaSlicer enable 'Avoid Crossing Walls' and set retraction to 0.8mm at 35 mm/s."
+    },
+    {
+      "issue": "PEI surface damage or chunk tearing during print removal",
+      "rootCause": "PETG forms an aggressive chemical bond to smooth and textured PEI surfaces when heated above 70°C.",
+      "exactFix": "Apply a thin layer of PVP glue stick or liquid glue as an interface/release barrier before printing, and let the bed drop below 35°C before part removal."
+    },
+    {
+      "issue": "Weak layer adhesion and brittle parts along the Z-axis",
+      "rootCause": "Excessive cooling from the P1P printhead fan quenching the extruded bead too quickly for proper polymer chain interdiffusion.",
+      "exactFix": "Reduce cooling fan maximum to 60%, ensure auxiliary cooling fan is disabled (0%), and bump nozzle temperature to 245°C."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Does printing Elegoo Rapid PETG on the P1P require an enclosed chamber?",
+      "answer": "No, PETG does not require a heated chamber and prints reliably in the open-frame P1P without excessive warping risks."
+    },
+    {
+      "question": "Can the stock stainless steel nozzle handle Elegoo Rapid PETG?",
+      "answer": "Yes, standard Elegoo Rapid PETG is non-abrasive and will not degrade or wear the stock stainless steel nozzle on the P1P."
+    },
+    {
+      "question": "Why is a glue stick recommended on a textured PEI plate for PETG?",
+      "answer": "PETG bonds overly aggressively to PEI coatings; the glue acts as a sacrificial release agent to prevent permanent bed damage upon part removal."
+    },
+    {
+      "question": "What is the true practical speed limit for Elegoo Rapid PETG on the P1P?",
+      "answer": "At a standard 0.2mm layer height and 0.42mm line width, the 20 mm³/s volumetric flow limit allows a maximum safe speed of 238 mm/s."
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1p-hatchbox-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1P",
+    "slug": "bambu-lab-p1p",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Hatchbox PETG",
+    "slug": "hatchbox-petg",
+    "brand": "Hatchbox",
+    "materialType": "PETG",
+    "minNozzleTempC": 230,
+    "maxNozzleTempC": 245,
+    "minBedTempC": 70,
+    "maxBedTempC": 85,
+    "volumetricFlowLimitMm3s": 14,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 238,
+    "recommendedBedTempC": 78,
+    "effectiveVolumetricFlowMm3s": 14,
+    "calculatedMaxPrintSpeedMmS": 167,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-21T14:52:40.663Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1P effortlessly prints Hatchbox PETG out of the box on its stock stainless steel nozzle without requiring an enclosure. Tuning your process to a safe maximum print speed of 167 mm/s respects the 14 mm³/s volumetric flow limit to ensure strong layer adhesion and clean surface finish.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 50,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with a thin glue stick layer or liquid release agent to prevent permanent surface bonding.",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 14 mm³/s in OrcaSlicer filament settings to automatically cap linear extrusion speed around 167 mm/s.",
+    "Adjust Pressure Advance (PA) to approximately 0.032 - 0.038 s to eliminate corner bulging on the direct drive extruder.",
+    "Enable 'Wipe while retracting' set to 2 mm to minimize PETG oozing and stringing across open travels.",
+    "Configure First Layer Temperature to 240°C with bed at 75°C, dropping nozzle to 238°C for subsequent layers to ensure optimal flow without stringing."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe stringing and fine hair-like wisps across travel paths",
+      "rootCause": "PETG is highly hygroscopic and absorbs ambient moisture quickly, coupled with oozing during non-print moves.",
+      "exactFix": "Dry the spool at 65°C for 6 hours; in OrcaSlicer, enable 'Avoid crossing walls' and increase travel speed to 400 mm/s."
+    },
+    {
+      "issue": "First layer tearing or chunking out PEI coating upon removal",
+      "rootCause": "PETG has an aggressive chemical bond with PEI, leading to destructive over-adhesion if printed directly without a barrier.",
+      "exactFix": "Apply a uniform layer of PVA glue stick or Bambu liquid glue as a sacrificial release agent, and allow the bed to cool below 35°C before removing parts."
+    },
+    {
+      "issue": "Extruder clicking and surface under-extrusion on fast infill moves",
+      "rootCause": "Printing speeds exceeding the 14 mm³/s volumetric melting capacity of the stock hotend at 238°C.",
+      "exactFix": "Lower Sparse Infill speed to match the safe ceiling of 167 mm/s and strictly enforce the 14 mm³/s Max Volumetric Flow limit in the filament profile."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Hatchbox PETG on the stock Bambu P1P without an enclosure?",
+      "answer": "Yes, PETG prints reliably in open-air environments and does not suffer from high shrinkage rates like ABS or ASA, making the open-frame P1P an optimal host."
+    },
+    {
+      "question": "Do I need to upgrade to a hardened steel nozzle for Hatchbox PETG?",
+      "answer": "No, standard Hatchbox PETG is non-abrasive, so the stock stainless steel nozzle on the P1P is fully compatible and will not suffer premature wear."
+    },
+    {
+      "question": "Why is my PETG print weak and brittle between layers?",
+      "answer": "Excessive part cooling or printing too fast limits thermal bonding between layers; reduce part cooling fan speed to 20-40% and ensure the nozzle temperature stays around 238°C."
+    },
+    {
+      "question": "What build plate temperature gives the best adhesion without causing warping?",
+      "answer": "A bed temperature between 75°C and 78°C provides optimal thermal retention above PETG's glass transition temperature to prevent edge curling."
+    }
+  ]
+}

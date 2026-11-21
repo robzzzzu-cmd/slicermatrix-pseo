@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1p-hatchbox-wood-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1P",
+    "slug": "bambu-lab-p1p",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Hatchbox Wood PLA",
+    "slug": "hatchbox-wood-pla",
+    "brand": "Hatchbox",
+    "materialType": "Wood PLA",
+    "minNozzleTempC": 195,
+    "maxNozzleTempC": 220,
+    "minBedTempC": 50,
+    "maxBedTempC": 60,
+    "volumetricFlowLimitMm3s": 11,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 208,
+    "recommendedBedTempC": 55,
+    "effectiveVolumetricFlowMm3s": 11,
+    "calculatedMaxPrintSpeedMmS": 131,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-21T14:55:24.352Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab P1P achieves a reliable maximum print speed of 131 mm/s at an 11 mm³/s volumetric flow limit with Hatchbox Wood PLA. However, because real wood fibers erode the stock stainless steel nozzle rapidly, upgrading to a hardened steel nozzle (ideally 0.6mm to prevent clogs) is mandatory.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 60,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate clean with dish soap and warm water (no glue stick required)",
+  "slicerTweaks": [
+    "Cap Maximum Volumetric Speed to 11 mm³/s in the filament profile to avoid thermal under-extrusion and fiber jamming.",
+    "Increase default nozzle temperature to 208°C for initial layer and other layers, staying below 215°C to avoid wood fiber burning.",
+    "Lower outer wall acceleration to 3000 mm/s² and disable wiping on loops to eliminate fiber tearing and stringing at seams.",
+    "Ensure Seam Position is set to Aligned or Back, and enable Retract When Changing Layer to limit wood particle oozing."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Sudden nozzle clogs and extrusion starvation mid-print",
+      "rootCause": "Wood fibers agglomerating inside the narrow 0.4mm nozzle orifice or heat creep causing premature softening in the heatbreak.",
+      "exactFix": "Perform a cold pull to clear the obstruction, upgrade to a 0.6mm hardened steel nozzle, and ensure nozzle temperature does not exceed 215°C."
+    },
+    {
+      "issue": "Heavy hair-like stringing and fuzzy blobs across travel moves",
+      "rootCause": "Excess moisture trapped within the organic wood cellulose fibers causing boiling and uncontrolled nozzle drool.",
+      "exactFix": "Dry the filament spool in a dedicated filament dryer at 50°C for 6 to 8 hours, and set retraction distance to 0.8mm at 30 mm/s."
+    },
+    {
+      "issue": "First layer peeling or curling at sharp corners",
+      "rootCause": "Contaminants or finger oils on the PEI surface combined with excessive cooling too early in the print.",
+      "exactFix": "Scrub the Textured PEI plate with hot water and Dawn dish soap, set bed temperature to 55°C, and force the part cooling fan off for the first 3 layers."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I safely run Hatchbox Wood PLA through the Bambu Lab AMS?",
+      "answer": "It is not recommended; wood-filled PLA is brittle and abrasive, which can snap inside the PTFE guide tubes and wear down the plastic AMS feeder funnels. Feed it directly from an external dry spool holder."
+    },
+    {
+      "question": "Why does my print look darker in some areas than others?",
+      "answer": "Wood PLA burns slightly at higher temperatures; if printing speeds vary drastically across sections, the filament experiences differing residence times in the hotend, leading to color banding. Lock your outer wall speeds to a consistent value."
+    },
+    {
+      "question": "Do I need an enclosure on the P1P to print Hatchbox Wood PLA?",
+      "answer": "No, Wood PLA is a modified PLA base that prints best in an open-frame environment with ample ventilation and cooling to prevent heat creep."
+    },
+    {
+      "question": "Will Hatchbox Wood PLA stain or take wood finish after printing?",
+      "answer": "Yes, because it contains genuine cellulose wood fibers, light sanding with 120-220 grit paper exposes the porous fibers, allowing oil-based stains and varnishes to absorb naturally."
+    }
+  ]
+}

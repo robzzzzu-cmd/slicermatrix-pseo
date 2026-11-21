@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1p-prusament-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1P",
+    "slug": "bambu-lab-p1p",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Prusament PLA",
+    "slug": "prusament-pla",
+    "brand": "Prusament",
+    "materialType": "PLA",
+    "minNozzleTempC": 205,
+    "maxNozzleTempC": 220,
+    "minBedTempC": 55,
+    "maxBedTempC": 60,
+    "volumetricFlowLimitMm3s": 20,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 213,
+    "recommendedBedTempC": 58,
+    "effectiveVolumetricFlowMm3s": 20,
+    "calculatedMaxPrintSpeedMmS": 238,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-21T14:50:14.338Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1P handles Prusament PLA exceptionally well right out of the box on its stock stainless steel nozzle without needing an enclosure. Leveraging a maximum volumetric flow rate of 20 mm³/s, the machine safely sustains printing speeds up to 238 mm/s with stellar layer quality.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 100,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate (cleaned with warm water and dish soap, no adhesive required)",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 20 mm³/s in the Filament Settings to cap extrusion throughput safely below the melt limit.",
+    "Configure Nozzle Temperature to 220°C for high-speed infill and outer walls, stepping down to 210°C for the first layer to maximize detail.",
+    "Set Pressure Advance to 0.022 in OrcaSlicer filament overrides to eliminate corner bulging during high-acceleration moves.",
+    "Enable auxiliary cooling fan at 70-80% alongside the 100% part cooling fan to maintain sharp overhangs at elevated print speeds."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Fine stringing and cobwebbing across travel moves",
+      "rootCause": "Prusament PLA exhibits low melt viscosity at high nozzle temperatures when combined with direct drive wipe lag.",
+      "exactFix": "Enable 'Wipe while retracting' (2mm) in OrcaSlicer extruder settings and lower nozzle temperature from 220°C to 212°C."
+    },
+    {
+      "issue": "Under-extrusion and matte banding during long linear runs",
+      "rootCause": "Exceeding the thermal transfer capacity of the stock stainless steel nozzle at speeds above 238 mm/s.",
+      "exactFix": "Enforce the 20 mm³/s Max Volumetric Flow cap and ensure printing speed does not surpass 238 mm/s on 0.2mm layer heights."
+    },
+    {
+      "issue": "Corner lifting or warping on wide flat parts",
+      "rootCause": "PEI bed surface contamination or ambient drafts acting on the open-frame P1P chassis.",
+      "exactFix": "Wash the Textured PEI plate with hot water and dawn dish soap, set bed temperature to 58°C, and disable the auxiliary fan for the first 5 layers."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Does Prusament PLA require a hardened steel nozzle upgrade on the Bambu P1P?",
+      "answer": "No, standard Prusament PLA is non-abrasive and prints safely with the stock 0.4mm stainless steel nozzle without causing premature wear."
+    },
+    {
+      "question": "Can I print Prusament PLA with an enclosed P1P or should the chamber stay open?",
+      "answer": "Because the P1P is open-frame by default, it is ideal for PLA; if you have added an aftermarket enclosure, keep the door or top glass vented to prevent heat creep."
+    },
+    {
+      "question": "Why cap the print speed at 238 mm/s when the P1P can physically move faster?",
+      "answer": "At standard 0.2mm layer heights and 0.42mm line widths, 238 mm/s translates to exactly 20 mm³/s volumetric throughput, which matches the reliable hotend melting limit for Prusament PLA."
+    },
+    {
+      "question": "Do I need glue stick on the Bambu Textured PEI plate for Prusament PLA?",
+      "answer": "No, Prusament PLA releases cleanly from the textured PEI surface once cooled; a glue stick is unnecessary and can degrade bottom-layer finish."
+    }
+  ]
+}

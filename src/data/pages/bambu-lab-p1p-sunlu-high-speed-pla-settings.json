@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1p-sunlu-high-speed-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1P",
+    "slug": "bambu-lab-p1p",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Sunlu High Speed PLA",
+    "slug": "sunlu-high-speed-pla",
+    "brand": "Sunlu",
+    "materialType": "HS-PLA",
+    "minNozzleTempC": 210,
+    "maxNozzleTempC": 235,
+    "minBedTempC": 55,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 26,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 223,
+    "recommendedBedTempC": 60,
+    "effectiveVolumetricFlowMm3s": 24,
+    "calculatedMaxPrintSpeedMmS": 286,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-21T14:48:15.705Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1P effortlessly handles Sunlu High Speed PLA straight out of the box using its stock stainless steel nozzle and open-frame design. Leveraging a max volumetric flow rate of 24 mm³/s, the printer reliably sustains high-throughput speeds up to 286 mm/s without requiring hardware upgrades.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate (clean with Isopropyl Alcohol or warm soapy water, no adhesive required)",
+  "slicerTweaks": [
+    "Set 'Max volumetric speed' under Filament Settings -> Basic Information to 24 mm³/s to prevent underextrusion at high speeds.",
+    "Adjust Nozzle Temperature to 223°C across all layers to ensure complete melting at high flow rates.",
+    "Calibrate Pressure Advance (PA / Flow Dynamics) in OrcaSlicer to approximately 0.022-0.028 for sharp corners at 286 mm/s.",
+    "Set Part Cooling Fan speed to 80% Min and 100% Max, with Aux Fan disabled or kept under 30% to prevent localized warping."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Matte finish and layer weakness during rapid print moves",
+      "rootCause": "Extrusion temperature drops below the required melt rate when accelerating toward the 24 mm³/s limit.",
+      "exactFix": "Increase print temperature from 223°C to 230°C or drop the volumetric flow limit to 20 mm³/s in OrcaSlicer."
+    },
+    {
+      "issue": "Corner bulging or blobbing on high-speed deceleration",
+      "rootCause": "Uncompensated nozzle pressure due to high melt fluidity of HS-PLA.",
+      "exactFix": "Run OrcaSlicer's built-in Pressure Advance calibration and update the PA k-value (typically around 0.024 for direct drive)."
+    },
+    {
+      "issue": "First layer peeling or curling from the build plate",
+      "rootCause": "Contaminated PEI surface or excessive cooling fan activation during the initial layers.",
+      "exactFix": "Scrub the Textured PEI plate with dish soap and warm water, keep bed at 60°C, and ensure fan is at 0% for the first 3 layers."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I reach 286 mm/s on the Bambu Lab P1P with Sunlu HS-PLA using the stock 0.4mm nozzle?",
+      "answer": "Yes. With a volumetric flow limit of 24 mm³/s and a standard 0.2mm layer height with 0.42mm line width, 286 mm/s is fully achievable on the stock stainless steel nozzle."
+    },
+    {
+      "question": "Does the P1P need an enclosure to print Sunlu High Speed PLA?",
+      "answer": "No. PLA prints best in open, well-ventilated conditions to avoid heat creep and ensure rapid layer solidification."
+    },
+    {
+      "question": "Do I need a hardened steel nozzle upgrade for Sunlu HS-PLA?",
+      "answer": "No. Standard Sunlu High Speed PLA is non-abrasive, making the stock stainless steel nozzle completely suitable."
+    },
+    {
+      "question": "Why is my Sunlu HS-PLA stringing on travel moves?",
+      "answer": "High-speed PLA has lower viscosity than standard PLA; ensure your direct drive retraction is set between 0.6mm-0.8mm at 35 mm/s and turn on wipe on retract."
+    }
+  ]
+}

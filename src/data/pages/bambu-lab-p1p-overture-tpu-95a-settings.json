@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1p-overture-tpu-95a-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1P",
+    "slug": "bambu-lab-p1p",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Overture TPU 95A",
+    "slug": "overture-tpu-95a",
+    "brand": "Overture",
+    "materialType": "TPU",
+    "minNozzleTempC": 215,
+    "maxNozzleTempC": 235,
+    "minBedTempC": 40,
+    "maxBedTempC": 60,
+    "volumetricFlowLimitMm3s": 4.5,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 225,
+    "recommendedBedTempC": 50,
+    "effectiveVolumetricFlowMm3s": 4.5,
+    "calculatedMaxPrintSpeedMmS": 54,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-21T14:34:04.906Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1P handles Overture TPU 95A out of the box with its direct-drive toolhead, achieving dependable print speeds up to 54 mm/s within a 4.5 mm³/s volumetric flow limit. No hardened nozzle or enclosure upgrades are required, though the filament must be fed directly from an external spool rather than the AMS.",
+  "retractionDistanceMm": 0.6,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 50,
+  "coolingFanMaxPct": 80,
+  "firstLayerSpeedMmS": 25,
+  "bedSurfaceRecommendation": "Textured PEI Plate with PVP glue stick (applied as a release agent to prevent surface damage)",
+  "slicerTweaks": [
+    "Cap Maximum Volumetric Speed at 4.5 mm³/s in the filament profile to prevent extruder slipping and backpressure buckling.",
+    "Enable 'Avoid crossing walls' and configure a 1.5mm wipe distance to eliminate stringing tails across exterior boundaries.",
+    "Set retraction length to 0.6mm at 30 mm/s with 'Wipe while retracting' checked to manage TPU viscoelastic elasticity.",
+    "Lower external perimeter print speeds to 40 mm/s and first layer speed to 25 mm/s to ensure uniform surface finish and consistent bed laydown."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Extruder gear jamming and filament buckling",
+      "rootCause": "Excessive print speeds or attempting to feed TPU through the AMS unit.",
+      "exactFix": "Bypass the AMS entirely to feed directly from the external holder, and ensure the maximum volumetric speed does not exceed 4.5 mm³/s."
+    },
+    {
+      "issue": "Persistent fine stringing and surface pitting",
+      "rootCause": "Moisture absorption in hygroscopic TPU filament vaporizing in the melt zone.",
+      "exactFix": "Dry the filament spool in an active filament dryer at 50-55°C for 6-8 hours before printing, and drop nozzle temperature by 5°C."
+    },
+    {
+      "issue": "Build plate tearing upon part removal",
+      "rootCause": "Direct chemical bonding of molten TPU to clean PEI coating.",
+      "exactFix": "Coat the build plate with a thin, even layer of glue stick or liquid release agent before heating the bed to 50°C."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I feed Overture TPU 95A through the Bambu AMS unit?",
+      "answer": "No. Flexible filaments will compress and snag in the long PTFE tubes and AMS feeder mechanisms; always load TPU using the external rear spool mount."
+    },
+    {
+      "question": "Does the open-frame design of the P1P cause warping when printing TPU?",
+      "answer": "No. TPU 95A has low thermal shrinkage and benefits from the open-frame airflow, which prevents premature heat creep in the extruder."
+    },
+    {
+      "question": "Why is the speed limited to 54 mm/s on a high-speed printer?",
+      "answer": "TPU has low melt viscosity and elastic compliance, meaning volumetric flow rates above 4.5 mm³/s (54 mm/s at 0.2mm layer height) cause buckling and underextrusion."
+    },
+    {
+      "question": "Do I need to upgrade to a hardened steel nozzle to print Overture TPU?",
+      "answer": "No. Overture TPU 95A is non-abrasive, making the stock P1P stainless steel nozzle fully compatible without excessive wear."
+    }
+  ]
+}

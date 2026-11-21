@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1p-overture-rock-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1P",
+    "slug": "bambu-lab-p1p",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Overture Rock PLA",
+    "slug": "overture-rock-pla",
+    "brand": "Overture",
+    "materialType": "Matte PLA",
+    "minNozzleTempC": 195,
+    "maxNozzleTempC": 220,
+    "minBedTempC": 50,
+    "maxBedTempC": 60,
+    "volumetricFlowLimitMm3s": 16,
+    "isAbrasive": true,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 208,
+    "recommendedBedTempC": 55,
+    "effectiveVolumetricFlowMm3s": 16,
+    "calculatedMaxPrintSpeedMmS": 190,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-21T14:45:47.015Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab P1P prints Overture Rock PLA reliably up to 190 mm/s capped at a 16 mm³/s volumetric flow limit. However, because the mineral rock speckles are abrasive, you must upgrade the stock stainless steel nozzle to a hardened steel assembly to prevent rapid bore wear.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 40,
+  "bedSurfaceRecommendation": "Textured PEI Plate (no adhesive required; clean with dish soap and warm water)",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 16 mm³/s in the filament profile to prevent under-extrusion at high P1P print speeds.",
+    "Set Printing Temperature to 208°C for all layers, with Initial Layer Bed Temperature at 55°C and Other Layers at 55°C.",
+    "Calibrate Pressure Advance to approximately 0.024-0.028 to maintain crisp corners despite the composite mineral content.",
+    "Enable Scarf Joint Seams and set outer wall speed to 120 mm/s to ensure consistent matte surface sheen and hide layer starts."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Progressive over-extrusion, layer roughness, and loss of dimensional accuracy over multiple prints",
+      "rootCause": "The mineral additives in Rock PLA rapidly eroded the stock stainless steel nozzle orifice, enlarging the bore diameter.",
+      "exactFix": "Install a Bambu Lab 0.4mm Hardened Steel complete hotend assembly and recalibrate extrusion width."
+    },
+    {
+      "issue": "Intermittent nozzle clogs or extruder grinding during fast infill transitions",
+      "rootCause": "Exceeding the melt rate capacity of the mineral-filled polymer blend beyond 16 mm³/s.",
+      "exactFix": "Cap the Maximum Volumetric Speed to 15-16 mm³/s in OrcaSlicer and raise nozzle temperature from 208°C to 215°C."
+    },
+    {
+      "issue": "Uneven gloss bands and shiny rings along outer perimeters",
+      "rootCause": "Speed and thermal fluctuation causing matte PLA surface microtexture variations between slow outer perimeters and fast infill.",
+      "exactFix": "Unify outer and inner wall speeds to a fixed 120 mm/s and maintain part cooling fan speed consistently at 90-100%."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Overture Rock PLA with the stock P1P stainless steel nozzle?",
+      "answer": "While it will extrude initially, the mineral flecks are abrasive and will noticeably degrade the stainless steel nozzle within a few hundred grams. Upgrading to a hardened steel hotend is strongly recommended."
+    },
+    {
+      "question": "Do I need to enclose the Bambu Lab P1P to print Overture Rock PLA?",
+      "answer": "No. Rock PLA is a modified PLA base material and prints optimally in open-air environments; closing the chamber can cause heat creep and clogging."
+    },
+    {
+      "question": "Is Overture Rock PLA safe to use with the Bambu AMS unit?",
+      "answer": "Yes, but prolonged use of abrasive filaments can slowly wear down the standard AMS funnel guide tubes; consider fitting printed wear protectors or hardened funnel inserts."
+    },
+    {
+      "question": "Why does my print look glossy instead of matte stone?",
+      "answer": "Printing too slowly or at temperatures above 215°C can burn off the matte finish; ensure your part cooling fan is above 80% and print at 208°C with consistent wall speeds."
+    }
+  ]
+}

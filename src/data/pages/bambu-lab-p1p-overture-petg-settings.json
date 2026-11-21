@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1p-overture-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1P",
+    "slug": "bambu-lab-p1p",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Overture PETG",
+    "slug": "overture-petg",
+    "brand": "Overture",
+    "materialType": "PETG",
+    "minNozzleTempC": 230,
+    "maxNozzleTempC": 250,
+    "minBedTempC": 75,
+    "maxBedTempC": 85,
+    "volumetricFlowLimitMm3s": 14,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 240,
+    "recommendedBedTempC": 80,
+    "effectiveVolumetricFlowMm3s": 14,
+    "calculatedMaxPrintSpeedMmS": 167,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-21T14:43:31.177Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1P handles Overture PETG natively out of the box with its stock direct drive extruder and stainless steel nozzle. Based on a safe volumetric flow limit of 14 mm³/s, this setup achieves reliable print speeds up to 167 mm/s without requiring an enclosure.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 60,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with liquid glue or glue stick as a release agent",
+  "slicerTweaks": [
+    "Cap Maximum Volumetric Speed to 14 mm³/s in OrcaSlicer filament settings to prevent under-extrusion at high print speeds.",
+    "Set Pressure Advance to 0.038 s (tune via OrcaSlicer PA line or pattern calibration) to eliminate corner bulging without severe stringing.",
+    "Enable 'Wipe while Retracting' with a wipe distance of 1.0 mm to cleanly detach tacky PETG melt from the stainless steel nozzle tip.",
+    "Set Aux Fan speed to 0% to avoid premature layer cooling, uneven shrinkage, and corner lifting on open-frame builds."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe fine stringing and nozzle whisker buildup",
+      "rootCause": "Overture PETG is highly hygroscopic and absorbs ambient moisture rapidly, causing micro-boiling in the melt zone.",
+      "exactFix": "Dry the filament spool in an active filament dryer at 65°C for at least 6 hours, and lower printing temperature to 235°C-240°C."
+    },
+    {
+      "issue": "Chunks torn from the PEI coating upon print removal",
+      "rootCause": "PETG chemically fuses to bare PEI surfaces due to high molecular affinity during thermal bonding.",
+      "exactFix": "Apply a uniform layer of PVP glue stick or liquid glue to the Textured PEI sheet to serve as a separation barrier."
+    },
+    {
+      "issue": "Interlayer split or poor mechanical z-adhesion",
+      "rootCause": "Excessive part cooling or excessive auxiliary fan airflow freezing polymer chains before adequate molecular entanglement.",
+      "exactFix": "Turn off the auxiliary fan completely, reduce part cooling fan to 20-40%, and raise nozzle temperature to 245°C."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Overture PETG on the stock Bambu Lab P1P stainless steel nozzle?",
+      "answer": "Yes. Overture PETG is non-abrasive, meaning the stock 0.4mm stainless steel nozzle is fully compatible and will not suffer premature wear."
+    },
+    {
+      "question": "Does the open-frame design of the P1P cause warping with Overture PETG?",
+      "answer": "PETG handles open-frame environments well, but you must keep the bed at 80°C and ensure the auxiliary cooling fan is disabled to prevent cold drafts."
+    },
+    {
+      "question": "What max volumetric flow rate should I set for Overture PETG in OrcaSlicer?",
+      "answer": "Set the maximum volumetric flow rate to 14 mm³/s, which ensures reliable extrusion and caps standard layer speeds around 167 mm/s."
+    },
+    {
+      "question": "Why is glue stick required if the P1P includes a textured PEI plate?",
+      "answer": "PETG adheres aggressively to PEI and can rip off fragments of the coating; glue acts as a sacrificial release agent rather than an adhesion promoter."
+    }
+  ]
+}

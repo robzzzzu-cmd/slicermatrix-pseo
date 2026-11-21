@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1p-bambu-paht-cf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1P",
+    "slug": "bambu-lab-p1p",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Bambu PAHT-CF",
+    "slug": "bambu-paht-cf",
+    "brand": "Bambu Lab",
+    "materialType": "PAHT-CF",
+    "minNozzleTempC": 275,
+    "maxNozzleTempC": 295,
+    "minBedTempC": 90,
+    "maxBedTempC": 105,
+    "volumetricFlowLimitMm3s": 11,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 285,
+    "recommendedBedTempC": 98,
+    "effectiveVolumetricFlowMm3s": 11,
+    "calculatedMaxPrintSpeedMmS": 131,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": true
+  },
+  "generatedAt": "2026-11-21T14:39:51.532Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab P1P requires upgrading to a hardened steel nozzle and extruder gears alongside an enclosure before reliably handling abrasive, warp-prone Bambu PAHT-CF. When configured properly, it achieves reliable structural prints at a safe maximum print speed of 131 mm/s capped by an 11 mm³/s volumetric flow limit.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 20,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Engineering Plate or Textured PEI Plate with Liquid Glue / Glue Stick",
+  "slicerTweaks": [
+    "Cap Maximum Volumetric Speed to 11 mm³/s in the Filament Settings to prevent under-extrusion at high travel rates.",
+    "Set Part Cooling Fan Min to 0% and Max to 20%, keeping the fan entirely off for the first 3 layers to preserve high-temperature layer adhesion.",
+    "Enable a 5mm outer-and-inner brim with 0mm brim-object gap to counteract high nylon thermal contraction stresses on the open frame bed.",
+    "Set Extrusion Width to 0.45mm (or 0.5mm for first layer) to promote mechanical interlocking of chopped carbon fibers."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe corner lifting and bed detachment (warping)",
+      "rootCause": "Lack of an enclosure leads to rapid ambient cooling and differential thermal contraction across the nylon matrix.",
+      "exactFix": "Install an enclosure or cardboard draft shield, set bed temperature to 98°C, apply Bambu Liquid Glue, and add a 5-8mm brim."
+    },
+    {
+      "issue": "Extruder clicking, severe underextrusion, and rapid nozzle wear",
+      "rootCause": "Abrasive carbon fibers quickly erode the stock stainless steel nozzle and slip on non-hardened drive gears.",
+      "exactFix": "Upgrade both the complete hotend assembly to Hardened Steel (0.4mm or 0.6mm) and the extruder gears to hardened steel."
+    },
+    {
+      "issue": "Surface bubbling, excessive stringing, and weak layer bonding",
+      "rootCause": "Moisture absorption; PAHT-CF is extremely hygroscopic and hydrolyzes during extrusion.",
+      "exactFix": "Dry the filament spool in a dedicated blast oven or active filament dryer at 80°C for 8 to 12 hours prior to printing, and print directly from a drybox."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Bambu PAHT-CF on the P1P completely stock?",
+      "answer": "No. The P1P comes stock with a stainless steel nozzle and stainless extruder gears, which PAHT-CF will wear out within a few hundred grams. You must upgrade to hardened steel components."
+    },
+    {
+      "question": "Is an enclosure strictly necessary for PAHT-CF on the P1P?",
+      "answer": "Yes for medium to large structural parts. While tiny parts may succeed with a brim, the open-air design causes severe layer separation and corner warping without an enclosure maintaining warm ambient temperatures."
+    },
+    {
+      "question": "Why is the safe print speed limited to 131 mm/s?",
+      "answer": "High-temperature carbon-fiber nylon has a high melt viscosity. Limiting volumetric throughput to 11 mm³/s dictates a maximum linear speed of 131 mm/s at 0.2mm layer height to avoid partial extrusion failure."
+    },
+    {
+      "question": "Can I use the Bambu Textured PEI Plate without glue for PAHT-CF?",
+      "answer": "No. Applying Bambu Liquid Glue or glue stick is necessary to serve as an interface layer that ensures reliable adhesion while preventing the nylon from permanently fusing to and damaging the PEI coating upon cooling."
+    }
+  ]
+}

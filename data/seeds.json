@@ -6233,7 +6233,7 @@
   },
   {
     "slug": "bambu-lab-p1p-overture-tpu-95a-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1P",
       "slug": "bambu-lab-p1p",
@@ -6727,7 +6727,7 @@
   },
   {
     "slug": "bambu-lab-p1p-bambu-paht-cf-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1P",
       "slug": "bambu-lab-p1p",
@@ -6993,7 +6993,7 @@
   },
   {
     "slug": "bambu-lab-p1p-overture-petg-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1P",
       "slug": "bambu-lab-p1p",
@@ -7031,7 +7031,7 @@
   },
   {
     "slug": "bambu-lab-p1p-overture-rock-pla-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1P",
       "slug": "bambu-lab-p1p",
@@ -7107,7 +7107,7 @@
   },
   {
     "slug": "bambu-lab-p1p-sunlu-high-speed-pla-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1P",
       "slug": "bambu-lab-p1p",
@@ -7183,7 +7183,7 @@
   },
   {
     "slug": "bambu-lab-p1p-prusament-pla-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1P",
       "slug": "bambu-lab-p1p",
@@ -7297,7 +7297,7 @@
   },
   {
     "slug": "bambu-lab-p1p-hatchbox-petg-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1P",
       "slug": "bambu-lab-p1p",
@@ -7335,7 +7335,7 @@
   },
   {
     "slug": "bambu-lab-p1p-hatchbox-wood-pla-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1P",
       "slug": "bambu-lab-p1p",
@@ -7411,7 +7411,7 @@
   },
   {
     "slug": "bambu-lab-p1p-elegoo-rapid-petg-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1P",
       "slug": "bambu-lab-p1p",
