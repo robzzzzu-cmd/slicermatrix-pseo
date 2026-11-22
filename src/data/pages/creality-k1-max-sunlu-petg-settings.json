@@ -1,0 +1,88 @@
+{
+  "slug": "creality-k1-max-sunlu-petg-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Creality K1 Max",
+    "slug": "creality-k1-max",
+    "vendor": "Creality",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 28
+  },
+  "filament": {
+    "name": "Sunlu PETG",
+    "slug": "sunlu-petg",
+    "brand": "Sunlu",
+    "materialType": "PETG",
+    "minNozzleTempC": 230,
+    "maxNozzleTempC": 250,
+    "minBedTempC": 70,
+    "maxBedTempC": 85,
+    "volumetricFlowLimitMm3s": 15,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 240,
+    "recommendedBedTempC": 78,
+    "effectiveVolumetricFlowMm3s": 15,
+    "calculatedMaxPrintSpeedMmS": 179,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-22T15:48:38.445Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Creality K1 Max handles Sunlu PETG exceptionally well right out of the box, reaching safe speeds up to 179 mm/s capped by a 15 mm³/s volumetric flow limit. While the stock hardened steel nozzle easily sustains the target 240°C temperature, keeping the top lid cracked or the front door vented is recommended to prevent heat creep.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 40,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 50,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with PVP glue stick or liquid release agent to prevent permanent surface bonding",
+  "slicerTweaks": [
+    "Cap Max Volumetric Speed at 15 mm³/s under Filament Settings to prevent under-extrusion at high CoreXY travel rates.",
+    "Enable Wipe While Retracting with a distance of 1.0 mm to clean up Sunlu PETG ooze before non-print travels.",
+    "Set Pressure Advance to 0.045 s (fine-tune via line test) to eliminate corner bulging and seam blobbing on direct drive.",
+    "Reduce Auxiliary Part Cooling Fan to 0% and keep main part cooling fan between 20-50% to maintain layer bonding."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Severe Stringing and Branching Across Gaps",
+      "rootCause": "PETG is highly hygroscopic and tends to ooze when saturated with ambient moisture or over-retracted.",
+      "exactFix": "Dry the filament in a dedicated dryer at 65°C for 6 hours; increase travel speed to 350 mm/s and enable 'Avoid Crossing Walls'."
+    },
+    {
+      "issue": "Rough Top Surfaces and Pillowing",
+      "rootCause": "Insufficient top solid layers combined with low part cooling airflow over bridging infill.",
+      "exactFix": "Increase top shell layers to 5, set top surface flow ratio to 0.96, and ensure cooling reaches 50% on bridge and solid infill layers."
+    },
+    {
+      "issue": "PEI Coating Tearing Away on Part Removal",
+      "rootCause": "PETG creates an overly aggressive molecular bond directly with hot PEI sheets.",
+      "exactFix": "Apply a uniform layer of PVP glue stick as a sacrificial release barrier, and wait until the bed cools to under 30°C before removing parts."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Should the Creality K1 Max door and lid be kept closed for Sunlu PETG?",
+      "answer": "Keep the top lid slightly vented or remove it entirely; PETG prints best without excessive chamber heat, which can lead to extruder heat creep."
+    },
+    {
+      "question": "Why is print speed limited to 179 mm/s when the K1 Max can go up to 600 mm/s?",
+      "answer": "Sunlu PETG has a melt-rate bottleneck around 15 mm³/s, which geometrically limits standard 0.4mm nozzle lines (0.2mm height, 0.42mm width) to 179 mm/s without under-extruding."
+    },
+    {
+      "question": "Does Sunlu PETG require a hardened steel nozzle on the K1 Max?",
+      "answer": "No, standard Sunlu PETG is non-abrasive, though the K1 Max's stock hardened steel nozzle handles it effortlessly with an extra 5°C offset if needed for thermal conductivity."
+    },
+    {
+      "question": "How do I avoid nozzle build-up and burnt brown specks?",
+      "answer": "Slightly increase your Z-offset by 0.02mm to avoid dragging the nozzle through the molten track, and reduce extrusion multiplier to 0.98."
+    }
+  ]
+}

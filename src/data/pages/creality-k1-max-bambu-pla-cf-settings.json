@@ -1,0 +1,88 @@
+{
+  "slug": "creality-k1-max-bambu-pla-cf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Creality K1 Max",
+    "slug": "creality-k1-max",
+    "vendor": "Creality",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 28
+  },
+  "filament": {
+    "name": "Bambu PLA-CF",
+    "slug": "bambu-pla-cf",
+    "brand": "Bambu Lab",
+    "materialType": "PLA-CF",
+    "minNozzleTempC": 210,
+    "maxNozzleTempC": 240,
+    "minBedTempC": 45,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 16,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 225,
+    "recommendedBedTempC": 55,
+    "effectiveVolumetricFlowMm3s": 16,
+    "calculatedMaxPrintSpeedMmS": 190,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-22T15:46:32.798Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Creality K1 Max handles Bambu PLA-CF straight out of the box thanks to its factory-installed hardened steel nozzle and high-flow direct drive extruder. Operating within a 16 mm³/s volumetric flow limit allows reliable, clean prints at speeds up to 190 mm/s with the top lid vented to prevent heat creep.",
+  "retractionDistanceMm": 0.6,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 40,
+  "bedSurfaceRecommendation": "Textured PEI Plate cleaned with isopropyl alcohol; optional thin layer of PVP glue stick to assist release",
+  "slicerTweaks": [
+    "Cap 'Max volumetric speed' at 16.0 mm³/s under Filament Settings > Basic Information to prevent under-extrusion at high linear speeds.",
+    "Set nozzle temperature to 225°C and bed temperature to 55°C, ensuring the chamber top glass is propped open or removed to prevent PLA heat creep.",
+    "Lower outer wall acceleration to 3000 mm/s² and outer wall speed to 120 mm/s to optimize surface finish and eliminate CF-induced wall ringing.",
+    "Enable 'Wipe while retracting' (2 mm wipe distance) and set retraction to 0.6 mm at 35 mm/s to prevent carbon fiber nozzle oozing and seam zits."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Extruder clicking and hotend clogging mid-print",
+      "rootCause": "Heat creep caused by running an enclosed chamber with PLA-CF, leading to premature filament softening above the heat break.",
+      "exactFix": "Remove the top glass lid or prop it open by at least 30 mm, keep the front door cracked open, and verify hotend heatsink fan operation."
+    },
+    {
+      "issue": "Weak interlayer bonding and brittle Z-axis strength",
+      "rootCause": "Printing too fast for carbon fibers to fuse across layers, or excessive cooling reducing layer weld temperature.",
+      "exactFix": "Increase nozzle temperature to 235°C, reduce auxiliary side cooling fan to 30%, and drop maximum volumetric flow rate to 13 mm³/s."
+    },
+    {
+      "issue": "Rough surface finish with micro-blobs at seam points",
+      "rootCause": "Carbon microfibers altering melt elasticity and viscosity, causing over-extrusion on unretract.",
+      "exactFix": "Enable Pressure Advance calibration (typical range 0.035-0.045 s) and set Seam Gap to 12% in OrcaSlicer Quality settings."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Bambu PLA-CF using the stock Creality K1 Max nozzle without wearing it out?",
+      "answer": "Yes, the K1 Max comes equipped with a hardened steel-tipped nozzle specifically designed to resist the abrasive nature of carbon fiber additives."
+    },
+    {
+      "question": "Do I need to keep the chamber door closed when printing Bambu PLA-CF on the K1 Max?",
+      "answer": "No, you should remove the top lid or keep the front door slightly open because PLA-CF has a low glass transition temperature and easily suffers heat creep clogs in an enclosed chamber."
+    },
+    {
+      "question": "Does Bambu PLA-CF require drying prior to printing?",
+      "answer": "Yes, carbon fiber filaments readily absorb atmospheric moisture; dry the spool at 50°C for 6 to 8 hours to eliminate stringing and maintain optimal surface quality."
+    },
+    {
+      "question": "Can I use the stock 0.4 mm nozzle or is a 0.6 mm nozzle required for PLA-CF?",
+      "answer": "The stock 0.4 mm hardened nozzle works reliably with Bambu PLA-CF because the carbon fibers are milled extremely short, though maintaining flow under 16 mm³/s is critical."
+    }
+  ]
+}

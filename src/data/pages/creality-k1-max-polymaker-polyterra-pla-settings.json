@@ -1,0 +1,88 @@
+{
+  "slug": "creality-k1-max-polymaker-polyterra-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Creality K1 Max",
+    "slug": "creality-k1-max",
+    "vendor": "Creality",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 28
+  },
+  "filament": {
+    "name": "Polymaker PolyTerra PLA",
+    "slug": "polymaker-polyterra-pla",
+    "brand": "Polymaker",
+    "materialType": "PLA",
+    "minNozzleTempC": 195,
+    "maxNozzleTempC": 225,
+    "minBedTempC": 50,
+    "maxBedTempC": 60,
+    "volumetricFlowLimitMm3s": 21,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 210,
+    "recommendedBedTempC": 55,
+    "effectiveVolumetricFlowMm3s": 21,
+    "calculatedMaxPrintSpeedMmS": 250,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-22T15:44:51.057Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Creality K1 Max handles Polymaker PolyTerra PLA exceptionally well right out of the box, reaching safe print speeds up to 250 mm/s capped by a 21 mm³/s volumetric flow limit. While the printer features an enclosure and hardened steel nozzle, keeping the top lid vented or door ajar during sustained high-speed PLA printing prevents heat creep jams.",
+  "retractionDistanceMm": 0.5,
+  "retractionSpeedMmS": 40,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate (clean with IPA or dish soap, no adhesive required)",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 21 mm³/s under the Filament Profile to automatically limit maximum linear printing speeds to roughly 250 mm/s.",
+    "Tune Pressure Advance to approximately 0.038 s to sharpen corners and prevent bulge artifacts caused by the matte formulation's elasticity.",
+    "Keep Chamber Fan / Side Auxiliary Fan enabled at 70-80% to assist rapid bridging and eliminate corner curling on high-acceleration toolpaths.",
+    "Reduce retraction distance to 0.5 mm at 40 mm/s to prevent clogging inside the all-metal direct-drive heat break while maintaining crisp matte seams."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Extruder grinding or mid-print heat creep clogging",
+      "rootCause": "The chamber accumulates excess heat with the lid closed, softening low glass-transition PLA above the heat break.",
+      "exactFix": "Remove the top glass lid or prop the front door open, and ensure the chamber exhaust fan runs at 100%."
+    },
+    {
+      "issue": "Matte finish variations and irregular gloss banding",
+      "rootCause": "Drastic speed differences cause thermal gradient variations that alter the matte sheen of PolyTerra additives.",
+      "exactFix": "Standardize outer wall speed to 150 mm/s and inner wall speed to 200 mm/s to maintain uniform surface reflectivity."
+    },
+    {
+      "issue": "Weak interlayer adhesion or part brittleness",
+      "rootCause": "Under-extrusion at top speed due to inadequate melt chamber dwell time with a hardened steel nozzle.",
+      "exactFix": "Increase nozzle printing temperature from 210°C to 220°C for speeds over 200 mm/s, or decrease maximum volumetric flow to 18 mm³/s."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Should I print PolyTerra PLA with the Creality K1 Max top glass lid installed?",
+      "answer": "No, remove the top glass lid or prop open the front door. PolyTerra PLA has a glass transition temperature near 55-60°C; trapping heat inside the K1 Max chamber will quickly trigger direct-drive heat creep."
+    },
+    {
+      "question": "Does the stock hardened steel nozzle on the K1 Max impact PolyTerra print temperatures?",
+      "answer": "Yes, hardened steel transfers heat slower than brass. Run the nozzle at 215°C-220°C rather than standard brass 200°C temperatures when printing above 150 mm/s."
+    },
+    {
+      "question": "Is PolyTerra PLA abrasive enough to require a hardened nozzle upgrade?",
+      "answer": "No, standard PolyTerra PLA contains bio-based organic mineral composites rather than glass or carbon fiber, making it non-abrasive. The K1 Max already includes a hardened nozzle, so no hardware change is necessary."
+    },
+    {
+      "question": "Why are my seam lines more noticeable on PolyTerra PLA prints?",
+      "answer": "PolyTerra's matte composition is slightly more compressible than standard PLA. Calibrate OrcaSlicer Pressure Advance down to ~0.036-0.040 and enable Scarf Joint seams for nearly invisible transitions."
+    }
+  ]
+}

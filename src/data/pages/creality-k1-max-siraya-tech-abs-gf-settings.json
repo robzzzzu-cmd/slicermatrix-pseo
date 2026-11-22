@@ -1,0 +1,88 @@
+{
+  "slug": "creality-k1-max-siraya-tech-abs-gf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Creality K1 Max",
+    "slug": "creality-k1-max",
+    "vendor": "Creality",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 28
+  },
+  "filament": {
+    "name": "Siraya Tech ABS-GF",
+    "slug": "siraya-tech-abs-gf",
+    "brand": "Siraya Tech",
+    "materialType": "ABS-GF",
+    "minNozzleTempC": 250,
+    "maxNozzleTempC": 270,
+    "minBedTempC": 95,
+    "maxBedTempC": 110,
+    "volumetricFlowLimitMm3s": 15,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 260,
+    "recommendedBedTempC": 100,
+    "effectiveVolumetricFlowMm3s": 15,
+    "calculatedMaxPrintSpeedMmS": 179,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-22T15:54:52.002Z",
+  "compatibilityVerdict": "Advanced Setup",
+  "heroSummary": "The Creality K1 Max is fully capable of printing abrasive Siraya Tech ABS-GF out of the box thanks to its stock hardened steel nozzle and fully enclosed chamber. You can achieve reliable, warp-free prints at speeds up to 179 mm/s while respecting the material's 15 mm³/s maximum volumetric flow limit.",
+  "retractionDistanceMm": 0.6,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 20,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate with a thin layer of PVA glue stick or Magigoo release agent",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed cap to 15 mm³/s in the Filament Settings to prevent extrusion bottlenecks at high toolhead velocities.",
+    "Configure Part Cooling Fan to 0% for standard layers, allowing a threshold of up to 20% only on bridges and overhangs steeper than 50 degrees.",
+    "Enable a 5mm outer-only brim and enforce a bed pre-soak by heating the bed to 100°C for 15 minutes prior to printing to stabilize chamber temperature.",
+    "Tune Pressure Advance to approximately 0.038 s and set Retraction Distance to 0.6 mm at 35 mm/s to eliminate stringing without causing extruder jams."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Warping or corner lifting from the build plate",
+      "rootCause": "Insufficient chamber air temperature and low first layer thermal retention caused by premature heat dissipation.",
+      "exactFix": "Preheat the bed to 100°C with the enclosure closed for 15 minutes before starting, keep the auxiliary side fan completely disabled, and apply PVP glue stick."
+    },
+    {
+      "issue": "Intermittent underextrusion or clicking extruder",
+      "rootCause": "Toolhead exceeding the 15 mm³/s volumetric flow limit or glass fibers causing micro-clogs in thermal transitions.",
+      "exactFix": "Cap print speed to 179 mm/s (or lower volumetric rate to 14 mm³/s in OrcaSlicer), increase nozzle temperature to 265°C, and ensure filament is thoroughly dried."
+    },
+    {
+      "issue": "Rough outer surface finish with tiny voids and excessive stringing",
+      "rootCause": "Moisture absorption in the hygroscopic ABS-GF resin vaporizing inside the melt zone.",
+      "exactFix": "Dry the spool in a filament dryer at 75°C to 80°C for 6 to 8 hours before printing, and print directly from a sealed dry box."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can the stock Creality K1 Max nozzle handle glass-fiber reinforced filament?",
+      "answer": "Yes. The Creality K1 Max comes equipped with a stock hardened steel nozzle tip designed specifically to resist the severe abrasive wear of glass and carbon-filled filaments."
+    },
+    {
+      "question": "Does Siraya Tech ABS-GF require an active chamber heater on the K1 Max?",
+      "answer": "No. While the K1 Max lacks active chamber heating, preheating the heated bed to 100°C for 15-20 minutes builds an internal ambient temperature of 40-50°C, which is sufficient to mitigate warping."
+    },
+    {
+      "question": "Should the auxiliary chamber side fan and rear exhaust fan run during printing?",
+      "answer": "No. Both the large auxiliary side cooling fan and the rear chamber exhaust fan should be turned completely off in OrcaSlicer to prevent draft-induced layer delamination and warping."
+    },
+    {
+      "question": "Why is glue stick required on a textured PEI sheet for ABS-GF?",
+      "answer": "Glue stick acts as an essential release interface; ABS-GF adheres aggressively to bare PEI when hot and can tear the PEI coating off the steel sheet during removal if no release agent is applied."
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "slug": "creality-k1-max-esun-abs-plus-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Creality K1 Max",
+    "slug": "creality-k1-max",
+    "vendor": "Creality",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 28
+  },
+  "filament": {
+    "name": "eSUN ABS+",
+    "slug": "esun-abs-plus",
+    "brand": "eSUN",
+    "materialType": "ABS+",
+    "minNozzleTempC": 240,
+    "maxNozzleTempC": 260,
+    "minBedTempC": 90,
+    "maxBedTempC": 105,
+    "volumetricFlowLimitMm3s": 18,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 250,
+    "recommendedBedTempC": 98,
+    "effectiveVolumetricFlowMm3s": 18,
+    "calculatedMaxPrintSpeedMmS": 214,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-22T16:03:42.418Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Creality K1 Max is natively equipped with an enclosure and high-temperature hotend, allowing eSUN ABS+ to run reliably up to 214 mm/s at an 18 mm³/s volumetric flow limit. Keeping the chamber fully sealed and preheated ensures excellent inter-layer bonding and minimal warp without requiring hardware upgrades.",
+  "retractionDistanceMm": 0.5,
+  "retractionSpeedMmS": 40,
+  "coolingFanMinPct": 10,
+  "coolingFanMaxPct": 25,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate with a thin layer of PVA glue stick or Dimafix as an adhesive and release interface.",
+  "slicerTweaks": [
+    "Cap Maximum Volumetric Speed at 18 mm³/s in the filament profile to prevent extrusion starvation at high feedrates.",
+    "Set Chamber Exhaust Fan and Side Auxiliary Fan to 0% to prevent thermal shock and severe part warping.",
+    "Configure Part Cooling Fan threshold to keep the fan at 0% for the first 4 layers, ramping to a 10-25% range only on overhangs and short layer times under 15 seconds.",
+    "Enable a 5mm outer brim with 0mm offset in OrcaSlicer to reinforce footprint contact on wide-geometry parts."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Corner lifting and print edge warping",
+      "rootCause": "Chamber temperature too low or draft ingress causing differential thermal shrinkage in the ABS+ matrix.",
+      "exactFix": "Preheat the bed to 98°C for 15-20 minutes with the door and lid closed to soak the chamber to >45°C before initiating the print, and apply glue stick to the PEI bed."
+    },
+    {
+      "issue": "Delamination / layer separation under structural load",
+      "rootCause": "Excessive part cooling fan speed or hotend temperature below the optimal melting range for high-speed extrusion.",
+      "exactFix": "Increase nozzle temperature to 255°C, reduce maximum part cooling fan to 15%, and disable the auxiliary side fan completely."
+    },
+    {
+      "issue": "Extruder clicking and rough surface texture during infill",
+      "rootCause": "Exceeding the 18 mm³/s maximum volumetric flow rate during high-velocity infill passes.",
+      "exactFix": "Enforce the 18 mm³/s Max Volumetric Speed limit in OrcaSlicer and drop infill print speed from stock 300+ mm/s down to 210 mm/s."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Do I need to leave the Creality K1 Max top glass lid off when printing eSUN ABS+?",
+      "answer": "No, keep the top lid on and front door shut. ABS+ requires a warm, draft-free chamber around 40-50°C to prevent warping and inter-layer separation."
+    },
+    {
+      "question": "Can the K1 Max reach the recommended bed temperature for eSUN ABS+?",
+      "answer": "Yes, eSUN ABS+ prints well at 95-100°C, which is within the 100°C maximum limit of the K1 Max heated bed. Set the bed to 98°C for optimal adhesion."
+    },
+    {
+      "question": "Does eSUN ABS+ need to be dried before printing on the K1 Max?",
+      "answer": "Yes, ABS+ is hygroscopic. Dry the filament in a dedicated dryer at 65-70°C for at least 4-6 hours to prevent stringing, popping, and surface defects."
+    },
+    {
+      "question": "Why is the stock side auxiliary fan disabled for this profile?",
+      "answer": "The side auxiliary fan blows massive volumes of unheated air across the build plate, which causes immediate uneven cooling, layer splitting, and bed detachment in ABS+."
+    }
+  ]
+}

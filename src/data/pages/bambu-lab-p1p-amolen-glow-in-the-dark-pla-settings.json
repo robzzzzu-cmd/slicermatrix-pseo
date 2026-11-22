@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1p-amolen-glow-in-the-dark-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1P",
+    "slug": "bambu-lab-p1p",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "Amolen Glow in the Dark PLA",
+    "slug": "amolen-glow-in-the-dark-pla",
+    "brand": "Amolen",
+    "materialType": "Glow PLA",
+    "minNozzleTempC": 205,
+    "maxNozzleTempC": 225,
+    "minBedTempC": 55,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 14,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 215,
+    "recommendedBedTempC": 60,
+    "effectiveVolumetricFlowMm3s": 14,
+    "calculatedMaxPrintSpeedMmS": 167,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-22T15:33:14.459Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab P1P prints Amolen Glow in the Dark PLA effectively up to 167 mm/s based on a 14 mm³/s volumetric limit, but it requires swapping the stock stainless steel nozzle and extruder gears for hardened steel components. The abrasive phosphorescent additives will rapidly erode stock brass and stainless components, degrading dimensional accuracy within a single spool.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate cleaned with dish soap and warm water (no adhesive required)",
+  "slicerTweaks": [
+    "Cap 'Max volumetric speed' at 14 mm³/s in the filament profile to prevent intermittent underextrusion during high-speed runs.",
+    "Increase wall line width to 0.45 mm and outer wall count to at least 3 or 4 to maximize ambient luminescence and glow duration.",
+    "Set outer wall speed to 100 mm/s and inner walls to 160 mm/s to balance surface finish consistency with throughput limits.",
+    "Enable 'Wipe while retracting' with a 1.0 mm wipe distance to minimize nozzle oozing and seam zits caused by ceramic phosphorescent particulate."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Rapid nozzle bore enlargement and inconsistent extrusion width",
+      "rootCause": "The abrasive strontium aluminate glow particles aggressively erode the stock P1P stainless steel nozzle orifice.",
+      "exactFix": "Install Bambu Lab official hardened steel hotend assembly (0.4 mm) and hardened extruder gear kit before printing."
+    },
+    {
+      "issue": "First layer peeling or corner warping",
+      "rootCause": "Bed temperature too low or fingerprint oils contaminating the textured PEI surface.",
+      "exactFix": "Wash the build plate thoroughly with warm water and degreasing dish soap, then set the initial and subsequent bed temperature to 60°C."
+    },
+    {
+      "issue": "Brittle prints, fine stringing, and popping noises during printing",
+      "rootCause": "Moisture absorption by the PLA base polymer and hygroscopic glow pigments.",
+      "exactFix": "Dry the filament spool in an active filament dryer at 45°C to 50°C for 6 to 8 hours before running the job."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Amolen Glow PLA with the stock P1P nozzle?",
+      "answer": "Technically yes, but it is strongly discouraged. The strontium aluminate particles will wear out the stock stainless steel nozzle within a few hundred grams, causing uneven extrusion and ruining print tolerance."
+    },
+    {
+      "question": "Does Amolen Glow PLA require an enclosure on the Bambu P1P?",
+      "answer": "No, as a PLA-based material, it prints best in open-air environments with high active part cooling to prevent heat creep and print curling."
+    },
+    {
+      "question": "Is Amolen Glow PLA safe to use with the Bambu Lab AMS?",
+      "answer": "Yes, but repeated feeding can gradually wear the plastic funnels and internal PTFE tubes. For high-volume printing, consider printing directly from an external dry spool holder."
+    },
+    {
+      "question": "Why is my print not glowing brightly after printing?",
+      "answer": "Glow intensity relies on thickness and light exposure. Increase your wall loops to 3-4, set infill to at least 20%, and charge the finished model using high-intensity UV light rather than standard indoor LED light."
+    }
+  ]
+}

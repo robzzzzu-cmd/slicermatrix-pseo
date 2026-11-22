@@ -1,0 +1,88 @@
+{
+  "slug": "creality-k1-max-sainsmart-glow-tpu-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Creality K1 Max",
+    "slug": "creality-k1-max",
+    "vendor": "Creality",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 28
+  },
+  "filament": {
+    "name": "Sainsmart Glow TPU",
+    "slug": "sainsmart-glow-tpu",
+    "brand": "SainSmart",
+    "materialType": "Glow TPU",
+    "minNozzleTempC": 215,
+    "maxNozzleTempC": 230,
+    "minBedTempC": 45,
+    "maxBedTempC": 60,
+    "volumetricFlowLimitMm3s": 4,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 223,
+    "recommendedBedTempC": 53,
+    "effectiveVolumetricFlowMm3s": 4,
+    "calculatedMaxPrintSpeedMmS": 48,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-22T15:53:28.679Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Creality K1 Max is an optimal match for Sainsmart Glow TPU, achieving reliable results at a calculated safe max print speed of 48 mm/s constrained by a 4 mm³/s volumetric flow limit. The printer's stock hardened steel nozzle inherently resists the abrasive phosphorescent additives, requiring only an open top lid to prevent flexible filament jamming.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 40,
+  "coolingFanMaxPct": 80,
+  "firstLayerSpeedMmS": 25,
+  "bedSurfaceRecommendation": "Textured PEI Plate with PVP glue stick applied as a sacrificial release agent",
+  "slicerTweaks": [
+    "Cap 'Max volumetric speed' at exactly 4 mm³/s in OrcaSlicer filament settings to prevent extruder slipping and backpressure.",
+    "Enable 'Avoid crossing walls' to restrict travel moves inside the infill and eliminate exterior perimeter stringing.",
+    "Reduce 'Pressure Advance' to 0.04s or calibrate specifically for flexible materials to eliminate stuttering during retractions.",
+    "Set outer wall speed to 35 mm/s and inner wall speed to 45 mm/s to ensure consistent extrusion and prevent filament buckling."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Filament wrapping around the extruder gears or jamming",
+      "rootCause": "Chamber heat creep softening the flexible TPU combined with excessive feeding backpressure.",
+      "exactFix": "Remove the top glass lid during printing, reduce print speed below 48 mm/s, and limit volumetric speed to 4 mm³/s."
+    },
+    {
+      "issue": "Severe cobweb stringing and nozzle oozing",
+      "rootCause": "Filament moisture absorption and excessive print temperature during non-print travel moves.",
+      "exactFix": "Dry the filament spool at 55°C for 6 to 8 hours before printing and set retraction to 0.8mm at 30 mm/s."
+    },
+    {
+      "issue": "Torn PEI build plate coating upon print removal",
+      "rootCause": "TPU chemically fusing directly to the smooth or textured PEI sheet under heat.",
+      "exactFix": "Apply a uniform layer of standard glue stick as a barrier release agent, and allow the bed to cool below 30°C before removing."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Will Sainsmart Glow TPU wear down the Creality K1 Max nozzle?",
+      "answer": "No. The Creality K1 Max comes standard with a hardened steel nozzle tip that easily resists the abrasive strontium aluminate glow particles."
+    },
+    {
+      "question": "Should the K1 Max chamber be fully closed while printing this TPU?",
+      "answer": "No. Keep the top glass lid off or propped open to avoid heat buildup, which softens TPU inside the direct drive extruder and causes buckling."
+    },
+    {
+      "question": "Can I feed this filament through the rear Bowden tube and runout sensor?",
+      "answer": "It is strongly recommended to feed TPU directly from an overhead spool mount or dry box into the toolhead to minimize friction along the stock PTFE tube."
+    },
+    {
+      "question": "Is filament drying strictly necessary for Sainsmart Glow TPU?",
+      "answer": "Yes. TPU is highly hygroscopic; wet filament causes popping, severe stringing, and weak layer adhesion. Dry at 55°C for at least 6 hours prior to use."
+    }
+  ]
+}

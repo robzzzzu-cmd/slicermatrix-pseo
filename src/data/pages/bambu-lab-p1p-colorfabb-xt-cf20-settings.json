@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1p-colorfabb-xt-cf20-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1P",
+    "slug": "bambu-lab-p1p",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "ColorFabb XT-CF20",
+    "slug": "colorfabb-xt-cf20",
+    "brand": "ColorFabb",
+    "materialType": "PETG-CF",
+    "minNozzleTempC": 245,
+    "maxNozzleTempC": 265,
+    "minBedTempC": 70,
+    "maxBedTempC": 80,
+    "volumetricFlowLimitMm3s": 12,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 255,
+    "recommendedBedTempC": 75,
+    "effectiveVolumetricFlowMm3s": 12,
+    "calculatedMaxPrintSpeedMmS": 143,
+    "requiresHardenedNozzleUpgrade": true,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-22T15:37:36.041Z",
+  "compatibilityVerdict": "Requires Upgrade",
+  "heroSummary": "The Bambu Lab P1P requires upgrading the stock stainless steel nozzle and extruder gears to hardened steel before running abrasive ColorFabb XT-CF20. Once upgraded, it reliably prints this stiff PETG-CF composite at speeds up to 143 mm/s capped by a conservative 12 mm³/s volumetric flow limit.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 20,
+  "coolingFanMaxPct": 50,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Textured PEI Plate with PVP glue stick or liquid release agent",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 12 mm³/s in the Filament Settings to prevent under-extrusion and hotend heat creep.",
+    "Enable Wipe While Retracting (2 mm distance) and set Retraction Length to 0.8 mm at 35 mm/s to minimize carbon fiber whisker stringing.",
+    "Reduce Part Cooling Fan to 20% min / 50% max and set 'Keep fan always on' to preserve inter-layer adhesion with PETG copolymer chemistry.",
+    "Set First Layer Speed to 35 mm/s with First Layer Bed Temp at 75°C and Hotend at 255°C for optimal mechanical bonding."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Rapid nozzle wear and erratic line width",
+      "rootCause": "The 20% carbon fiber loading rapidly erodes the P1P's factory-installed 300-series stainless steel nozzle orifice.",
+      "exactFix": "Install an official Bambu Lab 0.4mm or 0.6mm Hardened Steel Hotend assembly along with hardened extruder drive gears."
+    },
+    {
+      "issue": "Severe stringing, oozing, and brittle layer bonds",
+      "rootCause": "ColorFabb XT-CF20 is hygroscopic; ambient moisture absorption causes hydrolysis and steam expansion during extrusion.",
+      "exactFix": "Dry the spool in a dedicated active filament dryer at 65-70°C for at least 8 to 12 hours before printing."
+    },
+    {
+      "issue": "Permanent adhesion damage / PEI coating tearing off",
+      "rootCause": "ColorFabb XT (amorphous copolyester) bonds aggressively to clean PEI surfaces without a separation barrier.",
+      "exactFix": "Apply a uniform thin layer of Bambu Liquid Glue or standard glue stick to act strictly as a sacrificial release interface."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print ColorFabb XT-CF20 with the stock Bambu Lab P1P nozzle?",
+      "answer": "No. The stock stainless steel nozzle will degrade within 200-500g of printing 20% carbon fiber filament. You must upgrade to the Bambu Lab hardened steel hotend and hardened extruder gear kit."
+    },
+    {
+      "question": "Does the P1P require an enclosure to print XT-CF20?",
+      "answer": "No, an enclosure is not strictly required. XT-CF20 has lower shrinkage and warping tendencies than standard ABS or PA, allowing reliable open-frame printing on a 75°C bed provided drafts are minimized."
+    },
+    {
+      "question": "Can I use a 0.4mm hardened nozzle or is 0.6mm necessary?",
+      "answer": "A 0.4mm hardened nozzle works cleanly with ColorFabb XT-CF20 due to its micro-milled carbon fibers, but a 0.6mm nozzle virtually eliminates clog risk and permits higher volumetric flow rates."
+    },
+    {
+      "question": "Can I run ColorFabb XT-CF20 through the Bambu Lab AMS?",
+      "answer": "It is not recommended. The rigid carbon fibers in XT-CF20 can rapidly score AMS internal PTFE tubes, funnels, and feeder gears, leading to abrasive grooving and filament feed failures."
+    }
+  ]
+}

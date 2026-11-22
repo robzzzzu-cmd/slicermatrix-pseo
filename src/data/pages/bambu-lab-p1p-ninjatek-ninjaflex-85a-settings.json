@@ -1,0 +1,88 @@
+{
+  "slug": "bambu-lab-p1p-ninjatek-ninjaflex-85a-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Bambu Lab P1P",
+    "slug": "bambu-lab-p1p",
+    "vendor": "Bambu Lab",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": false,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Stainless Steel",
+    "maxVolumetricFlowBaseline": 24
+  },
+  "filament": {
+    "name": "NinjaTek NinjaFlex 85A",
+    "slug": "ninjatek-ninjaflex-85a",
+    "brand": "NinjaTek",
+    "materialType": "TPU 85A",
+    "minNozzleTempC": 225,
+    "maxNozzleTempC": 240,
+    "minBedTempC": 40,
+    "maxBedTempC": 55,
+    "volumetricFlowLimitMm3s": 2.8,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 233,
+    "recommendedBedTempC": 48,
+    "effectiveVolumetricFlowMm3s": 2.8,
+    "calculatedMaxPrintSpeedMmS": 33,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-22T15:38:51.096Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Bambu Lab P1P effortlessly prints NinjaTek NinjaFlex 85A with its direct-drive extruder at a maximum safe speed of 33 mm/s (2.8 mm³/s volumetric flow). No enclosure or hardened nozzle upgrade is required, but filament must be fed externally rather than through the AMS.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 50,
+  "coolingFanMaxPct": 80,
+  "firstLayerSpeedMmS": 20,
+  "bedSurfaceRecommendation": "Textured PEI Plate with PVA Glue Stick / Liquid Glue (mandatory sacrificial release agent)",
+  "slicerTweaks": [
+    "Cap Maximum Volumetric Speed strictly at 2.8 mm³/s in the OrcaSlicer filament profile to prevent toolhead buckling.",
+    "Enable 'Avoid Crossing Walls' with a Max Detour Length of 0 to constrain nozzle travel over infill and mitigate flexible stringing.",
+    "Disable Z-hop on retraction and set Retraction Length to 0.8 mm at 30 mm/s to prevent filament churning in the extruder gears.",
+    "Bypass the AMS entirely in the slicer and physical setup, routing the spool via the rear external spool holder."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Filament wrapping around extruder drive gears and jamming the toolhead",
+      "rootCause": "Extruder backpressure caused by exceeding the 2.8 mm³/s volumetric flow rate or printing below the 225°C lower temperature boundary.",
+      "exactFix": "Enforce 2.8 mm³/s max volumetric speed, raise nozzle temperature to 233°C, and print all outer/inner walls at or below 33 mm/s."
+    },
+    {
+      "issue": "Severe stringing, foaming, and surface bubbling",
+      "rootCause": "High moisture content within the hygroscopic 85A polyurethane polymer vaporizing inside the melt zone.",
+      "exactFix": "Dehydrate the spool in a dedicated filament dryer at 65°C for 8 to 12 hours and print directly from a sealed dry box."
+    },
+    {
+      "issue": "Bed surface tear-out or permanent fusion to the build plate",
+      "rootCause": "Extreme chemical bonding between molten TPU and bare PEI surfaces during cooldown.",
+      "exactFix": "Apply a uniform layer of PVA glue stick to the Textured PEI plate to serve as a sacrificial release interface, allowing parts to self-release at <30°C."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I run NinjaTek NinjaFlex 85A through the Bambu Lab AMS?",
+      "answer": "No. The 85A durometer is far too flexible and will buckle or twist inside the AMS feed funnel gears; use the rear external spool holder or an external drybox."
+    },
+    {
+      "question": "Why is the maximum speed limited to 33 mm/s on a high-speed printer like the P1P?",
+      "answer": "At standard layer heights and widths, 33 mm/s hits the 2.8 mm³/s volumetric threshold, beyond which the flexible filament column compresses and buckles before entering the heatbreak."
+    },
+    {
+      "question": "Does printing NinjaFlex 85A require a hardened nozzle upgrade on the P1P?",
+      "answer": "No. NinjaFlex 85A is completely non-abrasive, so the stock stainless steel nozzle and standard P1P toolhead are fully compatible."
+    },
+    {
+      "question": "Is an enclosure needed to prevent warping with NinjaFlex 85A on the P1P?",
+      "answer": "No. TPU does not experience high thermal contraction stress like ABS or PC, meaning the open-frame design of the P1P is optimal with bed temperatures set around 48°C."
+    }
+  ]
+}

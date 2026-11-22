@@ -1,0 +1,88 @@
+{
+  "slug": "creality-k1-max-prusament-pc-blend-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Creality K1 Max",
+    "slug": "creality-k1-max",
+    "vendor": "Creality",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 28
+  },
+  "filament": {
+    "name": "Prusament PC Blend",
+    "slug": "prusament-pc-blend",
+    "brand": "Prusament",
+    "materialType": "PC",
+    "minNozzleTempC": 265,
+    "maxNozzleTempC": 285,
+    "minBedTempC": 105,
+    "maxBedTempC": 115,
+    "volumetricFlowLimitMm3s": 12,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 275,
+    "recommendedBedTempC": 100,
+    "effectiveVolumetricFlowMm3s": 12,
+    "calculatedMaxPrintSpeedMmS": 143,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-22T15:51:22.982Z",
+  "compatibilityVerdict": "Advanced Setup",
+  "heroSummary": "The Creality K1 Max handles Prusament PC Blend effectively within its fully enclosed build chamber up to a maximum reliable speed of 143 mm/s capped by a 12 mm³/s volumetric limit. Due to the printer's 100°C maximum bed temperature falling just below Prusament's ideal 105–115°C range, strict chamber preheating and high-performance adhesives are mandatory.",
+  "retractionDistanceMm": 0.6,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 20,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Smooth or Textured PEI Plate with a generous layer of PVP glue stick or Magigoo PC as a release/adhesion agent",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 12 mm³/s in OrcaSlicer filament settings to prevent extruder skipping and maintain 143 mm/s maximum print velocity.",
+    "Limit Part Cooling Fan to 0% standard and 20% max for short layer times under 15 seconds to eliminate catastrophic delamination.",
+    "Configure a 5-10mm outer brim with a 0.0mm brim-object gap to mechanically anchor sharp corners against warping at the 100°C bed limit.",
+    "Enable OrcaSlicer Pressure Advance at 0.035s and calibrate flow ratio to approximately 0.96 to manage high melt viscosity and corner bulging."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Corner lifting and severe warping from build plate",
+      "rootCause": "Bed temperature limited to 100°C while chamber thermal gradients create high mechanical contraction stress.",
+      "exactFix": "Apply Magigoo PC or fresh glue stick, enable a 10mm outer brim, and preheat the chamber to at least 45-50°C for 20 minutes before printing."
+    },
+    {
+      "issue": "Interlayer splitting or cracking during or after print",
+      "rootCause": "Excessive part cooling or printing with the top cover removed, allowing cold air drafts into the chamber.",
+      "exactFix": "Keep the K1 Max top glass and door completely closed, turn the side auxiliary fan OFF, and limit part cooling fan to 0-20%."
+    },
+    {
+      "issue": "Rough surface finish, stringing, and extruder clicking",
+      "rootCause": "Moisture absorption in hygroscopic PC filament or exceeding the 12 mm³/s volumetric melt threshold.",
+      "exactFix": "Dry the filament in a blast-drying oven at 75-80°C for at least 8 hours and ensure hotend temperature is set to 275-280°C."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can the K1 Max bed reach the manufacturer's recommended 110°C for Prusament PC Blend?",
+      "answer": "No, the Creality K1 Max firmware and hardware cap the heatbed at 100°C. You must compensate for this slight shortfall by using a dedicated adhesive such as Magigoo PC and pre-soaking the chamber."
+    },
+    {
+      "question": "Do I need an aftermarket hardened nozzle to print standard Prusament PC Blend?",
+      "answer": "No, non-carbon Prusament PC Blend is non-abrasive and the K1 Max already ships with a hardened steel-tipped nozzle capable of handling 300°C."
+    },
+    {
+      "question": "Should I keep the K1 Max top lid installed or off during this print?",
+      "answer": "Keep the top glass lid and front door strictly closed. Polycarbonate requires high ambient chamber temperatures and zero drafts to prevent thermal shock and layer cracking."
+    },
+    {
+      "question": "Can I run the auxiliary chamber fan on the side of the K1 Max?",
+      "answer": "No, completely disable the auxiliary side fan in OrcaSlicer. Direct cool air from the side fan causes immediate warping, thermal shock, and layer delamination in PC prints."
+    }
+  ]
+}

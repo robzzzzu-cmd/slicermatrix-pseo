@@ -1,0 +1,88 @@
+{
+  "slug": "creality-k1-max-eryone-silk-pla-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Creality K1 Max",
+    "slug": "creality-k1-max",
+    "vendor": "Creality",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 28
+  },
+  "filament": {
+    "name": "Eryone Silk PLA",
+    "slug": "eryone-silk-pla",
+    "brand": "Eryone",
+    "materialType": "Silk PLA",
+    "minNozzleTempC": 205,
+    "maxNozzleTempC": 225,
+    "minBedTempC": 55,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 12,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 215,
+    "recommendedBedTempC": 60,
+    "effectiveVolumetricFlowMm3s": 12,
+    "calculatedMaxPrintSpeedMmS": 143,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-22T15:50:04.833Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Creality K1 Max handles Eryone Silk PLA exceptionally well out of the box with its direct drive extruder and stock hardened nozzle. Due to silk elastomer additives, printing is capped at an effective volumetric flow of 12 mm³/s, equating to a calculated safe maximum print speed of 143 mm/s at standard 0.2mm layer heights.",
+  "retractionDistanceMm": 0.5,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 40,
+  "bedSurfaceRecommendation": "Textured PEI Plate (clean with Isopropyl Alcohol, no adhesive required)",
+  "slicerTweaks": [
+    "Cap Max Volumetric Speed at 12 mm³/s under Filament Settings to prevent under-extrusion and matte banding.",
+    "Set Outer Wall Speed to 60-80 mm/s to maintain a uniform, high-gloss silk sheen across complex perimeters.",
+    "Keep the chamber top lid cracked or the front door vented during extended prints to avoid heat creep in the enclosed K1 Max toolhead.",
+    "Enable 'Wipe while retracting' (0.5 mm) to eliminate surface zits and stringing caused by molten elastomer expansion."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Dull or matte surface finish instead of high-gloss silk sheen",
+      "rootCause": "Printing too fast or at too low of a hotend temperature, causing inadequate polymer melting and loss of sheen.",
+      "exactFix": "Increase nozzle temperature to 220°C-225°C and reduce outer wall speed to 50-60 mm/s to ensure sufficient thermal soak."
+    },
+    {
+      "issue": "Severe stringing and fine cobwebs between travel moves",
+      "rootCause": "Elastomer additives expanding inside the melt zone during unretracted high-speed travels.",
+      "exactFix": "Set retraction distance to 0.5mm at 35 mm/s, enable z-hop when retracted (0.2mm auto), and lower nozzle temperature by 5°C."
+    },
+    {
+      "issue": "Intermittent extrusion or extruder gear clicking during long prints",
+      "rootCause": "Heat creep caused by running low-temperature Silk PLA inside a fully sealed K1 Max chamber.",
+      "exactFix": "Remove the top glass lid or prop the front door open, and keep the side auxiliary part cooling fan running at 50-70%."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print Eryone Silk PLA at the K1 Max's advertised 600 mm/s maximum speed?",
+      "answer": "No. Eryone Silk PLA contains elastomeric sheen additives that restrict volumetric flow to 12 mm³/s. For a standard 0.4mm nozzle and 0.2mm layer height, print speeds should not exceed 143 mm/s to prevent under-extrusion and loss of silk luster."
+    },
+    {
+      "question": "Should I keep the K1 Max chamber closed or open when printing Silk PLA?",
+      "answer": "Keep the top glass lid off or crack the front door open. Silk PLA has a low glass transition temperature (~55°C), and a sealed chamber can lead to heat creep and extruder jams in the K1 Max."
+    },
+    {
+      "question": "Will the stock hardened steel nozzle on the K1 Max affect Silk PLA performance?",
+      "answer": "Hardened steel conducts heat slightly slower than brass. To compensate, set your printing temperature to 215°C-220°C to ensure the filament reaches proper melting viscosity."
+    },
+    {
+      "question": "Why are the seams and corners swollen or bulging on my silk prints?",
+      "answer": "Silk PLA exhibits high die swell due to elasticity. Calibrate Pressure Advance in OrcaSlicer (typically 0.035 to 0.045 for this direct drive setup) and adjust outer-wall wipe distance to 0.5mm."
+    }
+  ]
+}

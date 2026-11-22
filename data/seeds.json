@@ -7449,7 +7449,7 @@
   },
   {
     "slug": "bambu-lab-p1p-amolen-glow-in-the-dark-pla-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1P",
       "slug": "bambu-lab-p1p",
@@ -7487,7 +7487,7 @@
   },
   {
     "slug": "bambu-lab-p1p-proto-pasta-high-temp-carbon-fiber-pla-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1P",
       "slug": "bambu-lab-p1p",
@@ -7525,7 +7525,7 @@
   },
   {
     "slug": "bambu-lab-p1p-colorfabb-xt-cf20-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1P",
       "slug": "bambu-lab-p1p",
@@ -7563,7 +7563,7 @@
   },
   {
     "slug": "bambu-lab-p1p-ninjatek-ninjaflex-85a-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Bambu Lab P1P",
       "slug": "bambu-lab-p1p",
@@ -7601,7 +7601,7 @@
   },
   {
     "slug": "creality-k1-max-polymaker-polylite-petg-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Creality K1 Max",
       "slug": "creality-k1-max",
@@ -7639,7 +7639,7 @@
   },
   {
     "slug": "creality-k1-max-polymaker-polyterra-pla-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Creality K1 Max",
       "slug": "creality-k1-max",
@@ -7677,7 +7677,7 @@
   },
   {
     "slug": "creality-k1-max-esun-pla-plus-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Creality K1 Max",
       "slug": "creality-k1-max",
@@ -7715,7 +7715,7 @@
   },
   {
     "slug": "creality-k1-max-bambu-pla-cf-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Creality K1 Max",
       "slug": "creality-k1-max",
@@ -7791,7 +7791,7 @@
   },
   {
     "slug": "creality-k1-max-sunlu-petg-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Creality K1 Max",
       "slug": "creality-k1-max",
@@ -7829,7 +7829,7 @@
   },
   {
     "slug": "creality-k1-max-eryone-silk-pla-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Creality K1 Max",
       "slug": "creality-k1-max",
@@ -7905,7 +7905,7 @@
   },
   {
     "slug": "creality-k1-max-prusament-pc-blend-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Creality K1 Max",
       "slug": "creality-k1-max",
@@ -7943,7 +7943,7 @@
   },
   {
     "slug": "creality-k1-max-sainsmart-glow-tpu-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Creality K1 Max",
       "slug": "creality-k1-max",
@@ -7981,7 +7981,7 @@
   },
   {
     "slug": "creality-k1-max-siraya-tech-abs-gf-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Creality K1 Max",
       "slug": "creality-k1-max",
@@ -8361,7 +8361,7 @@
   },
   {
     "slug": "creality-k1-max-esun-abs-plus-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Creality K1 Max",
       "slug": "creality-k1-max",

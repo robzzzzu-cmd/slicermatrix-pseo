@@ -1,0 +1,88 @@
+{
+  "slug": "creality-k1-max-esun-pla-plus-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Creality K1 Max",
+    "slug": "creality-k1-max",
+    "vendor": "Creality",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 28
+  },
+  "filament": {
+    "name": "eSUN PLA+",
+    "slug": "esun-pla-plus",
+    "brand": "eSUN",
+    "materialType": "PLA+",
+    "minNozzleTempC": 205,
+    "maxNozzleTempC": 225,
+    "minBedTempC": 55,
+    "maxBedTempC": 65,
+    "volumetricFlowLimitMm3s": 22,
+    "isAbrasive": false,
+    "isHygroscopic": false,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 215,
+    "recommendedBedTempC": 60,
+    "effectiveVolumetricFlowMm3s": 22,
+    "calculatedMaxPrintSpeedMmS": 262,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": false,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-22T15:45:25.898Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Creality K1 Max is an optimal match for eSUN PLA+, reaching reliable printing speeds of up to 262 mm/s based on an effective volumetric flow rate of 22 mm³/s. However, because PLA softens at low temperatures, the top glass lid should be removed or vented during long prints to prevent extruder heat creep.",
+  "retractionDistanceMm": 0.6,
+  "retractionSpeedMmS": 40,
+  "coolingFanMinPct": 80,
+  "coolingFanMaxPct": 100,
+  "firstLayerSpeedMmS": 35,
+  "bedSurfaceRecommendation": "Smooth or Textured PEI Plate cleaned with dish soap and warm water (no adhesive required)",
+  "slicerTweaks": [
+    "Set Maximum Volumetric Speed to 22 mm³/s in the Filament Settings to cap sustained flow and avoid high-speed under-extrusion.",
+    "Enable Auxiliary Part Cooling Fan at 60-80% to maintain crisp overhangs and bridging at speeds above 200 mm/s.",
+    "Calibrate Pressure Advance to approximately 0.040-0.045 s in OrcaSlicer to prevent bulging corners during rapid acceleration.",
+    "Set Chamber Fan exhaust to 70% or unseat the top glass lid to keep internal chamber temperatures below 35°C."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Extruder clicking and mid-print under-extrusion (Heat Creep)",
+      "rootCause": "Trapped chamber heat in the enclosed K1 Max softens eSUN PLA+ before the melt zone, causing premature bulging in the cold block.",
+      "exactFix": "Remove the top glass lid or print a vented riser, and ensure the chamber exhaust fan runs above 70%."
+    },
+    {
+      "issue": "Stringing and rough corner seam zits",
+      "rootCause": "Excess nozzle temperature combined with uncalibrated direct-drive retraction and pressure advance dynamics.",
+      "exactFix": "Reduce nozzle temperature to 210°C, set retraction to 0.6 mm at 40 mm/s, and tune Pressure Advance in OrcaSlicer."
+    },
+    {
+      "issue": "First layer peeling or curling at sharp corners",
+      "rootCause": "PEI surface contaminated with skin oils or print bed temperature set too high, exceeding the glass transition threshold.",
+      "exactFix": "Wash the build plate thoroughly with warm water and dawn dish soap, and set the bed temperature strictly to 60°C."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I print eSUN PLA+ on the K1 Max with the top lid completely closed?",
+      "answer": "It is not recommended; enclosing PLA on the K1 Max often raises chamber temperatures past 38°C, leading to heat creep jams in the direct-drive extruder."
+    },
+    {
+      "question": "What print temperature yields the best strength-to-speed balance for eSUN PLA+?",
+      "answer": "A nozzle temperature of 215°C with a 60°C bed temperature delivers ideal interlayer bonding while sustaining high volumetric flow up to 22 mm³/s."
+    },
+    {
+      "question": "Does eSUN PLA+ require glue stick on the stock K1 Max PEI plate?",
+      "answer": "No, eSUN PLA+ adheres cleanly to clean PEI without adhesive; simply ensure the plate is degreased with isopropyl alcohol or warm dish soap."
+    },
+    {
+      "question": "Why does my top surface look under-extruded at high print speeds?",
+      "answer": "The default speed profile may exceed the hotend melt rate; ensure the maximum volumetric speed in OrcaSlicer is strictly clamped to 22 mm³/s."
+    }
+  ]
+}
