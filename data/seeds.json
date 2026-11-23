@@ -8247,7 +8247,7 @@
   },
   {
     "slug": "creality-k1-max-bambu-paht-cf-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Creality K1 Max",
       "slug": "creality-k1-max",

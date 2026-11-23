@@ -1,0 +1,88 @@
+{
+  "slug": "creality-k1-max-bambu-paht-cf-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Creality K1 Max",
+    "slug": "creality-k1-max",
+    "vendor": "Creality",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 28
+  },
+  "filament": {
+    "name": "Bambu PAHT-CF",
+    "slug": "bambu-paht-cf",
+    "brand": "Bambu Lab",
+    "materialType": "PAHT-CF",
+    "minNozzleTempC": 275,
+    "maxNozzleTempC": 295,
+    "minBedTempC": 90,
+    "maxBedTempC": 105,
+    "volumetricFlowLimitMm3s": 11,
+    "isAbrasive": true,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 285,
+    "recommendedBedTempC": 98,
+    "effectiveVolumetricFlowMm3s": 11,
+    "calculatedMaxPrintSpeedMmS": 131,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-23T17:57:38.927Z",
+  "compatibilityVerdict": "Advanced Setup",
+  "heroSummary": "The Creality K1 Max handles Bambu PAHT-CF out of the box with its stock hardened steel nozzle and enclosed chamber, topping out at a safe print speed of 131 mm/s driven by an 11 mm³/s volumetric flow limit. While mechanically capable, success demands rigorous pre-print drying and chamber heat-soaking to prevent warping and moisture-induced degradation.",
+  "retractionDistanceMm": 0.6,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 20,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate with PVP glue stick or liquid adhesive release agent",
+  "slicerTweaks": [
+    "Cap Maximum Volumetric Speed to 11 mm³/s under Filament Settings to prevent extruder skipping and carbon fiber clogging at high speeds.",
+    "Set Bed Temperature to 98°C and keep chamber exhaust fan off to prevent thermal shock and corner delamination.",
+    "Enable Wipe While Retracting (2 mm distance) and set Retraction Distance to 0.6 mm to control PAHT oozing without grinding the abrasive filament.",
+    "Configure Part Cooling Fan threshold to 0% default with a maximum of 20% reserved only for short layer times under 15 seconds."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Rough surface finish, foaming, and severe stringing",
+      "rootCause": "High moisture content in the polyamide matrix boiling off at 285°C hotend temperatures.",
+      "exactFix": "Bake the spool in a dedicated active filament dryer at 80°C for at least 8 to 12 hours before printing, and print directly from a sealed dry box."
+    },
+    {
+      "issue": "Corner lifting and print detaching from the build plate",
+      "rootCause": "Insufficient bed adhesion and thermal shrinkage due to printing on a cold bed surface or without an adhesive interface.",
+      "exactFix": "Raise bed temperature to 98°C, pre-heat chamber for 15 minutes, apply a smooth layer of PVP glue stick, and use a 5mm outer brim."
+    },
+    {
+      "issue": "Weak layer bonding and brittle structural parts",
+      "rootCause": "Excessive part cooling or printing faster than the 11 mm³/s volumetric melt capacity of the hotend.",
+      "exactFix": "Reduce cooling fan speed to 0-10% and verify maximum printing speed is clamped to 131 mm/s at 0.2mm layer height."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can the stock Creality K1 Max nozzle handle Bambu PAHT-CF without wearing out?",
+      "answer": "Yes, the Creality K1 Max comes standard with a hardened steel-tipped nozzle that withstands the high abrasiveness of chopped carbon fibers."
+    },
+    {
+      "question": "Should I keep the top glass cover on the K1 Max when printing PAHT-CF?",
+      "answer": "Yes, keep the top cover and front door fully closed during printing to trap ambient heat and maintain elevated chamber temperatures to mitigate warping."
+    },
+    {
+      "question": "Why is the print speed limited to 131 mm/s on a high-speed printer like the K1 Max?",
+      "answer": "While the motion system can run faster, PAHT-CF has a melt flow ceiling of 11 mm³/s in standard hotends, requiring speed to stay at or below 131 mm/s at a standard 0.2mm layer height to ensure full extrusion."
+    },
+    {
+      "question": "Is glue stick strictly necessary on the K1 Max PEI plate for PAHT-CF?",
+      "answer": "Yes, polyamide materials bond aggressively to PEI when hot; the glue stick acts primarily as a release barrier to prevent tearing chunks of the PEI coating upon part removal."
+    }
+  ]
+}
