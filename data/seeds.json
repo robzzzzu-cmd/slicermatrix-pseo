@@ -7753,7 +7753,7 @@
   },
   {
     "slug": "creality-k1-max-overture-tpu-95a-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Creality K1 Max",
       "slug": "creality-k1-max",
@@ -8057,7 +8057,7 @@
   },
   {
     "slug": "creality-k1-max-polymaker-polylite-abs-settings",
-    "status": "pending",
+    "status": "completed",
     "printer": {
       "name": "Creality K1 Max",
       "slug": "creality-k1-max",

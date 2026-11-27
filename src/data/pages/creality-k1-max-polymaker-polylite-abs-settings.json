@@ -1,0 +1,88 @@
+{
+  "slug": "creality-k1-max-polymaker-polylite-abs-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Creality K1 Max",
+    "slug": "creality-k1-max",
+    "vendor": "Creality",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 28
+  },
+  "filament": {
+    "name": "Polymaker PolyLite ABS",
+    "slug": "polymaker-polylite-abs",
+    "brand": "Polymaker",
+    "materialType": "ABS",
+    "minNozzleTempC": 245,
+    "maxNozzleTempC": 265,
+    "minBedTempC": 90,
+    "maxBedTempC": 105,
+    "volumetricFlowLimitMm3s": 18,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": true
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 255,
+    "recommendedBedTempC": 98,
+    "effectiveVolumetricFlowMm3s": 18,
+    "calculatedMaxPrintSpeedMmS": 214,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-27T16:34:00.022Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Creality K1 Max is an optimal match for Polymaker PolyLite ABS out of the box, utilizing its enclosed chamber and hardened steel nozzle to reach a calculated safe speed of 214 mm/s at an 18 mm³/s flow limit. Keep the top glass and front door fully sealed during printing to prevent warping while setting the bed to its practical maximum of 98°C to ensure strong first-layer adhesion.",
+  "retractionDistanceMm": 0.5,
+  "retractionSpeedMmS": 35,
+  "coolingFanMinPct": 0,
+  "coolingFanMaxPct": 20,
+  "firstLayerSpeedMmS": 30,
+  "bedSurfaceRecommendation": "Textured PEI Plate + PVP Glue Stick or Magigoo (release agent and thermal bond)",
+  "slicerTweaks": [
+    "Set Max Volumetric Speed to 18 mm³/s under Filament Settings to cap speeds at the flow ceiling of 214 mm/s.",
+    "Disable the auxiliary side cooling fan and exhaust fan entirely to prevent draft-induced thermal warping and corner lifting.",
+    "Enable a 5mm outer-and-inner brim with a 0.1mm brim-object gap to anchor sharp corners on high-aspect-ratio geometries.",
+    "Set part cooling fan threshold to 0% for standard layers, ramping up to 20% only on overhangs steeper than 50 degrees and layer times under 15 seconds."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Corner lifting and warping off the build plate",
+      "rootCause": "Chamber air temperature is too low or cold drafts entering through gaps, causing differential thermal contraction.",
+      "exactFix": "Preheat the chamber by setting the heated bed to 98°C with the enclosure closed for 15 minutes before printing, disable auxiliary fans, and apply PVP glue stick."
+    },
+    {
+      "issue": "Interlayer splitting / delamination along Z-axis",
+      "rootCause": "Excessive part cooling or printing temperature too low for sufficient polymer chain interdiffusion.",
+      "exactFix": "Increase nozzle temperature to 260°C, turn off the part cooling fan completely (0%), and keep all enclosure panels closed."
+    },
+    {
+      "issue": "Bubbling, stringing, and rough perimeter finish",
+      "rootCause": "Moisture absorption in hygroscopic ABS polymer creating steam pockets in the hotend melt zone.",
+      "exactFix": "Dry the filament spool in a dedicated filament dryer at 70°C for 6 to 8 hours before printing, and print directly from a sealed dry box."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can the Creality K1 Max safely reach the bed temperature needed for PolyLite ABS?",
+      "answer": "Yes, the K1 Max bed can reach 100°C; targeting 98°C provides optimal thermal bonding within the printer hardware limits when paired with a preheated enclosure."
+    },
+    {
+      "question": "Should I print with the top lid open or closed when using PolyLite ABS?",
+      "answer": "Always print with the top lid and front door completely closed to maintain chamber temperatures around 40-50°C and prevent rapid cooling that causes warping."
+    },
+    {
+      "question": "Why cap volumetric flow at 18 mm³/s instead of Creality K1 Max rated 32 mm³/s?",
+      "answer": "PolyLite ABS has higher melt viscosity and lower thermal conductivity than high-flow PLA/Hyper-ABS; exceeding 18 mm³/s causes severe extrusion starvation and poor layer adhesion."
+    },
+    {
+      "question": "Is an enclosure exhaust filter required when printing PolyLite ABS?",
+      "answer": "PolyLite ABS emits styrene fumes and ultrafine particles during printing, so running an active carbon filter or venting the K1 Max exhaust externally is strongly recommended for safety."
+    }
+  ]
+}

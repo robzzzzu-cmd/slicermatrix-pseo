@@ -1,0 +1,88 @@
+{
+  "slug": "creality-k1-max-overture-tpu-95a-settings",
+  "status": "completed",
+  "printer": {
+    "name": "Creality K1 Max",
+    "slug": "creality-k1-max",
+    "vendor": "Creality",
+    "maxNozzleTempC": 300,
+    "maxBedTempC": 100,
+    "enclosed": true,
+    "extruderType": "Direct Drive",
+    "defaultNozzleMaterial": "Hardened Steel",
+    "maxVolumetricFlowBaseline": 28
+  },
+  "filament": {
+    "name": "Overture TPU 95A",
+    "slug": "overture-tpu-95a",
+    "brand": "Overture",
+    "materialType": "TPU",
+    "minNozzleTempC": 215,
+    "maxNozzleTempC": 235,
+    "minBedTempC": 40,
+    "maxBedTempC": 60,
+    "volumetricFlowLimitMm3s": 4.5,
+    "isAbrasive": false,
+    "isHygroscopic": true,
+    "requiresEnclosure": false
+  },
+  "deterministicMath": {
+    "recommendedNozzleTempC": 225,
+    "recommendedBedTempC": 50,
+    "effectiveVolumetricFlowMm3s": 4.5,
+    "calculatedMaxPrintSpeedMmS": 54,
+    "requiresHardenedNozzleUpgrade": false,
+    "requiresFilamentDryer": true,
+    "enclosureWarning": false
+  },
+  "generatedAt": "2026-11-27T16:28:19.217Z",
+  "compatibilityVerdict": "Optimal Match",
+  "heroSummary": "The Creality K1 Max handles Overture TPU 95A exceptionally well straight out of the box thanks to its tight dual-gear direct drive extruder. Print speeds must be capped at 54 mm/s to strictly enforce the material's 4.5 mm³/s maximum volumetric flow rate and prevent extruder jams.",
+  "retractionDistanceMm": 0.8,
+  "retractionSpeedMmS": 30,
+  "coolingFanMinPct": 40,
+  "coolingFanMaxPct": 80,
+  "firstLayerSpeedMmS": 25,
+  "bedSurfaceRecommendation": "Textured PEI Plate + Glue Stick release agent",
+  "slicerTweaks": [
+    "Cap Maximum Volumetric Speed to 4.5 mm³/s under the Filament > Advanced settings tab to inherently prevent under-extrusion and filament buckling.",
+    "Disable Pressure Advance or tune it to a low baseline (around 0.04s) to prevent erratic extruder motor movements on compliant TPU.",
+    "Enable 'Avoid Crossing Walls' and set 'Max Detour Length' to reduce unnecessary retractions and nozzle wiping movements across open perimeters.",
+    "Reduce print acceleration to 2500 mm/s² across all features to maintain consistent toolhead pressure on this flexible filament."
+  ],
+  "troubleshootingMatrix": [
+    {
+      "issue": "Filament wrapping around extruder drive gears",
+      "rootCause": "Excessive volumetric flow rate or print speed exceeding 54 mm/s causing high backpressure in the meltzone.",
+      "exactFix": "Enforce the 4.5 mm³/s volumetric speed limit in OrcaSlicer and loosen extruder tension screw slightly if overly compressed."
+    },
+    {
+      "issue": "Severe stringing and fine webbing across open gaps",
+      "rootCause": "Filament moisture absorption causing steam expansion inside the hotend, or insufficient wipe distance.",
+      "exactFix": "Dry the filament spool at 55°C for 6 to 8 hours and enable 2.0 mm wipe distance with 0.8 mm retraction at 30 mm/s."
+    },
+    {
+      "issue": "Build plate surface damage / permanent bonding",
+      "rootCause": "TPU chemically bonding to the PEI coating due to direct contact at elevated temperatures without an interface barrier.",
+      "exactFix": "Apply a uniform layer of PVP glue stick to the textured PEI sheet to serve as a sacrificial release agent before starting the print."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can I feed Overture TPU 95A through the stock Creality K1 Max reverse Bowden tube?",
+      "answer": "Yes, but it is recommended to bypass the rear spool holder and mount the dry box directly overhead to minimize friction through the long PTFE tube."
+    },
+    {
+      "question": "Should the top glass cover and front door be kept closed while printing TPU?",
+      "answer": "No, it is advisable to remove the top glass lid or prop the door open to avoid heat creep inside the enclosed chamber, which softens TPU before the gears."
+    },
+    {
+      "question": "Why does TPU require a glue stick if bed adhesion is already high?",
+      "answer": "Glue stick acts as a release barrier rather than an adhesive; without it, TPU fuses with PEI coatings and can rip the sheet upon part removal."
+    },
+    {
+      "question": "Can I use OrcaSlicer's input shaping calibration for Overture TPU 95A?",
+      "answer": "Yes, but ensure you test input shaping at the lower 54 mm/s operating speed range, as elastomeric materials behave differently under high vibration."
+    }
+  ]
+}
